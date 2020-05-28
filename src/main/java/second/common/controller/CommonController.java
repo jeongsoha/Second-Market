@@ -23,12 +23,12 @@ public class CommonController {
 	@Resource(name="commonService")
 	private CommonService commonService;
 	
-	@RequestMapping(value="/common/downloadFile.do")
+	@RequestMapping(value="/common/downloadFile")
 	public void downloadFile(CommandMap commandMap, HttpServletResponse response)throws Exception{
 		Map<String, Object> map = commonService.selectFileInfo(commandMap.getMap());
 		String storedFileName = (String)map.get("STORED_FILE_NAME");
 		String originalFileName = (String)map.get("ORIGINAL_FILE_NAME");
-		
+		//경로 및 위에 객체명 확인 및 참조필요
 		byte fileByte[] = FileUtils.readFileToByteArray(new File("C:\\Java\\upload\\"+storedFileName));
 		
 		response.setContentType("application/octet-stream");

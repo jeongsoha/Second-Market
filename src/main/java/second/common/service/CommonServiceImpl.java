@@ -13,7 +13,7 @@ import second.common.dao.CommonDAO;
 public class CommonServiceImpl implements CommonService{
 	Logger log = Logger.getLogger(this.getClass());
 	
-	@Resource 
+	@Resource (name="commonDAO")
 	private CommonDAO commonDAO;
 
 	@Override

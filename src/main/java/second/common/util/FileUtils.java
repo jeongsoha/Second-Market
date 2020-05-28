@@ -15,7 +15,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Component("fileUtils")
 public class FileUtils {
-	 private static final String filePath = "C:\\Java\\upload\\";
+	 
+	//아래 경로지정 후 주석제거 필요 String filePath_temp  사용한거 참고연구
+	private static final String filePath = "C:\\Java\\upload\\";
 	 
 	 public List<Map<String, Object>> parseInsertFileInfo(Map<String, Object> map, HttpServletRequest request)throws Exception{
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;

@@ -5,7 +5,7 @@
 second\src\main\resources\config\spring\context-datasource.xml
 에서 오라클 포트번호 / 아이디 비번등 수정적용
 -------------------
-11
+
 
 --- DROP USER second01;
 
