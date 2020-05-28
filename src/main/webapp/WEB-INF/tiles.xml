@@ -19,23 +19,23 @@
       <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
-   
-   <!-- Main 템플릿 Page3 -->
-   <definition name="default3" template="/WEB-INF/tiles/layout2.jsp">
-      <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
+       
+    <!-- admin템플릿-->
+   <definition name="default3" template="/WEB-INF/tiles/admin/layout.jsp">
+      <put-attribute name="body" value=" " />
+   </definition>
+  
+   <!-- (샘플) 템플릿  -->
+   <definition name="default_sample" template="/WEB-INF/tiles/layout2.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="body2" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
    
-    <!-- admin템플릿-->
-   <definition name="default4" template="/WEB-INF/tiles/admin/layout.jsp">
-      <put-attribute name="body" value=" " />
-   </definition>
-   
       
     <!-- 샘플 적용 -->
-   <definition name="sample1" extends="default3">
+   <definition name="sample1" extends="default_sample">
    	  <put-attribute name="body" value="/WEB-INF/jsp/sample/boardList.jsp" />
       <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
