@@ -7,36 +7,38 @@
 <tiles-definitions>
   
    <!-- Main 템플릿 Page1 -->
-   <definition name="default1" template="/WEB-INF/jsp/layout/layout.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp" />
-      <put-attribute name="body" value="" />
-      <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
+   <definition name="default1" template="/WEB-INF/tiles/layout/layout1.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
    
    <!-- Main 템플릿 Page2 -->
-   <definition name="default2" template="/WEB-INF/jsp/layout/layout.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/layout/header2.jsp" />
-      <put-attribute name="body" value="" />
-      <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
+   <definition name="default2" template="/WEB-INF/tiles/layout/layout1.jsp">
+      <put-attribute name="header" value="/WEB-IN/tiles/header/header2.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
    
    <!-- Main 템플릿 Page3 -->
-   <definition name="default3" template="/WEB-INF/jsp/layout/layout2.jsp">
-      <put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp" />
-      <put-attribute name="body" value="" />
-      <put-attribute name="body2" value="" />
-      <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
+   <definition name="default3" template="/WEB-INF/tiles/layout/layout2.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="body2" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
    
-    <!-- admin-->
-   <definition name="default4" template="/WEB-INF/jsp/admin/layout.jsp">
-      <put-attribute name="body" value="/WEB-INF/jsp/admin/container.jsp" />
+    <!-- admin템플릿-->
+   <definition name="default4" template="/WEB-INF/tiles/admin/layout.jsp">
+      <put-attribute name="body" value=" " />
    </definition>
    
-   <!-- admin -->
-<!--    <definition name="admin" template="/WEB-INF/jsp/layout/admin/layout.jsp">
-      <put-attribute name="body" value="/WEB-INF/jsp/layout/admin/container.jsp" />
-   </definition> -->
+      
+    <!-- 샘플 적용 -->
+   <definition name="sample1" extends="default3">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/sample/boardList.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
    
    <!-- main -->
    <definition name="main" extends="default3">
@@ -112,97 +114,97 @@
    
    <!-- community -->
    <!-- notice -->
-   <definition name="noticeList" extends="default">
+   <definition name="noticeList" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
    </definition>
    
-   <definition name="noticeDetail" extends="default">
+   <definition name="noticeDetail" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeDetail.jsp" />
    </definition>
    
-   <definition name="noticeWriteForm" extends="default">
+   <definition name="noticeWriteForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeWriteForm.jsp" />
    </definition>
    
-   <definition name="noticeModifyForm" extends="default">
+   <definition name="noticeModifyForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
    </definition>
    
    <!-- board -->
-   <definition name="boardList" extends="default">
+   <definition name="boardList" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardList.jsp" />
    </definition>
    
-   <definition name="boardDetail" extends="default">
+   <definition name="boardDetail" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardDetail.jsp" />
    </definition>
    
-   <definition name="boardWriteForm" extends="default">
+   <definition name="boardWriteForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardWriteForm.jsp" />
    </definition>
    
-   <definition name="boardModifyForm" extends="default">
+   <definition name="boardModifyForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardModifyForm.jsp" />
    </definition>
    
    <!-- qna -->
-   <definition name="qnaList" extends="default">
+   <definition name="qnaList" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
    </definition>
    
-   <definition name="qnaDetail" extends="default">
+   <definition name="qnaDetail" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaDetail.jsp" />
    </definition>
    
-   <definition name="qnaWriteForm" extends="default">
+   <definition name="qnaWriteForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaWriteForm.jsp" />
    </definition>
    
-   <definition name="qnaModifyForm" extends="default">
+   <definition name="qnaModifyForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaModifyForm.jsp" />
    </definition>
    
    <!-- report -->
-   <definition name="reportList" extends="default">
+   <definition name="reportList" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportList.jsp" />
    </definition>
    
-   <definition name="reportDetail" extends="default">
+   <definition name="reportDetail" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportDetail.jsp" />
    </definition>
    
-   <definition name="reportWriteForm" extends="default">
+   <definition name="reportWriteForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportWriteForm.jsp" />
    </definition>
    
    <!-- GoodsShop -->
-   <definition name="goodsList" extends="default">
+   <definition name="goodsList" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsList.jsp" />
    </definition>
    
-   <definition name="goodsWriteForm" extends="default">
+   <definition name="goodsWriteForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteForm.jsp" />
    </definition>
    
-   <definition name="goodsWriteResult" extends="default">
+   <definition name="goodsWriteResult" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteResult.jsp" />
    </definition>
    
-   <definition name="goodsDetail" extends="default">
+   <definition name="goodsDetail" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsDetail.jsp" />
    </definition>
    
-   <definition name="goodsCommentDetail" extends="default">
+   <definition name="goodsCommentDetail" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/commentDetail.jsp" />
    </definition>
    
    
    <!-- order -->
-   <definition name="orderWriteForm" extends="default">
+   <definition name="orderWriteForm" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderWriteForm.jsp" />
    </definition>
    
-   <definition name="orderWriteResult" extends="default">
+   <definition name="orderWriteResult" extends=default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderWriteResult.jsp" />
    </definition>
    
