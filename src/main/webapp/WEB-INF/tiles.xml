@@ -46,6 +46,18 @@
       <put-attribute name="body2" value="/WEB-INF/jsp/shop/goods/goodsList2.jsp" />
    </definition>
    
+       <!-- 로그인 적용-->
+   <definition name="loginForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/login/loginForm.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   <!-- 회원가입 적용-->
+   <definition name="joinForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
 
    
 </tiles-definitions>

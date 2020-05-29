@@ -130,7 +130,7 @@
   
 </head>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-   <form name="myform" action="login" method="post" class="form-signin">
+   <form name="myform" action="sample/openBoardList" method="post" class="form-signin">
       <div class="card align-middle" style="width:20rem; border-radius:20px;">
          <div>
             <div class="card-title" style="margin-top:30px;">
@@ -161,7 +161,7 @@
    </form>
    
    <div align="center">
-      <input type="button" value="회원가입" onclick="location.href='/nnS/joinForm'" class="bttn-bordered bttn-xs bttn-primary"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/nnS/findId'" class="bttn-bordered bttn-xs bttn-primary"/>
+      <input type="button" value="회원가입" onclick="location.href='/second/joinForm'" class="bttn-bordered bttn-xs bttn-primary"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/second/findId'" class="bttn-bordered bttn-xs bttn-primary"/>
     </div>
 
 </body>
