@@ -64,8 +64,8 @@
    
     <!-- 로그인폼/jp -->
    <definition name="loginForm" extends="default_sample">
-   	  <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
-     <put-attribute name="body2" value="/workmemo.jsp" />
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/login/loginForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
 
