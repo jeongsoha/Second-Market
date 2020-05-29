@@ -61,6 +61,13 @@
    	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
      <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
+   
+    <!-- 로그인폼/jp -->
+   <definition name="loginForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
+     <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
 
    
 </tiles-definitions>
