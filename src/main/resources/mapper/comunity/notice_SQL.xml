@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+
+<!-- 공지사항 리스트-->
+<select id="selectNoticeList" parameterType="hashmap" resultType="hashmap">
+   <include refid="common.pagingPre"/>
+<![CDATA[
+
+   SELECT  ROW_NUMBER() OVER (ORDER BY N.NOTICE_NUM DESC) RNUM,
+         N.NOTICE_NUM,
+           N.NOTICE_TITLE,
+           M.MEM_ID,
+           N.NOTICE_DATE,
+           TO_CHAR(N.NOTICE_DATE,'hh24:mi:ss') AS NOTICE_TIME,
+           N.NOTICE_COUNT
+   FROM    NOTICE N,
+           (
+           SELECT  MEM_NUM, MEM_ID
+           FROM    MEMBER
+           ) M
+   WHERE   N.NOTICE_WRITER = MEM_NUM(+)
+   AND     NOTICE_DEL_GB = 'N'
+   
+]]>
+   <include refid="common.pagingPost"/>
+</select>
+
+<!-- 공지사항 조회수 증가 -->
+<update id="updateCount" parameterType="hashmap">
+   <![CDATA[
+      UPDATE NOTICE
+      SET
+         NOTICE_COUNT = NVL(NOTICE_COUNT, '0') + 1
+      WHERE
+         NOTICE_NUM = #{NOTICE_NUM}
+   ]]>
+   
+</update>
+
+
+<!-- 공지사항 상세보기 -->
+<select id="selectNoticeDetail" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+
+   SELECT  N.NOTICE_NUM,
+           N.NOTICE_TITLE,
+           M.MEM_ID,
+           N.NOTICE_CONTENT,
+           N.NOTICE_DATE,
+           TO_CHAR(N.NOTICE_DATE,'hh24:mi:ss') AS NOTICE_TIME,
+           N.NOTICE_COUNT
+   FROM    NOTICE N,
+           (
+           SELECT  MEM_NUM, MEM_ID
+           FROM    MEMBER
+           ) M
+   WHERE   N.NOTICE_WRITER = MEM_NUM(+)
+   AND     N.NOTICE_NUM = #{NOTICE_NUM}
+   AND     NOTICE_DEL_GB = 'N'
+   
+]]>
+</select>
+
+<!-- 공지사항 파일 상세보기 -->
+<select id="selectNoticeFileList" parameterType="hashmap" resultType="hashmap">
+   <![CDATA[
+      SELECT
+         FILES_NUM,
+         FILES_ORGNAME,
+         ROUND(FILES_SIZE/1024, 1) AS FILES_SIZE
+      FROM
+         FILES
+      WHERE
+         FILES_BOARD_TYPE = '2'
+         AND FILES_PARENT = #{NOTICE_NUM}
+         AND FILES_DEL = 'N'
+   ]]>
+</select>
+
+<!-- 공지사항 작성 -->
+<insert id="insertNotice" parameterType="hashmap" useGeneratedKeys="true" keyProperty="NOTICE_NUM">
+   <selectKey keyProperty="NOTICE_NUM" resultType="string" order="BEFORE">
+      SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+   </selectKey>
+<![CDATA[
+
+   INSERT
+   INTO    NOTICE  (
+                   NOTICE_NUM,
+                   NOTICE_TITLE,
+                   NOTICE_WRITER,
+                   NOTICE_CONTENT
+                   )
+   VALUES          (
+                   #{NOTICE_NUM},
+                   #{NOTICE_TITLE},
+					#{MEM_NUM},
+                   #{NOTICE_CONTENT}
+                   )
+   
+]]>
+</insert>
+
+<!-- 공지사항 파일 추가 -->
+<insert id="insertFile" parameterType="hashmap">
+   <![CDATA[
+      INSERT
+      INTO FILES (
+                  FILES_NUM,
+                  FILES_BOARD_TYPE,
+                  FILES_PARENT,
+                  FILES_ORGNAME,
+                  FILES_STDNAME,
+                  FILES_SIZE
+                  )
+      VALUES         (
+                  FILES_SEQ.NEXTVAL,
+                  '2',
+                  #{BOARD_IDX},
+                  #{FILES_ORG},
+                  #{FILES_STD},
+                  #{FILES_SIZE}
+                  )
+   ]]>
+</insert>
+
+<!-- 공지사항 수정 -->
+<update id="updateNoticeModify" parameterType="hashmap" >
+<![CDATA[
+   
+   UPDATE  NOTICE
+   SET     NOTICE_TITLE = #{NOTICE_TITLE},
+           NOTICE_CONTENT = #{NOTICE_CONTENT}
+   WHERE   NOTICE_NUM = #{NOTICE_NUM}
+   
+]]>
+</update>
+
+<update id="updateFile" parameterType="hashmap">
+   <![CDATA[
+      UPDATE   FILES
+      SET      FILES_DEL = 'N'
+      WHERE   FILES_NUM = #{FILE_IDX}
+   ]]>
+</update>
+
+<!-- 공지사항 삭제 -->
+<update id="deleteNotice" parameterType="hashmap" >
+<![CDATA[
+   
+   UPDATE  NOTICE
+   SET     NOTICE_DEL_GB = 'Y'
+   WHERE   NOTICE_NUM = #{NOTICE_NUM}
+   
+]]>
+</update>
+
+<update id="deleteFileList" parameterType="hashmap">
+   <![CDATA[
+      UPDATE   FILES
+      SET      FILES_DEL = 'Y'
+      WHERE   FILES_PARENT = #{IDX}
+   ]]>
+</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
