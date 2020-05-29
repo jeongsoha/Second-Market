@@ -1,4 +1,4 @@
-참고) 인덱스에서 넘어가는 매퍼 /sample/openBoardList.do
+참고) 인덱스에서 넘어가는 매퍼 /sample/openBoardList 
 
 --00
 
@@ -7,7 +7,7 @@ second\src\main\resources\config\spring\context-datasource.xml
 -------------------
 
 
---- DROP USER second01;
+--- DROP USER second01;  -- 계정삭제 / 아래는 계쩡생성
 
 CREATE USER second01 IDENTIFIED BY second01;
 
