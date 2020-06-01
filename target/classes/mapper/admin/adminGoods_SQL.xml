@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminGoods">
+	
+	<!-- 상품 리스트 -->
+	<select id="goodsList" parameterType="hashmap" resultType="hashmap">
+	<include refid="common.pagingPre"/>
+		<![CDATA[
+			SELECT  
+					ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
+					G.GOODS_NUM,
+			        G.GOODS_TITLE,
+			        G.GOODS_PRICE,
+			        M.MEM_ID,
+			        G.GOODS_REGION,
+			        G.GOODS_CATEGORY,
+			        G.GOODS_COUNT,
+			        G.GOODS_DATE,
+			        TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
+			        G.GOODS_STATUS,
+			        G.GOODS_THUMBNAIL,
+			        G.GOODS_TSTATUS,
+			        G.GOODS_HASH,
+			        G.GOODS_CONTENT,
+			        NVL(GL.TOTAL_COUNT, 0) AS TOTAL_COUNT2
+			FROM    GOODS G,
+			        (
+			         SELECT  MEM_NUM, MEM_ID
+			         FROM    MEMBER
+			        ) M,
+			        (
+			        SELECT   GOODS_LIKE_PARENT, 
+			                 COUNT(*) AS TOTAL_COUNT
+			        FROM     GOODS_LIKE 
+			        GROUP BY GOODS_LIKE_PARENT
+			        ) GL
+			WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
+			AND     G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
+			AND     G.GOODS_DEL_GB = 'N'
+			AND     G.GOODS_TSTATUS = 'N'
+			]]>
+			<include refid="common.pagingPost"/>
+	</select>
+	
+	<!-- 상품 삭제 -->
+	<update id="goodsDelete" parameterType="hashmap">
+		<![CDATA[
+			UPDATE GOODS
+			SET
+				GOODS_DEL_GB = 'Y'
+			WHERE
+				GOODS_NUM = #{GOODS_NUM}
+		]]>
+	</update>
+	
+</mapper>
+

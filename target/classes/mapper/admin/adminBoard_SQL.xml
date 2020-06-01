@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminBoard">
+	
+	
+<!-- 게시판 리스트 -->
+<select id="boardList" parameterType="hashmap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+
+	SELECT  ROW_NUMBER() OVER (ORDER BY N.BOARD_NUM DESC) RNUM,
+			N.BOARD_NUM,
+	        N.BOARD_TITLE,
+	        M.MEM_ID,
+	        N.BOARD_DATE,
+	        TO_CHAR(N.BOARD_DATE,'hh24:mi:ss') AS BOARD_TIME,
+	        N.BOARD_COUNT
+	FROM    BOARD N,
+	        (
+	        SELECT  MEM_NUM, MEM_ID
+	        FROM    MEMBER
+	        ) M
+	WHERE   N.BOARD_WRITER = M.MEM_NUM(+)
+	AND     BOARD_DEL_GB = 'N'
+	
+]]>
+<include refid="common.pagingPost"/>
+</select>
+
+
+<!-- 자유게시판 삭제 -->
+<update id="boardDelete" parameterType="hashmap" >
+<![CDATA[
+	
+	UPDATE  BOARD
+	SET     BOARD_DEL_GB = 'Y'
+	WHERE	BOARD_NUM = #{BOARD_NUM}
+	
+]]>
+</update>
+
+
+<!-- 공지사항 리스트 -->
+<select id="noticeList" parameterType="hashmap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+
+   SELECT  ROW_NUMBER() OVER (ORDER BY N.NOTICE_NUM DESC) RNUM,
+         N.NOTICE_NUM,
+           N.NOTICE_TITLE,
+           M.MEM_ID,
+           N.NOTICE_DATE,
+           TO_CHAR(N.NOTICE_DATE,'hh24:mi:ss') AS NOTICE_TIME,
+           N.NOTICE_COUNT
+   FROM    NOTICE N,
+           (
+           SELECT  MEM_NUM, MEM_ID
+           FROM    MEMBER
+           ) M
+   WHERE   N.NOTICE_WRITER = MEM_NUM(+)
+   AND     NOTICE_DEL_GB = 'N'
+   
+]]>
+<include refid="common.pagingPost"/>
+</select>
+
+
+<!-- 공지사항 삭제 -->
+<update id="noticeDelete" parameterType="hashmap" >
+<![CDATA[
+   
+   UPDATE  NOTICE
+   SET     NOTICE_DEL_GB = 'Y'
+   WHERE   NOTICE_NUM = #{NOTICE_NUM}
+   
+]]>
+</update>
+
+
+<!-- qna 리스트 -->
+<select id="qnaList" parameterType="hashmap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+	
+		SELECT  ROW_NUMBER() OVER (ORDER BY A.QNA_NUM DESC) RNUM, A.*, 
+		        DECODE(B.QNA_NUM, A.QNA_NUM, 'Y', 'N') AS QNA_YORN
+		FROM    (
+		        SELECT  Q.QNA_NUM,
+		                Q.QNA_TITLE,
+		                M.MEM_ID,
+		                Q.QNA_DATE,
+		                TO_CHAR(Q.QNA_DATE,'hh24:mi:ss') AS QNA_TIME,
+		                Q.QNA_TYPE,
+		                Q.QNA_PARENT,
+		                Q.QNA_COUNT
+		        FROM    QNA Q,
+		                (
+		                 SELECT MEM_NUM, MEM_ID
+		                 FROM   MEMBER 
+		                ) M
+		        WHERE   Q.QNA_WRITER = M.MEM_NUM(+)
+		        AND     Q.QNA_PARENT IS NULL
+		        AND     Q.QNA_DEL_GB = 'N'
+		        <if test="id != null and !id.equals('')"> AND M.MEM_ID = #{id}</if>
+		       
+    
+		        ) A
+		LEFT OUTER JOIN
+		        (
+		        SELECT  DISTINCT  A.QNA_NUM
+		        FROM    QNA A, QNA B
+		        WHERE   A.QNA_NUM = B.QNA_PARENT
+		        ) B
+		ON  A.QNA_NUM = B.QNA_NUM
+
+		<include refid="common.pagingPost"/>
+	</select>
+	
+	
+<!-- QnA 삭제 -->
+<update id="qnaDelete" parameterType="hashmap">
+<![CDATA[
+		UPDATE  QNA
+		SET     QNA_DEL_GB = 'Y'
+		WHERE   QNA_NUM = #{QNA_NUM}
+]]>
+</update>
+
+
+  <!-- 1member list -->
+   <select id="selectReport" parameterType="hashMap" resultType="hashMap">
+      <![CDATA[
+        SELECT   *
+        FROM   QNA
+        WHERE QNA_NUM = #{QNA_NUM}
+       ]]>
+   </select>
+   
+<!--       회원 정보 변경폼
+   <select id="qnaRePro" parameterType="hashMap">
+      <![CDATA[
+         UPDATE  QNA
+         SET     QNA_CONTENT = #{QNA_RE},
+         		QNA_PARENT = #{QNA_NUM}
+         WHERE   QNA_NUM = #{QNA_NUM}
+      ]]>
+   </select> -->
+   
+   <insert id="qnaRePro" parameterType="hashmap">
+	  
+	   <![CDATA[
+		   INSERT 
+	   INTO QNA  (
+				   QNA_NUM,
+				   QNA_TITLE,
+				   QNA_WRITER,
+				   QNA_CONTENT,
+				   QNA_TYPE,
+				   QNA_PARENT 
+				  )
+		VALUES
+	              ( 
+	                QNA_SEQ.NEXTVAL,
+	                #{QNA_TITLE},
+	                (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = 'admin'),
+	                #{QNA_RE},
+	                #{QNA_TYPE},
+	                #{QNA_NUM}
+	              )
+	   ]]>
+	</insert>
+
+</mapper>
+	
