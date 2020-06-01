@@ -66,19 +66,19 @@
 
 		function fn_openBoardWrite() {
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/sample/openBoardWrite.do' />");
+			comSubmit.setUrl("<c:url value='/sample/openBoardWrite' />");
 			comSubmit.submit();
 		}
 	
 		function fn_openBoardDetail(obj) {
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
+			comSubmit.setUrl("<c:url value='/sample/openBoardDetail' />");
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
 			comSubmit.submit();
 		}
 		function fn_selectBoardList(pageNo) {
 			var comAjax = new ComAjax();
-			comAjax.setUrl("<c:url value='/sample/selectBoardList.do' />");
+			comAjax.setUrl("<c:url value='/sample/selectBoardList' />");
 			comAjax.setCallback("fn_selectBoardListCallback");
 			comAjax.addParam("PAGE_INDEX", pageNo);
 			comAjax.addParam("PAGE_ROW", 15);
