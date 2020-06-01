@@ -52,7 +52,7 @@
 	</div>
 
 	<br />	
-<!-- 
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			fn_selectBoardList(1);
@@ -116,7 +116,7 @@
 							+ value.NOTICE_NUM
 							+ "</td>"
 							+ "<td class='title'>"
-							+ "<a href='#this' name='title'>"
+							+ "<a href='#this_Article' name='title'>"
 							+ value.NOTICE_TITLE
 							+ "</a>"
 							+ "<input type='hidden' id='NOTICE_NUM' value=" + value.NOTICE_NUM + ">"
@@ -128,6 +128,6 @@
 				body.append(str);
 			}
 		}
-	</script> -->
+	</script>
 </body>
 </html>

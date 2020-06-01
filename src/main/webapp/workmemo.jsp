@@ -11,8 +11,8 @@
 	
 <ul>
 
-   <li><a href="/community/noticeList">공지사항 게시판</a></li>
-   
+   <li><a href="../community/noticeList">공지사항 게시판</a></li>
+   <li><a href="second/community/noticeList">공지사항 게시판2</a></li>
    <!-- MainController -->
    <li><a href="/nnS/main">메인</a></li>
    

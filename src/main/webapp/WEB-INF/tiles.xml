@@ -68,6 +68,11 @@
    	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
     </definition>
    
+      <!-- 공지사항 상세내용/jp -->
+   <definition name="noticeDetail" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeDetail.jsp" />
+    </definition>
+   
     <!-- 로그인폼/jp -->
    <definition name="loginForm" extends="default_sample">
    	  <put-attribute name="body" value="/WEB-INF/jsp/member/login/loginForm.jsp" />
