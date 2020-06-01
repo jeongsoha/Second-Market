@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/갤북용0530
 import second.member.service.MailService;
 
 @Service

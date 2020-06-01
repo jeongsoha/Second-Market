@@ -17,14 +17,14 @@
    <li><a href="/nnS/main">메인</a></li>
    
    <!-- JoinController -->
-   <li><a href="/nnS/joinForm">회원가입폼</a></li>
-   <li><a href="/nnS/join/idCheck">아이디중복확인</a></li>
-   <li><a href="/nnS/join/emailAuth">이메일인증확인</a></li>
-   <li><a href="/nnS/memberVerify">회원가입성공</a></li>
+   <li><a href="/second/joinForm">회원가입폼</a></li>
+   <li><a href="/second/join/idCheck">아이디중복확인</a></li>
+   <li><a href="/second/join/emailAuth">이메일인증확인</a></li>
+   <li><a href="/second/memberVerify">회원가입성공</a></li>
    
    <!-- LoginController -->
-   <li><a href="/nnS/loginForm">로그인폼</a></li>
-   <li><a href="/nnS/login">로그인</a></li>
+   <li><a href="/second/loginForm">로그인폼</a></li>
+   <li><a href="/second/myPage">마이페이지</a></li>
    <li><a href="/nnS/logout">로그아웃</a></li>
    <li><a href="/nnS/findId">아이디찾기폼</a></li>
    <li><a href="/nnS/findIdResult">아이디찾기</a></li>

@@ -4,6 +4,7 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
 	<h2>게시판 목록</h2>

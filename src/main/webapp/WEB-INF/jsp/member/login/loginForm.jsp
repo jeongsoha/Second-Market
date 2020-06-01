@@ -130,11 +130,11 @@
   
 </head>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-   <form name="myform" action="sample/openBoardList" method="post" class="form-signin">
+   <form name="myform" action="login" method="post" class="form-signin">
       <div class="card align-middle" style="width:20rem; border-radius:20px;">
          <div>
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/nnS/resources/images/login.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/login.png"></h2>
             </div>
             
             <div class="card-body">   

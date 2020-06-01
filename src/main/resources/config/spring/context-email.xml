@@ -19,11 +19,6 @@
          </beans:props>
       </beans:property>   
    </beans:bean>
-<<<<<<< HEAD
-=======
-   
-
->>>>>>> origin/갤북용0530
 
    <beans:bean id="mailService" class="second.member.service.MailServiceImpl">
       <beans:property name="javaMailSender" ref="javaMailSender" />
