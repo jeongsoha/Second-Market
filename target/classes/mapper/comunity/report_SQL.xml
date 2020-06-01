@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="report">
+    <!-- 신고목록 -->
+    <select id="selectReportList" parameterType="hashmap" resultType="hashmap">
+      <include refid="common.pagingPre"/>
+      <![CDATA[
+            SELECT  ROW_NUMBER() OVER (ORDER BY R.REPORT_NUM DESC) RNUM,
+             R.REPORT_NUM,
+              R.REPORT_TITLE,
+              M.MEM_ID,
+              R.REPORT_DATE,
+              R.REPORT_COUNT,
+              R.REPORT_TYPE,
+              TO_CHAR(R.REPORT_DATE,'hh24:mi:ss') AS REPORT_TIME,
+               (SELECT MEM_ID FROM MEMBER WHERE MEM_NUM = (SELECT GOODS_SELLER FROM GOODS WHERE GOODS_NUM = REPORT_PRONUM)) AS REPORT_GOODS_SELLER_ID,
+              R.REPORT_STATUS
+      FROM    REPORT R, 
+              (
+               SELECT MEM_NUM, MEM_ID
+               FROM   MEMBER
+               ) M
+      WHERE   R.REPORT_DEL_GB = 'N'
+      AND     R.REPORT_WRITER = M.MEM_NUM(+)
+      ]]>
+      <include refid="status"/>
+      <if test ="MEM_ID !=null">
+      <![CDATA[
+       AND     M.MEM_ID = #{MEM_ID}
+       ]]>
+       </if>
+      <include refid="common.pagingPost"/>
+   </select>
+   
+   <sql id="status">
+      <if test="search != null">
+         <if test="search == '1'.toString()">AND R.REPORT_STATUS = '처리대기'</if>
+         <if test="search == '2'.toString()">AND R.REPORT_STATUS = '신고접수'</if>
+         <if test="search == '3'.toString()">AND R.REPORT_STATUS = '허위신고'</if>
+         <if test="search == '4'.toString()">AND R.REPORT_STATUS = '처리완료'</if>
+      </if>
+   </sql>
+
+	<!-- 글쓰기 -->
+	<insert id="insertReportBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+	 <selectKey keyProperty="REPORT_NUM" resultType="string" order="BEFORE">
+	       SELECT REPORT_SEQ.NEXTVAL FROM DUAL 
+	 </selectKey>
+	   <![CDATA[
+			   INSERT
+		INTO    REPORT  (
+		                REPORT_NUM,
+		                REPORT_TITLE,
+		                REPORT_WRITER,
+		                REPORT_CONTENT,
+		                REPORT_TYPE,
+		                REPORT_PRONUM
+		                )
+		VALUES          (
+		                #{REPORT_NUM},
+		                #{REPORT_TITLE},
+		                (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+		                #{REPORT_CONTENT},
+		                #{REPORT_TYPE},
+		                #{REPORT_PRONUM}
+		                )
+	   ]]>
+	</insert>
+	<!-- 상세보기 -->
+	<select id="selectReportDetail" parameterType="hashmap" resultType="hashmap">
+	  <![CDATA[
+			  SELECT  R.REPORT_NUM,
+		        R.REPORT_TITLE,
+		        M.MEM_ID,
+		        R.REPORT_DATE,
+		        R.REPORT_STATUS,
+		        R.REPORT_CONTENT,
+		        R.REPORT_COUNT,
+		        R.REPORT_PRONUM,
+		        R.REPORT_TYPE,
+		        (SELECT MEM_ID FROM MEMBER WHERE MEM_NUM = (SELECT GOODS_SELLER FROM GOODS WHERE GOODS_NUM = REPORT_PRONUM)) AS REPORT_GOODS_SELLER_ID
+		FROM    REPORT R, 
+		        (
+		         SELECT MEM_NUM, MEM_ID
+		         FROM   MEMBER
+		         ) M
+		WHERE   R.REPORT_WRITER = M.MEM_NUM(+)
+		AND     R.REPORT_NUM = #{REPORT_NUM}
+	  ]]>
+	</select>
+	<!-- 조회수 증가 -->
+	<update id="updateCount" parameterType="hashmap">
+		<![CDATA[
+			UPDATE REPORT
+			SET
+				REPORT_COUNT = NVL(REPORT_COUNT, 0) + 1
+			WHERE
+				REPORT_NUM = #{REPORT_NUM}	
+		]]>
+	</update>
+	<!-- 신고 삭제 -->
+	<update id="deleteReport" parameterType="hashmap">
+	   <![CDATA[
+			   UPDATE  REPORT
+		SET     REPORT_DEL_GB = 'Y'
+		WHERE   REPORT_NUM = #{REPORT_NUM}
+	   ]]>
+	</update>
+	
+	<!-- 신고사항 파일 추가 -->
+	<insert id="insertFile" parameterType="hashmap">
+		<![CDATA[
+			INSERT
+			INTO FILES (
+							FILES_NUM,
+							FILES_BOARD_TYPE,
+							FILES_PARENT,
+							FILES_ORGNAME,
+							FILES_STDNAME,
+							FILES_SIZE
+							)
+			VALUES			(
+							FILES_SEQ.NEXTVAL,
+							'1',
+							#{BOARD_IDX},
+							#{FILES_ORG},
+							#{FILES_STD},
+							#{FILES_SIZE}
+							)
+		]]>
+	</insert>
+	
+	<!-- 파일 상세보기 -->
+	<select id="selectFileList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				FILES_NUM,
+				FILES_ORGNAME,
+				ROUND(FILES_SIZE/1024, 1) AS FILES_SIZE
+			FROM
+				FILES
+			WHERE
+				FILES_BOARD_TYPE = '1'
+				AND FILES_PARENT = #{REPORT_NUM}
+				AND FILES_DEL = 'N'
+		]]>
+	</select>
+	
+	<!-- 신고 처리 -->
+    <update id="updateStatus" parameterType="hashmap">
+      <![CDATA[
+            UPDATE  REPORT
+      SET     REPORT_STATUS = #{REPORT_STATUS}
+      WHERE   REPORT_NUM = #{REPORT_NUM}
+      ]]>
+    </update>
+</mapper>

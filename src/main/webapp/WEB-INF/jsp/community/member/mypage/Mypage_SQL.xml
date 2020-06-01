@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+
+<!-- 비밀번호 확인 -->
+<select id="selectPwCheck" parameterType="hashMap" resultType="Integer">
+<![CDATA[
+	SELECT  COUNT(*)
+	FROM    MEMBER
+	WHERE   MEM_ID = #{MEM_ID}
+	AND     MEM_PW = #{MEM_PW}
+
+ ]]>
+</select>
+
+
+<!-- 회원 정보 변경폼 -->
+<select id="selectAccountInfo" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+	SELECT  MEM_ID,
+        	MEM_NAME,
+        	MEM_BIRTH,
+        	MEM_GEN,
+        	MEM_EMAIL,
+        	MEM_PHONE,
+        	MEM_ZIP,
+        	MEM_ADD1,
+        	MEM_ADD2
+	FROM    MEMBER
+	WHERE   MEM_ID = #{MEM_ID}
+
+ ]]>
+</select>
+
+
+<!-- 회원 정보 변경 -->
+<update id="updateAccountModify" parameterType="hashMap">
+<![CDATA[
+	UPDATE  MEMBER
+	SET     MEM_EMAIL = #{MEM_EMAIL},
+  	        MEM_PHONE = #{MEM_PHONE},
+ 	        MEM_ZIP = #{MEM_ZIP},
+ 	        MEM_ADD1 = #{MEM_ADD1},
+ 	        MEM_ADD2 = #{MEM_ADD2}
+	WHERE   MEM_ID = #{MEM_ID}
+
+ ]]>
+</update>
+
+
+<!-- 비밀번호 변경 -->
+<update id="updatePwModify" parameterType="hashMap">
+<![CDATA[
+	UPDATE  MEMBER
+	SET     MEM_PW = #{MEM_TEMP_PW}
+	WHERE   MEM_ID = #{MEM_ID}
+
+ ]]>
+</update>
+
+
+<!-- 회원 탈퇴 -->
+<update id="deleteAccount" parameterType="hashMap">
+<![CDATA[
+	UPDATE  MEMBER
+	SET     MEM_DEL_GB = 'Y'
+	WHERE   MEM_ID = #{MEM_ID}
+	AND     MEM_DEL_GB = 'N'
+
+ ]]>
+</update>
+
+
+<!-- 본인 신고내역 리스트 -->
+<select id="selectMyReportList" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+	SELECT  R.REPORT_NUM,
+        	R.REPORT_TITLE,
+        	M.MEM_ID,
+        	R.REPORT_DATE,
+        	TO_CHAR(R.REPORT_DATE,'hh24:mi:ss') AS REPORT_TIME,
+        	R.REPORT_STATUS
+	FROM    REPORT R, 
+        	(
+         	SELECT MEM_NUM, MEM_ID
+         	FROM   MEMBER
+         	WHERE  MEM_ID = #{MEM_ID}
+         	) M
+	WHERE   R.REPORT_WRITER = M.MEM_NUM
+	AND     R.REPORT_DEL_GB = 'N'
+
+ ]]>
+</select>
+
+
+<!-- 본인 신고내역 상세보기 -->
+<select id="selectMyReportDetail" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+	SELECT  R.REPORT_NUM,
+        	R.REPORT_TITLE,
+        	M.MEM_ID,
+        	R.REPORT_DATE,
+        	TO_CHAR(R.REPORT_DATE,'hh24:mi:ss') AS REPORT_TIME,
+        	R.REPORT_STATUS,
+        	R.REPORT_CONTENT,
+        	R.REPORT_COUNT,
+        	R.REPORT_PRONUM,
+        	R.REPORT_TYPE
+	FROM    REPORT R, 
+        	(
+         	SELECT MEM_NUM, MEM_ID
+         	FROM   MEMBER
+        	 WHERE  MEM_ID = #{MEM_ID}
+         	) M
+	WHERE   R.REPORT_WRITER = M.MEM_NUM
+	AND     R.REPORT_NUM = #{REPORT_NUM}
+
+ ]]>
+</select>
+
+
+<!-- 본인 QNA 리스트 -->
+<select id="selectMyQnaList" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+	SELECT  A.*, 
+        	DECODE(B.QNA_NUM, A.QNA_NUM, 'Y', 'N') AS "답글여부"
+	FROM    (
+	        SELECT  Q.QNA_NUM,
+  	              	Q.QNA_TITLE,
+       	         	M.MEM_ID,
+     	           	Q.QNA_DATE,
+    	            TO_CHAR(Q.QNA_DATE,'hh24:mi:ss') AS QNA_TIME,
+    	            Q.QNA_PARENT
+  	      	FROM    QNA Q,
+          	      	(
+         	        	SELECT MEM_NUM, MEM_ID
+      		           	FROM   MEMBER
+      		           	WHERE  MEM_ID = #{MEM_ID}
+                	) M
+        	WHERE   Q.QNA_WRITER = M.MEM_NUM
+        	AND     Q.QNA_PARENT IS NULL
+        	AND     Q.QNA_DEL_GB = 'N'
+        	) A
+	LEFT OUTER JOIN
+        	(
+        	SELECT  A.QNA_NUM
+        	FROM    QNA A, QNA B
+        	WHERE   A.QNA_NUM = B.QNA_PARENT
+        	) B
+	ON  A.QNA_NUM = B.QNA_NUM
+
+ ]]>
+</select>
+
+
+<!-- 본인 QNA 상세보기 -->
+<select id="selectMyQnaDetail" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+	SELECT  A.*, 
+    	    DECODE(B.QNA_NUM, A.QNA_NUM, 'Y', 'N') AS "답글여부"
+	FROM    (
+  	    	SELECT  Q.QNA_NUM,
+            Q.QNA_TITLE,
+            M.MEM_ID,
+            Q.QNA_DATE,
+            TO_CHAR(Q.QNA_DATE,'hh24:mi:ss') AS QNA_TIME,
+            Q.QNA_PARENT,
+            Q.QNA_CONTENT,
+            Q.QNA_TYPE,
+            Q.QNA_COUNT
+        	FROM    QNA Q,
+                	(
+                 	SELECT MEM_NUM, MEM_ID
+                 	FROM   MEMBER
+                 	WHERE  MEM_ID = #{MEM_ID}
+                	) M
+        	WHERE   Q.QNA_WRITER = M.MEM_NUM
+        	AND     Q.QNA_PARENT IS NULL
+        	AND     Q.QNA_NUM = #{QNA_NUM}
+        	) A
+	LEFT OUTER JOIN
+        	(
+        	SELECT  A.QNA_NUM
+        	FROM    QNA A, QNA B
+        	WHERE   A.QNA_NUM = B.QNA_PARENT
+        	) B
+	ON  A.QNA_NUM = B.QNA_NUM
+]]>
+</select>
+
+</mapper>

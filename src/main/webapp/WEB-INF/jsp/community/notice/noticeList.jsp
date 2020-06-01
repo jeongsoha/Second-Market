@@ -44,15 +44,15 @@
 	<div id="PAGE_NAVI" align="center"></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<div align="right">
-		  	<c:if test="${session_MEM_INFO.MEM_LEVEL == '2' }">
+		  <%-- 	<c:if test="${session_MEM_INFO.MEM_LEVEL == '2' }">
 				<a href="#write" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">글쓰기</button></a>
-	  	 	</c:if>  
+	  	 	</c:if>   --%>
 		</div>
 	</div>
 	</div>
 
 	<br />	
-
+<!-- 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			fn_selectBoardList(1);
@@ -128,6 +128,6 @@
 				body.append(str);
 			}
 		}
-	</script>
+	</script> -->
 </body>
 </html>
