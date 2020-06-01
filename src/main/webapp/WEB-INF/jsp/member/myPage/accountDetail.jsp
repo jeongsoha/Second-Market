@@ -23,18 +23,16 @@
 	   </div>
 	   <div id="main-container">
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/nnS/resources/images/mypage_myinfo.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_myinfo.png"></h2>
             </div>
             <div class="card-body">
-              <img src="/nnS/resources/images/mypage_id.png"><div class="form-control">${map.MEM_ID } </div><br>
-               <img src="/nnS/resources/images/mypage_name.png"> <div class="form-control">${map.MEM_NAME } </div><br>
-			  <img src="/nnS/resources/images/mypage_birth.png"><div class="form-control">생년월일 ${map.MEM_BIRTH }</div><br>
-			   <img src="/nnS/resources/images/mypage_gen.png"><div class="form-control">${map.MEM_GEN }</div><br>
-			   <img src="/nnS/resources/images/mypage_email.png"><div class="form-control">${map.MEM_EMAIL }</div><br>
-		       <img src="/nnS/resources/images/mypage_phone.png"><div class="form-control">${map.MEM_PHONE }</div><br>
-			   <img src="/nnS/resources/images/mypage_zip.png"><div class="form-control">${map.MEM_ZIP }</div><br>
-			   <img src="/nnS/resources/images/mypage_add.png"><div class="form-control">${map.MEM_ADD1 }</div><br>
-			   <img src="/nnS/resources/images/mypage_add2.png"><div class="form-control">${map.MEM_ADD2 }</div><br>	
+              <img src="/second/resources/images/mypage_id.png"><div class="form-control">${map.MEM_ID } </div><br>
+               <img src="/second/resources/images/mypage_name.png"> <div class="form-control">${map.MEM_NAME } </div><br>
+			  <img src="/second/resources/images/mypage_birth.png"><div class="form-control">생년월일 ${map.MEM_BIRTH }</div><br>
+			   <img src="/second/resources/images/mypage_gen.png"><div class="form-control">${map.MEM_GEN }</div><br>
+			   <img src="/second/resources/images/mypage_email.png"><div class="form-control">${map.MEM_EMAIL }</div><br>
+		       <img src="/second/resources/images/mypage_phone.png"><div class="form-control">${map.MEM_PHONE }</div><br>
+			   <img src="/second/resources/images/mypage_add.png"><div class="form-control">${map.MEM_ADD1 }</div><br>
             </div>
          
             <div class="card-body">
@@ -52,7 +50,7 @@
 <script type="text/javascript">
 
 function ch_info(){
-	document.location.href= "/nnS/myPage/accountModifyForm";   
+	document.location.href= "/second/myPage/accountModifyForm";   
 }
 
 $(document).ready(function() {

@@ -134,7 +134,7 @@
       <div class="card align-middle" style="width:20rem; border-radius:20px;">
          <div>
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/nnS/resources/images/login.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/login.png"></h2>
             </div>
             
             <div class="card-body">   
@@ -161,7 +161,7 @@
    </form>
    
    <div align="center">
-      <input type="button" value="회원가입" onclick="location.href='/nnS/joinForm'" class="bttn-bordered bttn-xs bttn-primary"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/nnS/findId'" class="bttn-bordered bttn-xs bttn-primary"/>
+      <input type="button" value="회원가입" onclick="location.href='/second/joinForm'" class="bttn-bordered bttn-xs bttn-primary"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/second/findId'" class="bttn-bordered bttn-xs bttn-primary"/>
     </div>
 
 </body>

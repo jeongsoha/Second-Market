@@ -18,7 +18,7 @@ a {color:#666;}
 	   
 	   function fn_InformConfirm(num){
 	      $.ajax({
-	           url: '/nnS/inform/confirm',
+	           url: '/second/inform/confirm',
 	           type: 'GET',
 	           data: {INFORM_NUM:num},
 	           dataType: 'json',
@@ -33,7 +33,7 @@ a {color:#666;}
 	 
 	   function poll() {
 	       $.ajax({
-	           url: '/nnS/inform',
+	           url: '/second/inform',
 	           type: 'GET',
 	           data: {},
 	           dataType: 'json',
@@ -75,10 +75,10 @@ a {color:#666;}
 
 <!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
 <div class="header_area">
-   <h1><a href="/nnS/main" title="nnS#"><img class="main_image" src="<c:url value="/resources/images/SkinImg/mainlogo.png"/>" alt="nnS#"/></a></h1>   
+   <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/SkinImg/mainlogo.png"/>" alt="second#"/></a></h1>   
    <div class="search_main">
       <div class="search_inner">
-         <form action="/nnS/shop" method="post">
+         <form action="/second/shop" method="post">
             <fieldset>
                
                <select name="searchType">
@@ -94,23 +94,23 @@ a {color:#666;}
       </div>
    </div>
    <div class="top_menu">
-      <ul>
+     
          <c:if test="${session_MEM_ID == null }">
-         <li><a href="${contextPath}/nnS/loginForm" class="log">로그인</a></li> 
-         <li><a href="${contextPath}/nnS/joinForm">회원가입</a> </li>
-         <li><a href="${contextPath}/nnS/findId">ID/PW찾기</a> </li>
+         <a href="${contextPath}/second/loginForm" class="log">로그인</a>
+         <a href="${contextPath}/second/joinForm">회원가입</a> 
+         <a href="${contextPath}/second/findId">ID/PW찾기</a>
+         </c:if>
          
-         </c:if>
          <c:if test="${session_MEM_ID != null }">
-         <li><p style="font-color:#666; font-size:12px;">${session_MEM_ID}&nbsp;님</p></li>   
+        <p style="font-color:#666; font-size:12px;">${session_MEM_ID}&nbsp;님</p>
             <c:if test="${session_MEM_ID == 'admin' }">
-               <li><a href="/nnS/admin">관리자페이지</a></li>    
+              <a href="/second/admin">관리자페이지</a>   
             </c:if>
-         <li><a href="${contextPath}/nnS/logout" class="log">로그아웃</a></li> 
-         <li><a href="${contextPath}/nnS/myPage">마이페이지</a></li>
-         <li><a href="${contextPath}/nnS/myshop">내상점</a></li> 
+         <a href="${contextPath}/second/logout" class="log">로그아웃</a>
+         <a href="${contextPath}/second/myPage">마이페이지</a>
+         <a href="${contextPath}/second/myshop">내상점</a>
          </c:if>
-      </ul>
+      
       
       <c:if test="${session_MEM_ID != null}">
          <div class="dropdown">
@@ -131,10 +131,10 @@ a {color:#666;}
 <%-- <c:if test="${session_shopAndCommunity}"> --%>
    <div class="tab_cate">    
       <div class="tabs_area">  
-         <ul class="tabs">
-            <li><a href="/nnS/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a></li>
-            <li><a href="/nnS/community/noticeList" class="tab_a2"><span>커뮤니티</span></a></li>
-         </ul>
+         <class="tabs">
+            <a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a>
+           <a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a>
+         </class>
       </div>
    </div>
 <%-- </c:if> --%>
