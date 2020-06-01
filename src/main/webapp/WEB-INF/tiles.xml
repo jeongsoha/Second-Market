@@ -25,11 +25,18 @@
       <put-attribute name="body" value=" " />
    </definition>
   
-   <!-- (샘플) 템플릿  -->
+   <!-- (샘플) 템플릿2  -->
    <definition name="default_sample" template="/WEB-INF/tiles/layout2.jsp">
       <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="body2" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
+   </definition>
+   
+    <!-- (샘플) 템플릿1  -->
+   <definition name="default_sample_one" template="/WEB-INF/tiles/layout1.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
+      <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
      
@@ -57,10 +64,9 @@
    </definition>
    
      <!-- 공지게시판/jp -->
-   <definition name="noticeList" extends="default_sample">
+   <definition name="noticeList" extends="default_sample_one">
    	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
-     <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
+    </definition>
    
     <!-- 로그인폼/jp -->
    <definition name="loginForm" extends="default_sample">
