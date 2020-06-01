@@ -35,6 +35,7 @@
          		<td><img src="./../resources/images/form_writer.png"></td>
          		<td style="background-color:#fff;">${session_MEM_INFO.MEM_ID }<input type="hidden" id="MEM_NUM" name="MEM_NUM" value="${session_MEM_INFO.MEM_NUM }"/></td>
          		<input type="hidden" id="IDX" name="IDX" value="">
+         		
          	</tr>
          	<tr>
          		
