@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna">
+	<!-- 글 목록 -->
+	<select id="selectQnaList" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre"/>
+		
+		SELECT  ROW_NUMBER() OVER (ORDER BY A.QNA_NUM DESC) RNUM, A.*, 
+		        DECODE(B.QNA_NUM, A.QNA_NUM, 'Y', 'N') AS QNA_YORN
+		FROM    (
+		        SELECT  Q.QNA_NUM,
+		                Q.QNA_TITLE,
+		                M.MEM_ID,
+		                Q.QNA_DATE,
+		                TO_CHAR(Q.QNA_DATE,'hh24:mi:ss') AS QNA_TIME,
+		                Q.QNA_TYPE,
+		                Q.QNA_PARENT,
+		                Q.QNA_COUNT
+		        FROM    QNA Q,
+		                (
+		                 SELECT MEM_NUM, MEM_ID
+		                 FROM   MEMBER 
+		                ) M
+		        WHERE   Q.QNA_WRITER = M.MEM_NUM(+)
+		        AND     Q.QNA_PARENT IS NULL
+		        AND     Q.QNA_DEL_GB = 'N'
+		        <if test="id != null and !id.equals('')"> AND M.MEM_ID = #{id}</if>
+		       
+    
+		        ) A
+		LEFT OUTER JOIN
+		        (
+		        SELECT  DISTINCT  A.QNA_NUM
+		        FROM    QNA A, QNA B
+		        WHERE   A.QNA_NUM = B.QNA_PARENT
+		        ) B
+		ON  A.QNA_NUM = B.QNA_NUM
+		
+		<include refid="common.pagingPost"/>
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="insertQnaBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="QNA_NUM">
+		<selectKey keyProperty="QNA_NUM" resultType="string" order="BEFORE">
+			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+	<![CDATA[
+			INSERT
+	INTO    QNA     (
+	                QNA_NUM,
+	                QNA_TITLE,
+	                QNA_WRITER,
+	                QNA_CONTENT,
+	                QNA_TYPE
+	                )
+	VALUES          (
+	                #{QNA_NUM},
+	                #{QNA_TITLE},
+	                (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+	                #{QNA_CONTENT},
+	                #{QNA_TYPE}
+	                )
+	]]>
+	</insert>
+	<!-- 조회수 증가 -->
+	<update id="updateCount" parameterType="hashmap">
+		<![CDATA[
+			UPDATE QNA
+			SET
+				QNA_COUNT = NVL(QNA_COUNT, 0) + 1
+			WHERE
+				QNA_NUM = #{QNA_NUM}	
+		]]>
+	</update>
+	<!-- 상세보기 -->
+	<select id="selectQnaDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+					SELECT  A.*, 
+		        DECODE(B.QNA_NUM, A.QNA_NUM, 'Y', 'N') AS QNA_YORN
+		FROM    (
+		        SELECT  Q.QNA_NUM,
+		            Q.QNA_TITLE,
+		            M.MEM_ID,
+		            Q.QNA_DATE,
+		            TO_CHAR(Q.QNA_DATE,'hh24:mi:ss') AS QNA_TIME,
+		            Q.QNA_PARENT,
+		            Q.QNA_CONTENT,
+		            Q.QNA_TYPE,
+		            Q.QNA_COUNT
+		        FROM    QNA Q,
+		                (
+		                 SELECT MEM_NUM, MEM_ID
+		                 FROM   MEMBER
+		                ) M
+		        WHERE   Q.QNA_WRITER = M.MEM_NUM(+)
+		        AND     Q.QNA_PARENT IS NULL
+		        AND     Q.QNA_NUM = #{QNA_NUM}
+		        ) A
+		LEFT OUTER JOIN
+		        (
+		        SELECT  DISTINCT  A.QNA_NUM
+		        FROM    QNA A, QNA B
+		        WHERE   A.QNA_NUM = B.QNA_PARENT
+		        ) B
+		ON  A.QNA_NUM = B.QNA_NUM
+		]]>
+	</select>
+	<!-- 글 수정 -->
+	<update id="updateQnaModify" parameterType="hashmap">
+		<![CDATA[
+					UPDATE  QNA
+		SET     QNA_TITLE = #{QNA_TITLE},
+		        QNA_CONTENT = #{QNA_CONTENT},
+		        QNA_TYPE = #{QNA_TYPE}
+		WHERE   QNA_NUM = #{QNA_NUM}
+		]]>
+	</update>
+	<!-- 글삭제 -->
+	<update id="deleteQna" parameterType="hashmap">
+		<![CDATA[
+					UPDATE  QNA
+		SET     QNA_DEL_GB = 'Y'
+		WHERE   QNA_NUM = #{QNA_NUM}
+		]]>
+	</update>
+	<!-- 답변쓰기 -->
+	<insert id="insertQnaAnswer" parameterType="hashmap">
+	  
+	   <![CDATA[
+		   INSERT 
+	   INTO QNA  (
+				   QNA_NUM,
+				   QNA_TITLE,
+				   QNA_WRITER,
+				   QNA_CONTENT,
+				   QNA_TYPE,
+				   QNA_PARENT 
+				  )
+		VALUES
+	              ( 
+	                QNA_SEQ.NEXTVAL,
+	                #{QNA_TITLE},
+	                (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+	                #{QNA_CONTENT},
+	                #{QNA_TYPE},
+	                #{QNA_NUM}
+	              )
+	   ]]>
+	</insert>
+	<!-- 답변내역 보기 -->
+	<select id="selectQnaAnswer" parameterType="hashmap" resultType="hashmap">
+	   <![CDATA[
+	    SELECT  Q.QNA_NUM,
+                Q.QNA_TITLE,
+                M.MEM_ID,
+                Q.QNA_DATE,
+                TO_CHAR(Q.QNA_DATE,'hh24:mi:ss') AS QNA_TIME,
+                Q.QNA_TYPE,
+                Q.QNA_CONTENT,
+                Q.QNA_PARENT
+        FROM    QNA Q,
+                (
+                 SELECT MEM_NUM, MEM_ID
+                 FROM   MEMBER
+                ) M
+        WHERE   Q.QNA_WRITER = M.MEM_NUM(+)
+        AND     Q.QNA_DEL_GB = 'N'
+        AND     Q.QNA_PARENT= #{QNA_NUM}
+	   ]]>
+	</select>
+	
+	<!-- QNA 파일 추가 -->
+	<insert id="insertFile" parameterType="hashmap">
+		<![CDATA[
+			INSERT
+			INTO FILES (
+							FILES_NUM,
+							FILES_BOARD_TYPE,
+							FILES_PARENT,
+							FILES_ORGNAME,
+							FILES_STDNAME,
+							FILES_SIZE
+							)
+			VALUES			(
+							FILES_SEQ.NEXTVAL,
+							'2',
+							#{BOARD_IDX},
+							#{FILES_ORG},
+							#{FILES_STD},
+							#{FILES_SIZE}
+							)
+		]]>
+	</insert>
+	
+	<!-- 파일 상세보기 -->
+	<select id="selectFileList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				FILES_NUM,
+				FILES_ORGNAME,
+				ROUND(FILES_SIZE/1024, 1) AS FILES_SIZE
+			FROM
+				FILES
+			WHERE
+				FILES_BOARD_TYPE = '2'
+				AND FILES_PARENT = #{QNA_NUM}
+				AND FILES_DEL = 'N'
+		]]>
+	</select>
+	<!-- 파일 수정 -->
+	<update id="deleteFileList" parameterType="hashmap">
+		<![CDATA[
+			UPDATE	FILES
+			SET		FILES_DEL = 'Y'
+			WHERE	FILES_PARENT = #{IDX}
+		]]>
+    </update>
+	 
+	 <update id="updateFile" parameterType="hashmap">
+		<![CDATA[
+			UPDATE	FILES
+			SET		FILES_DEL = 'N'
+			WHERE	FILES_NUM = #{FILE_IDX}
+		]]>
+    </update>
+	
+</mapper>

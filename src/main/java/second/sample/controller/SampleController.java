@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import second.common.common.CommandMap;
+import second.sample.service.SampleService;
 import second.sample.service.SampleServiceImpl;
 
 @Controller
@@ -19,7 +20,7 @@ public class SampleController {
 	Logger log = Logger.getLogger(this.getClass());
 	
 	@Resource(name="sampleService")
-	private SampleServiceImpl sampleService;
+	private SampleService sampleService;
 	
 	@RequestMapping(value="/sample/openBoardList")
     public ModelAndView openBoardList(CommandMap commandMap) throws Exception{
