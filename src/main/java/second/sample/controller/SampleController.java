@@ -33,7 +33,7 @@ public class SampleController {
 	@RequestMapping(value="/sample/selectBoardList")
     public ModelAndView selectBoardList(CommandMap commandMap) throws Exception{
     	ModelAndView mv = new ModelAndView("jsonView");
-    	//System.out.println("112");
+    	System.out.println("112");
     	List<Map<String,Object>> list = sampleService.selectBoardList(commandMap.getMap());
     	mv.addObject("list", list);
         if(list.size() > 0){

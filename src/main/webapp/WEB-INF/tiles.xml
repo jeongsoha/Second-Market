@@ -93,6 +93,23 @@
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
+   <!-- 회원가입폼/jp -->
+   <definition name="joinForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+  <!-- myPage비밀번호 체크/jp -->
+   <definition name="pwCheckForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwCheckForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <!-- myPage/jp -->
+   <definition name="accountDetail" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
 
    
 </tiles-definitions>

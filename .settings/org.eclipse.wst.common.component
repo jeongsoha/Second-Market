@@ -33,7 +33,7 @@
         
         
         <property name="java-output-path" value="target/classes"/>
-        <property name="context-root" value="second"/>
+        <property name="context-root" value="first"/>
                                 	
     
     
