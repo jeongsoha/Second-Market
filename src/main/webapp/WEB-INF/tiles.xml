@@ -86,5 +86,28 @@
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
+<!-- QNA -->
+
+   <definition name="qnaList" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+	 <definition name="qnaDetail" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaDetail.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <definition name="qnaModifyForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <definition name="qnaWriteForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaWriteForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
    
 </tiles-definitions>
