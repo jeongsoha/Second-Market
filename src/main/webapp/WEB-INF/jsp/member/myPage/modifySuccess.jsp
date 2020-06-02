@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
       <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
       <div id="content">
@@ -27,10 +27,9 @@
             <div class="card-body">
                정보 변경이 완료되었습니다.
 			   <span id="pw"></span>
-            </div>
-         
+            </div> 
             <div class="card-body">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="메인으로" id="gomain" onclick="document.location.href='/nnS/main'" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="메인으로" id="gomain" onclick="document.location.href='/second/sample/openBoardList'" style="background-color:#26a69a;">
 				<br>
             </div>
          </div>

@@ -86,5 +86,29 @@
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
+      <!--비밀번호 변경/jp -->
+   <definition name="pwModifyForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <!--비밀번호변경 성공/jp -->
+   <definition name="modifySuccess" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/modifySuccess.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <!--회원탈퇴/jp -->
+   <definition name="deleteAccount" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/deleteAccount.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+        <!-- myPage회원정보 변경 폼/jp -->
+   <definition name="accountModifyForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
    
 </tiles-definitions>

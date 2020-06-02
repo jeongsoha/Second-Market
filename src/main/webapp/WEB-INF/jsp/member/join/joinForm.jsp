@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/join.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/join2.css'/>" />
 <link rel="stylesheet" type="text/css"/>
@@ -353,7 +354,7 @@ function zipcode() {//우편번호 검색창
        
       <div class="row margin">
         <div class="input-field col s12">
-             <input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성"/>&nbsp;&nbsp;남성&nbsp;&nbsp;
+             <input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성" checked/>&nbsp;&nbsp;남성&nbsp;&nbsp;
              <input type="radio" id="MEM_GEN_F" name="MEM_GEN" value="여성"/>&nbsp;&nbsp;여성&nbsp;&nbsp;
              
         </div>
