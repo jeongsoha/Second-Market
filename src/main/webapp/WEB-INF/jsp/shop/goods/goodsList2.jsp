@@ -187,7 +187,7 @@ h1 {
 		<tbody>
 		</tbody>
 		</table>
-		<form action="/nnS/shop" method="post">
+		<form action="/second/shop" method="post">
 			<fieldset>
 				<legend>검색</legend>
 				<select name="searchType" id="searchType">

@@ -13,22 +13,21 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/layout.css"/>" />
 
 
-<title>nnS#</title>
+<title>sample_Board</title>
 </head>
 <body>
 <div id="wrapper">
-	<div id="header">
-		<tiles:insertAttribute name="header"/><!-- // header -->
-	</div>
-	<div style="width:100%; height:300px; margin:auto;">
-		<tiles:insertAttribute name="body"/><!-- // container -->
-	</div> 	
-	<!-- container --> 
-	<div id="container">
-		<tiles:insertAttribute name="body2"/><!-- // container -->
-	</div>
-	<!-- footer --> 
-		<tiles:insertAttribute name="footer"/><!-- // footer -->
+
+<!-- header  --> 
+   <tiles:insertAttribute name="header"/><!-- // header -->
+
+<!-- body 1 2  --> 
+   <tiles:insertAttribute name="body"/><!-- // container -->
+   <tiles:insertAttribute name="body2"/><!-- // container -->
+
+<!-- footer --> 
+   <tiles:insertAttribute name="footer"/><!-- // footer -->
+
 </div>
 </body>
 </html>

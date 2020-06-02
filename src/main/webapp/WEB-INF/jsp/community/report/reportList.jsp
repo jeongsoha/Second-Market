@@ -29,7 +29,7 @@
 			<col width="10%" />
 		</colgroup>  
 		<caption><h2>신고게시판</h2></caption>
-		<form action="/nnS/community/reportList" method="post">
+		<form action="/second/community/reportList" method="post">
 	      <select name="search" id="search">
 	                  <option value="0">전체보기</option>
 	               <option value="1" <c:out value="${search eq '1' ? 'selected' :''}"/>>처리대기</option>

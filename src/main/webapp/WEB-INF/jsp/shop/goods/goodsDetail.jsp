@@ -57,14 +57,14 @@
 					</td>
 					<td colspan="3" style="padding:0 0 0 20px; font-size:15px;">
 						<br>
-						<img src="/nnS/resources/images/goods_brand.png"> : ${map.GOODS_BRAND}<br />
-						<img src="/nnS/resources/images/goods_model.png"> : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
-						<img src="/nnS/resources/images/goods_pstatus.png"> : ${map.GOODS_STATUS}<br/>
+						<img src="/second/resources/images/goods_brand.png"> : ${map.GOODS_BRAND}<br />
+						<img src="/second/resources/images/goods_model.png"> : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
+						<img src="/second/resources/images/goods_pstatus.png"> : ${map.GOODS_STATUS}<br/>
 						<input type="hidden" id="IDX" name="IDX" value="${map.GOODS_NUM}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
-						<img src="/nnS/resources/images/goods_price.png"> : ${map.GOODS_PRICE}<br /> 
-						<img src="/nnS/resources/images/goods_dprice.png">: ${map.GOODS_DCOST} <br /><!-- 테이블에 없음 --> 
-						<img src="/nnS/resources/images/goods_total.png"> : <c:out value="${map.GOODS_PRICE+map.GOODS_DCOST}"/><br/>
+						<img src="/second/resources/images/goods_price.png"> : ${map.GOODS_PRICE}<br /> 
+						<img src="/second/resources/images/goods_dprice.png">: ${map.GOODS_DCOST} <br /><!-- 테이블에 없음 --> 
+						<img src="/second/resources/images/goods_total.png"> : <c:out value="${map.GOODS_PRICE+map.GOODS_DCOST}"/><br/>
 						<br>
 					</td>
 				</tr>

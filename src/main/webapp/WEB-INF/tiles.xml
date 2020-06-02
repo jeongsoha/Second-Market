@@ -7,7 +7,7 @@
 <tiles-definitions>
   
    <!-- Main 템플릿 Page1 -->
-   <definition name="default1" template="/WEB-INF/tiles/layout1.jsp">
+   <definition name="default" template="/WEB-INF/tiles/layout1.jsp">
       <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
@@ -47,5 +47,39 @@
    </definition>
    
 
+   <!-- GoodsShop -->
+   <definition name="goodsList" extends="default">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsList.jsp" />
+   </definition>
+   
+   <definition name="goodsWriteForm" extends="default">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteForm.jsp" />
+   </definition>
+   
+   <definition name="goodsWriteResult" extends="default">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteResult.jsp" />
+   </definition>
+   
+   <definition name="goodsDetail" extends="default">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsDetail.jsp" />
+   </definition>
+   
+   <definition name="goodsCommentDetail" extends="default">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/commentDetail.jsp" />
+   </definition>
+   
+   
+   <!-- order -->
+   <definition name="orderWriteForm" extends="default">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderWriteForm.jsp" />
+   </definition>
+   
+   <definition name="orderWriteResult" extends="default">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderWriteResult.jsp" />
+   </definition>
+   
+   <definition name="orderDetail" extends="default2">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderDetail.jsp" />
+   </definition>
    
 </tiles-definitions>

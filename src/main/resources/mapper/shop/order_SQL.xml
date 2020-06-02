@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order">
+
+	<select id="orderWriteG" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT  
+					GOODS_NUM,
+					GOODS_TITLE,
+					GOODS_BRAND,
+			        TO_CHAR(SYSDATE,'hh24:mi:ss') AS ORDER_TIME,
+			        GOODS_PRICE,
+			        GOODS_DCOST
+			FROM    GOODS
+			WHERE   GOODS_NUM = #{GOODS_NUM}
+		]]>
+	</select>
+
+	<select id="orderWriteM" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT  MEM_ID,
+			        MEM_NAME,
+			        MEM_PHONE,
+			        MEM_ZIP,
+			        MEM_ADD1,
+			        MEM_ADD2
+			FROM    MEMBER
+			WHERE   MEM_ID = #{MEM_ID}
+		]]>
+	</select>
+	
+	<insert id="insertOrder" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+		<selectKey keyProperty="IDX" resultType="string" order="BEFORE">
+			SELECT ORDERS_SEQ.NEXTVAL FROM DUAL	
+		</selectKey>
+		<![CDATA[
+			INSERT
+			INTO    ORDERS  (
+			                ORDERS_NUM,
+			                ORDERS_PRONUM,
+			                ORDERS_USER,
+			                ORDERS_PHONE,
+			                ORDERS_STATUS,
+			                ORDERS_PRICE,
+			                ORDERS_DCOST,
+			                ORDERS_TCOST,
+			                ORDERS_DZIPCODE,
+			                ORDERS_DADD1,
+			                ORDERS_DADD2,
+			                ORDERS_DMEMO,
+			                ORDERS_PAY
+			                )
+			VALUES          (
+			                #{IDX},
+			                #{GOODS_NUM},
+			                (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+			                #{MEM_PHONE},
+			                '주문/결제',
+			                #{GOODS_PRICE},
+			                #{GOODS_DCOST},
+			                #{GOODS_TCOST},
+			                #{MEM_ZIP},
+			                #{ADD1},
+			                #{ADD2},
+			                #{DMEMO},
+			                #{ORDER_PAY}
+			                )
+		]]>
+	</insert>
+	
+	<select id="orderDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT  ORDERS_NUM,
+			        ORDERS_PRONUM,
+			        ORDERS_USER,
+			        ORDERS_PHONE,
+			        ORDERS_STATUS,
+			        ORDERS_PRICE,
+			        ORDERS_DCOST,
+			        ORDERS_TCOST,
+			        ORDERS_DZIPCODE,
+			        ORDERS_DADD1,
+			        ORDERS_DADD2,
+			        ORDERS_DMEMO,
+			        ORDERS_PAY
+			FROM    ORDERS
+			WHERE   ORDERS_NUM = #{IDX}
+		]]>
+	</select>
+</mapper>
