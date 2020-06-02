@@ -97,12 +97,18 @@
 	             $("#QNA_TITLE").focus();
 	             return false;
 	         }
-	    	  // 게시글 내용 필요
+
+	         if(!$("#QNA_CONTENT").val()){
+	             alert("제목를 입력해주세요.");
+	             $("#QNA_CONTENT").focus();
+	             return false;
+	             
+	    	/*   // 게시글 내용 필요
 	         if(CKEDITOR.instances.QNA_CONTENT.getData() =='' 
 	                 || CKEDITOR.instances.QNA_CONTENT.getData().length ==0){
 	             alert("내용을 입력해주세요.");
 	             $("#QNA_CONTENT").focus();
-	             return false;
+	             return false; */
 	         }
 			
 			comSubmit.submit();
