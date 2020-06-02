@@ -86,6 +86,14 @@
     </definition>
    
    
+     
+       <!-- 어드민_공지_수정하기/jp (value = "/community/noticeModifyForm") -->
+   <definition name="noticeModifyForm" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
+    </definition>
+   
+   
+   
    
     <!-- 로그인폼/jp -->
    <definition name="loginForm" extends="default_sample">
