@@ -50,7 +50,7 @@
 				</select>
 	      	</td>
 	      	<td>
-				<img src="./../resources/images/form_hash.png"><br/>
+				 test1<br/>
 			</td>
 		<!-- <td>
 				<input type="text" id="GOODS_HASH" name="GOODS_HASH" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_HASH}"</c:if>>
@@ -58,14 +58,14 @@
 		</tr>
 		<tr>
 			<td>
-				<img src="./../resources/images/form_title.png"><br/>
+				제목<br/>
 			</td>
 			<td>
 				<input type="text" id="GOODS_TITLE" name="GOODS_TITLE" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_TITLE}"</c:if>>
 				<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_ID}">
 			</td>
 	      	<td>
-	      		<img src="./../resources/images/form_pstatus.png">
+	      		중고상태
 	      	</td>
 	      	<td>
 	      		<!-- <select name="GOODS_STATUS" id="GOODS_STATUS">
@@ -79,13 +79,13 @@
 		</tr>
 		<tr>
 			<td>
-				<img src="./../resources/images/form_price.png"><br/>
+				가격<br/>
 			</td>
 			<td>
 				<input type="text" id="GOODS_PRICE" name="GOODS_PRICE" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_PRICE}"</c:if>>
 			</td>
 			<td>
-				<img src="./../resources/images/form_dprice.png"><br/>
+				배송비인가요<br/>
 			</td>
 		<!-- 	<td>
 				<input type="text" id="GOODS_DCOST" name="GOODS_DCOST" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_DCOST}"</c:if>>
@@ -93,13 +93,13 @@
 		</tr>
 		<tr>
 			<td>
-				<img src="./../resources/images/form_brand.png"><br/>
+				판매수량(기존 브랜드-타입변경필요)<br/>
 			</td>
 			<td>
 				<input type="text" id="GOODS_QTY" name="GOODS_QTY" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_QTY}"</c:if>>
 			</td>
 			<td>
-				<img src="./../resources/images/form_area.png"><br/>
+				판매지역<br/>
 			</td>
 			<td>
 				<input type="text" id="GOODS_REGION" name="GOODS_REGION" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_REGION}"</c:if>>
@@ -234,9 +234,6 @@
             $("#GOODS_REGION").focus();
             return false;
         }
-     	
-     	
-		
 		comSubmit.submit();
 	} 
 	

@@ -3,7 +3,7 @@
 	
 	<%response.sendRedirect("sample/openBoardList");
 	 %>
-<%--   1234
+<%--   
 <%response.sendRedirect("sample/openBoardList");
 	 %>
 <jsp:forward page="/sample/openBoardList"/>

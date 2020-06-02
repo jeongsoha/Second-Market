@@ -5,6 +5,8 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <style type="text/css">
 #main-container
 {

@@ -30,13 +30,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import second.common.common.CommandMap;
-import second.shop.service.ShopServiceImpl;
+import second.shop.service.ShopService;
 
 @Controller
 public class ShopController{
 
 	@Resource(name="shopService")
-	private ShopServiceImpl shopService;
+	private ShopService shopService;
 	
 	@RequestMapping(value="/shop")
 	public ModelAndView shopMain(@RequestParam(value = "keyword", defaultValue="") String keyword, @RequestParam(value="searchType", defaultValue="") String searchType, @RequestParam(value="sortType", defaultValue="") String sortType, HttpServletRequest request) throws Exception{

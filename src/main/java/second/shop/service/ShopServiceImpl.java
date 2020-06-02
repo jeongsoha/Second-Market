@@ -39,7 +39,7 @@ public class ShopServiceImpl implements ShopService {
 		String img_templist=""; // 이미지 링크를 ','를 기준으로 냐열해둠, 아직 사용 안함
 		String img_list[] = {}; // ','로 구분된 문자열을 나눠서 배열에 담음
 		String img_thumb=""; // img_list의 첫번째 경로를 저장함
-		String comp_text=" src=\"/second/file/"; // 반복문 안에 temp와 비교될 텍스느. equals(" src=\"")는 안되길래 따로 빼둠
+		String comp_text=" src=\"/second/file/"; // 반복문 안에 temp와 비교될 텍스트. equals(" src=\"")는 안되길래 따로 빼둠
 		String content = (String)map.get("GOODS_CONTENT"); // 저장된 본문을 불러옴
 		int imgCount = 0;
 		for(int i = 0; i+19 < content.length(); i++) { // 텍스트 비교
@@ -54,7 +54,7 @@ public class ShopServiceImpl implements ShopService {
 			img_templist = img_templist.substring(0, img_templist.length()-1); // 경로 뒤에 남는 쉼표 제거
 			img_thumb = img_templist.substring(0, 36); // 이미지가 있을 경우 첫번째 경로를 썸네일로 저장해줌
 			map.put("GOODS_THUMBNAIL", img_thumb); // 썸네일 값 전달
-		} else { // img_list가 비어이을 경우
+		} else { // img_list가 비어 있을 경우
 			map.put("GOODS_THUMBNAIL",""); // 이미지 없음
 		}
 		// 내용에서 이미지 긁어오기 끝
@@ -80,10 +80,10 @@ public class ShopServiceImpl implements ShopService {
 		shopDAO.updateHitCnt(map);
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		Map<String, Object> tempMap = shopDAO.selectGoodsDetail(map);
-//		Map<String, Object> memberMap = shopDAO.selectMemberInfo(tempMap);
+		Map<String, Object> memberMap = shopDAO.selectMemberInfo(tempMap);
 		
 		resultMap.put("map", tempMap);
-//		resultMap.put("memberMap", memberMap);
+		resultMap.put("memberMap", memberMap);
 		System.out.println("@@@@@@@@@@@@@@@@@"+tempMap);
 		
 		if(map.containsKey("LIKE_MEM_ID")) {

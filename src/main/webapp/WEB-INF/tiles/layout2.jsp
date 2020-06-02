@@ -23,10 +23,6 @@
 
 <!-- body 1 2  --> 
    <tiles:insertAttribute name="body"/><!-- // container -->
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/soha2
    <tiles:insertAttribute name="body2"/><!-- // container -->
 
 <!-- footer --> 

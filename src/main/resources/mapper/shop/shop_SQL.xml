@@ -76,8 +76,9 @@
 			                GOODS_REGION,
 			                GOODS_CATEGORY,
 			                GOODS_STATUS,
-			                GOODS_QTY,
-			                GOODS_THUMBNAIL
+			                GOODS_TSTATUS,
+			                GOODS_THUMBNAIL,
+			                GOODS_QTY
 			                )
 			VALUES          
 			                (
@@ -89,9 +90,10 @@
 			                SYSDATE, 
 			                #{GOODS_REGION},
 			                #{GOODS_CATEGORY},
-			                0,
-			                #{GOODS_QTY},
-			                #{GOODS_THUMBNAIL}
+			                'N',
+			                'ING',
+			                #{GOODS_THUMBNAIL},
+			                #{GOODS_QTY}
 			                )
 		]]>
 	</insert>
@@ -155,9 +157,11 @@
 			        G.GOODS_REGION,
 			        G.GOODS_CATEGORY,
 			        G.GOODS_COUNT,
+			        G.GOODS_QTY,
 			        TO_CHAR(G.GOODS_DATE,'YYYY.MM.DD') AS GOODS_DATE,
 			        TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
-			        G.GOODS_STATUS
+			        G.GOODS_STATUS,
+			        G.GOODS_THUMBNAIL
 			FROM    GOODS G,
 			        (
 			         SELECT MEM_NUM, MEM_ID
@@ -188,9 +192,7 @@
 			        GOODS_PRICE = #{GOODS_PRICE},
 			        GOODS_REGION = #{GOODS_REGION},
 			        GOODS_CATEGORY = #{GOODS_CATEGORY},
-			        GOODS_HASH = #{GOODS_HASH},
-			        GOODS_DCOST = #{GOODS_DCOST},
-			        GOODS_BRAND = #{GOODS_BRAND},
+			        GOODS_QTY = #{GOODS_QTY},
 			        GOODS_DATE = SYSDATE
 			WHERE   GOODS_NUM = #{GOODS_NUM}
 			AND     GOODS_STATUS = 'N'

@@ -25,14 +25,7 @@
 
 <div id="content">
 	<div id="vertical_tab-container">
-	<!--
-		<ul>
-			 <li <c:if test="${sortType eq 'all'}">class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>전체상품</a></li>
-	         <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>>인기상품</a></li>
-	         <li <c:if test="${sortType eq 'new'}">class="selected"</c:if>><a href=<c:url value="/shop/newGoodsList"/>>신규상품</a></li>
-	         <li <c:if test="${sortType eq ''}">class="selected"</c:if>><a href=<c:url value="/shop"/>>카테고리</a></li>
-		</ul>
-		 -->
+
 	</div>
 	<div id="main-container">
 		<table border="1" align="center" style="min-height:100%">
@@ -57,25 +50,27 @@
 					</td>
 					<td colspan="3" style="padding:0 0 0 20px; font-size:15px;">
 						<br>
-						<img src="/second/resources/images/goods_brand.png"> : ${map.GOODS_BRAND}<br />
-						<img src="/second/resources/images/goods_model.png"> : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
-						<img src="/second/resources/images/goods_pstatus.png"> : ${map.GOODS_STATUS}<br/>
+
+						모델명 : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
+						판매수량 : ${map.GOODS_QTY} <br/>
 						<input type="hidden" id="IDX" name="IDX" value="${map.GOODS_NUM}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
-						<img src="/second/resources/images/goods_price.png"> : ${map.GOODS_PRICE}<br /> 
-						<img src="/second/resources/images/goods_dprice.png">: ${map.GOODS_DCOST} <br /><!-- 테이블에 없음 --> 
-						<img src="/second/resources/images/goods_total.png"> : <c:out value="${map.GOODS_PRICE+map.GOODS_DCOST}"/><br/>
+						판매가격 : ${map.GOODS_PRICE}<br /> 
+						<br/>
 						<br>
 					</td>
 				</tr>
 				<tr align="center">
 				<td>
-					<a href='#this' id="buy"><img src=<c:url value="/resources/images/baro.png"/> id='baro_img' style="width:60px; height:30px"></a>
+					<a href='#this' id="buy"><img src=<c:url value="/resources/images/baro.png"/> id='baro_img' style="width:60px; height:30px"> 바로구매</a>
 				</td>
 				<td> 
 					<a href='javascript: report_func();'><img src=<c:url value="/resources/images/siren2.png"/> id='report_img' style="width:60px; height:30px"></a>
 				</td>
 				<td>	
+				
+				
+				
 					<c:choose>
 						<c:when test="${goodsLikeMap.GOODS_LIKE_YN eq 0}">
 					    	<a href='javascript: like_func();'><img src=<c:url value="/resources/images/like_black.png"/> id='unlike_img' style="width:30px; height:30px"></a>
@@ -110,6 +105,7 @@
 		             
 						<div align='center'>
 	                        <!-- 뭐든 넣어도됨(작성자 등등) -->
+	                        작성자?
 			      		</div>
 			      		<!-- 문의 작성 폼 -->
 			      		<form id="frm" name="frm">
@@ -139,16 +135,16 @@
 						판매자 성별 : ${memberMap.MEM_GEN}<br/>
 						판매자 이메일 : ${memberMap.MEM_EMAIL}<br /> 
 						판매자 연락처 : ${memberMap.MEM_PHONE}<br />
-						<br>
+					<br>
 		        </div>
 		    </div>
 		    <br>
 		    <br/>
-		<a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
+		<a href="#this" class="btn" id="list">목록으로</button></a>
 		
 		<c:if test="${session_MEM_ID eq map.MEM_ID && session_MEM_ID ne null}">
-			<a href="#this" class="btn" id="update"><button class="bttn-bordered bttn-xs bttn-primary">수정하기</button></a>
-			<a href="#this" class="btn" id="delete"><button class="bttn-bordered bttn-xs bttn-primary">삭제하기</button></a>
+			<a href="#this" class="btn" id="update">수정하기</button></a>
+			<a href="#this" class="btn" id="delete">삭제하기</button></a>
 		</c:if>
 		</div>
    </div>
