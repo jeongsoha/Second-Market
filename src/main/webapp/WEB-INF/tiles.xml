@@ -27,12 +27,12 @@
   
    <!-- (샘플) 템플릿  -->
    <definition name="default_sample" template="/WEB-INF/tiles/layout2.jsp">
-      <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="body2" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
-   
+     
       
     <!-- 샘플 적용 -->
    <definition name="sample1" extends="default_sample">
@@ -46,6 +46,45 @@
       <put-attribute name="body2" value="/WEB-INF/jsp/shop/goods/goodsList2.jsp" />
    </definition>
    
+ 
+   
+    <!-- (공지) 템플릿 /jp  -->
+   <definition name="default_notice" template="/WEB-INF/tiles/layout3.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header3.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="body2" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer3.jsp" />
+   </definition>
+   
+     <!-- 공지게시판/jp -->
+   <definition name="noticeList" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
+     <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <!-- 로그인폼/jp -->
+   <definition name="loginForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/login/loginForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <!-- myPage비밀번호 체크/jp -->
+   <definition name="pwCheckForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwCheckForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+	<!-- 회원가입폼/jp -->
+   <definition name="joinForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+      <!-- myPage/jp -->
+   <definition name="accountDetail" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
 
    <!-- GoodsShop -->
    <definition name="goodsList" extends="default">

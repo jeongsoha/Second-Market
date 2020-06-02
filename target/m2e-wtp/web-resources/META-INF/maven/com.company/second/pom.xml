@@ -32,6 +32,7 @@
 		</repository>
 	</repositories>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>com.oracle</groupId>
@@ -107,20 +108,13 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-
-		<!-- Mail -->
+<!-- 경로 한글오류 -->
 		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
-		</dependency>
-
-		<!-- Mail -->		
-		<dependency>
-			<groupId>javax.mail</groupId>
-    		<artifactId>mail</artifactId>
-    		<version>1.4.7</version>
-		</dependency>
+    <groupId>xerces</groupId>
+    <artifactId>xercesImpl</artifactId>
+    <version>2.9.1</version>
+</dependency>
+		
 
 		<!-- AOP Alliance -->
 		<dependency>
