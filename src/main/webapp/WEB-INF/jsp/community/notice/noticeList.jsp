@@ -3,7 +3,8 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 </head>
@@ -27,7 +28,7 @@
 			<col width="25%" />  
 			<col width="10%" />
 		</colgroup>
-		<caption><h2>공지사항</h2></caption>
+		<caption><h2>공지사항2</h2></caption>
 		<thead>
 			<tr>
 				<th scope="col"><img src="./../resources/images/commu_num.png" width="70" height="25"></th>
@@ -44,9 +45,10 @@
 	<div id="PAGE_NAVI" align="center"></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<div align="right">
-		  <%-- 	<c:if test="${session_MEM_INFO.MEM_LEVEL == '2' }">
+			<c:if test="${session_MEM_ID != null }">
+		<%--  	<c:if test="${session_MEM_INFO.MEM_LEVEL == '2' }"> --%>
 				<a href="#write" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">글쓰기</button></a>
-	  	 	</c:if>   --%>
+	  	 	</c:if>    <%--어드민 권한 시 글쓰기 버튼 --%>
 		</div>
 	</div>
 	</div>

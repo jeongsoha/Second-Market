@@ -64,13 +64,14 @@ public class NoticeController {
 	@RequestMapping(value = "/community/noticeWriteForm")
 	public ModelAndView noticeWriteForm(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("noticeWriteForm");
-		
+		System.out.println("11111");
 		return mv;		
 	}
 	
 	// 공지사항 작성
 	@RequestMapping(value = "/community/noticeWrite")
 	public ModelAndView noticeWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		System.out.println("11112");
 		ModelAndView mv = new ModelAndView("redirect:/community/noticeList");
 		noticeService.insertNoticeWrite(commandMap.getMap(), request);
 		return mv;		

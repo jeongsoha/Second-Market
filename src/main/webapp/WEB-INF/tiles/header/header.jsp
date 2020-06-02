@@ -88,5 +88,9 @@
 			<li><p style="font-color:#666; font-size:12px;">${session_MEM_ID}&nbsp;님</p></li>	
 	
 			</c:if>
+			<c:if test="${session_MEM_ID != null }">
+			<li><p style="font-color:#666; font-size:12px;">${session_MEM_INFO.MEM_NUM} &nbsp;회원번호</p></li>	
+	
+			</c:if>
 		</ul>
 </div><!--// 라인업 끝 -->    
