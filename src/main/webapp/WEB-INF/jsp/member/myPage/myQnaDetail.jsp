@@ -4,6 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
 <body>
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">

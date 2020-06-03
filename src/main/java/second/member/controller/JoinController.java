@@ -64,6 +64,7 @@ public class JoinController {
    @RequestMapping(value = "/join/idCheck") //아이디 중복확인
    public @ResponseBody String idCheck(CommandMap commandMap) throws Exception {
       
+	   System.out.println("======gd=====");
       System.out.println(commandMap.getMap());
       
       String idCheck = String.valueOf(joinService.selectIdCheck(commandMap.getMap()));

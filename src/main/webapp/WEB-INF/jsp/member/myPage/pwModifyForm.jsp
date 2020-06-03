@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"/>
 <script type="text/javascript">
@@ -80,19 +80,19 @@ $("#pwchangeform").on("submit",function(e){
 	   </div>
 	   <div id="main-container">
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/nnS/resources/images/mypage_pwchange.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_pwchange.png"></h2>
             </div>
             <form id="pwchangeform" method="post">
             <div class="card-body">
-               <img src="/nnS/resources/images/mypage_opw.png"> <input class="form-control" type="password" id="MEM_PW" name="MEM_PW"><br>
-               <img src="/nnS/resources/images/mypage_npw.png"> <input class="form-control" type="password" id="MEM_TEMP_PW" name="MEM_TEMP_PW"><br>
-			   <img src="/nnS/resources/images/mypage_npwc.png"> <input class="form-control" type="password" id="MEM_TEMP_PW2" name="MEM_TEMP_PW2"><br>
+               <img src="/second/resources/images/mypage_opw.png"> <input class="form-control" type="password" id="MEM_PW" name="MEM_PW"><br>
+               <img src="/second/resources/images/mypage_npw.png"> <input class="form-control" type="password" id="MEM_TEMP_PW" name="MEM_TEMP_PW"><br>
+			   <img src="/second/resources/images/mypage_npwc.png"> <input class="form-control" type="password" id="MEM_TEMP_PW2" name="MEM_TEMP_PW2"><br>
 			   <span id="pw"></span>
             </div>
          
             <div class="card-body">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="수정하기" id="pwchange" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/nnS/main'" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/second/sample/openBoardList'" style="background-color:#26a69a;">
 				<br>
             </div>
             </form>
