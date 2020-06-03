@@ -6,6 +6,7 @@
  
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+
 </head>
 <body>
 <div id="content">
@@ -56,16 +57,23 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+			console.log('1111');///1찍
 			fn_selectBoardList(1);
 			$("#write").on("click", function(e) { //글쓰기 버튼
+			
 				e.preventDefault();
 				fn_openBoardWrite();
+			
 			});
-
+			console.log('1112');///2찍
+			
 			$("a[name='title']").on("click", function(e) { //제목 
+				console.log('1116');
 				e.preventDefault();
+				console.log('1119');
 				fn_openBoardDetail($(this));
 			});
+			console.log('1113');///3찍
 		});
 		
 		function fn_openBoardWrite() {
@@ -117,7 +125,7 @@
 							+ value.NOTICE_NUM
 							+ "</td>"
 							+ "<td class='title'>"
-							+ "<a href='#this_Article' name='title'>"
+							+ "<a href='#this' name='title' >"
 							+ value.NOTICE_TITLE
 							+ "</a>"
 							+ "<input type='hidden' id='NOTICE_NUM' value=" + value.NOTICE_NUM + ">"

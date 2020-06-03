@@ -6,6 +6,7 @@
 
   <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
   <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+ 
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <body>
