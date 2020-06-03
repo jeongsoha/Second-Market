@@ -42,7 +42,9 @@
 			<!-- 스크립트를 통해 게시글에 대한 정보가 담김 -->
 		</tbody>
 	</table>
-	<div id="PAGE_NAVI" align="center"></div>
+	<div id="PAGE_NAVI" align="center" style="background-color:red;">
+	
+		<!-- 페이징 정보가 담김 b1--></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<div align="right">
 			<c:if test="${session_MEM_ID != null }">
@@ -83,6 +85,7 @@
 		}
 	
 		function fn_openBoardDetail(obj) {
+			<!-- 디스 달리면 이게 동작 안하는지 파악하자. b1-->
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/community/noticeDetail' />");
 			comSubmit.addParam("NOTICE_NUM", obj.parent().find("#NOTICE_NUM").val());
