@@ -11,6 +11,15 @@
 <link rel="stylesheet" type="text/css"/>
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
+
+<style>
+
+   body {
+        background:linear-gradient(to bottom right, #CEFBC9, #f0e199);
+   }
+
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
