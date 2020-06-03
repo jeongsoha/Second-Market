@@ -4,7 +4,6 @@
 	<%response.sendRedirect("sample/openBoardList");
 	 %>
 <%--   
-
 <%response.sendRedirect("sample/openBoardList");
 	 %>
 <jsp:forward page="/sample/openBoardList"/>

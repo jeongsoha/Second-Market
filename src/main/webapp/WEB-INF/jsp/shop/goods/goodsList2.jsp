@@ -187,14 +187,14 @@ h1 {
 		<tbody>
 		</tbody>
 		</table>
-		<form action="/nnS/shop" method="post">
+		<form action="/second/shop" method="post">
 			<fieldset>
 				<legend>검색</legend>
 				<select name="searchType" id="searchType">
 					<option value="nothing">-----</option>
 					<option value="title" <c:out value="${searchType eq 'title'?'selected':''}"/>>상품명</option>
 					<option value="content" <c:out value="${searchType eq 'content'?'selected':''}"/>>내용</option>
-					<option value="brand" <c:out value="${searchType eq 'brand'?'selected':''}"/>>브랜드</option>
+					<option value="region" <c:out value="${searchType eq 'region'?'selected':''}"/>>브랜드</option>
 				</select>
 				<input type="text" class="txt" placeholder="Search" name="keyword" id="keyword" value="${keyword}"/>&nbsp;
 				<input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>

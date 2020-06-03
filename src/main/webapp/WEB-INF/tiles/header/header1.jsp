@@ -75,7 +75,9 @@ a {color:#666;}
 
 <!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
 <div class="header_area">
-   <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/SkinImg/mainlogo.png"/>" alt="second#"/></a></h1>   
+
+ <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/SkinImg/mainlogo.png"/>" alt="second#"/></a></h1>   
+
    <div class="search_main">
       <div class="search_inner">
          <form action="/second/shop" method="post">
@@ -85,7 +87,7 @@ a {color:#666;}
                  <option value="n">-----</option>
                  <option value="title">상품명</option>
                  <option value="content">내용</option>
-                 <option value="brand">브랜드</option>
+                 <option value="region">지역</option>
                 </select>
                <input type="text" class="txt" placeholder="Search" name="keyword"/>&nbsp;
                <input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
@@ -96,14 +98,18 @@ a {color:#666;}
    <div class="top_menu">
      
          <c:if test="${session_MEM_ID == null }">
+
+
          <a href="${contextPath}/second/loginForm" class="log">로그인</a>
          <a href="${contextPath}/second/joinForm">회원가입</a> 
          <a href="${contextPath}/second/findId">ID/PW찾기</a>
+         
          </c:if>
          
          <c:if test="${session_MEM_ID != null }">
         <p style="font-color:#666; font-size:12px;">${session_MEM_ID}&nbsp;님</p>
             <c:if test="${session_MEM_ID == 'admin' }">
+
               <a href="/second/admin">관리자페이지</a>   
             </c:if>
          <a href="${contextPath}/second/logout" class="log">로그아웃</a>
@@ -131,10 +137,11 @@ a {color:#666;}
 <%-- <c:if test="${session_shopAndCommunity}"> --%>
    <div class="tab_cate">    
       <div class="tabs_area">  
-         <class="tabs">
-            <a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a>
-           <a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a>
-         </class>
+         <ul class="tabs">
+            <li><a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a></li>
+            <li><a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a></li>
+         </ul>
+
       </div>
    </div>
 <%-- </c:if> --%>

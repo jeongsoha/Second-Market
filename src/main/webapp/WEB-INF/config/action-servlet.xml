@@ -32,7 +32,7 @@
 	<mvc:default-servlet-handler/>
 	
 	<!--  //각각 path 설정 필요-->
-   <mvc:resources mapping="/ckeditor/**" location="/WEB-INF/views/ckeditor/" />
+   <mvc:resources mapping="/ckeditor/**" location="/WEB-INF/jsp/ckeditor/" />
    <mvc:resources mapping="/css/**" location="/resources/css/" cache-period="60" />
    <mvc:resources mapping="/js/**" location="/resources/js/" cache-period="60" />
 	

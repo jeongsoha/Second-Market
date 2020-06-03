@@ -23,7 +23,6 @@
 
 <!-- body 1 2  --> 
    <tiles:insertAttribute name="body"/><!-- // container -->
-
    <tiles:insertAttribute name="body2"/><!-- // container -->
 
 <!-- footer --> 
