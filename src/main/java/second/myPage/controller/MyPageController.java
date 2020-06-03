@@ -120,11 +120,9 @@ public class MyPageController {
 		myPageService.deleteAccount(commandMap.getMap());
 		if (session != null)
 			session.invalidate();
-<<<<<<< HEAD
-		ModelAndView mv = new ModelAndView("redirect:/main");
-=======
+		/* 추후 메인으로 리다이렉트 시켜야할 수 있음 */
 		ModelAndView mv = new ModelAndView("redirect:/sample/openBoardList");
->>>>>>> origin/soha2
+	
 		return mv;
 	}
 

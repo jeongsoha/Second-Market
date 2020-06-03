@@ -181,7 +181,7 @@
 
 
 <!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
-<<<<<<< HEAD
+ 
 <div class="header_area">
 
  <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/SkinImg/mainlogo.png"/>" alt="second#"/></a></h1>   
