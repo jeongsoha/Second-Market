@@ -95,20 +95,14 @@
              return false;
          }
 
-      // 게시글 제목 필요
-         if(!$("#NOTICE_CONTENT").val()){
-             alert("내용을 입력해주세요.");
-             $("#NOTICE_CONTENT").focus();
-             return false;
-         }
     	  // 게시글 내용 필요
-        /*  if(CKEDITOR.instances.NOTICE_CONTENT.getData() =='' 
+           if(CKEDITOR.instances.NOTICE_CONTENT.getData() =='' 
                  || CKEDITOR.instances.NOTICE_CONTENT.getData().length ==0){
              alert("내용을 입력해주세요.");
              $("#NOTICE_CONTENT").focus();
              return false;
          }
- */
+ 
          
          comSubmit.submit();
       }

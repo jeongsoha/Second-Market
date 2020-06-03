@@ -62,10 +62,13 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void updateNoticeModify(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		System.out.println("77775");
+		System.out.println(map);
 		noticeDAO.updateNoticeModify(map);
+		System.out.println("77776");
 		map.put("IDX", map.get("NOTICE_NUM"));
 		System.out.println(map);
-		
+		System.out.println("77777");
 		noticeDAO.deleteFileList(map);
 		List<Map<String, Object>> list = fileUtils.parseUpdateFileInfo(map, request);
 		System.out.println("====================list===============");

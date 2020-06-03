@@ -84,6 +84,8 @@ public class NoticeController {
 		Map<String, Object> map = noticeService.selectNoticeDetail(commandMap.getMap());
 		mv.addObject("map", map.get("map"));
 		mv.addObject("list", map.get("list"));
+		System.out.println("55555");
+		System.out.println(mv);
 		
 		return mv;		
 	}
@@ -92,9 +94,10 @@ public class NoticeController {
 	@RequestMapping(value = "/community/noticeModify")
 	public ModelAndView noticeModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("redirect:/community/noticeDetail");
-		noticeService.updateNoticeModify(commandMap.getMap(), request);
+		System.out.println("66655");
 		mv.addObject("NOTICE_NUM", commandMap.get("NOTICE_NUM"));
-		
+		noticeService.updateNoticeModify(commandMap.getMap(), request);
+		System.out.println("66666");
 		return mv;		
 	}
 	
