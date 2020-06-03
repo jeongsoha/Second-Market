@@ -177,12 +177,7 @@
             $("#GOODS_CATEGORY").focus();
             return false;
         }
-     	// 게시글 중고상태 필요
-       // if(!$("#GOODS_STATUS").val()){
-       //     alert("중고상태를 입력해주세요.");
-       //     $("#GOODS_STATUS").focus();
-       //     return false;
-      //  }
+
         // 게시글 제목 필요
         if(!$("#GOODS_TITLE").val()){
             alert("제목를 입력해주세요.");
@@ -197,12 +192,7 @@
             return false;
         }
    	 	
-//   		 if($("#GOODS_CONTENT").val()  
-//            || $("#GOODS_CONTENT").val().length ==0){
-//            alert("내용을 입력해주세요.");
-//            $("#GOODS_CONTENT").focus();
-//            return false;
-//        }
+
    	 	
      	// 게시글 가격입력 필요
         if(!$("#GOODS_PRICE").val()){
@@ -210,24 +200,7 @@
             $("#GOODS_PRICE").focus();
             return false;
         }
-     	// 게시글 배송비 필요
-     //   if(!$("#GOODS_DCOST").val()){
-      //      alert("배송비를 입력해주세요.");
-     //       $("#GOODS_DCOST").focus();
-     //       return false;
-     //   }
-     	// 게시글 브랜드 필요
-     //   if(!$("#GOODS_BRAND").val()){
-     //       alert("브랜드를 입력해주세요.");
-     //       $("#GOODS_BRAND").focus();
-     //       return false;
-     //   }
-     	// 게시글 해시태그 필요
-     //   if(!$("#GOODS_HASH").val()){
-     //       alert("해시태그를 입력해주세요.");
-     //       $("#GOODS_HASH").focus();
-     //       return false;
-     //   }
+
      	// 게시글 판매지역 필요
         if(!$("#GOODS_REGION").val()){
             alert("판매지역을 입력해주세요.");

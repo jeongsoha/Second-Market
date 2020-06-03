@@ -91,16 +91,29 @@
 		        <li><a href="#goodsTab3"><img src="./../resources/images/goods_tab_3.png" height="25"></a></li>
 		    </ul>
 		    <div class="goodsTab_container">
+		    
+		    
+		    
+		    
 		        <div id="goodsTab1" class="goodsTab_content">
 		       
-					  <ul class="bxslider"> 
+					<%--   <ul class="bxslider"> 
 					  	<c:forEach var="row" items="${list}" varStatus="var"> 
 					  		<li><img alt="" style="width:auto; height:450px;" src="${path}${row.GOODS_IMAGE_STD}"/></li>
 						</c:forEach>
-					  </ul>
+					  </ul> --%>
 					  
 		            <p>${map.GOODS_CONTENT}</p>
+		            
+		            
+		      
+		    
 		        </div>
+		        
+		        
+		        
+		        
+		        
 		        <div id="goodsTab2" class="goodsTab_content">
 		             
 						<div align='center'>
@@ -179,7 +192,7 @@
 					alert("자신의 상품은 구매할 수 없습니다.");
 					return false;
 				}else if("${map.GOODS_TSTATUS}" != 'N'){
-					alert("아니 N인데 왜 구매 안됨.");
+					alert("아니 N인데  왜 구매 안됨.");
 				}else{
 					fn_orderWriteForm($(this));
 				}
