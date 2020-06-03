@@ -4,8 +4,8 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/layout.css'/>" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
-<link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style type="text/css">
 	
@@ -21,12 +21,14 @@
    #head{
    		width:100%;
    		margin: 10px auto;
+   		clear:both;
    }
    
    #h1{
    		float:left;
    		width:30%;
-   		margin: 30px 0px 15px 0px;   
+   		margin: 30px 0px 15px 0px;
+   		display: inline;
    		
    }
    
@@ -34,35 +36,44 @@
    		float:left;
    		width:30%;
    		margin: 100px 0px 85px 100px; 
+   		display: inline;
+   }
+   
+   #menubar{
+   		float:left;
+   		width:30%;
+   		display: inline;
    }
    
    #menu{
    		width:100%;
    		margin: 10px 10px 10px auto;
+   		clear:both;
+   		float:right;
    }
    
    #h3{
-   		float:left;
+   		float:right;
    		display: inline;
    }
    
    #h4{
-   		float:left;
+   		float:right;
    		display: inline;
    }
    
    #h5{
-   		float:left;
+   		float:right;
    		display: inline;
    }
    
    #h6{
-   		float:left;
+   		float:right;
    		display: inline; 
    }
    
    #h7{
-   		float:left;
+   		float:right;
    		display: inline; 
    }
    
@@ -74,34 +85,36 @@
    
    
    .green_window {
-	display: inline-block;
-	width: 366px; height: 34px;
-	border: 3px solid #2db400;
-	background: white;
-}
-.input_text {
-	width: 348px; height: 21px;
-	margin: 6px 0 0 9px;
-	border: 0;
-	line-height: 21px;
-	font-weight: bold;
-	font-size: 16px;
-	outline: none;
-}
-.sch_smit {
-	width: 54px; height: 35px;
-	margin: 0; border: 0;
-	vertical-align: top;
-	background: #22B600;
-	color: white;
-	font-weight: bold;
-	border-radius: 1px;
-	cursor: pointer;
-}
-.sch_smit:hover {
-	background: #56C82C;
-}
-   
+		display: inline-block;
+		width: 366px; height: 34px;
+		border: 3px solid #2db400;
+		background: white;
+	}
+	
+	.input_text {
+		width: 348px; height: 21px;
+		margin: 6px 0 0 9px;
+		border: 0;
+		line-height: 21px;
+		font-size: 16px;
+		outline: none;
+	}
+	
+	.sch_smit {
+		width: 54px; height: 35px;
+		margin: 0; border: 0;
+		vertical-align: top;
+		background: #22B600;
+		color: white;
+		font-weight: bold;
+		border-radius: 1px;
+		cursor: pointer;
+	}
+	
+	.sch_smit:hover {
+		background: #56C82C;
+	}
+
 
 </style>
 
@@ -180,37 +193,6 @@
 </div>
 
 
-<!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
-<div id="head">
-	<div class="header_area" id="h1">
-	   <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/second.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
-	</div>
-<!-- 검색창 -->
-		 <div class="search_main" id="h2">
-	      <div class="search_inner">
-
-	      
-	         <form action="/second/shop" method="post">
-	          
-	            <fieldset>
-	              
-	              
-	               <span class='green_window'>
-						<input type='text' class='input_text' placeholder="Search" maxlength="20"  />
-					</span>
-					
-					<button type='submit' class='sch_smit'>검색</button>      
-					          
-	            </fieldset>
-	         </form>
-
-	         
-	      </div>
-	      </div>
-	      
-</div>
-
-
 
 <!-- 로그인 xxx -->
 <div id="menu">
@@ -264,7 +246,79 @@
        </div>
        </c:if>
 </div>
-	   
-     	 
 
-<!--//메뉴 끝-->
+
+
+
+<!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
+<div id="head">
+	<div class="header_area" id="h1">
+	   <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/second.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
+	</div>
+<!-- 검색창 -->
+		 <div class="search_main" id="h2">
+	      <div class="search_inner">
+
+	      
+	         <form action="/second/shop" method="post">
+	          
+	            <fieldset>
+	              
+	              
+	               <span class='green_window'>
+						<input type='text' class='input_text' placeholder="Search" maxlength="20"  />
+					</span>
+					
+					<button type='submit' class='sch_smit' onClick="onSearch()">검색</button>
+					
+	            </fieldset>
+	         </form>
+
+	         
+	      </div>
+	      </div>
+	      
+<!-- 드롭메뉴 -->	      
+	      <div class="container" id="menubar">
+		  <p>Click!</p>
+		  <div class="panel-group">
+		    <div class="panel panel-default">
+		    
+		      <div class="panel-heading">
+			        <h4 class="panel-title">
+			          <a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+			        </h4>
+		      </div>
+		      
+		      <div id="collapse1" class="panel-collapse collapse">
+			        <ul class="list-group">
+			          <li class="list-group-item">One</li>
+			          <li class="list-group-item">Two</li>
+			          <li class="list-group-item">Three</li>
+			        </ul>
+		        <div class="panel-footer">Footer</div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+	      
+	      
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

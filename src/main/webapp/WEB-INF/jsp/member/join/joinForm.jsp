@@ -15,7 +15,7 @@
 <style>
 
    body {
-        background:linear-gradient(to bottom right, #CEFBC9, #f0e199);
+        background:linear-gradient(to bottom right, white, white);
    }
 
 </style>
