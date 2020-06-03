@@ -14,10 +14,10 @@
 			<td style="width: 250px">${cMap.COMMENTS_DATE }</td>
 			<c:choose> 
 				<c:when test="${cMap.COMMENTS_REPLY == 'N'}">
-					<td style="width: 100px">답변대기</td>
+					답변대기</td>
 				</c:when>
 				<c:when test="${cMap.COMMENTS_REPLY == 'Y'}">
-					<td style="width: 100px">답변완료</td>
+					답변완료</td>
 				</c:when>
 			</c:choose>
 					<td rowspan="2" style="width: 100px" align="center">
