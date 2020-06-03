@@ -108,6 +108,56 @@
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
+   <!-- 상품올리기  -->
+   	  <definition name="goodsList" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsList.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <definition name="goodsWriteForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <definition name="goodsWrite" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteResult.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+    <definition name="goodsModifyForm" extends="default_sample">
+        <put-attribute name="body" value="" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+    <definition name="goodsModify" extends="default_sample">
+        <put-attribute name="body" value="" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+    <definition name="goodsDelete" extends="default_sample">
+        <put-attribute name="body" value="" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+     <definition name="goodsDetail" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsDetail.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+       <definition name="goodsLike" extends="default_sample">
+        <put-attribute name="body" value="" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+       <definition name="goodsUnlike" extends="default_sample">
+        <put-attribute name="body" value="" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
 
    
 </tiles-definitions>
