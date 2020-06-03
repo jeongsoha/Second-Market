@@ -12,7 +12,7 @@ var openWin;
 {
     // window.name = "부모창 이름"; 
     window.name = "parentForm";
-    var url = "http://localhost:8000/nnS/admin/qnaPro";
+    var url = "http://localhost:8000/second/admin/qnaPro";
     param = "?title=" + title;
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
     openWin = window.open(encodeURI(url+param),
@@ -26,7 +26,7 @@ function openChild(num)
 {
     // window.name = "부모창 이름"; 
     window.name = "parentForm";
-    var url = "/nnS/admin/qnaPro";
+    var url = "/second/admin/qnaPro";
     param = "?QNA_NUM=" + num;
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
     openWin = window.open(encodeURI(url+param),

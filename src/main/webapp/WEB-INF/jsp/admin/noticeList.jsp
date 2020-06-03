@@ -107,7 +107,7 @@ function fn_openBoardDetail(obj) {
 						</div>
 					</div>
 					<div align="right">
-                 		<a href="/nnS/community/noticeWriteForm">
+                 		<a href="/second/community/noticeWriteForm">
                  			<button type="button" class="btn btn-outline btn-default">글쓰기</button>
                  		</a>
                 	</div>

@@ -25,14 +25,7 @@
 
 <div id="content">
 	<div id="vertical_tab-container">
-	<!--
-		<ul>
-			 <li <c:if test="${sortType eq 'all'}">class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>전체상품</a></li>
-	         <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>>인기상품</a></li>
-	         <li <c:if test="${sortType eq 'new'}">class="selected"</c:if>><a href=<c:url value="/shop/newGoodsList"/>>신규상품</a></li>
-	         <li <c:if test="${sortType eq ''}">class="selected"</c:if>><a href=<c:url value="/shop"/>>카테고리</a></li>
-		</ul>
-		 -->
+
 	</div>
 	<div id="main-container">
 		<table border="1" align="center" style="min-height:100%">
@@ -57,25 +50,27 @@
 					</td>
 					<td colspan="3" style="padding:0 0 0 20px; font-size:15px;">
 						<br>
-						<img src="/nnS/resources/images/goods_brand.png"> : ${map.GOODS_BRAND}<br />
-						<img src="/nnS/resources/images/goods_model.png"> : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
-						<img src="/nnS/resources/images/goods_pstatus.png"> : ${map.GOODS_STATUS}<br/>
+
+						모델명 : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
+						판매수량 : ${map.GOODS_QTY} <br/>
 						<input type="hidden" id="IDX" name="IDX" value="${map.GOODS_NUM}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
-						<img src="/nnS/resources/images/goods_price.png"> : ${map.GOODS_PRICE}<br /> 
-						<img src="/nnS/resources/images/goods_dprice.png">: ${map.GOODS_DCOST} <br /><!-- 테이블에 없음 --> 
-						<img src="/nnS/resources/images/goods_total.png"> : <c:out value="${map.GOODS_PRICE+map.GOODS_DCOST}"/><br/>
+						판매가격 : ${map.GOODS_PRICE}<br /> 
+						<br/>
 						<br>
 					</td>
 				</tr>
 				<tr align="center">
 				<td>
-					<a href='#this' id="buy"><img src=<c:url value="/resources/images/baro.png"/> id='baro_img' style="width:60px; height:30px"></a>
+					<a href='#this' id="buy"> 바로구매</a>
 				</td>
 				<td> 
-					<a href='javascript: report_func();'><img src=<c:url value="/resources/images/siren2.png"/> id='report_img' style="width:60px; height:30px"></a>
+					<a href='javascript: report_func();'>신고하기</a>
 				</td>
 				<td>	
+				
+				
+				
 					<c:choose>
 						<c:when test="${goodsLikeMap.GOODS_LIKE_YN eq 0}">
 					    	<a href='javascript: like_func();'><img src=<c:url value="/resources/images/like_black.png"/> id='unlike_img' style="width:30px; height:30px"></a>
@@ -96,25 +91,40 @@
 		        <li><a href="#goodsTab3"><img src="./../resources/images/goods_tab_3.png" height="25"></a></li>
 		    </ul>
 		    <div class="goodsTab_container">
+		    
+		    
+		    
+		    
 		        <div id="goodsTab1" class="goodsTab_content">
 		       
-					  <ul class="bxslider"> 
+					<%--   <ul class="bxslider"> 
 					  	<c:forEach var="row" items="${list}" varStatus="var"> 
 					  		<li><img alt="" style="width:auto; height:450px;" src="${path}${row.GOODS_IMAGE_STD}"/></li>
 						</c:forEach>
-					  </ul>
+					  </ul> --%>
 					  
 		            <p>${map.GOODS_CONTENT}</p>
+		            
+		            
+		      
+		    
 		        </div>
+		        
+		        
+		        
+		        
+		        
 		        <div id="goodsTab2" class="goodsTab_content">
 		             
 						<div align='center'>
 	                        <!-- 뭐든 넣어도됨(작성자 등등) -->
+	                        판매자에게 문의하고자 하는 내용을 작성해 주세요. 욕설/비방/지나친 비속어 등이 기재된 글은 예고없이 삭제될 수 있습니다.
 			      		</div>
+			      		</br>
 			      		<!-- 문의 작성 폼 -->
 			      		<form id="frm" name="frm">
 				      		<c:if test="${session_MEM_ID != NULL}">
-					      		<div width="100%">
+					      		<div width="100%" align='center'>
 				      				<textarea name='COMMENTS_CONTENT' id='COMMENTS_CONTENT' rows='5' cols='150' style='resize: none;'></textarea>
 				      				<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="1"/>
 				      				<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${map.GOODS_NUM}"/>
@@ -139,16 +149,16 @@
 						판매자 성별 : ${memberMap.MEM_GEN}<br/>
 						판매자 이메일 : ${memberMap.MEM_EMAIL}<br /> 
 						판매자 연락처 : ${memberMap.MEM_PHONE}<br />
-						<br>
+					<br>
 		        </div>
 		    </div>
 		    <br>
 		    <br/>
-		<a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
+		<a href="#this" class="btn" id="list">목록으로</button></a>
 		
 		<c:if test="${session_MEM_ID eq map.MEM_ID && session_MEM_ID ne null}">
-			<a href="#this" class="btn" id="update"><button class="bttn-bordered bttn-xs bttn-primary">수정하기</button></a>
-			<a href="#this" class="btn" id="delete"><button class="bttn-bordered bttn-xs bttn-primary">삭제하기</button></a>
+			<a href="#this" class="btn" id="update">수정하기</button></a>
+			<a href="#this" class="btn" id="delete">삭제하기</button></a>
 		</c:if>
 		</div>
    </div>
@@ -182,7 +192,7 @@
 					alert("자신의 상품은 구매할 수 없습니다.");
 					return false;
 				}else if("${map.GOODS_TSTATUS}" != 'N'){
-					alert("이미 거래중인 상품은 구매할 수 없습니다.");
+					alert("아니 N인데  왜 구매 안됨.");
 				}else{
 					fn_orderWriteForm($(this));
 				}

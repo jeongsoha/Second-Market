@@ -11,10 +11,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>nnS 관리자페이지</title>
+    <title>second 관리자페이지</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/nnS/resources/admin/bootstrapadmin.min.css" rel="stylesheet">
+    <link href="/second/resources/admin/bootstrapadmin.min.css" rel="stylesheet">
    <style type="text/css">
       @media(min-width:768px) {
           #page-wrapper {
@@ -26,16 +26,16 @@
    </style>
 
     <!-- Custom CSS -->
-    <link href="/nnS/resources/admin/sb-admin-2.css" rel="stylesheet">
+    <link href="/second/resources/admin/sb-admin-2.css" rel="stylesheet">
    <!-- jQuery -->
    
-    <script src="/nnS/resources/admin/jquery.min.js"></script>
+    <script src="/second/resources/admin/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/nnS/resources/admin/bootstrap.min.js"></script>
+    <script src="/second/resources/admin/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->      
-    <script src="/nnS/resources/admin/sb-admin-2.js"></script>   
+    <script src="/second/resources/admin/sb-admin-2.js"></script>   
 </head>
    
 <body>
@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>  
                 </button>
-                <a class="navbar-brand"style="color:#ffffff;" href="/nnS/admin"><strong>nnS# 관리자페이지 </strong></a>
+                <a class="navbar-brand"style="color:#ffffff;" href="/second/admin"><strong>second# 관리자페이지 </strong></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -62,19 +62,19 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="/nnS/admin" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>관리자홈  </a>
+                            <a href="/second/admin" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>관리자홈  </a>
                         </li>
                   <li>
-                            <a href="/nnS/shop/allGoodsList" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>쇼핑몰로 이동  </a>
+                            <a href="/second/shop/allGoodsList" style="background: #e7e7e7;border-bottom: 1px solid #F8F8F8;"><i class="fa fa-dashboard fa-fw"></i>쇼핑몰로 이동  </a>
                         </li>
                         <li class="active">  
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-dashboard fa-fw"></i>회원관리<span class="fa arrow">▼</span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/nnS/admin/memberList">- 회원목록 </a>
+                                    <a href="/second/admin/memberList">- 회원목록 </a>
                                 </li>
                                 <li>
-                                    <a href="/nnS/admin/reportProList">- 신고처리</a>
+                                    <a href="/second/admin/reportProList">- 신고처리</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -83,7 +83,7 @@
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-bar-chart-o fa-fw"></i>상품관리<span class="fa arrow">▼</span></a>
                       <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/nnS/admin/goodsList">- 상품목록 </a>
+                                    <a href="/second/admin/goodsList">- 상품목록 </a>
                                 </li>
                             </ul>
                         </li>                     
@@ -91,13 +91,13 @@
                             <a href="#"style="background: #e7e7e7;"><i class="fa fa-bar-chart-o fa-fw"></i>게시판관리<span class="fa arrow">▼</span></a>
                       <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/nnS/admin/noticeList">- 공지사항</a>
+                                    <a href="/second/admin/noticeList">- 공지사항</a>
                                 </li>
                                 <li>
-                                    <a href="/nnS/admin/boardList">- 자유게시판</a>
+                                    <a href="/second/admin/boardList">- 자유게시판</a>
                                 </li>
                                 <li>
-                                    <a href="/nnS/admin/qnaList">- Q&A</a>
+                                    <a href="/second/admin/qnaList">- Q&A</a>
                                 </li>
                             </ul>
                         </li>
