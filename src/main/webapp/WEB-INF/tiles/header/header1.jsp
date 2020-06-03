@@ -212,7 +212,7 @@
          <a href="${contextPath}/second/joinForm">회원가입</a> 
          <a href="${contextPath}/second/findId">ID/PW찾기</a>
          
-=======
+         </c:if>
 <div id="head">
 	<div class="header_area" id="h1">
 	   <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/second.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
@@ -253,23 +253,10 @@
 	         <a href="${contextPath}/second/loginForm" class="log">로그인</a>  &nbsp;&nbsp;
 	         <a href="${contextPath}/second/joinForm">회원가입</a>              &nbsp;&nbsp;
 	         <a href="${contextPath}/second/findId">ID/PW찾기</a>             &nbsp;&nbsp;
->>>>>>> origin/soha2
+
          </c:if>
     </div>
-         
-<<<<<<< HEAD
-         <c:if test="${session_MEM_ID != null }">
-        <p style="font-color:#666; font-size:12px;">${session_MEM_ID}&nbsp;님</p>
-            <c:if test="${session_MEM_ID == 'admin' }">
 
-              <a href="/second/admin">관리자페이지</a>   
-            </c:if>
-         <a href="${contextPath}/second/logout" class="log">로그아웃</a>
-         <a href="${contextPath}/second/myPage">마이페이지</a>
-         <a href="${contextPath}/second/myshop">내상점</a>
-         </c:if>
-      
-=======
 <!-- 로그인ooo -->
 
          
@@ -288,22 +275,8 @@
            </c:if>
      </div>
 
-<!-- 로그인 ooo -->
-		
-		<!-- 내상점 / 커뮤니티 창일 경우에 띄워주는 메뉴 시작 -->
-		<%-- <c:if test="${session_shopAndCommunity}"> --%>
-		   <div class="tab_cate" id="h5">    
-		      <div class="tabs_area">  
-		         <class="tabs">
-		            <a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a>     &nbsp;&nbsp;
-		           <a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a>  &nbsp;&nbsp;
-		         </class>
-		      </div>
-		   </div>
-		<%-- </c:if> --%>
-		
+
 <!-- 로그인 ooo  알림버튼 -->
->>>>>>> origin/soha2
       
       <c:if test="${session_MEM_ID != null}">
          <div class="dropdown" id="h6">
@@ -314,7 +287,6 @@
 	   
      	 
 
-<<<<<<< HEAD
 <!-- 내상점 / 커뮤니티 창일 경우에 띄워주는 메뉴 시작 -->
 <%-- <c:if test="${session_shopAndCommunity}"> --%>
    <div class="tab_cate">    
@@ -327,6 +299,5 @@
       </div>
    </div>
 <%-- </c:if> --%>
-=======
->>>>>>> origin/soha2
+
 <!--//메뉴 끝-->

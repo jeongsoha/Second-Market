@@ -86,7 +86,7 @@
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
-<<<<<<< HEAD
+
    <!-- GoodsShop -->
    <definition name="goodsList" extends="default">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsList.jsp" />
@@ -121,7 +121,7 @@
    <definition name="orderDetail" extends="default2">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderDetail.jsp" />
    </definition>
-=======
+
       <!--비밀번호 변경/jp -->
    <definition name="pwModifyForm" extends="default_sample">
         <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwModifyForm.jsp" />
@@ -146,6 +146,5 @@
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
->>>>>>> origin/soha2
    
 </tiles-definitions>
