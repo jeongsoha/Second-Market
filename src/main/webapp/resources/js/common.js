@@ -68,7 +68,7 @@ function ComAjax(opt_formId){
             url : this.url,   
             type : "POST",  
             data : this.param,
-         //   async : false,	// https://e2xist.tistory.com/529 참고해서 삭제해봄
+          async : false,	// https://e2xist.tistory.com/529 참고해서 삭제해봄
             success : function(data, status) {
                 if(typeof(fv_ajaxCallback) == "function"){
                     fv_ajaxCallback(data);
