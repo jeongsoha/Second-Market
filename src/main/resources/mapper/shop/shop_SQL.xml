@@ -55,6 +55,7 @@
 		<if test="sortType != null">
 			<if test="sortType == 'all'.toString()">ORDER BY AAA.GOODS_DATE DESC</if>
 			<if test="sortType == 'like'.toString()">ORDER BY AAA.TOTAL_COUNT2 DESC</if>
+			<if test="sortType == 'price'.toString()">ORDER BY AAA.PRICE DESC</if>
 			<if test="sortType == 'view'.toString()">ORDER BY AAA.GOODS_COUNT DESC</if>
 		</if>
 	</sql>

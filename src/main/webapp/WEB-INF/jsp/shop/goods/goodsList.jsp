@@ -175,7 +175,8 @@ h1 {
    <div id="vertical_tab-container">
       <ul>
          <li <c:if test="${sortType eq 'all'}">class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>>등록순</a></li>
-         <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>>>가격높은순</a></li>
+       <%--   <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>>>가격높은순</a></li> --%>
+         <li <c:if test="${sortType eq 'price'}">class="selected"</c:if>><a href=<c:url value="/shop/priceGoodsList"/>>>가격높은순</a></li>
          <li <c:if test="${sortType eq 'view'}">class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>>인기순</a></li>
       </ul>
    </div>

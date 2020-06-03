@@ -12,14 +12,15 @@ function gfn_isNull(str) {
 function ComSubmit(opt_formId) {
 	this.formId = gfn_isNull(opt_formId) == true ? "commonForm" : opt_formId;
 	this.url = "";
-	
+	var this_url = "";
 	if(this.formId == "commonForm"){
-		$("#commonForm")[0].reset();
+		//$("#commonForm")[0].reset();
 		$("#commonForm").empty();
 	}
 	
 	this.setUrl = function setUrl(url){
 		this.url = url;
+		this_url = url; 
 	};
 	
 	this.addParam = function addParam(key, value){
@@ -27,8 +28,11 @@ function ComSubmit(opt_formId) {
 	};
 	
 	this.submit = function submit(){
-		var frm = $("#"+this.formId)[0];
-		frm.action = this.url;
+		frm = new formdata();
+		if (frm == null){
+			frm = new formdata();
+			}
+		frm.action = this_url;
 		frm.method = "post";
 		frm.submit();	
 	};
