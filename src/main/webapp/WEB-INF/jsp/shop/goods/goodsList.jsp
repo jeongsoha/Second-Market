@@ -174,9 +174,9 @@ h1 {
 <div id="content">
    <div id="vertical_tab-container">
       <ul>
-         <li <c:if test="${sortType eq 'all'}">class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>><img src=<c:url value="./../resources/images/goods_tab1.png"/>></a></li>
-         <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>><img src=<c:url value="./../resources/images/goods_tab2.png"/>></a></li>
-         <li <c:if test="${sortType eq 'view'}">class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>><img src=<c:url value="./../resources/images/goods_tab3.png"/>></a></li>
+         <li <c:if test="${sortType eq 'all'}">class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>>등록순</a></li>
+         <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>>>가격높은순</a></li>
+         <li <c:if test="${sortType eq 'view'}">class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>>인기순</a></li>
       </ul>
    </div>
    <div id="main-container">
@@ -329,9 +329,7 @@ h1 {
 										+									value.MEM_ID
 										+	                          "</p>"
 										+	         "</div>"
-										+	         "<p class='card-body-description'>"
-										+	            value.GOODS_CONTENT
-										+	         "</p>"
+
 										+	         "<div class='card-body-footer'>"
 										+	            "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"
 										+	            "<i class='icon icon-view_count'></i>조회수 "

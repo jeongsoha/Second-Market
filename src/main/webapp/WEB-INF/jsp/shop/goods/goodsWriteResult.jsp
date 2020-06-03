@@ -26,7 +26,7 @@
       <p align="center">
         <a href="#this" class="btn" id="goods">상품으로</a>
 		<a href="#this" class="btn" id="list">목록으로</a>
-		<a href="#this" class="btn" id="list">목록으로</button></a>
+
 	</div>
 </div>
 
@@ -37,10 +37,12 @@ $(document).ready(function(){
 		fn_goodsDetail($(this));
 	});
 	
-	$("#list").on("click", function(e){ //목록으로 버튼
+
+	$(document).on("click", "[id=='list']", function () {
 		e.preventDefault();
 		fn_openGoodsList();
 	});
+	
 });	
 	
 	
