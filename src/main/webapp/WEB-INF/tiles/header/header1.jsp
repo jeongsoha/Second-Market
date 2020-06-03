@@ -69,9 +69,38 @@
    #header{
    		width:100%;
    		height:20px;
-   		background-color:#7CCE76;
+   		background-color:#2db400;
    }
    
+   
+   .green_window {
+	display: inline-block;
+	width: 366px; height: 34px;
+	border: 3px solid #2db400;
+	background: white;
+}
+.input_text {
+	width: 348px; height: 21px;
+	margin: 6px 0 0 9px;
+	border: 0;
+	line-height: 21px;
+	font-weight: bold;
+	font-size: 16px;
+	outline: none;
+}
+.sch_smit {
+	width: 54px; height: 35px;
+	margin: 0; border: 0;
+	vertical-align: top;
+	background: #22B600;
+	color: white;
+	font-weight: bold;
+	border-radius: 1px;
+	cursor: pointer;
+}
+.sch_smit:hover {
+	background: #56C82C;
+}
    
 
 </style>
@@ -164,19 +193,14 @@
 	         <form action="/second/shop" method="post">
 	          
 	            <fieldset>
-	               
-	               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	               
-	              <select name="searchType">
-	                 <option value="n" selected>-----</option>
-	                 <option value="title">상품명</option>
-	                 <option value="content">내용</option>
-	                 <option value="brand">브랜드</option>
-	              </select>
 	              
-	                <input type="text" class="txt" placeholder="검색어를 입력해 주세요" maxlength="20" name="keyword"/>&nbsp;
-	                <input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
-	                	                
+	              
+	               <span class='green_window'>
+						<input type='text' class='input_text' placeholder="Search" maxlength="20"  />
+					</span>
+					
+					<button type='submit' class='sch_smit'>검색</button>      
+					          
 	            </fieldset>
 	         </form>
 
