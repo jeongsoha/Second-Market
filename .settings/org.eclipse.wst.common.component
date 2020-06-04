@@ -3,7 +3,7 @@
     
     
     
-    <wb-module deploy-name="first">
+    <wb-module deploy-name="second">
                                         
         
         
@@ -28,6 +28,7 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
                                 		
         
         
