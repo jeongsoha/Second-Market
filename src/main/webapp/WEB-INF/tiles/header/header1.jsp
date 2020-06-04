@@ -41,7 +41,8 @@
    
    #menubar{
    		float:left;
-   		width:30%;
+   		width:200px;
+   		margin: 100px 0px 85px 100px; 
    		display: inline;
    }
    
@@ -113,6 +114,11 @@
 	
 	.sch_smit:hover {
 		background: #56C82C;
+	}
+	
+	#bell{
+		width:55px;
+		height:55px;
 	}
 
 
@@ -188,16 +194,29 @@
 </script>
 
 
+<!-- 초록색 줄 -->
+
 <div id="header">
 	
 </div>
 
 
 
-<!-- 로그인 xxx -->
-<div id="menu">
+<!-- 오른쪽 위 작은 메뉴들 -->
+
+	<div id="menu">
 
 
+<!-- 로그인 o  알림버튼 -->
+      
+      <c:if test="${session_MEM_ID != null}">
+         <div class="dropdown" id="h6">
+         <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
+       </div>
+       </c:if>
+       
+       
+<!-- 로그인 x -->
  	<div id="h3">
          <c:if test="${session_MEM_ID == null }">
 	         <a href="${contextPath}/second/loginForm" class="log">로그인</a>  &nbsp;&nbsp;
@@ -206,28 +225,9 @@
          </c:if>
     </div>
          
-<!-- 로그인ooo -->
-
          
-        <div id="h7"> 
-        			  <c:if test="${session_MEM_ID != null }">
-					     <a href="#" style="font-color:#666; font-size:12px;" class="tab_a1"><span>${session_MEM_ID}&nbsp;님</span></a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
+<!-- 로그인 o,x -->
 		
-		<div id="h4">
-			<c:if test="${session_MEM_ID == 'admin' }">
-	          <a href="/second/admin">관리자페이지</a>
-	       </c:if>
-		         <a href="${contextPath}/second/logout" class="log">로그아웃</a> &nbsp;&nbsp;
-		         <a href="${contextPath}/second/myPage">마이페이지</a>           &nbsp;&nbsp;
-		         <a href="${contextPath}/second/myshop">내상점</a>              &nbsp;&nbsp;
-           </c:if>
-     </div>
-
-<!-- 로그인 ooo -->
-		
-		<!-- 내상점 / 커뮤니티 창일 경우에 띄워주는 메뉴 시작 -->
-		<%-- <c:if test="${session_shopAndCommunity}"> --%>
 		   <div class="tab_cate" id="h5">    
 		      <div class="tabs_area">  
 		         <class="tabs">
@@ -236,26 +236,43 @@
 		         </class>
 		      </div>
 		   </div>
-		<%-- </c:if> --%>
+		   
+<!-- 로그인o -->
 		
-<!-- 로그인 ooo  알림버튼 -->
-      
-      <c:if test="${session_MEM_ID != null}">
-         <div class="dropdown" id="h6">
-         <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
-       </div>
-       </c:if>
+		<div id="h4">
+			<c:if test="${session_MEM_ID != null }">
+			<c:if test="${session_MEM_ID == 'admin' }">
+	          <a href="/second/admin">관리자페이지</a>
+	       </c:if>
+		         <a href="${contextPath}/second/logout" class="log">로그아웃</a> &nbsp;&nbsp;
+		         <a href="${contextPath}/second/myPage">마이페이지</a>           &nbsp;&nbsp;
+		         <a href="${contextPath}/second/myshop">내상점</a>              &nbsp;&nbsp;
+		   </c:if>
+    	</div>
+ 
+ <!-- 로그인o -->
+    
+             <div id="h7"> 
+        			  <c:if test="${session_MEM_ID != null }">
+					     <a href="#" style="font-color:#666; font-size:12px;" class="tab_a1"><span>${session_MEM_ID}&nbsp;님</span></a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	     				</c:if>
+			</div>
+   
 </div>
 
 
 
-
-<!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
-<div id="head">
+	<div id="head">
+	
+<!-- second로고 -->
+	
 	<div class="header_area" id="h1">
 	   <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/second.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
 	</div>
+	
+	
 <!-- 검색창 -->
+
 		 <div class="search_main" id="h2">
 	      <div class="search_inner">
 
@@ -280,23 +297,25 @@
 	      
 <!-- 드롭메뉴 -->	      
 	      <div class="container" id="menubar">
-		  <p>Click!</p>
 		  <div class="panel-group">
 		    <div class="panel panel-default">
 		    
-		      <div class="panel-heading">
+		      <div class="panel-heading" id="bell">
 			        <h4 class="panel-title">
-			          <a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+			          	<a data-toggle="collapse" href="#collapse1"><img src="<c:url value="/resources/images/menu.png"/>" style="width:55px; height:55px;"/></a>
 			        </h4>
 		      </div>
 		      
 		      <div id="collapse1" class="panel-collapse collapse">
 			        <ul class="list-group">
-			          <li class="list-group-item">One</li>
-			          <li class="list-group-item">Two</li>
-			          <li class="list-group-item">Three</li>
+			          <li class="list-group-item"><a href="/second/sample/openBoardList">패션의류</a></li>
+			          <li class="list-group-item"><a href="/second/sample/openBoardList">가전제품</a></li>
+			          <li class="list-group-item"><a href="/second/sample/openBoardList">패션잡화</a></li>
+			          <li class="list-group-item"><a href="/second/sample/openBoardList">뷰티</a></li>
+			          <li class="list-group-item"><a href="/second/sample/openBoardList">도서/음반</a></li>
+			          <li class="list-group-item"><a href="/second/sample/openBoardList">티켓/쿠폰</a></li>
 			        </ul>
-		        <div class="panel-footer">Footer</div>
+		        <div class="panel-footer"><a href="/second/sample/openBoardList">Q&A</a></div>
 		      </div>
 		      
 		    </div>
@@ -304,7 +323,7 @@
 		</div>
 	      
 	      
-</div>
+    </div>
 
 
 
