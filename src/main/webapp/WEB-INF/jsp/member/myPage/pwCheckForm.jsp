@@ -16,7 +16,7 @@
                <h2 class="card-title text-center" style="color:#113366;"><img src="./resources/images/mypage_pwcheck.png"></h2>
             </div>
             <div class="card-body">
-               <img src="/nnS/resources/images/mypage_pw.png"> <input type="password" id="MEM_PW" name="MEM_PW" class="form-control" placeholder="Password">
+               <img src="/second/resources/images/mypage_pw.png"> <input type="password" id="MEM_PW" name="MEM_PW" class="form-control" placeholder="Password">
             </div>
          
             <div class="card-body">

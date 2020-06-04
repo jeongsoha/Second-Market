@@ -92,7 +92,7 @@ public class LoginController {
 		if (session != null)
 			session.invalidate();
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/main");
+		mv.setViewName("redirect:/sample/openBoardList");
 		return mv;
 	}
 

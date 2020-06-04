@@ -25,7 +25,7 @@
    <!-- LoginController -->
    <li><a href="/second/loginForm">로그인폼</a></li>
    <li><a href="/second/myPage">마이페이지</a></li>
-   <li><a href="/nnS/logout">로그아웃</a></li>
+   <li><a href="/second/logout">로그아웃</a></li>
    <li><a href="/nnS/findId">아이디찾기폼</a></li>
    <li><a href="/nnS/findIdResult">아이디찾기</a></li>
    <li><a href="/nnS/findPw">비밀번호찾기폼</a></li>

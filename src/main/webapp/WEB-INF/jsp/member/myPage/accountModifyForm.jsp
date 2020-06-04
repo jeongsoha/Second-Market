@@ -22,21 +22,25 @@
 	   </div>
 	   <div id="main-container">
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/nnS/resources/images/mypage_infochange.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_infochange.png"></h2>
             </div>
             <form id="accountModifyForm" method="post">
             <div class="card-body">
             	
-              <img src="/nnS/resources/images/mypage_id.png"> <div class="form-control">${map.MEM_ID } </div><br>
-               <img src="/nnS/resources/images/mypage_name.png"> <div class="form-control">${map.MEM_NAME } </div><br>
-			   <img src="/nnS/resources/images/mypage_birth.png"><div class="form-control">생년월일 ${map.MEM_BIRTH }</div><br>
-			  <img src="/nnS/resources/images/mypage_gen.png"><div class="form-control">${map.MEM_GEN }</div><br>
-			   <img src="/nnS/resources/images/mypage_email.png"><input type="text" id="MEM_EMAIL" name="MEM_EMAIL" class="form-control" placeholder="${map.MEM_EMAIL }"><br>
-		       <img src="/nnS/resources/images/mypage_phone.png"><input type="text" id="MEM_PHONE" name="MEM_PHONE" class="form-control" placeholder="${map.MEM_PHONE }"><br>
-			   <img src="/nnS/resources/images/mypage_zip.png"><input type="text" id="MEM_ZIP" name="MEM_ZIP" class="form-control" placeholder="${map.MEM_ZIP }"><br>
-			   		 <input type="button" onclick="zipcode()" value="우편번호 찾기"><br>
-			   <img src="/nnS/resources/images/mypage_add.png"><input type="text" id="MEM_ADD1" name="MEM_ADD1" class="form-control" placeholder="${map.MEM_ADD1 }"><br>
-			   <img src="/nnS/resources/images/mypage_add2.png"><input type="text" id="MEM_ADD2" name="MEM_ADD2" class="form-control" placeholder="${map.MEM_ADD2 }"><br>	
+              <img src="/second/resources/images/mypage_id.png"> <div class="form-control">${map.MEM_ID } </div><br>
+              <img src="/second/resources/images/mypage_name.png"> <input type="text" id="MEM_NAME" name="MEM_NAME" class="form-control" placeholder="${map.MEM_NAME }"><br>
+              <img src="/second/resources/images/mypage_birth.png"><input type="text" id="MEM_BIRTH" name="MEM_BIRTH" class="form-control" placeholder="${map.MEM_BIRTH }"><br>
+              <img src="/second/resources/images/mypage_gen.png">
+              <br>&nbsp;&nbsp;
+              <input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성" checked />&nbsp;&nbsp;남성&nbsp;&nbsp;
+             &nbsp;&nbsp; <input type="radio" id="MEM_GEN_F" name="MEM_GEN" value="여성"/>&nbsp;&nbsp;여성&nbsp;&nbsp;	 <br><br>
+              
+                					
+			   <img src="/second/resources/images/mypage_email.png"><input type="text" id="MEM_EMAIL" name="MEM_EMAIL" class="form-control" placeholder="${map.MEM_EMAIL }"><br>
+		       <img src="/second/resources/images/mypage_phone.png"><input type="text" id="MEM_PHONE" name="MEM_PHONE" class="form-control" placeholder="${map.MEM_PHONE }"><br>
+			   
+			   <img src="/second/resources/images/mypage_add.png"><input type="text" id="MEM_ADD1" name="MEM_ADD1" class="form-control" placeholder="${map.MEM_ADD1 }"><br>
+			 
             </div>
          
             <div class="card-body">
@@ -109,6 +113,25 @@ $(document).ready(function() { //변경 버튼 클릭시
  function fn_check(accountModifyForm) { //변경 버튼 클릭시(유효성검증, 데이터입력)
     var chk = $("input[name=agree_required]");
 
+     if(!$("#MEM_NAME").val()){
+        alert("이름을 입력해주세요.");
+        $("#MEM_NAME").focus();
+        return false;
+     }
+
+    if(!$("#MEM_BIRTH").val()){
+        alert("생년월일을 입력해주세요.");
+        $("#MEM_BIRTH").focus();
+        return false;
+     }
+
+    var MEM_GEN = $('#MEM_GEN_M');
+    
+    if($(':radio[name="MEM_GEN"]:checked').length < 1){
+        alert('성별을 선택해주세요');                        
+        MEM_GEN.focus();
+        return false;
+    }
     if(!$("#MEM_EMAIL").val()){
        alert("이메일을 입력해주세요.");
        $("#MEM_EMAIL").focus();
@@ -121,22 +144,13 @@ $(document).ready(function() { //변경 버튼 클릭시
         return false;
      }
 
-    if(!$("#MEM_ZIP").val()){
-        alert("우편번호를 입력해주세요.");
-        $("#MEM_ZIP").focus();
-        return false;
-     }
+   
     if(!$("#MEM_ADD1").val()){
         alert("집주소 입력해주세요.");
         $("#MEM_ADD1").focus();
         return false;
      }
-    if(!$("#MEM_ADD2").val()){
-        alert("상세주소를 입력해주세요.");
-        $("#MEM_ADD2").focus();
-        return false;
-     }
-
+ 
     var comSubmit = new ComSubmit("accountModifyForm");
     comSubmit.setUrl("<c:url value='/myPage/accountModify'/>");
     comSubmit.submit();

@@ -30,7 +30,7 @@
             </div>
          
             <div class="card-body">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="메인으로" id="gomain" onclick="document.location.href='/nnS/main'" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="메인으로" id="gomain" onclick="document.location.href='/second/sample/openBoardList'" style="background-color:#26a69a;">
 				<br>
             </div>
          </div>

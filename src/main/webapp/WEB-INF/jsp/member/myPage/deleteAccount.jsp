@@ -57,19 +57,19 @@ $(document).ready(function() { //변경 버튼 클릭시
 	   </div>
 	   <div id="main-container">
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/nnS/resources/images/mypage_delete.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_delete.png"></h2>
             </div>
             <form id="deleteAccountForm" method="post">
             <div class="card-body">
             <p>
             	한 번 탈퇴하시면 회원님의 정보를 복구할 수 없습니다.<br/>신중히 선택해 주시길 바랍니다.
 			</p>
-               <img src="/nnS/resources/images/mypage_pw.png"><input class="form-control" type="password" id="MEM_PW" name="MEM_PW"><br>
+               <img src="/second/resources/images/mypage_pw.png"><input class="form-control" type="password" id="MEM_PW" name="MEM_PW"><br>
             </div>
          
             <div class="card-body">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="탈퇴하기" id="delete" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/nnS/main'" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/sample/openBoardList'" style="background-color:#26a69a;">
 				<br>
             </div>
             </form>

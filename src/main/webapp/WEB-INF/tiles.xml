@@ -80,11 +80,36 @@
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
+  
     <!-- myPage/jp -->
    <definition name="accountDetail" extends="default_sample">
    	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
-
+   
+      <!-- myPage회원정보 변경 폼/jp -->
+   <definition name="accountModifyForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+         <!-- myPage비밀번호 변경 폼/jp -->
+   <definition name="pwModifyForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+       <!-- myPage비밀번호 변경  완료/jp -->
+   <definition name="modifySuccess" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/modifySuccess.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+          <!-- 계정삭제/jp -->
+   <definition name="deleteAccount" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/deleteAccount.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
    
 </tiles-definitions>
