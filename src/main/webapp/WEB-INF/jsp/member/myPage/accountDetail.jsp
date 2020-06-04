@@ -10,8 +10,12 @@
 </head>
 
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-      <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
-      <div id="content">
+      <div style="border-radius:20px; background-color:#fff; margin-top:50px;">
+      
+      
+      <div id="con">
+      
+      
          <div id="vertical_tab-container">
 	         <ul>
 	         <li class="selected"><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
@@ -20,7 +24,9 @@
 	         <li><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
 	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
 	      </ul>
-	   </div>
+	    </div>
+	   
+	   
 	   <div id="main-container">
             <div class="card-title" style="margin-top:30px;">
                <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_myinfo.png"></h2>
@@ -41,7 +47,11 @@
 				<span id="pwc"></span>
 				<br>
             </div>
-         </div>
+       
+       </div>
+         
+         
+         
          </div>
       </div>
       

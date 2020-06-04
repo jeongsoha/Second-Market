@@ -19,13 +19,13 @@
 <div id="wrapper">
 
 <!-- header  --> 
-   <tiles:insertAttribute name="header"/><!-- // header -->
+   <tiles:insertAttribute name="header"/>
 
 <!-- body 1 2  --> 
-<div style="width:100%; height:300px; margin:auto;">
-   <tiles:insertAttribute name="body"/><!-- // container -->
-   <tiles:insertAttribute name="body2"/><!-- // container -->
-</div>
+   <tiles:insertAttribute name="body"/>
+   <tiles:insertAttribute name="body2"/>
+
+
 <!-- footer --> 
    <tiles:insertAttribute name="footer"/><!-- // footer -->
 

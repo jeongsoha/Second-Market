@@ -135,33 +135,38 @@
 </head>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
    <form name="myform" id="log" action="login" method="post" class="form-signin" style="clear:both">
-      <div class="card align-middle" style="width:20rem; border-radius:20px;">
+   
+   
+      <div class="card align-middle" style="width:30rem; border-radius:30px; height:300px; ">
          <div>
-            <div class="card-title" style="margin-top:30px;">
+         
+            <div class="card-title" style="margin-top:50px;">
                <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/login.png"></h2>
             </div>
             
-            <div class="card-body">   
-               <INPUT type="text" name="MEM_ID" id="MEM_ID" size="15" maxlength="12" class="form-control" placeholder="Your ID"><br>  
+            <div class="card-body" style="margin-top:20px;">   
+               <INPUT type="text" name="MEM_ID" id="MEM_ID" size="30" maxlength="12" class="form-control" placeholder="Your ID"><br>  
             </div>
    
-            <div class="card-body">
-               <INPUT type=password name="MEM_PW" id="MEM_PW" size="15" maxlength="12" class="form-control" placeholder="Password"> <br>
+            <div class="card-body" style="margin-top:20px;">
+               <INPUT type=password name="MEM_PW" id="MEM_PW" size="30" maxlength="12" class="form-control" placeholder="Password"> <br>
             </div>
          
-            <div class="card-body">
-               <input type="button" class="btn btn-lg btn-primary btn-block" value="로그인" onclick="fsubmit();" style="background-color:#1f1f1f;">
+            <div class="card-body" style="margin-top:20px;">
+               <input type="button" class="btn btn-lg btn-primary btn-block" value="로그인" onclick="fsubmit();" style="background-color:#333333;">
             </div>
          
-            <div align="center">
+            <div align="center" style="margin-top:10px;">
                <label>
-                  <input type="checkbox" id ="idSaveCheck" value="idSaveCheck" >아이디저장
+                  <input type="checkbox" id ="idSaveCheck" value="idSaveCheck" >&nbsp;아이디저장
                </label>
             </div> 
-
-    
+            
          </div>
       </div>
+      
+      
+      
    </form>
    
    <div align="center">
