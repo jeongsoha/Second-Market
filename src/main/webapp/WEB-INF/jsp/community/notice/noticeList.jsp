@@ -138,6 +138,11 @@
 							+ "</td>" + "</tr>";
 								});
 				body.append(str);
+
+				$("a[name='title']").on("click", function(e) { //페이징 처리 후 제목 클릭 시 디테일 진입
+					e.preventDefault();
+					fn_openBoardDetail($(this));
+				});
 			}
 		}
 	</script>
