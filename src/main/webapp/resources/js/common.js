@@ -12,15 +12,22 @@ function gfn_isNull(str) {
 function ComSubmit(opt_formId) {
 	this.formId = gfn_isNull(opt_formId) == true ? "commonForm" : opt_formId;
 	this.url = "";
-	var this_url = "";
+
+	
 	if(this.formId == "commonForm"){
-		//$("#commonForm")[0].reset();
-		$("#commonForm").empty();
+		var frm = $("#commonForm");
+		if(frm.length>0){
+			frm.remove();
+		}
+		var str = "<form id='commonForm' name='commonForm'></form>";
+		$('body').append(str);
+//		$("#commonForm")[0].reset();
+//		$("#commonForm").empty();
 	}
 	
 	this.setUrl = function setUrl(url){
 		this.url = url;
-		this_url = url; 
+
 	};
 	
 	this.addParam = function addParam(key, value){
@@ -28,11 +35,8 @@ function ComSubmit(opt_formId) {
 	};
 	
 	this.submit = function submit(){
-		frm = new formdata();
-		if (frm == null){
-			frm = new formdata();
-			}
-		frm.action = this_url;
+		var frm = $("#"+this.formId)[0];
+		frm.action = this.url;
 		frm.method = "post";
 		frm.submit();	
 	};
@@ -41,6 +45,7 @@ var gfv_ajaxCallback = "";
 function ComAjax(opt_formId){
     this.url = "";     
     this.formId = gfn_isNull(opt_formId) == true ? "commonForm" : opt_formId;
+    
     this.param = "";
      
     if(this.formId == "commonForm"){
@@ -72,7 +77,7 @@ function ComAjax(opt_formId){
             url : this.url,   
             type : "POST",  
             data : this.param,
-         //   async : false,	// https://e2xist.tistory.com/529 참고해서 삭제해봄
+            async : false,	// https://e2xist.tistory.com/529 참고해서 삭제했다가 안 돼서 다시 노출시킴
             success : function(data, status) {
                 if(typeof(fv_ajaxCallback) == "function"){
                     fv_ajaxCallback(data);

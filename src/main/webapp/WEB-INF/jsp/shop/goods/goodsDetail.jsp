@@ -5,7 +5,7 @@
 <head>
 	<%@ include file="/WEB-INF/include/include-header.jspf" %>
   	<script>
-  		$(document).ready(function(){ 
+/*   		$(document).ready(function(){ 
   			$('.bxslider').bxSlider({ 
   				auto: true, 
   				speed: 500, 
@@ -14,7 +14,7 @@
   				autoControls: true, 
   				pager:true, 
 			}); 
-		});
+		}); */
 	</script>
   	
 <meta charset="UTF-8">
@@ -186,17 +186,19 @@
 				e.preventDefault();
 				fn_deleteGoods();
 			});
+			
 			$("#buy").on("click", function(e) { // 바로구매 버튼
-				e.preventDefault();
+				e.preventDefault(); // submit 이벤트를 실행하지 않겠다는 의미. submit을 쓸 때 제어하기 위해서 - 보통 submit을 하지 않기 위해서 사용함
 				if("${session_MEM_ID}" == "${memberMap.MEM_ID}"){
 					alert("자신의 상품은 구매할 수 없습니다.");
 					return false;
 				}else if("${map.GOODS_TSTATUS}" != 'N'){
-					alert("아니 N인데  왜 구매 안됨.");
+					alert("이미 거래중인 상품입니다.");
 				}else{
 					fn_orderWriteForm($(this));
 				}
 			});
+			
 			$("#cWrite").on("click", function(e){
 				e.preventDefault();
 				fn_writeComment();

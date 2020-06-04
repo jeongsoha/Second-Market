@@ -24,7 +24,7 @@
       <h1 align="center"> 상품 등록이 완료되었습니다.</h1>
       <br/><br/>
       <p align="center">
-        <a href="#this" class="btn" id="goods">상품으로</a>
+        <a href="#this" class="btn" name="goods" id="goods">상품으로</a>
 		<a href="#this" class="btn" id="list">목록으로</a>
 
 	</div>
@@ -32,6 +32,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+	
 	$("a[name='goods']").on("click", function() { //제목 
 		fn_goodsDetail($(this));
 	});
@@ -62,6 +63,7 @@ $(document).ready(function(){
 		comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
 		comSubmit.submit();
 	}
+	
 </script>
 </body>
 </html>

@@ -72,9 +72,8 @@ table {
    background-size: 100% 280px;
    background-repeat: no-repeat;   
 }
-.card:hover .card-header  {
-   opacity: 0.8;
-   height: 100px;
+.card:hover  {
+   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
 }
 .card-header-is_closed{
     background-color: #EF5A31 ;
@@ -132,10 +131,7 @@ h1 {
     transition : .5s ease-in-out;
     overflow: scroll;
 }
-.card-body-hashtag {
-   color: #2478FF;
-   font-style: italic;
-}
+
 .card-body-footer {
      position: absolute; 
      margin-top: 15px;
@@ -171,15 +167,22 @@ h1 {
 
 </head>
 <body>
+
+
 <div id="content">
+<br><br><br><br><br><br><br>
+
    <div id="vertical_tab-container">
       <ul>
-         <li <c:if test="${sortType eq 'all'}">class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>>등록순</a></li>
+         <li <c:if test="${sortType eq 'all'}"> class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>>등록순</a></li>
        <%--   <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>>>가격높은순</a></li> --%>
-         <li <c:if test="${sortType eq 'price'}">class="selected"</c:if>><a href=<c:url value="/shop/priceGoodsList"/>>>가격높은순</a></li>
-         <li <c:if test="${sortType eq 'view'}">class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>>인기순</a></li>
+         <li <c:if test="${sortType eq 'price'}"> class="selected"</c:if>><a href=<c:url value="/shop/priceGoodsList"/>>>가격높은순</a></li>
+         <li <c:if test="${sortType eq 'view'}"> class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>>인기순</a></li>
       </ul>
    </div>
+   
+   
+   
    <div id="main-container">
    		<table class="board_list">
 		<colgroup>
@@ -221,10 +224,8 @@ h1 {
    </div>
 </div>
     
-    <%@ include file="/WEB-INF/include/include-body.jspf" %>
+<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	
-
-
 <script type="text/javascript">
 		$(document).ready(function() {
 			
@@ -309,7 +310,7 @@ h1 {
 										 	     + "<div class = 'card-header-text' >" 
 										 	     + "거래중";
 									}
-									console.log(value.GOODS_TITLE)
+							
 									str +=  "<div class='card'>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
@@ -329,8 +330,10 @@ h1 {
 										+	                                 "작성자: "
 										+									value.MEM_ID
 										+	                          "</p>"
+										+	            "<h3>"
+										+ 				value.GOODS_PRICE +"원"
+										+				"</h3>"
 										+	         "</div>"
-
 										+	         "<div class='card-body-footer'>"
 										+	            "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"
 										+	            "<i class='icon icon-view_count'></i>조회수 "
