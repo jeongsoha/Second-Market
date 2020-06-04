@@ -19,8 +19,6 @@
          </beans:props>
       </beans:property>   
    </beans:bean>
-   
-
 
    <beans:bean id="mailService" class="second.member.service.MailServiceImpl">
       <beans:property name="javaMailSender" ref="javaMailSender" />

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminMember">
+
+   <!-- member list -->
+   <select id="memberList" parameterType="hashMap" resultType="hashMap">
+      <include refid="common.pagingPre"/>
+      <![CDATA[
+        SELECT    ROW_NUMBER() OVER (ORDER BY MEM_NUM DESC) RNUM,
+              MEM_NUM,
+              MEM_ID,
+              MEM_PW,
+              MEM_NAME,
+              MEM_BIRTH,
+              MEM_GEN,
+              MEM_EMAIL,
+              MEM_PHONE,
+              MEM_ZIP,
+              MEM_ADD1,
+              MEM_ADD2,
+              MEM_JOINDATE,
+              MEM_VERIFY,
+              MEM_LEVEL,
+              MEM_DEL_GB
+        
+        FROM   MEMBER
+       ]]>
+       <include refid="common.pagingPost"/>
+   </select>
+   
+   <!-- 1member list -->
+   <select id="selectMember" parameterType="hashMap" resultType="hashMap">
+      <![CDATA[
+        SELECT   *
+        FROM   MEMBER
+        WHERE MEM_ID = #{MEM_ID}
+       ]]>
+   </select>
+   
+   <!-- 회원 정보 변경폼 -->
+   <select id="updateMemberInfo" parameterType="hashMap">
+      <![CDATA[
+         UPDATE  MEMBER
+         SET     
+               MEM_PW = #{MEM_PW},
+               MEM_NAME = #{MEM_NAME},
+               MEM_BIRTH = #{MEM_BIRTH},
+               MEM_GEN = #{MEM_GEN},
+               MEM_EMAIL = #{MEM_EMAIL},
+                   MEM_PHONE = #{MEM_PHONE},
+                  MEM_ZIP = #{MEM_ZIP},
+                  MEM_ADD1 = #{MEM_ADD1},
+                  MEM_ADD2 = #{MEM_ADD2},
+                  MEM_JOINDATE = #{MEM_JOINDATE},
+                  MEM_LEVEL = #{MEM_LEVEL}
+         WHERE   MEM_ID = #{MEM_ID}
+      ]]>
+   </select>
+   
+   <!-- 회원삭제 -->
+   <update id="memberDelete" parameterType="hashMap">
+      <![CDATA[
+           UPDATE  MEMBER
+         SET     MEM_DEL_GB = 'Y'
+         WHERE   MEM_ID = #{MEM_ID}
+         AND     MEM_DEL_GB = 'N'
+       ]]>
+    </update>
+   
+   <!-- report list -->
+   <select id="reportList" parameterType="hashmap" resultType="hashmap">
+  <include refid="common.pagingPre"/>
+      <![CDATA[
+            SELECT  ROW_NUMBER() OVER (ORDER BY R.REPORT_NUM DESC) RNUM,
+             R.REPORT_NUM,
+              R.REPORT_TITLE,
+              M.MEM_ID,
+              R.REPORT_DATE,
+              R.REPORT_COUNT,
+              R.REPORT_TYPE,
+              TO_CHAR(R.REPORT_DATE,'hh24:mi:ss') AS REPORT_TIME,
+               (SELECT MEM_ID FROM MEMBER WHERE MEM_NUM = (SELECT GOODS_SELLER FROM GOODS WHERE GOODS_NUM = REPORT_PRONUM)) AS REPORT_GOODS_SELLER_ID,
+              R.REPORT_STATUS,
+              R.REPORT_DEL_GB
+      FROM    REPORT R, 
+              (
+               SELECT MEM_NUM, MEM_ID
+               FROM   MEMBER
+               ) M
+      WHERE    R.REPORT_WRITER = M.MEM_NUM(+)
+      ]]>
+      <include refid="status"/>
+      <include refid="common.pagingPost"/>
+   </select>
+   
+   <sql id="status">
+      <if test="search != null">
+         <if test="search == '1'.toString()">AND R.REPORT_STATUS = '처리대기'</if>
+         <if test="search == '2'.toString()">AND R.REPORT_STATUS = '신고접수'</if>
+         <if test="search == '3'.toString()">AND R.REPORT_STATUS = '허위신고'</if>
+         <if test="search == '4'.toString()">AND R.REPORT_STATUS = '처리완료'</if>
+      </if>
+   </sql>
+   
+   <!-- report list -->
+   <select id="reportModifyList" parameterType="hashmap" resultType="hashmap">
+  <include refid="common.pagingPre"/>
+      <![CDATA[
+            SELECT  ROW_NUMBER() OVER (ORDER BY R.REPORT_NUM DESC) RNUM,
+             R.REPORT_NUM,
+              R.REPORT_TITLE,
+              M.MEM_ID,
+              R.REPORT_DATE,
+              R.REPORT_COUNT,
+              R.REPORT_TYPE,
+              TO_CHAR(R.REPORT_DATE,'hh24:mi:ss') AS REPORT_TIME,
+               (SELECT MEM_ID FROM MEMBER WHERE MEM_NUM = (SELECT GOODS_SELLER FROM GOODS WHERE GOODS_NUM = REPORT_PRONUM)) AS REPORT_GOODS_SELLER_ID,
+              R.REPORT_STATUS
+      FROM    REPORT R, 
+              (
+               SELECT MEM_NUM, MEM_ID
+               FROM   MEMBER
+               ) M
+      WHERE    R.REPORT_WRITER = M.MEM_NUM(+)
+      AND		MEM_ID = #{MEM_ID}
+      AND	   R.REPORT_NUM = #{REPORT_NUM}
+      ]]>
+      <include refid="common.pagingPost"/>
+   </select>
+
+   <!-- report 수정 -->
+   <select id="updateReport" parameterType="hashMap">
+      <![CDATA[
+         UPDATE  REPORT
+         SET     REPORT_STATUS = #{REPORT_STATUS}
+         WHERE   REPORT_NUM = #{REPORT_NUM}
+      ]]>
+   </select>
+   
+    <!-- report 삭제 -->
+   <update id="reportDelete" parameterType="hashMap">
+      <![CDATA[
+         UPDATE  REPORT
+         SET     REPORT_DEL_GB = 'Y'
+         WHERE   REPORT_NUM = #{REPORT_NUM}
+       ]]>
+    </update>
+   
+
+</mapper>

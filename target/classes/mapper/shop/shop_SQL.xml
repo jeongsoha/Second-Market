@@ -7,7 +7,11 @@
 		<include refid="common.pagingPre"/>
 		<![CDATA[
 			SELECT  
-					ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
+			ROW_NUMBER() OVER (ORDER BY 
+			]]>
+			<include refid="sort"></include>
+		<![CDATA[
+					DESC) RNUM,
 					G.GOODS_NUM,
 			        G.GOODS_TITLE,
 			        G.GOODS_PRICE,
@@ -39,8 +43,9 @@
 			AND     G.GOODS_TSTATUS IN ('N', 'ING')
 			]]>
 		<include refid="search"></include>	
+		<!-- <include refid="sort"></include> -->
 		<include refid="common.pagingPost" />
-		<include refid="sort"></include>
+
 	</select>
 	
 	<sql id="search">
@@ -53,9 +58,13 @@
 	
 	<sql id="sort">
 		<if test="sortType != null">
-			<if test="sortType == 'all'.toString()">ORDER BY AAA.GOODS_DATE DESC</if>
-			<if test="sortType == 'like'.toString()">ORDER BY AAA.TOTAL_COUNT2 DESC</if>
-			<if test="sortType == 'view'.toString()">ORDER BY AAA.GOODS_COUNT DESC</if>
+			<if test="sortType == 'all'.toString()"> G.GOODS_DATE </if>
+			<if test="sortType == 'like'.toString()"> G.TOTAL_COUNT2 </if>
+			<if test="sortType == 'price'.toString()"> G.GOODS_PRICE </if>
+			<if test="sortType == 'view'.toString()"> G.GOODS_COUNT </if>
+		</if>
+		<if test="sortType == null">
+		G.GOODS_DATE
 		</if>
 	</sql>
 
@@ -91,7 +100,7 @@
 			                #{GOODS_REGION},
 			                #{GOODS_CATEGORY},
 			                'N',
-			                'ING',
+			                'N',
 			                #{GOODS_THUMBNAIL},
 			                #{GOODS_QTY}
 			                )
@@ -161,6 +170,7 @@
 			        TO_CHAR(G.GOODS_DATE,'YYYY.MM.DD') AS GOODS_DATE,
 			        TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
 			        G.GOODS_STATUS,
+			        G.GOODS_TSTATUS,
 			        G.GOODS_THUMBNAIL
 			FROM    GOODS G,
 			        (

@@ -34,8 +34,8 @@
 			<c:when test="${cMap.COMMENTS_REPLY == 'N' && session_MEM_INFO.MEM_ID == G_MEM_ID}" >
 				<form id="frm" name="frm">
 					<tr>
-						${session_MEM_INFO.MEM_ID}</td>
-						<a href="#this" id="rcWrite" name="rcWrite">답글등록</a>
+						<td>${session_MEM_INFO.MEM_ID}</td>
+						<td><a href="#this" id="rcWrite" name="rcWrite">답글등록</a>
 							<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="1">
 							<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${cMap.COMMENTS_PARENT }">
 							<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_INFO.MEM_ID }">
@@ -75,7 +75,7 @@
 </body>
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
-		$(document).ready(function(){
+		$(document).ready(function(){ 
 			$("#goGoodsDetail").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
 				fn_goGoodsDetail();

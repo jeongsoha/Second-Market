@@ -5,10 +5,20 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/join.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/join2.css'/>" />
 <link rel="stylesheet" type="text/css"/>
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+
+
+<style>
+
+   body {
+        background:linear-gradient(to bottom right, white, white);
+   }
+
+</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
@@ -69,11 +79,7 @@ function zipcode() {//우편번호 검색창
             //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
             if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                 addr = data.roadAddress;
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('MEM_ZIP').value = data.zonecode;
                 document.getElementById("MEM_ADD1").value = addr;
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("MEM_ADD2").focus();
             } else { // 사용자가 지번 주소를 선택했을 경우(J)
                 alert("도로명 주소를 입력해주세요.");
             	return false;
@@ -225,20 +231,10 @@ function zipcode() {//우편번호 검색창
          }
          return false;
       }
-
-      if(!$("#MEM_ZIP").val()){
-          alert("우편번호를 입력해주세요.");
-          $("#MEM_ZIP").focus();
-          return false;
-       }
+      
       if(!$("#MEM_ADD1").val()){
           alert("집주소 입력해주세요.");
           $("#MEM_ADD1").focus();
-          return false;
-       }
-      if(!$("#MEM_ADD2").val()){
-          alert("상세주소를 입력해주세요.");
-          $("#MEM_ADD2").focus();
           return false;
        }
       if(chk[0].checked==false){
@@ -353,7 +349,7 @@ function zipcode() {//우편번호 검색창
        
       <div class="row margin">
         <div class="input-field col s12">
-             <input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성"/>&nbsp;&nbsp;남성&nbsp;&nbsp;
+             <input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성" checked/>&nbsp;&nbsp;남성&nbsp;&nbsp;
              <input type="radio" id="MEM_GEN_F" name="MEM_GEN" value="여성"/>&nbsp;&nbsp;여성&nbsp;&nbsp;
              
         </div>
@@ -408,26 +404,11 @@ function zipcode() {//우편번호 검색창
        
       <div class="row margin">
         <div class="input-field col s12">
-          <input type="text" id="MEM_ZIP" name="MEM_ZIP" style="width:90%;">
-           <input type="button" onclick="zipcode()" value="우편번호 찾기"><br>
-          <label for="username">우편번호</label>
-        </div>
-      </div>
-       
-      <div class="row margin">
-        <div class="input-field col s12">
           <input type="text" id="MEM_ADD1" name="MEM_ADD1" style="width:90%;">
           <label for="username">주소</label>
         </div>
       </div>
        
-      <div class="row margin">
-        <div class="input-field col s12">
-          <input type="text" id="MEM_ADD2" name="MEM_ADD2" style="width:90%;">
-          <label for="username">상세주소</label>
-        </div>
-      </div>
-      
       <div>
           <label>
           <fieldset>

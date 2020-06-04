@@ -3,9 +3,10 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-
+ 
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+
 </head>
 <body>
 <div id="content">
@@ -27,7 +28,7 @@
 			<col width="25%" />  
 			<col width="10%" />
 		</colgroup>
-		<caption><h2>공지사항</h2></caption>
+		<caption><h2>공지사항2</h2></caption>
 		<thead>
 			<tr>
 				<th scope="col"><img src="./../resources/images/commu_num.png" width="70" height="25"></th>
@@ -41,30 +42,40 @@
 			<!-- 스크립트를 통해 게시글에 대한 정보가 담김 -->
 		</tbody>
 	</table>
-	<div id="PAGE_NAVI" align="center"></div>
+	<div id="PAGE_NAVI" align="center" style="background-color:red;">
+	
+		<!-- 페이징 정보가 담김 b1--></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<div align="right">
-		  <%-- 	<c:if test="${session_MEM_INFO.MEM_LEVEL == '2' }">
+			<c:if test="${session_MEM_ID != null }">
+		<%--  	<c:if test="${session_MEM_INFO.MEM_LEVEL == '2' }"> --%>
 				<a href="#write" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">글쓰기</button></a>
-	  	 	</c:if>   --%>
+	  	 	</c:if>    <%--어드민 권한 시 글쓰기 버튼 --%>
 		</div>
 	</div>
 	</div>
 
 	<br />	
-<!-- 
+
 	<script type="text/javascript">
 		$(document).ready(function() {
+			console.log('1111');///1찍
 			fn_selectBoardList(1);
 			$("#write").on("click", function(e) { //글쓰기 버튼
+			
 				e.preventDefault();
 				fn_openBoardWrite();
+			
 			});
-
+			console.log('1112');///2찍
+			
 			$("a[name='title']").on("click", function(e) { //제목 
+				console.log('1116');
 				e.preventDefault();
+				console.log('1119');
 				fn_openBoardDetail($(this));
 			});
+			console.log('1113');///3찍
 		});
 		
 		function fn_openBoardWrite() {
@@ -74,6 +85,7 @@
 		}
 	
 		function fn_openBoardDetail(obj) {
+			<!-- 디스 달리면 이게 동작 안하는지 파악하자. b1-->
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/community/noticeDetail' />");
 			comSubmit.addParam("NOTICE_NUM", obj.parent().find("#NOTICE_NUM").val());
@@ -116,7 +128,7 @@
 							+ value.NOTICE_NUM
 							+ "</td>"
 							+ "<td class='title'>"
-							+ "<a href='#this' name='title'>"
+							+ "<a href='#this' name='title' >"
 							+ value.NOTICE_TITLE
 							+ "</a>"
 							+ "<input type='hidden' id='NOTICE_NUM' value=" + value.NOTICE_NUM + ">"
@@ -126,8 +138,13 @@
 							+ "</td>" + "</tr>";
 								});
 				body.append(str);
+
+				$("a[name='title']").on("click", function(e) { //페이징 처리 후 제목 클릭 시 디테일 진입
+					e.preventDefault();
+					fn_openBoardDetail($(this));
+				});
 			}
 		}
-	</script> -->
+	</script>
 </body>
 </html>

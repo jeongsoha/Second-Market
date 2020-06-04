@@ -11,7 +11,7 @@
    }
    
    body {
-        background:linear-gradient(to bottom right, #f0e199, #f0e199);
+        background:white;
    }
    body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
    
@@ -30,6 +30,10 @@
         box-sizing: border-box;
         padding: 10px;
         font-size: 16px;
+   }
+   
+   #log{
+   		margin-top: 100px;
    }
 
    
@@ -67,7 +71,7 @@
              return false;
           }
           myform.submit();
-       }       
+       }
        
        $(document).ready(function(){
           
@@ -126,11 +130,11 @@
            return unescape(cookieValue);
        }
    </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
 </head>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-   <form name="myform" action="login" method="post" class="form-signin">
+   <form name="myform" id="log" action="login" method="post" class="form-signin" style="clear:both">
       <div class="card align-middle" style="width:20rem; border-radius:20px;">
          <div>
             <div class="card-title" style="margin-top:30px;">
@@ -146,7 +150,7 @@
             </div>
          
             <div class="card-body">
-               <input type="button" class="btn btn-lg btn-primary btn-block" value="로그인" onclick="fsubmit();" style="background-color:#26a69a;">
+               <input type="button" class="btn btn-lg btn-primary btn-block" value="로그인" onclick="fsubmit();" style="background-color:#1f1f1f;">
             </div>
          
             <div align="center">

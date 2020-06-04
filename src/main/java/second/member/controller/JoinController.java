@@ -23,9 +23,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import second.common.common.MailHandler;
+
+import second.common.common.CommandMap;
+import second.member.service.JoinService;
+import second.member.service.MailService;
+
 import second.member.service.JoinService;
 import second.member.service.MailService;
 import second.common.common.CommandMap;
+
 
 
 @Controller

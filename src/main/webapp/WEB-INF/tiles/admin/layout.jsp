@@ -22,9 +22,8 @@
 	</div>
 	 	
 	<!-- container --> 
-	<div id="container" style="min-height:500px;">
 		<tiles:insertAttribute name="body"/><!-- // container -->
-	</div>
+		
 	<!-- footer --> 
 	<tiles:insertAttribute name="footer"/><!-- // footer -->
 

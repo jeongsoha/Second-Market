@@ -37,7 +37,7 @@
          
             <div class="card-body">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="수정 하러 가기" onclick="ch_info();" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="back();" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="fn_openBoardList();" style="background-color:#26a69a;">
 				<span id="pwc"></span>
 				<br>
             </div>
@@ -45,12 +45,16 @@
          </div>
       </div>
       
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 
 function ch_info(){
 	document.location.href= "/second/myPage/accountModifyForm";   
+}
+
+function fn_openBoardList() {
+	document.location.href= "/second/sample/openBoardList"; 
 }
 
 $(document).ready(function() {

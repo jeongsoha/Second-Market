@@ -25,11 +25,18 @@
       <put-attribute name="body" value=" " />
    </definition>
   
-   <!-- (샘플) 템플릿  -->
+   <!-- (샘플) 템플릿2  -->
    <definition name="default_sample" template="/WEB-INF/tiles/layout2.jsp">
       <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="body2" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
+   </definition>
+   
+    <!-- (샘플) 템플릿1  -->
+   <definition name="default_sample_one" template="/WEB-INF/tiles/layout1.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
+      <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
      
@@ -57,58 +64,63 @@
    </definition>
    
      <!-- 공지게시판/jp -->
-   <definition name="noticeList" extends="default_sample">
+   <definition name="noticeList" extends="default_sample_one">
    	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
-     <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
+    </definition>
+   
+      <!-- 공지사항 상세내용/jp (value = "/community/noticeDetail")-->
+   <definition name="noticeDetail" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeDetail.jsp" />
+    </definition>
+   
+   
+    <!-- 어드민_공지게시판/jp (value = "/community/noticeList")-->
+   <definition name="adnoticeList" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/admin/noticeList.jsp" />
+    </definition>
+
+   
+       <!-- 어드민_공지_글쓰기/jp (value = "/community/noticeWrite") -->
+   <definition name="noticeWriteForm" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeWriteForm.jsp" />
+    </definition>
+   
+   
+     
+       <!-- 어드민_공지_수정하기/jp (value = "/community/noticeModifyForm") -->
+   <definition name="noticeModifyForm" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
+    </definition>
+   
+   
+   
    
     <!-- 로그인폼/jp -->
    <definition name="loginForm" extends="default_sample">
    	  <put-attribute name="body" value="/WEB-INF/jsp/member/login/loginForm.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
-   
-    <!-- myPage비밀번호 체크/jp -->
-   <definition name="pwCheckForm" extends="default_sample">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwCheckForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
 
-	<!-- 회원가입폼/jp -->
+   <!-- 회원가입폼/jp -->
    <definition name="joinForm" extends="default_sample">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+  <!-- myPage비밀번호 체크/jp -->
+   <definition name="pwCheckForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwCheckForm.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
-      <!-- myPage/jp -->
+    <!-- myPage/jp -->
    <definition name="accountDetail" extends="default_sample">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
-<!-- QNA -->
 
-   <definition name="qnaList" extends="default_sample">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
 
-	 <definition name="qnaDetail" extends="default_sample">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaDetail.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   
-    <definition name="qnaModifyForm" extends="default_sample">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaModifyForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   
-    <definition name="qnaWriteForm" extends="default_sample">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaWriteForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   
-   
    <!-- GoodsShop -->
    <definition name="goodsList" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsList.jsp" />
@@ -143,7 +155,29 @@
    <definition name="orderDetail" extends="default2">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderDetail.jsp" />
    </definition>
+ 
+ <!-- QNA -->
+
+   <definition name="qnaList" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+	 <definition name="qnaDetail" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaDetail.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
    
+    <definition name="qnaModifyForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <definition name="qnaWriteForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaWriteForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
 
    
 </tiles-definitions>
