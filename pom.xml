@@ -34,7 +34,7 @@
 
 
 	<dependencies>
-		<dependency>
+		<dependency> 
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.4.0</version>
@@ -367,7 +367,7 @@
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<directory>${basedir}/target</directory>
-		<finalName>first</finalName>
+		<finalName>second</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>

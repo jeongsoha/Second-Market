@@ -56,8 +56,8 @@ function fn_openBoardDetail(obj) {
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6" style="text-align:left;">
-							<form action="/nnS/admin/reportProList" method="post">
-                     <a href="/nnS/admin/reportProList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
+							<form action="/second/admin/reportProList" method="post">
+                     <a href="/second/admin/reportProList"><button type="button" class="btn btn-outline btn-default">전체</button></a>
                      <select class="form-control" name="search" id="search">
                         <option value ="">-- 구분 --</option>
                         <option value ="1" <c:out value="${search eq '1' ? 'selected' :''}"/>>처리대기</option>

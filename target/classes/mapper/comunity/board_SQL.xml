@@ -78,7 +78,7 @@
 	]]>
 </select>
 
-<!-- 공지사항 작성 -->
+<!-- 게시글 작성 -->
 <insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="BOARD_NUM">
 	<selectKey keyProperty="BOARD_NUM" resultType="string" order="BEFORE">
 		SELECT BOARD_SEQ.NEXTVAL FROM DUAL

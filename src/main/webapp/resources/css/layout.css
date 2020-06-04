@@ -12,11 +12,8 @@ wrapper {
 #header .header_area .search_main{position:absolute; top:95px;left:300px;}
 #header .header_area .search_main .search_inner{position:relative;top:15px;left:40%;padding-right:40px;}
 #header .header_area .search_main .search_inner .txt{width:150px;height:25px;line-height:25px;}
-<<<<<<< HEAD
-#header .header_area .search_main .search_inner .search_btn{position:absolute;top:0;right:10px;color:#000000;background:#ffd34a;width:40px;height:31px;cursor:pointer;}
-=======
+
 #header .header_area .search_main .search_inner .search_btn{position:absolute;top:0;right:10px;color:#000000;background:#CEFBC9;width:40px;height:31px;cursor:pointer;}
->>>>>>> origin/soha2
 
 #header .header_area .top_menu{position:absolute;top:10px;right:0;color:#000000;}
 #header .header_area .top_menu ul{overflow:hidden;}
@@ -119,26 +116,15 @@ wrapper {
 .ft_box {
 	width: 1040px;
 	padding: 10px 0 0;
-<<<<<<< HEAD
-	 background: #eeeeee; 
-=======
 	 background: #ffffff; 
->>>>>>> origin/soha2
 	margin: 0 auto;
 }
 
 .foot_area {
-<<<<<<< HEAD
-	width: 1290px;
-	padding: 10px 0 0;
-	
-	background: #eeeeee; 
-=======
 	width: 1040px;
 	padding: 10px 0 0;
 	
 
->>>>>>> origin/soha2
 	margin: 0 auto;
 }
 
@@ -261,11 +247,7 @@ wrapper {
 }
 
 .xans-layout-footer .inner {
-<<<<<<< HEAD
-	background: #eeeeee; 
-=======
 	
->>>>>>> origin/soha2
 }
 
 .xans-layout-footer p#copy {

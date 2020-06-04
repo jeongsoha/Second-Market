@@ -14,10 +14,10 @@
 			<td style="width: 250px">${cMap.COMMENTS_DATE }</td>
 			<c:choose> 
 				<c:when test="${cMap.COMMENTS_REPLY == 'N'}">
-					<td style="width: 100px">답변대기</td>
+					답변대기</td>
 				</c:when>
 				<c:when test="${cMap.COMMENTS_REPLY == 'Y'}">
-					<td style="width: 100px">답변완료</td>
+					답변완료</td>
 				</c:when>
 			</c:choose>
 					<td rowspan="2" style="width: 100px" align="center">
@@ -34,8 +34,8 @@
 			<c:when test="${cMap.COMMENTS_REPLY == 'N' && session_MEM_INFO.MEM_ID == G_MEM_ID}" >
 				<form id="frm" name="frm">
 					<tr>
-						<td colspan="3">${session_MEM_INFO.MEM_ID}</td>
-						<td rowspan="2" align="center"><a href="#this" id="rcWrite" name="rcWrite">답글등록</a>
+						${session_MEM_INFO.MEM_ID}</td>
+						<a href="#this" id="rcWrite" name="rcWrite">답글등록</a>
 							<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="1">
 							<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${cMap.COMMENTS_PARENT }">
 							<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_INFO.MEM_ID }">
@@ -50,8 +50,8 @@
 			<c:when test="${cMap.COMMENTS_REPLY == 'Y'}">
 	      		<tr>
 					<td>판매자 : ${rMap.MEM_ID}</td>
-					<td colspan="2">${rMap.COMMENTS_DATE}</td>
-					<td rowspan="2" align="center">
+					<td>${rMap.COMMENTS_DATE}</td>
+					<td>
 					<c:if test="${session_MEM_INFO.MEM_ID == G_MEM_ID}">
 						<a href="#this" id="rcDelete" name="rcDelete">답글삭제
 						<input type="hidden" id="REPLY_NUM" name="REPLY_NUM" value="${rMap.COMMENTS_NUM }">

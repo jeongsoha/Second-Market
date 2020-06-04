@@ -181,6 +181,38 @@
 
 
 <!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
+ 
+<div class="header_area">
+
+ <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/SkinImg/mainlogo.png"/>" alt="second#"/></a></h1>   
+
+   <div class="search_main">
+      <div class="search_inner">
+         <form action="/second/shop" method="post">
+            <fieldset>
+               
+               <select name="searchType">
+                 <option value="n">-----</option>
+                 <option value="title">상품명</option>
+                 <option value="content">내용</option>
+                 <option value="region">지역</option>
+                </select>
+               <input type="text" class="txt" placeholder="Search" name="keyword"/>&nbsp;
+               <input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
+            </fieldset>
+         </form>
+      </div>
+   </div>
+   <div class="top_menu">
+     
+         <c:if test="${session_MEM_ID == null }">
+
+
+         <a href="${contextPath}/second/loginForm" class="log">로그인</a>
+         <a href="${contextPath}/second/joinForm">회원가입</a> 
+         <a href="${contextPath}/second/findId">ID/PW찾기</a>
+         
+         </c:if>
 <div id="head">
 	<div class="header_area" id="h1">
 	   <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/second.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
@@ -221,9 +253,10 @@
 	         <a href="${contextPath}/second/loginForm" class="log">로그인</a>  &nbsp;&nbsp;
 	         <a href="${contextPath}/second/joinForm">회원가입</a>              &nbsp;&nbsp;
 	         <a href="${contextPath}/second/findId">ID/PW찾기</a>             &nbsp;&nbsp;
+
          </c:if>
     </div>
-         
+
 <!-- 로그인ooo -->
 
          
@@ -242,20 +275,7 @@
            </c:if>
      </div>
 
-<!-- 로그인 ooo -->
-		
-		<!-- 내상점 / 커뮤니티 창일 경우에 띄워주는 메뉴 시작 -->
-		<%-- <c:if test="${session_shopAndCommunity}"> --%>
-		   <div class="tab_cate" id="h5">    
-		      <div class="tabs_area">  
-		         <class="tabs">
-		            <a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a>     &nbsp;&nbsp;
-		           <a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a>  &nbsp;&nbsp;
-		         </class>
-		      </div>
-		   </div>
-		<%-- </c:if> --%>
-		
+
 <!-- 로그인 ooo  알림버튼 -->
       
       <c:if test="${session_MEM_ID != null}">
@@ -266,5 +286,18 @@
 </div>
 	   
      	 
+
+<!-- 내상점 / 커뮤니티 창일 경우에 띄워주는 메뉴 시작 -->
+<%-- <c:if test="${session_shopAndCommunity}"> --%>
+   <div class="tab_cate">    
+      <div class="tabs_area">  
+         <ul class="tabs">
+            <li><a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a></li>
+            <li><a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a></li>
+         </ul>
+
+      </div>
+   </div>
+<%-- </c:if> --%>
 
 <!--//메뉴 끝-->

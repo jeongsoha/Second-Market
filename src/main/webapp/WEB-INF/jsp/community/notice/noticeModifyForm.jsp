@@ -4,8 +4,9 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 
-<script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
-
+  <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+ 
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <body>
@@ -31,8 +32,14 @@
          	<tr>
          		<td><img src="./../resources/images/form_title.png"></td>
          		<td style="background-color:#fff;"><input type="text" id="NOTICE_TITLE" name="NOTICE_TITLE" style="width:95%" value="${map.NOTICE_TITLE}"/></td>
+         
+         
+         		<td> (게시글번호 : ${map.NOTICE_NUM }
+				<input type="hidden" id="NOTICE_NUM" name="NOTICE_NUM" value="${map.NOTICE_NUM }">)</td>
+         
+         
          		<td><img src="./../resources/images/form_writer.png"></td>
-         		<td style="background-color:#fff;">${session_MEM_INFO.MEM_ID }<input type="hidden" id="MEM_NUM" name="MEM_NUM" value="${session_MEM_INFO.MEM_NUM }"/></td>
+         		<td style="background-color:#fff;">${session_MEM_INFO.MEM_ID } (회원번호 : ${session_MEM_INFO.MEM_NUM } )<input type="hidden" id="MEM_NUM" name="MEM_NUM" value="${session_MEM_INFO.MEM_NUM }"/></td>
          	</tr>
          	<tr>
          		
@@ -70,7 +77,8 @@
          });
       });
       
-      $(function(){
+   /* 가려놓으면 수정 시 CK툴 등장하지 않음 */   
+   	$(function(){
 	  		CKEDITOR.replace('NOTICE_CONTENT',{
 	              width:'100%',
 	              height:'600px',
@@ -94,9 +102,8 @@
              $("#NOTICE_TITLE").focus();
              return false;
          }
-    	  // 게시글 내용 필요
-         if(CKEDITOR.instances.NOTICE_CONTENT.getData() =='' 
-                 || CKEDITOR.instances.NOTICE_CONTENT.getData().length ==0){
+         // 게시글 내용 필요
+         if(!$("#NOTICE_CONTENT").val()){
              alert("내용을 입력해주세요.");
              $("#NOTICE_CONTENT").focus();
              return false;

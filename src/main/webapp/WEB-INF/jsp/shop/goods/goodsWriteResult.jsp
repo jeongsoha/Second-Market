@@ -5,6 +5,8 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
+<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <style type="text/css">
 #main-container
 {
@@ -22,12 +24,14 @@
       <h1 align="center"> 상품 등록이 완료되었습니다.</h1>
       <br/><br/>
       <p align="center">
-        <a href="#this" class="btn" name="goods" id="goods">상품으로</a>
+        <a href="#this" class="btn" id="goods">상품으로</a>
 		<a href="#this" class="btn" id="list">목록으로</a>
+		<a href="#this" class="btn" id="list">목록으로</button></a>
 	</div>
 </div>
 
 <script type="text/javascript">
+$(document).ready(function(){
 	$("a[name='goods']").on("click", function(e) { //제목 
 		e.preventDefault();
 		fn_goodsDetail($(this));
@@ -37,6 +41,8 @@
 		e.preventDefault();
 		fn_openGoodsList();
 	});
+});	
+	
 	
 	function fn_openGoodsList(){
 		var comSubmit = new ComSubmit();

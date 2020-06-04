@@ -30,9 +30,9 @@
          </colgroup>
          <tbody>
          	<tr>
-         		<td><img src="/nnS/resources/images/form_title.png"></td>
+         		<td><img src="/second/resources/images/form_title.png"></td>
          		<td style="background-color:#fff;"><input type="text" id="BOARD_TITLE" name="BOARD_TITLE" style="width:95%"/></td>
-         		<td><img src="/nnS/resources/images/form_writer.png"></td>
+         		<td><img src="/second/resources/images/form_writer.png"></td>
          		<td style="background-color:#fff;">${session_MEM_INFO.MEM_ID }<input type="hidden" id="MEM_NUM" name="MEM_NUM" value="${session_MEM_INFO.MEM_NUM }"/></td>
          	</tr>
          	<tr>

@@ -19,15 +19,15 @@
 <div id="wrapper">
 
 <!-- header  --> 
-   <tiles:insertAttribute name="header"/><!-- // header -->
+	<tiles:insertAttribute name="header"/><!-- // header -->
 
 <!-- body 1 2  --> 
-   <tiles:insertAttribute name="body"/><!-- // container -->
+	<tiles:insertAttribute name="body"/><!-- // container -->
 
-   <tiles:insertAttribute name="body2"/><!-- // container -->
+	<tiles:insertAttribute name="body2"/><!-- // container -->
 
 <!-- footer --> 
-   <tiles:insertAttribute name="footer"/><!-- // footer -->
+	<tiles:insertAttribute name="footer"/><!-- // footer -->
 
 </div>
 </body>

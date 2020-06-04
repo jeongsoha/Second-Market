@@ -35,6 +35,7 @@
          		<td><img src="./../resources/images/form_writer.png"></td>
          		<td style="background-color:#fff;">${session_MEM_INFO.MEM_ID }<input type="hidden" id="MEM_NUM" name="MEM_NUM" value="${session_MEM_INFO.MEM_NUM }"/></td>
          		<input type="hidden" id="IDX" name="IDX" value="">
+         		
          	</tr>
          	<tr>
          		
@@ -63,7 +64,7 @@
             fn_openNoticeList();
          });
          
-         $("#write").on("click", function(e){ //작성하기 버튼
+         $("#write").on("click", function(e){ //작성하기 버튼 시 동작되도록
             e.preventDefault();
             fn_insertNotice();
          });
@@ -83,7 +84,7 @@
          comSubmit.submit();
       }
       
-      function fn_insertNotice(){
+      function fn_insertNotice(){    // 작성하기 누르면 #write 타고와서 동작
          var comSubmit = new ComSubmit("frm");
          comSubmit.setUrl("<c:url value='/community/noticeWrite' />");
          
@@ -93,14 +94,15 @@
              $("#NOTICE_TITLE").focus();
              return false;
          }
+
     	  // 게시글 내용 필요
-         if(CKEDITOR.instances.NOTICE_CONTENT.getData() =='' 
+           if(CKEDITOR.instances.NOTICE_CONTENT.getData() =='' 
                  || CKEDITOR.instances.NOTICE_CONTENT.getData().length ==0){
              alert("내용을 입력해주세요.");
              $("#NOTICE_CONTENT").focus();
              return false;
          }
-
+ 
          
          comSubmit.submit();
       }

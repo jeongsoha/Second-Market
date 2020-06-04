@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comments">
+
+<!-- 상품문의 댓글 리스트-->
+<select id="selectGoodsCommentList" parameterType="hashmap" resultType="hashmap">
+	<include refid="common.pagingPre"/>
+<![CDATA[
+
+		SELECT  ROW_NUMBER() OVER (ORDER BY C.COMMENTS_NUM DESC) RNUM,
+				COMMENTS_NUM,
+				M.MEM_ID,
+		        C.COMMENTS_CONTENT,
+		        C.COMMENTS_DATE,
+		        C.COMMENTS_PARENT,
+		        TO_CHAR(C.COMMENTS_DATE,'hh24:mi:ss') AS COMMENTS_TIME,
+		        C.COMMENTS_REPLY,
+		        C.COMMENTS_RPARENT
+		FROM    COMMENTS C,
+		        (
+		        SELECT  MEM_NUM, MEM_ID
+		        FROM    MEMBER
+		        ) M
+		WHERE   C.COMMENTS_WRITER = M.MEM_NUM(+)
+		AND     C.COMMENTS_PARENT  = #{COMMENTS_PARENT}
+		AND     C.COMMENTS_TYPE = '1'
+		AND     C.COMMENTS_DEL_GB = 'N'
+		AND		C.COMMENTS_REPLY != 'R'
+		ORDER BY COMMENTS_NUM DESC
+	
+]]>
+	<include refid="common.pagingPost"/>
+</select>
+
+<!-- 상품문의 댓글 작성 -->
+<insert id="insertGoodsComment" parameterType="hashmap" useGeneratedKeys="true" keyProperty="COMMENTS_NUM">
+	<selectKey keyProperty="COMMENTS_NUM" resultType="string" order="BEFORE">
+		SELECT COMMENTS_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+<![CDATA[
+
+		INSERT
+		INTO    COMMENTS    (
+		                    COMMENTS_NUM,
+		                    COMMENTS_TYPE,
+		                    COMMENTS_PARENT,
+		                    COMMENTS_WRITER,
+		                    COMMENTS_CONTENT
+		                    )
+		VALUES              (
+		                    #{COMMENTS_NUM},
+		                    #{COMMENTS_TYPE},
+		                    #{COMMENTS_PARENT},
+		                    (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+		                    #{COMMENTS_CONTENT}
+		                    )
+		
+]]>
+</insert>
+
+<!-- 상품문의 댓글 삭제 -->
+<update id="deleteGoodsComment" parameterType="hashmap">
+	<![CDATA[
+		UPDATE  COMMENTS
+		SET     COMMENTS_DEL_GB = 'Y'
+		WHERE   COMMENTS_NUM = #{COMMENTS_NUM}
+		AND     COMMENTS_DEL_GB = 'N'
+	]]>
+</update>
+
+<!-- 상품문의 댓글 상세보기-->
+<select id="selectGoodsCommentDetail" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+
+		SELECT  COMMENTS_NUM,
+				M.MEM_ID,
+		        C.COMMENTS_CONTENT,
+		        C.COMMENTS_DATE,
+		        C.COMMENTS_PARENT,
+		        TO_CHAR(C.COMMENTS_DATE,'hh24:mi:ss') AS COMMENTS_TIME,
+		        C.COMMENTS_REPLY,
+		        C.COMMENTS_RPARENT
+		FROM    COMMENTS C,
+		        (
+		        SELECT  MEM_NUM, MEM_ID
+		        FROM    MEMBER
+		        ) M
+		WHERE   C.COMMENTS_WRITER = M.MEM_NUM(+)
+        AND     C.COMMENTS_NUM = #{COMMENTS_NUM}
+		AND     C.COMMENTS_TYPE = '1'
+		AND     C.COMMENTS_DEL_GB = 'N'
+		AND		C.COMMENTS_REPLY != 'R'
+]]>
+</select>
+
+<!-- 상품문의 답글 상세보기-->
+<select id="selectGoodsCommentReply" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+
+		SELECT  COMMENTS_NUM,
+				M.MEM_ID,
+		        C.COMMENTS_CONTENT,
+		        C.COMMENTS_DATE,
+		        C.COMMENTS_PARENT,
+		        TO_CHAR(C.COMMENTS_DATE,'hh24:mi:ss') AS COMMENTS_TIME,
+		        C.COMMENTS_REPLY,
+		        C.COMMENTS_RPARENT
+		FROM    COMMENTS C,
+		        (
+		        SELECT  MEM_NUM, MEM_ID
+		        FROM    MEMBER
+		        ) M
+		WHERE   C.COMMENTS_WRITER = M.MEM_NUM(+)
+        AND     C.COMMENTS_RPARENT = #{COMMENTS_NUM}
+		AND     C.COMMENTS_TYPE = '1'
+		AND     C.COMMENTS_DEL_GB = 'N'
+		AND		C.COMMENTS_REPLY = 'R'
+]]>
+</select>
+
+<!-- 상품문의 답글 작성 -->
+<insert id="insertGoodsCommentReply" parameterType="hashmap" useGeneratedKeys="true" keyProperty="COMMENTS_NUM">
+	<selectKey keyProperty="COMMENTS_NUM" resultType="string" order="BEFORE">
+		SELECT COMMENTS_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+<![CDATA[
+
+		INSERT
+		INTO    COMMENTS    (
+		                    COMMENTS_NUM,
+		                    COMMENTS_TYPE,
+		                    COMMENTS_PARENT,
+		                    COMMENTS_WRITER,
+		                    COMMENTS_CONTENT,
+		                   	COMMENTS_REPLY,
+		                   	COMMENTS_RPARENT
+		                    )
+		VALUES              (
+		                    #{COMMENTS_NUM},
+		                    #{COMMENTS_TYPE},
+		                    #{COMMENTS_PARENT},
+		                    (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+		                    #{COMMENTS_CONTENT},
+		                    'R',
+		                    #{COMMENTS_RNUM}
+		                    )
+		
+]]>
+</insert>
+
+<!-- 상품문의 답글등록 상태변화 -->
+<update id="insertGoodsCommentStat" parameterType="hashmap">
+	<![CDATA[
+		UPDATE  COMMENTS
+		SET     COMMENTS_REPLY = 'Y'
+		WHERE   COMMENTS_NUM = #{COMMENTS_RNUM}
+		AND     COMMENTS_REPLY = 'N'
+	]]>
+</update>
+
+<!-- 상품문의 답글 삭제 -->
+<update id="deleteGoodsCommentReply" parameterType="hashmap">
+	<![CDATA[
+		UPDATE  COMMENTS
+		SET     COMMENTS_DEL_GB = 'Y'
+		WHERE   COMMENTS_NUM = #{REPLY_NUM}
+		AND     COMMENTS_DEL_GB = 'N'
+	]]>
+</update>
+
+<!-- 상품문의 답글 삭제 상태변화 -->
+<update id="deleteGoodsCommentStat" parameterType="hashmap">
+	<![CDATA[
+		UPDATE  COMMENTS
+		SET     COMMENTS_REPLY = 'N'
+		WHERE   COMMENTS_NUM = #{COMMENTS_RNUM}
+		AND     COMMENTS_REPLY = 'Y'
+	]]>
+</update>
+
+
+<!-- 자유게시판 댓글 리스트-->
+<select id="selectBoardCommentList" parameterType="hashmap" resultType="hashmap">
+	<include refid="common.pagingPre"/>
+<![CDATA[
+
+		SELECT  ROW_NUMBER() OVER (ORDER BY C.COMMENTS_NUM DESC) RNUM,
+				COMMENTS_NUM,
+				M.MEM_ID,
+		        C.COMMENTS_CONTENT,
+		        C.COMMENTS_DATE,
+		        TO_CHAR(C.COMMENTS_DATE,'hh24:mi:ss') AS COMMENTS_TIME
+		FROM    COMMENTS C,
+		        (
+		        SELECT  MEM_NUM, MEM_ID
+		        FROM    MEMBER
+		        ) M
+		WHERE   C.COMMENTS_WRITER = M.MEM_NUM(+)
+		AND     C.COMMENTS_TYPE = '3'
+		AND     C.COMMENTS_PARENT  = #{COMMENTS_PARENT}
+		AND     C.COMMENTS_DEL_GB = 'N'
+		ORDER BY COMMENTS_NUM DESC
+	
+]]>
+	<include refid="common.pagingPost"/>
+</select>
+
+<!-- 자유게시판 댓글 작성 -->
+<insert id="insertBoardComment" parameterType="hashmap" useGeneratedKeys="true" keyProperty="COMMENTS_NUM">
+	<selectKey keyProperty="COMMENTS_NUM" resultType="string" order="BEFORE">
+		SELECT COMMENTS_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+<![CDATA[
+
+		INSERT
+		INTO    COMMENTS    (
+		                    COMMENTS_NUM,
+		                    COMMENTS_TYPE,
+		                    COMMENTS_PARENT,
+		                    COMMENTS_WRITER,
+		                    COMMENTS_CONTENT
+		                    )
+		VALUES              (
+		                    #{COMMENTS_NUM},
+		                    #{COMMENTS_TYPE},
+		                    #{COMMENTS_PARENT},
+		                    (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+		                    #{COMMENTS_CONTENT}
+		                    )
+		
+]]>
+</insert>
+
+<!-- 자유게시판 댓글 삭제 -->
+<update id="deleteBoardComment" parameterType="hashmap">
+	<![CDATA[
+		UPDATE  COMMENTS
+		SET     COMMENTS_DEL_GB = 'Y'
+		WHERE   COMMENTS_NUM = #{COMMENTS_NUM}
+		AND     COMMENTS_DEL_GB = 'N'
+	]]>
+</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

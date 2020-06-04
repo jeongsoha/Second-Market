@@ -68,7 +68,7 @@ table {
    width: 100%;
    height: 270px;
    border-radius: 15px 15px 0 0;
-   background-image: url("resources/images/no_image.png");
+   background-image: url("second/resources/images/no_image.png");
    background-size: 100% 280px;
    background-repeat: no-repeat;   
 }
@@ -192,14 +192,14 @@ h1 {
 		</tbody>
 		</table>
 		<div align="center">
-		<form action="/nnS/shop" method="post">
+		<form action="/second/shop" method="post">
 			<fieldset>
 				
 				<select name="searchType" id="searchType">
 					<option value="nothing">-----</option>
 					<option value="title" <c:out value="${searchType eq 'title'?'selected':''}"/>>상품명</option>
 					<option value="content" <c:out value="${searchType eq 'content'?'selected':''}"/>>내용</option>
-					<option value="brand" <c:out value="${searchType eq 'brand'?'selected':''}"/>>브랜드</option>
+					<option value="region" <c:out value="${searchType eq 'region'?'selected':''}"/>>지역</option>
 				</select>
 				<input type="text" class="txt" placeholder="Search" name="keyword" id="keyword" value="${keyword}"/>&nbsp;
 				<input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
@@ -260,7 +260,7 @@ h1 {
 			comAjax.setUrl("<c:url value='/shop/selectGoodsList' />");
 			comAjax.setCallback("fn_selectGoodsListCallback");
 			comAjax.addParam("PAGE_INDEX", pageNo);
-			comAjax.addParam("PAGE_ROW", 15);
+			comAjax.addParam("PAGE_ROW", 6);
 			comAjax.addParam("keyword", $('#keyword').val());
 			comAjax.addParam("searchType", $('#searchType').val());
 			comAjax.addParam("sortType", $('#sortType').val());
@@ -281,7 +281,7 @@ h1 {
 					divId : "PAGE_NAVI",
 					pageIndex : "PAGE_INDEX",
 					totalCount : total,
-					recordCount : 15,
+					recordCount : 6,
 					eventName : "fn_selectGoodsList"
 				};
 				gfn_renderPaging(params);
@@ -308,7 +308,7 @@ h1 {
 										 	     + "<div class = 'card-header-text' >" 
 										 	     + "거래중";
 									}
-									
+									console.log(value.GOODS_TITLE)
 									str +=  "<div class='card'>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
@@ -324,9 +324,6 @@ h1 {
 										+	            "<h1>"
 										+				value.GOODS_TITLE
 										+				"</h1>"
-										+	            "<p class='card-body-hashtag'>"
-										+				value.GOODS_HASH
-										+				"</p>"
 										+	            "<p class = 'card-body-nickname'>"
 										+	                                 "작성자: "
 										+									value.MEM_ID
