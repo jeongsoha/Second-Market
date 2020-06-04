@@ -51,11 +51,12 @@
 					<td colspan="3" style="padding:0 0 0 20px; font-size:15px;">
 						<br>
 
-						모델명 : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
+						제목 : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
 						판매수량 : ${map.GOODS_QTY} <br/>
 						<input type="hidden" id="IDX" name="IDX" value="${map.GOODS_NUM}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
 						판매가격 : ${map.GOODS_PRICE}<br /> 
+						거래지역 : ${map.GOODS_REGION}
 						<br/>
 						<br>
 					</td>
@@ -69,16 +70,14 @@
 				</td>
 				<td>	
 				
-				
-				
-					<c:choose>
-						<c:when test="${goodsLikeMap.GOODS_LIKE_YN eq 0}">
-					    	<a href='javascript: like_func();'><img src=<c:url value="/resources/images/like_black.png"/> id='unlike_img' style="width:30px; height:30px"></a>
-					  	</c:when>
-					  	<c:otherwise>
-					    	<a href='javascript: unlike_func();'><img src=<c:url value="/resources/images/like_red.png"/> id='like_img' style="width:30px; height:30px"></a>
-					  	</c:otherwise>
-					</c:choose>
+		<c:choose>
+			<c:when test="${goodsLikeMap.GOODS_LIKE_YN eq 0}">
+		    	<a href='javascript: like_func();'><img src=<c:url value="/resources/images/like_black.png"/> id='unlike_img' style="width:30px; height:30px"></a>
+		  	</c:when>
+		  	<c:otherwise>
+		    	<a href='javascript: unlike_func();'><img src=<c:url value="/resources/images/like_red.png"/> id='like_img' style="width:30px; height:30px"></a>
+		  	</c:otherwise>
+		</c:choose>
 				
 				</td>	
 				</tr>
@@ -86,13 +85,11 @@
 		</table>
 		<div class="container" style="width:100%">
 		    <ul class="goodsTabs">
-		        <li class="selected"><a href="#goodsTab1"><img src="./../resources/images/goods_tab_1.png" height="25"></a></li>
-		        <li><a href="#goodsTab2"><img src="./../resources/images/goods_tab_2.png" height="25"></a></li>
-		        <li><a href="#goodsTab3"><img src="./../resources/images/goods_tab_3.png" height="25"></a></li>
+		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
+		        <li><a href="#goodsTab2">상품문의</a></li>
+		        <li><a href="#goodsTab3">판매자정보</a></li>
 		    </ul>
 		    <div class="goodsTab_container">
-		    
-		    
 		    
 		    
 		        <div id="goodsTab1" class="goodsTab_content">
@@ -104,14 +101,8 @@
 					  </ul> --%>
 					  
 		            <p>${map.GOODS_CONTENT}</p>
-		            
-		            
-		      
-		    
+
 		        </div>
-		        
-		        
-		        
 		        
 		        
 		        <div id="goodsTab2" class="goodsTab_content">
