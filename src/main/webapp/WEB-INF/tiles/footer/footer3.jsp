@@ -10,7 +10,7 @@
 				<div class="utilMenu">            
 					<div class="utilMenu_unit">
 					<h4>----------</h4>
-					<h4>푸터입니다</h4>
+					<h4>FOOTER</h4>
 					<h4>----------</h4>
 				</div>
 				</div>
