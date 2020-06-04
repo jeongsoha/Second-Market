@@ -135,8 +135,9 @@
          poll();
         
       });
-      
-      function fn_InformConfirm(num){
+
+
+    /*   function fn_InformConfirm(num){
          $.ajax({
               url: '/second/inform/confirm',
               type: 'GET',
@@ -190,8 +191,8 @@
                body.append(str);
          }
       }
-
-</script>
+ */</script>
+ 
 
 
 <!-- 초록색 줄 -->
