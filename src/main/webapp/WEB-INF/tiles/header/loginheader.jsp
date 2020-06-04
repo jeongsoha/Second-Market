@@ -40,9 +40,9 @@
    }
    
    #menubar{
-         float:left;
+         float:right;
          width:200px;
-         margin: 100px 0px 85px 100px; 
+         margin: 100px 200px 85px 100px; 
          display: inline;
    }
    
@@ -262,41 +262,16 @@
 
 
 
-   <div id="head">
+<div id="head">
    
 <!-- second로고 -->
    
    <div class="header_area" id="h1">
       <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/second.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
    </div>
-   
-   
-<!-- 검색창 -->
-
-       <div class="search_main" id="h2">
-         <div class="search_inner">
-
-         
-            <form action="/second/shop" method="post">
-             
-               <fieldset>
-                 
-                 
-                  <span class='green_window'>
-                  <input type='text' class='input_text' placeholder="Search" maxlength="20"  />
-               </span>
-               
-               <button type='submit' class='sch_smit' onClick="onSearch()">검색</button>
-               
-               </fieldset>
-            </form>
-
-            
-         </div>
-         </div>
          
 <!-- 드롭메뉴 -->         
-
+<!-- 
          <div class="container" id="menubar">
          
          
@@ -324,12 +299,7 @@
         
         
       </div>
-
-
-         
-    
-    
-    
+  -->
          
     </div>
 

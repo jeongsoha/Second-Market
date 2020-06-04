@@ -104,8 +104,9 @@ h1 {
     font-weight: bold;
 }
 .card-body {
+
 }
-.card-body-header{
+.card-body-header{ 
    line-height: 25px;
    margin: 10px 20px 0px 20px;
 }
@@ -212,6 +213,7 @@ h1 {
 			</fieldset>
 		</form>
 		</div>
+		
 		<div id="PAGE_NAVI" align="center"></div>
 		<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
    
@@ -304,20 +306,21 @@ h1 {
 									if(value.GOODS_TSTATUS == 'N'){
 										tstatus += "<div class = 'card-header-is_closed2' >" 
 										 	     + "<div class = 'card-header-text' >" 
-												 + "거래가능";
-									}else if (value.GOODS_TSTATUS == 'ING'){
+												 + "거래가능"; 
+									}else if (value.GOODS_TSTATUS == 'ING'){ 
+									/* }else if (value.GOODS_QTY == 0){ */
 										tstatus += "<div class = 'card-header-is_closed' >" 
 										 	     + "<div class = 'card-header-text' >" 
-										 	     + "거래중";
+										 	     + "거래불가";
 									}
 							
 									str +=  "<div class='card'>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
-										+ 					tstatus
+										+ 		  tstatus
 										+ 					"</div >"
 										+	                "<div class = 'card-header-number' >"
-										+					value.GOODS_NUM + "번"
+										+					value.GOODS_QTY + "개"
 										+					"</div >" 
 										+	            "</div >"
 										+	      "</div>"

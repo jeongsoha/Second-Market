@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+<!-- 공지사항 리스트-->
+<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
+	<include refid="common.pagingPre"/>
+<![CDATA[
+
+	SELECT  ROW_NUMBER() OVER (ORDER BY N.BOARD_NUM DESC) RNUM,
+			N.BOARD_NUM,
+	        N.BOARD_TITLE,
+	        M.MEM_ID,
+	        N.BOARD_DATE,
+	        TO_CHAR(N.BOARD_DATE,'hh24:mi:ss') AS BOARD_TIME,
+	        N.BOARD_COUNT
+	FROM    BOARD N,
+	        (
+	        SELECT  MEM_NUM, MEM_ID
+	        FROM    MEMBER
+	        ) M
+	WHERE   N.BOARD_WRITER = M.MEM_NUM(+)
+	AND     BOARD_DEL_GB = 'N'
+	
+]]>
+	<include refid="common.pagingPost"/>
+</select>
+
+<!-- 공지사항 조회수 증가 -->
+<update id="updateCount" parameterType="hashmap">
+	<![CDATA[
+		UPDATE BOARD
+		SET
+			BOARD_COUNT = NVL(BOARD_COUNT, '0') + 1
+		WHERE
+			BOARD_NUM = #{BOARD_NUM}
+	]]>
+	
+</update>
+
+
+<!-- 공지사항 상세보기 -->
+<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+
+	SELECT  N.BOARD_NUM,
+	        N.BOARD_TITLE,
+	        M.MEM_ID,
+	        N.BOARD_CONTENT,
+	        N.BOARD_DATE,
+	        TO_CHAR(N.BOARD_DATE,'hh24:mi:ss') AS BOARD_TIME,
+	        N.BOARD_COUNT
+	FROM    BOARD N,
+	        (
+	        SELECT  MEM_NUM, MEM_ID
+	        FROM    MEMBER
+	        ) M
+	WHERE   N.BOARD_WRITER = M.MEM_NUM(+)
+	AND     N.BOARD_NUM = #{BOARD_NUM}
+	AND     BOARD_DEL_GB = 'N'
+	
+]]>
+</select>
+
+<!-- 공지사항 파일 상세보기 -->
+<select id="selectBoardFileList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		SELECT
+			FILES_NUM,
+			FILES_ORGNAME,
+			ROUND(FILES_SIZE/1024, 1) AS FILES_SIZE
+		FROM
+			FILES
+		WHERE
+			FILES_BOARD_TYPE = '3'
+			AND FILES_PARENT = #{BOARD_NUM}
+			AND FILES_DEL = 'N'
+	]]>
+</select>
+
+<!-- 게시글 작성 -->
+<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="BOARD_NUM">
+	<selectKey keyProperty="BOARD_NUM" resultType="string" order="BEFORE">
+		SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+<![CDATA[
+
+	INSERT
+	INTO    BOARD  (
+	                BOARD_NUM,
+	                BOARD_TITLE,
+	                BOARD_WRITER,
+	                BOARD_CONTENT
+	                )
+	VALUES          (
+	                #{BOARD_NUM},
+	                #{BOARD_TITLE},
+	                #{MEM_NUM},
+	                #{BOARD_CONTENT}
+	                )
+	
+]]>
+</insert>
+
+<!-- 공지사항 파일 추가 -->
+<insert id="insertFile" parameterType="hashmap">
+	<![CDATA[
+		INSERT
+		INTO FILES (
+						FILES_NUM,
+						FILES_BOARD_TYPE,
+						FILES_PARENT,
+						FILES_ORGNAME,
+						FILES_STDNAME,
+						FILES_SIZE
+						)
+		VALUES			(
+						FILES_SEQ.NEXTVAL,
+						'3',
+						#{BOARD_IDX},
+						#{FILES_ORG},
+						#{FILES_STD},
+						#{FILES_SIZE}
+						)
+	]]>
+</insert>
+
+<!-- 공지사항 수정 -->
+<update id="updateBoardModify" parameterType="hashmap" >
+<![CDATA[
+	
+	UPDATE  BOARD
+	SET     BOARD_TITLE = #{BOARD_TITLE},
+	        BOARD_CONTENT = #{BOARD_CONTENT}
+	WHERE   BOARD_NUM = #{BOARD_NUM}
+	
+]]>
+</update>
+
+<update id="updateFile" parameterType="hashmap">
+	<![CDATA[
+		UPDATE	FILES
+		SET		FILES_DEL = 'N'
+		WHERE	FILES_NUM = #{FILE_IDX}
+	]]>
+</update>
+
+<!-- 공지사항 삭제 -->
+<update id="deleteBoard" parameterType="hashmap" >
+<![CDATA[
+	
+	UPDATE  BOARD
+	SET     BOARD_DEL_GB = 'Y'
+	WHERE	BOARD_NUM = #{BOARD_NUM}
+	
+]]>
+</update>
+
+<update id="deleteFileList" parameterType="hashmap">
+	<![CDATA[
+		UPDATE	FILES
+		SET		FILES_DEL = 'Y'
+		WHERE	FILES_PARENT = #{IDX}
+	]]>
+</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
