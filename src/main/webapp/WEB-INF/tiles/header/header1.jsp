@@ -181,30 +181,12 @@
 
 
 <!--  Header 영역 / 마이페이지 , 내상점이 아닌 기본에 쓰임-->
- 
-<div class="header_area">
 
- <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/SkinImg/mainlogo.png"/>" alt="second#"/></a></h1>   
 
-   <div class="search_main">
-      <div class="search_inner">
-         <form action="/second/shop" method="post">
-            <fieldset>
-               
-               <select name="searchType">
-                 <option value="n">-----</option>
-                 <option value="title">상품명</option>
-                 <option value="content">내용</option>
-                 <option value="region">지역</option>
-                </select>
-               <input type="text" class="txt" placeholder="Search" name="keyword"/>&nbsp;
-               <input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
-            </fieldset>
-         </form>
-      </div>
+  <div class="search_main">
+
    </div>
-   <div class="top_menu">
-     
+
          <c:if test="${session_MEM_ID == null }">
 
 

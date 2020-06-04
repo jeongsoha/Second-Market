@@ -98,6 +98,21 @@ public class ShopController{
 		return mv;
 	}
 	
+	@RequestMapping(value="/shop/priceGoodsList")
+	public ModelAndView shoppriceGoodsList(@RequestParam(value = "keyword", defaultValue="") String keyword, @RequestParam(value="searchType", defaultValue="") String searchType, @RequestParam(value="sortType", defaultValue="") String sortType, HttpServletRequest request) throws Exception{
+		ModelAndView mv = new ModelAndView("goodsList");
+		request.setAttribute("searchType", searchType);
+		request.setAttribute("keyword", keyword);
+		request.setAttribute("sortType", "price");
+		mv.addObject("sortType", "price");
+		String filePath_temp = request.getContextPath() + "/file/";
+		mv.addObject("path", filePath_temp);
+		request.setAttribute("path", filePath_temp);
+		
+		return mv;
+	}
+	
+	
 	@RequestMapping(value="/shop/viewGoodsList")
 	public ModelAndView shopNewGoodsList(@RequestParam(value = "keyword", defaultValue="") String keyword, @RequestParam(value="searchType", defaultValue="") String searchType, @RequestParam(value="sortType", defaultValue="") String sortType, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("goodsList");

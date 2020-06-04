@@ -24,27 +24,33 @@
       <h1 align="center"> 상품 등록이 완료되었습니다.</h1>
       <br/><br/>
       <p align="center">
-        <a href="#this" class="btn" id="goods">상품으로</a>
+        <a href="#this" class="btn" name="goods" id="goods">상품으로</a>
 		<a href="#this" class="btn" id="list">목록으로</a>
-		<a href="#this" class="btn" id="list">목록으로</button></a>
+
 	</div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$("a[name='goods']").on("click", function(e) { //제목 
-		e.preventDefault();
+	
+	$("a[name='goods']").on("click", function() { //제목 
 		fn_goodsDetail($(this));
 	});
 	
-	$("#list").on("click", function(e){ //목록으로 버튼
+	$("#list").on("click", function(){ //목록으로 버튼
+		fn_openGoodsList();
+	});
+	/* 
+	$(document).on("click", "[id=='list']", function () {
 		e.preventDefault();
 		fn_openGoodsList();
 	});
+	 */
 });	
 	
 	
 	function fn_openGoodsList(){
+		console.log("???????")
 		var comSubmit = new ComSubmit();
 		comSubmit.setUrl("<c:url value='/shop/allGoodsList' />");
 		comSubmit.submit();
@@ -57,6 +63,7 @@ $(document).ready(function(){
 		comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
 		comSubmit.submit();
 	}
+	
 </script>
 </body>
 </html>
