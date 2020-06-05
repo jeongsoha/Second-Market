@@ -8,14 +8,14 @@
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 
 </head>
-<body>
-<div id="content">
-	<div id="vertical_tab-container">
-	<ul>
-		<li class="selected"><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
+<body> 
+<div id="content" style="clear:both;" >
+	<div >
+	<ul style="display:inline-block; margin-left:200px ">
+		<li style="display:inline-block" class="selected"><a href="noticeList" ><img  src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
+        | <li style="display:inline-block"><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
+        | <li style="display:inline-block"><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
+        | <li style="display:inline-block"><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
 	</ul>
 	</div>
 	<div id="main-container">
