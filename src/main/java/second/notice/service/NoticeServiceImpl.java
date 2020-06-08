@@ -51,7 +51,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void insertNoticeWrite(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		noticeDAO.insertNotice(map);
-		informDAO.informInsert(map, "새로운 공지사항이 게시되었습니다.");
+		informDAO.informInsert(map, "새로운 공지사항이 게시되었습니다."); // *회원수 만큼
 		
 		map.put("IDX", map.get("NOTICE_NUM"));
 		List<Map<String, Object>> list = fileUtils.parseInsertFileInfo(map, request);
