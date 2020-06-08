@@ -18,11 +18,14 @@
 <body>
 <div id="wrapper">
 
-<!-- header  --> 
+<!-- header  -->
+
 	<tiles:insertAttribute name="header"/><!-- // header -->
 
-<!-- body 1 2  --> 
+<!-- body 1 2  -->
+
 	<tiles:insertAttribute name="body"/><!-- // container -->
+
 
 	<tiles:insertAttribute name="body2"/><!-- // container -->
 

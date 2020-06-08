@@ -10,8 +10,8 @@
 </head>
 
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-      <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
-      <div id="content">
+      <div  style="border-radius:20px; background-color:#fff; margin-top:50px;">
+      <div id="con">
          <div id="vertical_tab-container">
 	         <ul>
 	         <li class="selected"><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>

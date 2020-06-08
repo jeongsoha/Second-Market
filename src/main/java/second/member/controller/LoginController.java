@@ -114,6 +114,8 @@ public class LoginController {
 		if(id.equals("1")) {
 			String findId = (String)(loginService.findIdWithEmail(commandMap.getMap()).get("MEM_ID"));
 			System.out.println(findId);
+			System.out.println(findId);
+			System.out.println(findId);
 			return findId;
 			
 		}else {
@@ -146,7 +148,7 @@ public class LoginController {
 			   String authCode = String.valueOf(ran);
 			   session.setAttribute("authCode", authCode);
 			   session.setAttribute("random", random);
-			   String subject = "nnS 비밀번호 변경 코드 안내 입니다.";
+			   String subject = "second 비밀번호 변경 코드 안내 입니다.";
 			   StringBuilder sb = new StringBuilder();
 			   sb.append("귀하의 임시 비밀번호는 " + authCode + "입니다.");
 			   

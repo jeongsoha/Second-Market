@@ -109,12 +109,15 @@ var idSearch_click = function(){
 				+name+"&MEM_EMAIL="+$('#MEM_EMAIL').val(),
 		success:function(data){
 			if(data == "0"){
+				alert("회원 정보가 틀렸습니다!");
 				$('#MEMID').html("회원 정보가 틀렸습니다!").css("color", "blue");
 				
 			} else{
+				
 				$('#MEMID').text(data); 
 				// 아이디값 별도로 저장
 				idV = data;
+				alert("입력하신 정보로 등록된 아이디는"+" "+idV+" "+"입니다.");
 			}
 		}
 	});
@@ -130,7 +133,7 @@ var pwSearch_click = function(){
 			if(data == true){
 			alert("임시비밀번호를 발송하였습니다.");
 			}else{
-				alert("..?");
+				alert("아이디 또는 메일이 존재하지 않습니다.");
 			}
 		},
 		error: function(data){

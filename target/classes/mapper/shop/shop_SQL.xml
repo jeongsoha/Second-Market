@@ -2,274 +2,284 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="shop">
-	
-	<select id="selectGoodsList" parameterType="hashmap" resultType="hashmap">
-		<include refid="common.pagingPre"/>
-		<![CDATA[
-			SELECT  
-					ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
-					G.GOODS_NUM,
-			        G.GOODS_TITLE,
-			        G.GOODS_PRICE,
-			        M.MEM_ID,
-			        G.GOODS_REGION,
-			        G.GOODS_CATEGORY,
-			        G.GOODS_COUNT,
-			        G.GOODS_DATE,
-			        TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
-			        G.GOODS_STATUS,
-			        G.GOODS_TSTATUS,
-			        G.GOODS_THUMBNAIL,
-			        G.GOODS_CONTENT,
-			        NVL(GL.TOTAL_COUNT, 0) AS TOTAL_COUNT2
-			FROM    GOODS G,
-			        (
-			         SELECT  MEM_NUM, MEM_ID
-			         FROM    MEMBER
-			        ) M,
-			        (
-			        SELECT   GOODS_LIKE_PARENT, 
-			                 COUNT(*) AS TOTAL_COUNT
-			        FROM     GOODS_LIKE 
-			        GROUP BY GOODS_LIKE_PARENT
-			        ) GL
-			WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
-			AND     G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
-			AND     G.GOODS_STATUS = 'N'
-			AND     G.GOODS_TSTATUS IN ('N', 'ING')
-			]]>
-		<include refid="search"></include>	
-		<include refid="common.pagingPost" />
-		<include refid="sort"></include>
-	</select>
-	
-	<sql id="search">
-		<if test="searchType != null">
-			<if test="searchType == 'title'.toString()">AND G.GOODS_TITLE LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'content'.toString()">AND G.GOODS_CONTENT LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'region'.toString()">AND G.GOODS_REGION LIKE '%' || #{keyword} || '%'</if>
-		</if>
-	</sql>
-	
-	<sql id="sort">
-		<if test="sortType != null">
-			<if test="sortType == 'all'.toString()">ORDER BY AAA.GOODS_DATE DESC</if>
-			<if test="sortType == 'like'.toString()">ORDER BY AAA.TOTAL_COUNT2 DESC</if>
-			<if test="sortType == 'view'.toString()">ORDER BY AAA.GOODS_COUNT DESC</if>
-		</if>
-	</sql>
+   
+   <select id="selectGoodsList" parameterType="hashmap" resultType="hashmap">
+      <include refid="common.pagingPre"/>
+      <![CDATA[
+         SELECT  
+         ROW_NUMBER() OVER (ORDER BY 
+         ]]>
+         <include refid="sort"></include>
+      <![CDATA[
+               DESC) RNUM,
+               G.GOODS_NUM,
+                 G.GOODS_TITLE,
+                 G.GOODS_PRICE,
+                 M.MEM_ID,
+                 G.GOODS_REGION,
+                 G.GOODS_CATEGORY,
+                 G.GOODS_COUNT,
+                 G.GOODS_DATE,
+                 TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
+                 G.GOODS_STATUS,
+                 G.GOODS_TSTATUS,
+                 G.GOODS_THUMBNAIL,
+                 G.GOODS_QTY,
+                 G.GOODS_CONTENT,
+                 NVL(GL.TOTAL_COUNT, 0) AS TOTAL_COUNT2
+         FROM    GOODS G,
+                 (
+                  SELECT  MEM_NUM, MEM_ID
+                  FROM    MEMBER
+                 ) M,
+                 (
+                 SELECT   GOODS_LIKE_PARENT, 
+                          COUNT(*) AS TOTAL_COUNT
+                 FROM     GOODS_LIKE 
+                 GROUP BY GOODS_LIKE_PARENT
+                 ) GL
+         WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
+         AND     G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
+         AND     G.GOODS_STATUS = 'N'
+         AND     G.GOODS_TSTATUS IN ('N', 'ING')
+         ]]>
+      <include refid="search"></include>   
+      <!-- <include refid="sort"></include> -->
+      <include refid="common.pagingPost" />
 
-	<insert id="insertGoods" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
-		<selectKey keyProperty="IDX" resultType="string" order="BEFORE">
-			SELECT GOODS_SEQ.NEXTVAL FROM DUAL	
-		</selectKey>
-		<![CDATA[
-			INSERT
-			INTO    GOODS
-			                (
-			                GOODS_NUM,
-			                GOODS_SELLER,
-			                GOODS_TITLE,
-			                GOODS_CONTENT,
-			                GOODS_PRICE,
-			                GOODS_DATE,
-			                GOODS_REGION,
-			                GOODS_CATEGORY,
-			                GOODS_STATUS,
-			                GOODS_TSTATUS,
-			                GOODS_THUMBNAIL,
-			                GOODS_QTY
-			                )
-			VALUES          
-			                (
-			                #{IDX},
-			                (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
-			                #{GOODS_TITLE},
-			                #{GOODS_CONTENT},
-			                #{GOODS_PRICE},
-			                SYSDATE, 
-			                #{GOODS_REGION},
-			                #{GOODS_CATEGORY},
-			                'N',
-			                'ING',
-			                #{GOODS_THUMBNAIL},
-			                #{GOODS_QTY}
-			                )
-		]]>
-	</insert>
-	<!--  -->
-	<insert id="insertFile" parameterType="hashmap"> 
-		<![CDATA[ 
-			INSERT
-			INTO    GOODS_IMAGE
-			                    (
-			                    GOODS_IMAGE_NUM,
-			                    GOODS_IMAGE_PARENT,
-			                    GOODS_IMAGE_ORG,
-			                    GOODS_IMAGE_STD
-			                    )
-			VALUES
-			                    (
-			                    GOODS_IMAGE_SEQ.NEXTVAL,
-			                    #{IDX},
-			                    'Empty',
-			                    #{FILES_STD}
-			                    )
-		]]> 
-	</insert>
-	
-	<update id="updateGoodsThumbnail" parameterType="hashmap">
-		<![CDATA[
-			UPDATE  GOODS 
-			SET     GOODS_THUMBNAIL = (
-			                    SELECT  GOODS_IMAGE_STD
-			                    FROM    (
-			                            SELECT  GOODS_IMAGE_STD 
-			                            FROM    GOODS_IMAGE 
-			                            WHERE   GOODS_IMAGE_PARENT = #{IDX} 
+   </select>
+   
+   <sql id="search">
+      <if test="searchType != null">
+         <if test="searchType == 'title'.toString()">AND G.GOODS_TITLE LIKE '%' || #{keyword} || '%'</if>
+         <if test="searchType == 'content'.toString()">AND G.GOODS_CONTENT LIKE '%' || #{keyword} || '%'</if>
+         <if test="searchType == 'region'.toString()">AND G.GOODS_REGION LIKE '%' || #{keyword} || '%'</if>
+      </if>
+   </sql>
+   
+   <sql id="sort">
+      <if test="sortType != null">
+         <if test="sortType == 'all'.toString()"> G.GOODS_DATE </if>
+         <if test="sortType == 'like'.toString()"> G.TOTAL_COUNT2 </if>
+         <if test="sortType == 'price'.toString()"> G.GOODS_PRICE </if>
+         <if test="sortType == 'view'.toString()"> G.GOODS_COUNT </if>
+      </if>
+      <if test="sortType == null">
+      G.GOODS_DATE
+      </if>
+   </sql>
 
-			                            ORDER BY GOODS_IMAGE_NUM ASC
-			                            )
-			                    WHERE   ROWNUM <= 1
-			                    )
-			WHERE   GOODS_NUM = #{IDX}
-		]]>
-	</update>
-	
-	<!-- 조회 카운트 증가 -->
-	<update id="updateHitCnt" parameterType="hashmap">
-		<![CDATA[
-			UPDATE	GOODS 
-			SET
-					GOODS_COUNT = GOODS_COUNT + 1
-			WHERE
-					GOODS_NUM = #{GOODS_NUM}
-		]]>
-	</update>
-	
-	<select id="selectGoodsDetail" parameterType="hashmap" resultType="hashmap">
-		<![CDATA[
-			SELECT  G.GOODS_NUM,
-			        M.MEM_ID,
-			        G.GOODS_TITLE,
-			        G.GOODS_CONTENT,
-			        G.GOODS_PRICE,
-			        G.GOODS_REGION,
-			        G.GOODS_CATEGORY,
-			        G.GOODS_COUNT,
-			        G.GOODS_QTY,
-			        TO_CHAR(G.GOODS_DATE,'YYYY.MM.DD') AS GOODS_DATE,
-			        TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
-			        G.GOODS_STATUS,
-			        G.GOODS_THUMBNAIL
-			FROM    GOODS G,
-			        (
-			         SELECT MEM_NUM, MEM_ID
-			         FROM   MEMBER
-			        ) M
-			WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
-			AND     G.GOODS_NUM = #{GOODS_NUM}
-			AND     G.GOODS_STATUS = 'N'		
-		]]>
-	</select>
-	
-	<select id="selectFileList" parameterType="hashmap" resultType="hashmap">
-		<![CDATA[
-			SELECT 	GOODS_IMAGE_NUM,
-					GOODS_IMAGE_ORG,
-					GOODS_IMAGE_STD
-			FROM	GOODS_IMAGE 
-			WHERE   GOODS_IMAGE_PARENT = #{GOODS_NUM} 
-			AND 	GOODS_IMAGE_DEL_GB = 'N'
-		]]>
-	</select>
-	
-	<update id="updateGoods" parameterType="hashmap">
-		<![CDATA[
-			UPDATE  GOODS
-			SET     GOODS_TITLE = #{GOODS_TITLE},
-			        GOODS_CONTENT = #{GOODS_CONTENT},
-			        GOODS_PRICE = #{GOODS_PRICE},
-			        GOODS_REGION = #{GOODS_REGION},
-			        GOODS_CATEGORY = #{GOODS_CATEGORY},
-			        GOODS_QTY = #{GOODS_QTY},
-			        GOODS_DATE = SYSDATE
-			WHERE   GOODS_NUM = #{GOODS_NUM}
-			AND     GOODS_STATUS = 'N'
-			AND     GOODS_TSTATUS = 'N'
-		]]>
-	</update>
-	
-	<update id="goodsDelete" parameterType="hashmap">
-		<![CDATA[
-			UPDATE GOODS
-			SET
-				GOODS_STATUS = 'Y'
-			WHERE
-				GOODS_NUM = #{GOODS_NUM}
-		]]>
-	</update>
-	
-	<update id="deleteFileList" parameterType="hashmap"> 
-		<![CDATA[ 
-			UPDATE 	GOODS_IMAGE 
-			SET 	GOODS_IMAGE_DEL_GB = 'Y' 
-			WHERE 	GOODS_IMAGE_PARENT = #{IDX} 
-		]]> 
-	</update> 
-	<update id="updateFile" parameterType="hashmap"> 
-		<![CDATA[ 
-			UPDATE 	GOODS_IMAGE 
-			SET 	GOODS_IMAGE_DEL_GB = 'N' 
-			WHERE 	GOODS_IMAGE_NUM = #{FILE_IDX} 
-		]]> 
-	</update>
-	
-	
-	<!-- 좋아요버튼 -->
-	<select id="selectGoodsLike" parameterType="hashmap" resultType="hashmap">
-		<![CDATA[
-			SELECT	COUNT(*) AS GOODS_LIKE_YN
-			FROM	GOODS_LIKE
-			WHERE	GOODS_LIKE_PARENT = #{GOODS_NUM}
-			AND		GOODS_LIKE_USER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{LIKE_MEM_ID})
-		]]>
-		
-	</select>   
+   <insert id="insertGoods" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+      <selectKey keyProperty="IDX" resultType="string" order="BEFORE">
+         SELECT GOODS_SEQ.NEXTVAL FROM DUAL   
+      </selectKey>
+      <![CDATA[
+         INSERT
+         INTO    GOODS
+                         (
+                         GOODS_NUM,
+                         GOODS_SELLER,
+                         GOODS_TITLE,
+                         GOODS_CONTENT,
+                         GOODS_PRICE,
+                         GOODS_DATE,
+                         GOODS_REGION,
+                         GOODS_CATEGORY,
+                         GOODS_STATUS,
+                         GOODS_TSTATUS,
+                         GOODS_THUMBNAIL,
+                         GOODS_QTY
+                         )
+         VALUES          
+                         (
+                         #{IDX},
+                         (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID}),
+                         #{GOODS_TITLE},
+                         #{GOODS_CONTENT},
+                         #{GOODS_PRICE},
+                         SYSDATE, 
+                         #{GOODS_REGION},
+                         #{GOODS_CATEGORY},
+                         'N',
+                         'N',
+                         #{GOODS_THUMBNAIL},
+                         #{GOODS_QTY}
+                         )
+      ]]>
+   </insert>
+   <!--  -->
+   <insert id="insertFile" parameterType="hashmap"> 
+      <![CDATA[ 
+         INSERT
+         INTO    GOODS_IMAGE
+                             (
+                             GOODS_IMAGE_NUM,
+                             GOODS_IMAGE_PARENT,
+                             GOODS_IMAGE_ORG,
+                             GOODS_IMAGE_STD
+                             )
+         VALUES
+                             (
+                             GOODS_IMAGE_SEQ.NEXTVAL,
+                             #{IDX},
+                             'Empty',
+                             #{FILES_STD}
+                             )
+      ]]> 
+   </insert>
+   
+   <update id="updateGoodsThumbnail" parameterType="hashmap">
+      <![CDATA[
+         UPDATE  GOODS 
+         SET     GOODS_THUMBNAIL = (
+                             SELECT  GOODS_IMAGE_STD
+                             FROM    (
+                                     SELECT  GOODS_IMAGE_STD 
+                                     FROM    GOODS_IMAGE 
+                                     WHERE   GOODS_IMAGE_PARENT = #{IDX} 
+
+                                     ORDER BY GOODS_IMAGE_NUM ASC
+                                     )
+                             WHERE   ROWNUM <= 1
+                             )
+         WHERE   GOODS_NUM = #{IDX}
+      ]]>
+   </update>
+   
+   <!-- 조회 카운트 증가 -->
+   <update id="updateHitCnt" parameterType="hashmap">
+      <![CDATA[
+         UPDATE   GOODS 
+         SET
+               GOODS_COUNT = GOODS_COUNT + 1
+         WHERE
+               GOODS_NUM = #{GOODS_NUM}
+      ]]>
+   </update>
+   
+   <select id="selectGoodsDetail" parameterType="hashmap" resultType="hashmap">
+      <![CDATA[
+         SELECT  G.GOODS_NUM,
+                 M.MEM_ID,
+                 G.GOODS_TITLE,
+                 G.GOODS_CONTENT,
+                 G.GOODS_PRICE,
+                 G.GOODS_REGION,
+                 G.GOODS_CATEGORY,
+                 G.GOODS_COUNT,
+                 G.GOODS_QTY,
+                 TO_CHAR(G.GOODS_DATE,'YYYY.MM.DD') AS GOODS_DATE,
+                 TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
+                 G.GOODS_STATUS,
+                 G.GOODS_TSTATUS,
+                 G.GOODS_THUMBNAIL
+         FROM    GOODS G,
+                 (
+                  SELECT MEM_NUM, MEM_ID
+                  FROM   MEMBER
+                 ) M
+         WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
+         AND     G.GOODS_NUM = #{GOODS_NUM}
+         AND     G.GOODS_STATUS = 'N'      
+      ]]>
+   </select>
+   
+   <select id="selectFileList" parameterType="hashmap" resultType="hashmap">
+      <![CDATA[
+         SELECT    GOODS_IMAGE_NUM,
+               GOODS_IMAGE_ORG,
+               GOODS_IMAGE_STD
+         FROM   GOODS_IMAGE 
+         WHERE   GOODS_IMAGE_PARENT = #{GOODS_NUM} 
+         AND    GOODS_IMAGE_DEL_GB = 'N'
+      ]]>
+   </select>
+   
+   <update id="updateGoods" parameterType="hashmap">
+      <![CDATA[
+         UPDATE  GOODS
+         SET     GOODS_TITLE = #{GOODS_TITLE},
+                 GOODS_CONTENT = #{GOODS_CONTENT},
+                 GOODS_PRICE = #{GOODS_PRICE},
+                 GOODS_REGION = #{GOODS_REGION},
+                 GOODS_CATEGORY = #{GOODS_CATEGORY},
+                 GOODS_QTY = #{GOODS_QTY},
+                 GOODS_DATE = SYSDATE
+         WHERE   GOODS_NUM = #{GOODS_NUM}
+         AND     GOODS_STATUS = 'N'
+         AND     GOODS_TSTATUS = 'N'
+      ]]>
+   </update>
+   
+   <update id="goodsDelete" parameterType="hashmap">
+      <![CDATA[
+         UPDATE GOODS
+         SET
+            GOODS_STATUS = 'Y'
+         WHERE
+            GOODS_NUM = #{GOODS_NUM}
+      ]]>
+   </update>
+   
+   <update id="deleteFileList" parameterType="hashmap"> 
+      <![CDATA[ 
+         UPDATE    GOODS_IMAGE 
+         SET    GOODS_IMAGE_DEL_GB = 'Y' 
+         WHERE    GOODS_IMAGE_PARENT = #{IDX} 
+      ]]> 
+   </update> 
+   <update id="updateFile" parameterType="hashmap"> 
+      <![CDATA[ 
+         UPDATE    GOODS_IMAGE 
+         SET    GOODS_IMAGE_DEL_GB = 'N' 
+         WHERE    GOODS_IMAGE_NUM = #{FILE_IDX} 
+      ]]> 
+   </update>
+   
+   
+   <!-- 좋아요버튼 -->
+   <select id="selectGoodsLike" parameterType="hashmap" resultType="hashmap">
+      <![CDATA[
+         SELECT   COUNT(*) AS GOODS_LIKE_YN
+         FROM   GOODS_LIKE
+         WHERE   GOODS_LIKE_PARENT = #{GOODS_NUM}
+         AND      GOODS_LIKE_USER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{LIKE_MEM_ID})
+      ]]>
+      
+   </select>   
     
     <insert id="insertGoodsLike" parameterType="hashmap"> 
-		<![CDATA[ 
-			INSERT
-			INTO    GOODS_LIKE  (
-			                    GOODS_LIKE_NUM,
-			                    GOODS_LIKE_USER,
-			                    GOODS_LIKE_PARENT
-			                    )
-			VALUES              (
-			                    GOODS_LIKE_SEQ.NEXTVAL,
-			                    (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{LIKE_MEM_ID}),
-			                    #{LIKE_GOODS_NUM}
-			                    )
-		]]> 
-	</insert>
-	
-	<delete id="deleteGoodsLike" parameterType="hashmap">
-		<![CDATA[
-			DELETE 
-			FROM    GOODS_LIKE 
-			WHERE   GOODS_LIKE_USER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{LIKE_MEM_ID})
-			AND     GOODS_LIKE_PARENT = #{LIKE_GOODS_NUM}
-		]]>
-	</delete>
-	
-	<update id="updateGoodsTstatus" parameterType="hashmap">
-		<![CDATA[
-			UPDATE GOODS
-			SET
-				GOODS_STATUS = 'N'
-			WHERE
-				GOODS_NUM = #{GOODS_NUM}
-		]]>
-	</update>
+      <![CDATA[ 
+         INSERT
+         INTO    GOODS_LIKE  (
+                             GOODS_LIKE_NUM,
+                             GOODS_LIKE_USER,
+                             GOODS_LIKE_PARENT
+                             )
+         VALUES              (
+                             GOODS_LIKE_SEQ.NEXTVAL,
+                             (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{LIKE_MEM_ID}),
+                             #{LIKE_GOODS_NUM}
+                             )
+      ]]> 
+   </insert>
+   
+   <delete id="deleteGoodsLike" parameterType="hashmap">
+      <![CDATA[
+         DELETE 
+         FROM    GOODS_LIKE 
+         WHERE   GOODS_LIKE_USER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{LIKE_MEM_ID})
+         AND     GOODS_LIKE_PARENT = #{LIKE_GOODS_NUM}
+      ]]>
+   </delete>
+   
+   <update id="updateGoodsTstatus" parameterType="hashmap">
+      <![CDATA[
+         UPDATE GOODS
+         SET
+            GOODS_STATUS = 'N'
+         WHERE
+            GOODS_NUM = #{GOODS_NUM}
+      ]]>
+   </update>
 </mapper>
-

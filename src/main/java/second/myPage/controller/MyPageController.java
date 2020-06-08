@@ -38,7 +38,7 @@ public class MyPageController {
 	  	return pwCheck; 
 	  }
 	 
-	  @RequestMapping(value = "/myPage/accountDetail")
+	  @RequestMapping(value = "/myPage/accountDetail")//마이페이지 상세보기
 		public ModelAndView accountDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView("accountDetail");
 			HttpSession session = request.getSession();
@@ -103,7 +103,7 @@ public class MyPageController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/myPage/deletePw")
+	@RequestMapping(value = "/myPage/deletePw")//링크 어디서 들어오는지 체크해보기 =====
 	public @ResponseBody String deletePw(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));

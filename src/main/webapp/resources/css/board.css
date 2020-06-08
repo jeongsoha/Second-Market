@@ -82,13 +82,13 @@ html ul.goodsTabs li.selected, html ul.goodsTabs li.active a:hover  {
 	border: 1px solid #ddd;
 	padding: 5px;
 }
- #content
+ /* #content
 {	 
    background-color: #ffffff;
    padding: 20px 10px;  
-   overflow: auto;
+  
    border-radius:20px;
-}
+} */
 #vertical_tab-container
 {
    float: left;
