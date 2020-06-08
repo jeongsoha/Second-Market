@@ -96,7 +96,7 @@ public class JoinController {
 		   String subject = "nnS 회원가입 인증 코드 발급 안내 입니다.";
 		   StringBuilder sb = new StringBuilder();
 		   sb.append("귀하의 인증 코드는 " + authCode + "입니다.");
-		   return mailService.send(subject, sb.toString(),"@gmail.com", userEmail, null);
+		   return mailService.send(subject, sb.toString(),"interace12321@gmail.com", userEmail, null);
 	   }else {
 		   return false;
 	   }

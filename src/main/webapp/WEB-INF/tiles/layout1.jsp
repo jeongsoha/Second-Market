@@ -17,18 +17,18 @@
 </head>
 <body>
 <div id="wrapper">
-	<!-- header --> 
+   <!-- header --> 
 <div style="width:100%; height:300px; margin:auto; display:block">
-		<tiles:insertAttribute name="header"/><!-- // header -->
-	</div>
-	 	
-	<!-- container --> 
-<div style="width:1200px; margin:auto; display:block">
-		<tiles:insertAttribute name="body"/><!-- // container -->
-	</div>
-	<!-- footer --> 
+      <tiles:insertAttribute name="header"/><!-- // header -->
+   </div>
+       
+   <!-- container --> 
+<div style="width:100%; margin:auto; display:block">
+      <tiles:insertAttribute name="body"/><!-- // container -->
+   </div>
+   <!-- footer --> 
 <div style="width:100%; height:300px; margin:auto; display:block">
-		<tiles:insertAttribute name="footer"/><!-- // footer -->
+      <tiles:insertAttribute name="footer"/><!-- // footer -->
 </div>
 </div>
 </body>

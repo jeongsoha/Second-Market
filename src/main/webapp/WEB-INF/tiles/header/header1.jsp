@@ -135,9 +135,8 @@
          poll();
         
       });
-
-/* 알림벨 창 동작하는 AJAX */
-       function fn_InformConfirm(num){
+      
+      function fn_InformConfirm(num){
          $.ajax({
               url: '/second/inform/confirm',
               type: 'GET',
@@ -191,8 +190,8 @@
                body.append(str);
          }
       }
- </script>
- 
+
+</script>
 
 
 <!-- 초록색 줄 -->
@@ -210,12 +209,18 @@
 
 <!-- 로그인 o  알림버튼 -->
       
-      <c:if test="${session_MEM_ID != null}">
+       <c:if test="${session_MEM_ID != null}">
          <div class="dropdown" id="h6">
-           <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
-         </div>
-      </c:if>
-        
+         <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
+                  <div class="dropdown-content">
+             			 <table id="inform">
+                	 <tbody>
+                 </tbody>
+              </table>
+            </div>
+       </div>
+       </c:if>
+       
        
 <!-- 로그인 x -->
     <div id="h3">
@@ -333,5 +338,3 @@
     
          
     </div>
-
- 
