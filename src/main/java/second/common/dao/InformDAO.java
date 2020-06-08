@@ -14,6 +14,7 @@ public class InformDAO extends AbstractDAO {
 
    public void informInsert(Map<String, Object> map, String str)throws Exception{
       map.put("INFORM_CONTENT", str);
+      
       insert("inform.informinsert",map);
    }
    

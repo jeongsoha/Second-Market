@@ -13,10 +13,11 @@
 
 
 
-
+<!-- 멤버별 공지사항 알림 기록하기 -->
    <insert id="informinsert" parameterType="hashmap">
    INSERT INTO INFORM 
                (INFORM_NUM,
+                INFORM_PARENT,
                 INFORM_CONTENT,
                 INFORM_CONFIRM,
                 INFORM_DATE,
@@ -24,10 +25,11 @@
                 )
          VALUES(
          INFORM_SEQ.NEXTVAL,
+         #{NOTICE_NUM},
          #{INFORM_CONTENT},
          'N',
          SYSDATE,
-         (SELECT MEM_NUM FROM MEMBER WHERE MEM_NUM =#{IDX})
+         #{MEM_NUM}
          )
    </insert>
    
