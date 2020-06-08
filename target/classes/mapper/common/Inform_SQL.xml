@@ -29,7 +29,7 @@
          #{INFORM_CONTENT},
          'N',
          SYSDATE,
-         #{MEM_NUM}
+         #{IDX}
          )
    </insert>
    

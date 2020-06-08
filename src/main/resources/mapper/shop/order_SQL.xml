@@ -44,7 +44,8 @@
 			                ORDERS_DADD1,
 			                ORDERS_DADD2,
 			                ORDERS_DMEMO,
-			                ORDERS_PAY
+			                ORDERS_PAY,
+			                ORDERS_DEL_GB
 			                )
 			VALUES          (
 			                #{IDX},
@@ -57,7 +58,8 @@
 			                #{ADD1},
 			                'add2',
 			                #{DMEMO},
-			                'orderpay'
+			                'orderpay',
+			                'N'
 			                )
 		]]>
 	</insert>
