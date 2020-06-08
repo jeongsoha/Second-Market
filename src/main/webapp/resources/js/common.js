@@ -13,7 +13,6 @@ function ComSubmit(opt_formId) {
    this.formId = gfn_isNull(opt_formId) == true ? "commonForm" : opt_formId;
    this.url = "";
 
-   
    if(this.formId == "commonForm"){
       var frm = $("#commonForm");
       if(frm.length>0){
@@ -27,7 +26,6 @@ function ComSubmit(opt_formId) {
    
    this.setUrl = function setUrl(url){
       this.url = url;
-
    };
    
    this.addParam = function addParam(key, value){
@@ -45,7 +43,6 @@ var gfv_ajaxCallback = "";
 function ComAjax(opt_formId){
     this.url = "";     
     this.formId = gfn_isNull(opt_formId) == true ? "commonForm" : opt_formId;
-    
     this.param = "";
      
     if(this.formId == "commonForm"){

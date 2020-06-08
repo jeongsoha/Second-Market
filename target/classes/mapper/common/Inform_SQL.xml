@@ -37,7 +37,7 @@
          (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID =#{IDX2})
          )
    </insert>
-   
+   <!-- 유저 1인 기준으로 본인에게 해당하는 알림을 리스트로 보여줌 -->
    <select id="informList" parameterType="hashmap" resultType="hashmap">
    SELECT 
        INFORM_NUM, 
@@ -51,7 +51,7 @@
    AND   INFORM_CONFIRM = 'N'
    ORDER BY INFORM_NUM
    </select>
-   
+   <!-- 알림창을 열어보았으 경우 N 이 Y 로 바뀌도록 -->
    <update id="confirmUpdate" parameterType="hashmap">
       UPDATE INFORM 
           SET INFORM_CONFIRM ='Y'
