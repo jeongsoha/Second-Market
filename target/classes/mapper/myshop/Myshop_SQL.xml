@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myshop">
+
+<!-- 내 주문내역 조회 -->
+<select id="selectMyOrderList1" parameterType="hashMap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+	SELECT  ROW_NUMBER() OVER (ORDER BY O.ORDERS_NUM DESC) RNUM,
+			O.ORDERS_NUM,
+			O.ORDERS_PRONUM,
+        	G.GOODS_TITLE,
+        	O.ORDERS_STATUS,
+        	O.ORDERS_PRICE,
+        	O.ORDERS_DCOST,
+        	O.ORDERS_TCOST,
+        	O.ORDERS_DATE,
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
+        	O.ORDERS_DNUM      
+        
+	FROM    ORDERS O,
+        	GOODS G
+	WHERE   O.ORDERS_USER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
+	AND     O.ORDERS_PRONUM = G.GOODS_NUM
+	AND 	O.ORDERS_DEL_GB = 'N'
+	AND		O.ORDERS_STATUS = '주문/결제'
+	ORDER BY O.ORDERS_DATE DESC
+ ]]>
+<include refid="common.pagingPost"/>
+</select>
+
+<select id="selectMyOrderList2" parameterType="hashMap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+	SELECT  ROW_NUMBER() OVER (ORDER BY O.ORDERS_NUM DESC) RNUM,
+			O.ORDERS_NUM,
+			O.ORDERS_PRONUM,
+        	G.GOODS_TITLE,
+        	O.ORDERS_STATUS,
+        	O.ORDERS_PRICE,
+        	O.ORDERS_DCOST,
+        	O.ORDERS_TCOST,
+        	O.ORDERS_DATE,
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
+        	O.ORDERS_DNUM      
+        
+	FROM    ORDERS O,
+        	GOODS G
+	WHERE   O.ORDERS_USER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
+	AND     O.ORDERS_PRONUM = G.GOODS_NUM
+	AND 	O.ORDERS_DEL_GB = 'N'
+	AND		O.ORDERS_STATUS = '배송중'
+	ORDER BY O.ORDERS_DATE DESC
+ ]]>
+<include refid="common.pagingPost"/>
+</select>
+
+<select id="selectMyOrderList3" parameterType="hashMap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+	SELECT  ROW_NUMBER() OVER (ORDER BY O.ORDERS_NUM DESC) RNUM,
+			O.ORDERS_NUM,
+			O.ORDERS_PRONUM,
+        	G.GOODS_TITLE,
+        	O.ORDERS_STATUS,
+        	O.ORDERS_PRICE,
+        	O.ORDERS_DCOST,
+        	O.ORDERS_TCOST,
+        	O.ORDERS_DATE,
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
+        	O.ORDERS_DNUM      
+        
+	FROM    ORDERS O,
+        	GOODS G
+	WHERE   O.ORDERS_USER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
+	AND     O.ORDERS_PRONUM = G.GOODS_NUM
+	AND 	O.ORDERS_DEL_GB = 'N'
+	AND		O.ORDERS_STATUS = '거래완료'
+	ORDER BY O.ORDERS_DATE DESC
+ ]]>
+<include refid="common.pagingPost"/>
+</select>
+
+<!-- 내 판매내역 조회 -->
+<select id="selectMySaleList1" parameterType="hashMap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+	SELECT  ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
+			G.GOODS_NUM,
+        	G.GOODS_TITLE,
+        	G.GOODS_PRICE,
+        	G.GOODS_DATE,
+        	TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
+        	G.GOODS_THUMBNAIL,
+        	G.GOODS_STATUS,
+        	G.GOODS_TSTATUS
+	FROM    GOODS G,
+        	(
+         		SELECT  MEM_NUM, MEM_ID
+         		FROM    MEMBER
+        	) M,
+        	ORDERS O
+	WHERE   G.GOODS_SELLER = M.MEM_NUM
+	AND     G.GOODS_DEL_GB = 'N'
+	AND     G.GOODS_NUM = O.ORDERS_PRONUM(+)
+	AND     M.MEM_ID = #{MEM_ID}
+	AND 	G.GOODS_TSTATUS = 'N'
+	ORDER BY G.GOODS_DATE DESC
+ ]]>
+<include refid="common.pagingPost"/>
+</select>
+
+<!-- 내 판매중 내역 -->
+<select id="selectMySaleList2" parameterType="hashMap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+	SELECT  ROW_NUMBER() OVER (ORDER BY O.ORDERS_NUM DESC) RNUM,
+			O.ORDERS_NUM,
+			G.GOODS_NUM,
+			O.ORDERS_PRONUM,
+        	G.GOODS_TITLE,
+        	O.ORDERS_STATUS,
+        	O.ORDERS_PRICE,
+        	O.ORDERS_DCOST,
+        	O.ORDERS_TCOST,
+        	O.ORDERS_DATE,
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
+        	O.ORDERS_DNUM      
+	FROM    ORDERS O,
+        	GOODS G
+	WHERE   G.GOODS_SELLER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
+	AND     O.ORDERS_PRONUM = G.GOODS_NUM
+	AND		O.ORDERS_DEL_GB = 'N'
+	AND		O.ORDERS_STATUS != 'N'
+    AND     O.ORDERS_STATUS != '거래완료'
+	ORDER BY O.ORDERS_DATE DESC
+]]>
+<include refid="common.pagingPost"/>
+</select>
+
+<select id="selectMySaleList3" parameterType="hashMap" resultType="hashmap">
+<include refid="common.pagingPre"/>
+<![CDATA[
+	SELECT  ROW_NUMBER() OVER (ORDER BY O.ORDERS_NUM DESC) RNUM,
+			O.ORDERS_NUM,
+			G.GOODS_NUM,
+			O.ORDERS_PRONUM,
+        	G.GOODS_TITLE,
+        	O.ORDERS_STATUS,
+        	O.ORDERS_PRICE,
+        	O.ORDERS_DCOST,
+        	O.ORDERS_TCOST,
+        	O.ORDERS_DATE,
+        	G.GOODS_THUMBNAIL,
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
+        	O.ORDERS_DNUM      
+	FROM    ORDERS O,
+        	GOODS G
+	WHERE   G.GOODS_SELLER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
+	AND     O.ORDERS_PRONUM = G.GOODS_NUM
+	AND		O.ORDERS_DEL_GB = 'N'
+	AND		O.ORDERS_STATUS = '거래완료'
+	ORDER BY O.ORDERS_DATE DESC
+ ]]>
+ <include refid="common.pagingPost"/>
+</select>
+
+<!-- 송장번호 입력 -->
+<update id="updateOrderDnum" parameterType="hashMap">
+<![CDATA[
+	UPDATE  ORDERS
+	SET     ORDERS_DNUM = #{ORDERS_DNUM},
+        	ORDERS_STATUS = '배송중'
+	WHERE   ORDERS_PRONUM = #{ORDERS_NUM}
+ ]]>
+</update>
+
+<!-- 구매확정 버튼 -->
+<update id="updateOrderStatus" parameterType="hashMap">
+<![CDATA[
+	UPDATE  ORDERS
+	SET    	ORDERS_STATUS = '거래완료'
+	WHERE   ORDERS_PRONUM = #{ORDERS_NUM}
+ ]]>
+</update>
+
+<!-- 주문취소 버튼 -->
+<update id="orderCancel" parameterType="hashMap">
+<![CDATA[
+	UPDATE  ORDERS
+	SET    	ORDERS_STATUS = '주문취소',
+			ORDERS_DEL_GB = 'Y'
+	WHERE   ORDERS_PRONUM = #{ORDERS_NUM}
+ ]]>
+</update>
+<update id="cancelTstatus" parameterType="hashMap">
+<![CDATA[
+			UPDATE	GOODS 
+			SET
+					GOODS_TSTATUS = 'N'
+			WHERE
+					GOODS_NUM = #{ORDERS_NUM}
+		]]>
+</update>
+
+<!-- 내 찜목록 조회 -->
+<select id="selectLikeList" parameterType="hashMap" resultType="hashmap">
+<![CDATA[
+SELECT  
+					ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
+					G.GOODS_NUM,
+			        G.GOODS_TITLE,
+			        G.GOODS_PRICE,
+			        M.MEM_ID,
+			        G.GOODS_REGION,
+			        G.GOODS_CATEGORY,
+			        G.GOODS_COUNT,
+			        G.GOODS_DATE,
+			        TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
+			        G.GOODS_STATUS,
+			        G.GOODS_THUMBNAIL,
+			        G.GOODS_TSTATUS,
+			        G.GOODS_HASH,
+			        G.GOODS_CONTENT,
+			        NVL(GL.TOTAL_COUNT, 0) AS TOTAL_COUNT2
+			FROM    GOODS G,
+			        (
+			         SELECT  MEM_NUM, MEM_ID
+			         FROM    MEMBER
+			        ) M,
+			        (
+			        SELECT   GOODS_LIKE_PARENT, 
+			                 COUNT(*) AS TOTAL_COUNT
+			        FROM     GOODS_LIKE 
+			        GROUP BY GOODS_LIKE_PARENT
+			        ) GL
+			WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
+			AND     G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
+			AND     G.GOODS_DEL_GB = 'N'
+			AND     G.GOODS_TSTATUS IN ('N', 'ING')
+			AND     M.MEM_ID = #{MEM_ID}
+			
+ ]]>
+</select>
+
+<!-- 최근 본 상품 조회 -->
+<select id="selectRecentGoodsList" parameterType="hashMap" resultType="hashmap">
+<![CDATA[
+	SELECT  G.GOODS_NUM,
+        	G.GOODS_TITLE,
+        	G.GOODS_PRICE,
+        	G.GOODS_THUMBNAIL
+	FROM    GOODS
+	WHERE   GOODS_NUM IN #{RECENT_SAW_LIST}
+ ]]>
+</select>
+
+</mapper>

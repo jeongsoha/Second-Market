@@ -34,15 +34,18 @@ public class OrderServiceImpl implements OrderService {
 		List<Map<String, Object>> list = orderDAO.selectFileList(map);
 		resultMap.put("list", list);
 		 
-		
+		System.out.println("99995");
+		System.out.println(resultMap);
 		return resultMap;
 	}
 
 	@Override
 	public void insertOrder(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		System.out.println("99991");
+		System.out.println(map);
 		
 		orderDAO.insertOrder(map);
-		
+	
 	}
 	
 	@Override

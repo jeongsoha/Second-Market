@@ -20,12 +20,13 @@
          )
    </insert>
    
-
+<!--  노티스 패런츠 활용고민 -->
    <insert id="informinsert2" parameterType="hashmap">
    INSERT INTO INFORM 
                (INFORM_NUM,
                 INFORM_CONTENT,
                 INFORM_CONFIRM,
+                INFORM_PARENT,
                 INFORM_DATE,
                 INFORM_USER
                 )
@@ -33,6 +34,7 @@
          INFORM_SEQ.NEXTVAL,
          #{INFORM_CONTENT2},
          'N',
+         #{NOTICE_NUM},
          SYSDATE,
          (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID =#{IDX2})
          )
