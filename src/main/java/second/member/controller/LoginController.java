@@ -86,8 +86,7 @@ public class LoginController {
 	      if (session != null)
 	         session.invalidate();
 	      ModelAndView mv = new ModelAndView();
-//	      mv.setViewName("redirect:/sample/openBoardList");
-	      mv.setViewName("redirect:/goods/goodsList");
+	      mv.setViewName("redirect:/sample/openBoardList");
 	      return mv;
 	   }
 
@@ -149,7 +148,7 @@ public class LoginController {
 	            commandMap.put("MEM_EMAIL", MEM_EMAIL);
 	            commandMap.put("authCode", authCode);
 	            loginService.updateTempPw(commandMap.getMap());
-	            return mailService.send(subject, sb.toString(),"@gmail.com", MEM_EMAIL, null);
+	            return mailService.send(subject, sb.toString(),"cwjjgl183@gmail.com", MEM_EMAIL, null);
 	      }else {
 	           return false;
 	      }

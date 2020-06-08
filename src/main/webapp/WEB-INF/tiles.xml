@@ -6,179 +6,178 @@
        
 <tiles-definitions>
   
-   <!-- 템플릿 1) 레이아웃1 / 로그인헤더  활용 -->
-   <definition name="template1" template="/WEB-INF/tiles/layout1.jsp">
-      <put-attribute name="header" value="/WEB-INF/tiles/header/loginheader.jsp" />
-      <put-attribute name="body" value=" " />
-      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
-   </definition>
-  
-  
-     <!-- 템플릿 2) 레이아웃1 / 헤더1 활용 -->
-   <definition name="template2" template="/WEB-INF/tiles/layout1.jsp">
+   <!-- Main 템플릿 Page1 -->
+   <definition name="default1" template="/WEB-INF/tiles/layout1.jsp">
       <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
    
-    <!-- ///////////////////////////////////////// -->
-    
-     <!-- 목록 -->
-   <!-- 샘플 적용 -->
-   <definition name="sample1" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/boardList.jsp" />
+   <!-- Main 템플릿 Page2 -->
+   <definition name="default2" template="/WEB-INF/tiles/layout1.jsp">
+      <put-attribute name="header" value="/WEB-IN/tiles/header/header2.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
+   </definition>
+       
+    <!-- admin템플릿-->
+   <definition name="default3" template="/WEB-INF/tiles/admin/layout.jsp">
+      <put-attribute name="body" value=" " />
+   </definition>
+  
+   <!-- (샘플) 템플릿2  -->
+   <definition name="default_sample" template="/WEB-INF/tiles/layout2.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="body2" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
+   </definition>
+   
+    <!-- (샘플) 템플릿1  -->
+   <definition name="default_sample_one" template="/WEB-INF/tiles/layout1.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
+   </definition>
+     
+      
+    <!-- 샘플 적용 -->
+   <definition name="sample1" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/sample/boardList.jsp" />
       <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
-    
-    
-   <!-- ///////////////////////////////////////// -->
-   <!-- QNA 소하 유진-->
-   <!-- QNA 게시판 -->
-  
    
-    <!-- 로그인폼 -->
-   <definition name="loginForm" extends="template1">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/login/loginForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-
-   <!-- 회원가입폼   -->
-   <definition name="joinForm" extends="template1">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-
-  <!-- myPage비밀번호 체크  -->
-   <definition name="pwCheckForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwCheckForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
+   <!-- main -->
+   <definition name="main" extends="default3">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/main/main.jsp" />
+      <put-attribute name="body2" value="/WEB-INF/jsp/shop/goods/goodsList2.jsp" />
    </definition>
    
-    <!-- myPage  -->
-   <definition name="accountDetail" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
+ 
+   
+    <!-- (공지) 템플릿 /jp  -->
+   <definition name="default_notice" template="/WEB-INF/tiles/layout3.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header3.jsp" />
+      <put-attribute name="body" value=" " />
+      <put-attribute name="body2" value=" " />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer3.jsp" />
    </definition>
-  
-  
-    <!-- ///////////////////////////////////////// -->
-    
-    <!--  Notlce  재필 -->
-    <!-- 공지사항 게시판 -->
-   <definition name="noticeList" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
+   
+     <!-- 공지게시판/jp -->
+   <definition name="noticeList" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
     </definition>
-    
-       <!-- 공지사항 상세내용 (value = "/community/noticeDetail")-->
-   <definition name="noticeDetail" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeDetail.jsp" />
+   
+      <!-- 공지사항 상세내용/jp (value = "/community/noticeDetail")-->
+   <definition name="noticeDetail" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeDetail.jsp" />
     </definition>
    
    
-    <!-- 어드민_공지게시판 (value = "/community/noticeList")-->
-   <definition name="adnoticeList" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/admin/noticeList.jsp" />
+    <!-- 어드민_공지게시판/jp (value = "/community/noticeList")-->
+   <definition name="adnoticeList" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/admin/noticeList.jsp" />
     </definition>
 
    
-       <!-- 어드민_공지_글쓰기(value = "/community/noticeWrite") -->
-   <definition name="noticeWriteForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeWriteForm.jsp" />
+       <!-- 어드민_공지_글쓰기/jp (value = "/community/noticeWrite") -->
+   <definition name="noticeWriteForm" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeWriteForm.jsp" />
     </definition>
+   
+   
      
-     
-       <!-- 어드민_공지_수정하기(value = "/community/noticeModifyForm") -->
-   <definition name="noticeModifyForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
+       <!-- 어드민_공지_수정하기/jp (value = "/community/noticeModifyForm") -->
+   <definition name="noticeModifyForm" extends="default_sample_one">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
     </definition>
    
-  
-  
-
-   <!-- ///////////////////////////////////////// -->
-   <!-- QNA 상용 -->
-   <!-- QNA 게시판 -->
-   <definition name="qnaList" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   <!-- QNA 상세보기 -->
-    <definition name="qnaDetail" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaDetail.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   <!-- QNA 수정하기 폼 -->   
-    <definition name="qnaModifyForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaModifyForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   <!-- QNA 글쓰기 폼 -->      
-    <definition name="qnaWriteForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaWriteForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-  
-  
-  
-    <!-- ///////////////////////////////////////// -->
-   <!-- GoodsShop 보라 -->
    
-    <!-- 상품리스트 -->
-   <definition name="goodsList" extends="template2">
+   
+   
+    <!-- 로그인폼/jp -->
+   <definition name="loginForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/login/loginForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+   <!-- 회원가입폼/jp -->
+   <definition name="joinForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/join/joinForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+  <!-- myPage비밀번호 체크/jp -->
+   <definition name="pwCheckForm" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwCheckForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+    <!-- myPage/jp -->
+   <definition name="accountDetail" extends="default_sample">
+   	  <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+
+
+   <!-- GoodsShop -->
+   <definition name="goodsList" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsList.jsp" />
    </definition>
    
-    <!-- 상품 올리기  / 수정하기 -->
-   <definition name="goodsWriteForm" extends="template2">
+   <definition name="goodsWriteForm" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteForm.jsp" />
    </definition>
-   <!-- 상품 올리기   결과화면 -->
-   <definition name="goodsWriteResult" extends="template2">
+   
+   <definition name="goodsWriteResult" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsWriteResult.jsp" />
    </definition>
-   <!-- 상품 상세보기 -->
-   <definition name="goodsDetail" extends="template2">
+   
+   <definition name="goodsDetail" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/goodsDetail.jsp" />
    </definition>
-   <!-- 상품  코멘트 보기 -->  
-   <definition name="goodsCommentDetail" extends="template2">
+   
+   <definition name="goodsCommentDetail" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/goods/commentDetail.jsp" />
    </definition>
    
    
    <!-- order -->
-   
-   <definition name="orderWriteForm" extends="template2">
+   <definition name="orderWriteForm" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderWriteForm.jsp" />
    </definition>
    
-   <definition name="orderWriteResult" extends="template2">
+   <definition name="orderWriteResult" extends="default1">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderWriteResult.jsp" />
    </definition>
    
-   <definition name="orderDetail" extends="template2">
+   <definition name="orderDetail" extends="default2">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderDetail.jsp" />
    </definition>
  
-  <!-- 게시판 -->
-  
-  <definition name="boardList" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardList.jsp" />
+ <!-- QNA -->
+
+   <definition name="qnaList" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+	 <definition name="qnaDetail" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaDetail.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
-     <definition name="boardDetail" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardDetail.jsp" />
+    <definition name="qnaModifyForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
-     <definition name="boardModify" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardModifyForm.jsp" />
+    <definition name="qnaWriteForm" extends="default_sample">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaWriteForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
+
+
    
-     <definition name="boarfWriterForm" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardWriteForm.jsp" />
-   </definition>
-  
-  </tiles-definitions>
-  
-  
-  
+</tiles-definitions>

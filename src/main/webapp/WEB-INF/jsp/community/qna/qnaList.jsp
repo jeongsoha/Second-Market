@@ -133,10 +133,10 @@
 								});
 				body.append(str);
 
-				$("a[name='title']").on("click", function(e) { //제목
+				$("a[name='title']").on("click", function(e) { //제목 클릭 시 디테일 진입
 					e.preventDefault();
 					fn_openBoardDetail($(this));
-				});
+				});  
 			}
 		} 
 	</script>

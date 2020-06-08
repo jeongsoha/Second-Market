@@ -71,7 +71,7 @@
 	    <c:forEach items="${asList }" var="answer">
 		<div class="answer">
 				<p>답변보기</p>
-				<table >
+				<table class="hide">
 					<tr>
 					  <th>작성자</th><td>${answer.MEM_ID }(운영자)</td><th>작성 날짜</th><td>${answer.QNA_DATE }</td>
 					</tr>
@@ -91,7 +91,7 @@
 			
 		<div class="answer">
 				<p>답변쓰기</p>
-				<table>
+				<table class="hide">
 					<tr>
 					  <th>제목</th>
 					  <td><input type="text" id="QNA_TITLE" name="QNA_TITLE"></td>
@@ -128,7 +128,7 @@
 			
 			$("#update").on("click", function(e){ //수정하기 버튼
 				e.preventDefault();
-				fn_BoardUpdate();
+				fn_openBoardUpdate();
 			});
 			$("#delete").on("click", function(e){ //삭제하기 버튼
 				e.preventDefault();
@@ -146,7 +146,7 @@
 			comSubmit.submit();
 		}
 		
-		function fn_BoardUpdate(){
+		function fn_openBoardUpdate(){
 			var idx = "${map.QNA_NUM}";
 			var type="${map.QNA_TYPE}";
 			var comSubmit = new ComSubmit();
