@@ -15,8 +15,8 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
-        	O.ORDERS_DNUM      
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
+        	
         
 	FROM    ORDERS O,
         	GOODS G
@@ -41,8 +41,8 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
-        	O.ORDERS_DNUM      
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
+        	 
         
 	FROM    ORDERS O,
         	GOODS G
@@ -67,8 +67,8 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
-        	O.ORDERS_DNUM      
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
+        	 
         
 	FROM    ORDERS O,
         	GOODS G
@@ -124,8 +124,8 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
-        	O.ORDERS_DNUM      
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
+         
 	FROM    ORDERS O,
         	GOODS G
 	WHERE   G.GOODS_SELLER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
@@ -152,8 +152,8 @@
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
         	G.GOODS_THUMBNAIL,
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
-        	O.ORDERS_DNUM      
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
+        	 
 	FROM    ORDERS O,
         	GOODS G
 	WHERE   G.GOODS_SELLER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})

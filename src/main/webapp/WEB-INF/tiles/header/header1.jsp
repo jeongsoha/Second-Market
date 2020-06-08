@@ -161,8 +161,8 @@
                   console.log('success'),
                   callback(data);
               },
-              timeout: 3000,
-              complete: setTimeout(function() { poll(); }, 10000)
+              timeout: 333000,
+              complete: setTimeout(function() { poll(); }, 3310000)
               });
       };
       
