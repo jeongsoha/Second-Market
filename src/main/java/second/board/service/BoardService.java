@@ -1,11 +1,11 @@
-package second.sample.service;
+package second.board.service;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-public interface SampleService {
+public interface BoardService {
 
 	List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception;
 

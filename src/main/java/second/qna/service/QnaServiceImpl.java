@@ -35,7 +35,6 @@ public class QnaServiceImpl implements QnaService{
 	}
 	@Override
 	public void insertQnaBoard(Map<String, Object> map, HttpServletRequest request) throws Exception {//글쓰기
-		// TODO Auto-generated method stub
 		qnaDAO.insertQnaBoard(map);
 		
 		map.put("IDX", map.get("QNA_NUM"));
@@ -48,7 +47,6 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public Map<String, Object> selectQnaDetail(Map<String, Object> map) throws Exception {//상세보기
-		// TODO Auto-generated method stub
 	    qnaDAO.updateQnaCount(map); 
 	    Map<String, Object> resultMap = new HashMap<String,Object>();
 		Map<String, Object> tempMap = qnaDAO.selectQnaDetail(map);
@@ -63,7 +61,6 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public void updateQna(Map<String, Object> map, HttpServletRequest request) throws Exception {//수정하기
-		// TODO Auto-generated method stub
 		qnaDAO.updateQnaModify(map);
 		map.put("IDX", map.get("QNA_NUM"));
 		
@@ -81,19 +78,16 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public void deleteQna(Map<String, Object> map) throws Exception {//삭제하기
-		// TODO Auto-generated method stub
 		qnaDAO.deleteQna(map);
 		
 	}
 	@Override
 	public void insertQnaAnswer(Map<String, Object> map) throws Exception{//답변달기
-		// TODO Auto-generated method stub
 		qnaDAO.insertQnaAnswer(map);
 		informDAO.informInsert(map, "내 문의글에 답변이 달렸습니다.");
 	}
 	@Override
 	public List<Map<String, Object>> selectQnaAnswer(Map<String, Object> map)throws Exception {
-		// TODO Auto-generated method stub
 		return qnaDAO.selectQnaAnswer(map);
 	}
 
