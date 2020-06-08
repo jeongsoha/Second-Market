@@ -61,9 +61,9 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
   <div id="content">
    <div id="vertical_tab-container">
       <ul>
-         <li><a href="/nnS/myshop"><img src="/nnS/resources/images/myshop_tab1.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="/nnS/myshop/saleList"><img src="/nnS/resources/images/myshop_tab2.png" width="100" height="30"></a></li>
-         <li><a href="/nnS/myshop/goodsLikeList"><img src="/nnS/resources/images/myshop_tab3.png" width="100" height="30"></a></li>
+         <li><a href="/second/myshop"><img src="/second/resources/images/myshop_tab1.png" width="100" height="30"></a></li>
+         <li class="selected"><a href="/second/myshop/saleList"><img src="/second/resources/images/myshop_tab2.png" width="100" height="30"></a></li>
+         <li><a href="/second/myshop/goodsLikeList"><img src="/second/resources/images/myshop_tab3.png" width="100" height="30"></a></li>
       </ul>
    </div>
    <div id="main-container">
@@ -253,7 +253,7 @@ function fn_selectMySaleListCallback1(data) {
 	      	      			+	"<input type='hidden' id='title2' name='title2' value="+value.GOODS_NUM+">"
 		      	      		+	"</td>"
 		      	      		+	"<td width='200px' align='center'>"
-		      	      		+	"<img alt='' width='50' height='50' src=/nnS/file/"+value.GOODS_THUMBNAIL+">"
+		      	      		+	"<img alt='' width='50' height='50' src=/second/file/"+value.GOODS_THUMBNAIL+">"
 		      	      		+	"</td>"
 		      	      	    +   "<td width='100px' align='center'>"
 		      	      		+	new Date(value.ORDERS_DATE).toLocaleString()

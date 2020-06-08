@@ -133,7 +133,35 @@
         <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
     </definition>
    
-  
+   <!--  마이샵 -->
+  <!-- myshop -->
+   <definition name="orderList" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderList.jsp" />
+   </definition>
+   <definition name="orderList2" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderList2.jsp" />
+   </definition>
+   <definition name="orderList3" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderList3.jsp" />
+   </definition>
+   
+   <definition name="saleList" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/saleList.jsp" />
+   </definition>
+   <definition name="saleList2" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/saleList2.jsp" />
+   </definition>
+   <definition name="saleList3" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/saleList3.jsp" />
+   </definition>
+   
+   <definition name="goodsLikeList" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/goodsLikeList.jsp" />
+   </definition>
+   
+   <definition name="recentGoodsList" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/recentGoodsList.jsp" />
+   </definition>
   
 
    <!-- ///////////////////////////////////////// -->
