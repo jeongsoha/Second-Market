@@ -3,6 +3,17 @@
 
 <mapper namespace="inform">
 
+<!-- 모든회원 뽑아내기 -->
+   <select id="selectAllMember" parameterType="hashmap" resultType="hashmap">
+   SELECT 
+       MEM_NUM
+   FROM MEMBER
+   </select>
+
+
+
+
+
    <insert id="informinsert" parameterType="hashmap">
    INSERT INTO INFORM 
                (INFORM_NUM,
