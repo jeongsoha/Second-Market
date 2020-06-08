@@ -77,7 +77,11 @@ function ComAjax(opt_formId){
             url : this.url,   
             type : "POST",  
             data : this.param,
+<<<<<<< HEAD
             async : false,   // https://e2xist.tistory.com/529 참고해서 삭제했다가 안 돼서 다시 노출시킴
+=======
+         //   async : false,	// https://e2xist.tistory.com/529 참고해서 삭제해봄
+>>>>>>> parent of 7d3d07d... Update common.js
             success : function(data, status) {
                 if(typeof(fv_ajaxCallback) == "function"){
                     fv_ajaxCallback(data);
