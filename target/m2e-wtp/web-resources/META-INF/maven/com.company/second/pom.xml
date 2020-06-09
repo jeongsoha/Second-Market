@@ -16,6 +16,12 @@
 	</properties>
 
 	<repositories>
+		<!-- 아임포트 -->
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+
 		<repository>
 			<id>mesir-repo</id>
 			<url>http://mesir.googlecode.com/svn/trunk/mavenrepo</url>
@@ -34,6 +40,14 @@
 
 
 	<dependencies>
+ 	<!-- 아임포트 -->
+	<dependency>
+	    <groupId>com.github.iamport</groupId>
+	    <artifactId>iamport-rest-client-java</artifactId>
+	    <version>0.2.7</version>
+	</dependency>
+ 
+
 		<dependency> 
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
