@@ -205,14 +205,14 @@
    </definition>
    
     <definition name="boardWriteForm" extends="template2">
-        <put-attribute name="body" value="/webapp/WEB-INF/jsp/community/board/boardWriteForm.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardWriteForm.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
-   
+   <!-- 
     <definition name="boardWrite" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardWrite.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
+   </definition> -->
    
   
   
