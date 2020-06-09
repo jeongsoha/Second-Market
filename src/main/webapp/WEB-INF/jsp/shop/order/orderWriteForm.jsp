@@ -149,6 +149,7 @@ $(document).ready(function() {
 			}else{
 				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
 				//fn_orderPay($(this));	넘기기 위한 테스트용
+				alert("여길가니111")
 				popup($(this));
 			}
 		}
@@ -229,8 +230,22 @@ $(document).ready(function() {
 		}
 	
 	var openWin;
-	
-
+	/* 결제팝업 */
+	function popup(){
+		var url = "/second/kakaoPay";
+		var param = "?orderNum="
+				  + document.getElementById("orderNumber").value
+				 // + "&goodsTcost="
+				 // + document.getElementById("GOODS_TCOST").value
+				  + "&itemName="
+				  + document.getElementById("item_name").value
+				  + "&memID="
+				  + document.getElementById("MEM_ID").value;
+				  
+		openWin = window.open(url+param, "childForm", "width=570, height=550, resizable = no, scrollbars = no");
+		
+		
+	}
 </script>
 
 
