@@ -6,6 +6,9 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="<c:url value='/resources/js/memberPayment.js'/>" charset="utf-8"></script>
 <meta charset="UTF-8">
 <style type="text/css">
 
@@ -17,8 +20,8 @@
 
 <div id="content">
 	<form  method="post" id="frm" name="frm" enctype="multipart/form-data" onsubmit="return formCheck();">
-	<h1 align="center">주문</h1>
-	
+	<h1 align="center">주문</h1><br><br>
+	  <button id="payment" >결제하기</button> <br><br><br>
 	<div>
 			<table>
 				<tr>
@@ -244,9 +247,9 @@ $(document).ready(function() {
 				  + document.getElementById("MEM_ID").value;
 				  
 		openWin = window.open(url+param, "childForm", "width=570, height=550, resizable = no, scrollbars = no");
-		
-		
 	}
+
+	
 </script>
 
 
