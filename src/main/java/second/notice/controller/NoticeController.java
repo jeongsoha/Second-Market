@@ -96,8 +96,10 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView("redirect:/community/noticeDetail");
 		System.out.println("66655");
 		mv.addObject("NOTICE_NUM", commandMap.get("NOTICE_NUM"));
-		noticeService.updateNoticeModify(commandMap.getMap(), request);
 		System.out.println("66666");
+		System.out.println(mv);
+		noticeService.updateNoticeModify(commandMap.getMap(), request);
+		
 		return mv;		
 	}
 	

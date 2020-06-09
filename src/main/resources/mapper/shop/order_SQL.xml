@@ -10,8 +10,7 @@
 					GOODS_TITLE,
 					GOODS_QTY,
 			        TO_CHAR(SYSDATE,'hh24:mi:ss') AS ORDER_TIME,
-			        GOODS_PRICE,
-			        GOODS_DCOST
+			        GOODS_PRICE
 			FROM    GOODS
 			WHERE   GOODS_NUM = #{GOODS_NUM}
 		]]>
@@ -22,9 +21,7 @@
 			SELECT  MEM_ID,
 			        MEM_NAME,
 			        MEM_PHONE,
-			        MEM_ZIP,
-			        MEM_ADD1,
-			        MEM_ADD2
+			        MEM_ADD1
 			FROM    MEMBER
 			WHERE   MEM_ID = #{MEM_ID}
 		]]>
@@ -43,13 +40,12 @@
 			                ORDERS_PHONE,
 			                ORDERS_STATUS,
 			                ORDERS_PRICE,
-			                ORDERS_DCOST,
-			                ORDERS_TCOST,
 			                ORDERS_DZIPCODE,
 			                ORDERS_DADD1,
 			                ORDERS_DADD2,
 			                ORDERS_DMEMO,
-			                ORDERS_PAY
+			                ORDERS_PAY,
+			                ORDERS_DEL_GB
 			                )
 			VALUES          (
 			                #{IDX},
@@ -58,13 +54,12 @@
 			                #{MEM_PHONE},
 			                '주문/결제',
 			                #{GOODS_PRICE},
-			                #{GOODS_DCOST},
-			                #{GOODS_TCOST},
-			                #{MEM_ZIP},
+			                '12345',
 			                #{ADD1},
-			                #{ADD2},
+			                'add2',
 			                #{DMEMO},
-			                #{ORDER_PAY}
+			                'orderpay',
+			                'N'
 			                )
 		]]>
 	</insert>
@@ -77,8 +72,6 @@
 			        ORDERS_PHONE,
 			        ORDERS_STATUS,
 			        ORDERS_PRICE,
-			        ORDERS_DCOST,
-			        ORDERS_TCOST,
 			        ORDERS_DZIPCODE,
 			        ORDERS_DADD1,
 			        ORDERS_DADD2,

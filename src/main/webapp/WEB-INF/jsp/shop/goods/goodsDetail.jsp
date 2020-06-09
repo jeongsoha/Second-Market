@@ -184,7 +184,7 @@
 					alert("자신의 상품은 구매할 수 없습니다.");
 					return false;
 				}else if("${map.GOODS_TSTATUS}" != 'N'){
-					alert("이미 거래중인 상품입니다.");
+					alert("거래 가능한 상품이 없습니다.");
 				}else{
 					fn_orderWriteForm($(this));
 				}

@@ -21,6 +21,8 @@ import second.notice.dao.NoticeDAO;;
 public class NoticeServiceImpl implements NoticeService {
 	Logger log = Logger.getLogger(this.getClass());
 	
+ 
+	
 	@Resource(name="informDAO")
 	private InformDAO informDAO;
 	
@@ -50,13 +52,22 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void insertNoticeWrite(Map<String, Object> map, HttpServletRequest request) throws Exception {
+	 
+				
 		noticeDAO.insertNotice(map);
-		informDAO.informInsert(map, "새로운 공지사항이 게시되었습니다.");
-		
 		map.put("IDX", map.get("NOTICE_NUM"));
-		List<Map<String, Object>> list = fileUtils.parseInsertFileInfo(map, request);
+		System.out.println(map);
+
+		 
+		
+		 /*전체유저 뽑아내기*/  
+		List<Map<String, Object>> list = informDAO.selectAllMember(map);
+				 
 		for(int i=0, size=list.size(); i<size; i++) {
-			noticeDAO.insertFile(list.get(i));
+ 
+			map.put("IDX", list.get(i).get("MEM_NUM"));
+			informDAO.informInsert(map, "새로운 공지사항이 게시되었습니다."); // *회원수 만큼
+		 	
 		}
 	}
 

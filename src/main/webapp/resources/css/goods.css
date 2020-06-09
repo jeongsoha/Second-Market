@@ -179,7 +179,7 @@ table {
    border-collapse: collapse;
    border-spacing: 0;
 }
-/*css ÃÊ±âÈ­*/
+/*css ï¿½Ê±ï¿½È­*/
 .card {
    float:left;
    height: 400px;
@@ -194,10 +194,10 @@ table {
    overflow: hidden;
 }
 .card-header {
-   -webkit-transition: 0.5s; /*»çÆÄ¸® & Å©·Ò*/
-    -moz-transition: 0.5s;  /*ÆÄÀÌ¾îÆø½º*/
-    -ms-transition: 0.5s;   /*ÀÎÅÍ³Ý ÀÍ½ºÇÃ·Î·¯*/
-    -o-transition: 0.5s;  /*¿ÀÆä¶ó*/
+   -webkit-transition: 0.5s; /*ï¿½ï¿½ï¿½Ä¸ï¿½ & Å©ï¿½ï¿½*/
+    -moz-transition: 0.5s;  /*ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½*/
+    -ms-transition: 0.5s;   /*ï¿½ï¿½ï¿½Í³ï¿½ ï¿½Í½ï¿½ï¿½Ã·Î·ï¿½*/
+    -o-transition: 0.5s;  /*ï¿½ï¿½ï¿½ï¿½ï¿½*/
     transition: 0.5s;
    width: 100%;
    height: 270px;
@@ -236,10 +236,10 @@ h1 {
     opacity: 0;
     color: #757B82;
     line-height: 25px;
-    -webkit-transition: .2s ease-in-out; /*»çÆÄ¸®&Å©·Ò*/
-    -moz-transition: .2s ease-in-out; /*ÆÄÀÌ¾îÆø½º*/
-    -ms-transition: .2s ease-in-out; /*ÀÍ½ºÇÃ·Î·¯*/
-    -o-transition: .2s ease-in-out; /*¿ÀÆä¶ó*/
+    -webkit-transition: .2s ease-in-out; /*ï¿½ï¿½ï¿½Ä¸ï¿½&Å©ï¿½ï¿½*/
+    -moz-transition: .2s ease-in-out; /*ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½*/
+    -ms-transition: .2s ease-in-out; /*ï¿½Í½ï¿½ï¿½Ã·Î·ï¿½*/
+    -o-transition: .2s ease-in-out; /*ï¿½ï¿½ï¿½ï¿½ï¿½*/
     transition : .2s ease-in-out;
     overflow: hidden;
    height: 180px;
@@ -276,14 +276,13 @@ h1 {
 .icon-view_count {
     width: 25px;
     height: 17px;
-   background: url("images/eye.jpg") no-repeat;
+   
 }
 .icon-comments_count {
    margin-left: 5px;
    width: 25px;
     height: 17px;
-   background: url("images/comment.jpg") no-repeat;   
-}
+    }
 .reg_date {
 	margin-left: 15px;
    float: ;

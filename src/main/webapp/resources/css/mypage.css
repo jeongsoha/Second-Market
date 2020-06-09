@@ -87,12 +87,35 @@ html ul.goodsTabs li.active, html ul.goodsTabs li.active a:hover  {
    overflow: auto;
    border-radius:20px;
 }
+
+/* 소하가함 */
+
 #vertical_tab-container
 {
    float: left;
-   margin: 70px 0 0 0;
+   margin: 100px 0px 0px 100px;
    width: 126px;
+   display: inline; 
 }
+#main-container
+{
+   float: left;
+   width: 600px;
+   min-height: 400px;
+   margin: 20px 100px 0px 150px;
+   padding: 20px;
+   border-top: 1px solid #fff;  
+   border-right: 1px solid #fff;     
+   border-left: 1px solid #fff; 
+   border-bottom: 1px solid #fff;    
+   display: inline; 
+}
+#con{
+   clear:both;
+}
+
+/* 소하가함 */
+
 #vertical_tab-container ul
 {
    list-style: none;
@@ -129,16 +152,7 @@ html ul.goodsTabs li.active, html ul.goodsTabs li.active a:hover  {
    background-color: #fff;
    border-left: 4px solid #ffd04a;
 }
-#main-container
-{
-   min-height: 400px;
-   margin: 0 0 0 125px;
-   padding: 20px;
-   border-top: 1px solid #fff;  
-   border-right: 1px solid #fff;     
-   border-left: 1px solid #fff; 
-   border-bottom: 1px solid #fff;    
-}
+
    @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
    
    html {
@@ -146,7 +160,7 @@ html ul.goodsTabs li.active, html ul.goodsTabs li.active a:hover  {
    }
    
    body {
-        background:linear-gradient(to bottom right, #f0e199, #f0e199);
+        background:white;
    }
    body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'���� ���',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
    

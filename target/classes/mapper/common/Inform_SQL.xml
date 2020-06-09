@@ -3,9 +3,21 @@
 
 <mapper namespace="inform">
 
+<!-- 모든회원 뽑아내기 -->
+   <select id="selectAllMember" parameterType="hashmap" resultType="hashmap">
+   SELECT 
+       MEM_NUM
+   FROM MEMBER
+   </select>
+
+
+
+
+<!-- 멤버별 공지사항 알림 기록하기 -->
    <insert id="informinsert" parameterType="hashmap">
    INSERT INTO INFORM 
                (INFORM_NUM,
+                INFORM_PARENT,
                 INFORM_CONTENT,
                 INFORM_CONFIRM,
                 INFORM_DATE,
@@ -13,19 +25,21 @@
                 )
          VALUES(
          INFORM_SEQ.NEXTVAL,
+         #{NOTICE_NUM},
          #{INFORM_CONTENT},
          'N',
          SYSDATE,
-         (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID =#{IDX})
+         #{IDX}
          )
    </insert>
    
-
+<!--  노티스 패런츠 활용고민 -->
    <insert id="informinsert2" parameterType="hashmap">
    INSERT INTO INFORM 
                (INFORM_NUM,
                 INFORM_CONTENT,
                 INFORM_CONFIRM,
+                INFORM_PARENT,
                 INFORM_DATE,
                 INFORM_USER
                 )
@@ -33,11 +47,12 @@
          INFORM_SEQ.NEXTVAL,
          #{INFORM_CONTENT2},
          'N',
+         #{NOTICE_NUM},
          SYSDATE,
          (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID =#{IDX2})
          )
    </insert>
-   
+   <!-- 유저 1인 기준으로 본인에게 해당하는 알림을 리스트로 보여줌 -->
    <select id="informList" parameterType="hashmap" resultType="hashmap">
    SELECT 
        INFORM_NUM, 
@@ -51,7 +66,7 @@
    AND   INFORM_CONFIRM = 'N'
    ORDER BY INFORM_NUM
    </select>
-   
+   <!-- 알림창을 열어보았으 경우 N 이 Y 로 바뀌도록 -->
    <update id="confirmUpdate" parameterType="hashmap">
       UPDATE INFORM 
           SET INFORM_CONFIRM ='Y'

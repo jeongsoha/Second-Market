@@ -8,40 +8,32 @@
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <meta charset="UTF-8">
 <style type="text/css">
-#main-container
-{
-   min-height: 400px;
-   margin: 0 0 0 125px;
-   padding: 20px;
-   background-color: #fff;
-   border: 1px solid #888;
-}
+
 </style>
 </head>
 <body>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
+
+
 <div id="content">
 	<form  method="post" id="frm" name="frm" enctype="multipart/form-data" onsubmit="return formCheck();">
-	<h1 align="center">주문서 작성</h1>
-	<div id="main-container">
-			<table border="1" height="100" class="tbl_type">
+	<h1 align="center">주문</h1>
+	
+	<div>
+			<table>
 				<tr>
-					<th style="width: 16.6667%;">상품 정보</th>
-					<th style="width: 16.6667%;">상품브랜드</th>
-					<th style="width: 16.6667%;">주문 일자</th>
-					<th style="width: 16.6667%;">주문 번호</th>
-					<th style="width: 16.6667%;">주문금액(수량)</th>
-					<th style="width: 16.6667%;">배송비</th>
+					<th style="width: 16.6667%;">상품정보</th>
+					<th style="width: 16.6667%;">주문일자</th>
+					<th style="width: 16.6667%;">주문번호</th>
+					<th style="width: 16.6667%;">구매수량</th>
 					<th style="width: 16.6667%;">최종 결제금액</th>
 				</tr>
 				<tr>
 					<td style="width: 16.6667%;">${orderG.GOODS_TITLE}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_BRAND}</td>
 					<td style="width: 16.6667%;">${orderG.ORDER_TIME}</td>
 					<td style="width: 16.6667%;">${orderG.GOODS_NUM}</td>
 					<td style="width: 16.6667%;">${orderG.GOODS_PRICE}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_DCOST}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_PRICE+orderG.GOODS_DCOST}</td>
+					<td style="width: 16.6667%;">${orderG.GOODS_PRICE}</td>
 				</tr>
 				<tr>
 					<th>
@@ -61,21 +53,20 @@
 					<td>
 						<input type="text" id="MEM_PHONE" name="MEM_PHONE" value="${orderM.MEM_PHONE}">
 					</td>
-					<td colspan="5"> 
-						우편번호 <input type="text" id="MEM_ZIP" name="MEM_ZIP" value="${orderM.MEM_ZIP}">
+					<td> 
+						우편번호 <input type="text">
 						<input type="button" id="searchAddr" name="searchAddr" value="검색"><br/>
 						<input type="text" id="ADD1" name="ADD1" size="50" value="${orderM.MEM_ADD1}">
-						<input type="text" id="ADD2" name="ADD2" size="50" value="${orderM.MEM_ADD2}">
 					</td>
 				</tr>
 				<tr>
-					<th colspan="7">
+					<th>
 						배송 메모
 					</th>
 				</tr>
 				<tr>
-					<td colspan="7">
-						<textarea cols="180" rows="10" id="DMEMO" name="DMEMO"></textarea>
+					<th>
+						<textarea id="DMEMO" name="DMEMO"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -83,10 +74,8 @@
 						<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_ID}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${orderG.GOODS_NUM}"/>
 						<input type="hidden" id="GOODS_PRICE" name="GOODS_PRICE" value="${orderG.GOODS_PRICE}"/>
-						<input type="hidden" id="GOODS_DCOST" name="GOODS_DCOST" value="${orderG.GOODS_DCOST}"/>
 						<input type="hidden" id="orderNumber" name="orderNumber" value="${orderG.GOODS_NUM}" />
-						<input type="hidden" id="GOODS_TCOST" name="GOODS_TCOST" value="${orderG.GOODS_PRICE+orderG.GOODS_DCOST}" />
-						<input type="hidden" id="item_name" name="item_name" value="${orderG.GOODS_BRAND}"/>
+						<input type="hidden" id="item_name" name="item_name" value="${orderG.GOODS_TITLE}"/>
 					</td>
 				</tr>
 				<tr>
@@ -94,7 +83,7 @@
 						결제수단
 					</th>
 					<td colspan="3" align="left">
-						카카오페이 <input type="radio" id="ORDER_PAY" name="ORDER_PAY" value="kakaopay" checked="checked">
+					무통장 / 카드 / 계좌이체 / 등 
 					</td>
 					<th>
 						결제확인
@@ -122,10 +111,10 @@
 				<tr>
 						<td>
 							<textarea cols="180" rows="20" name="termsContent" readonly style="font-size:13px;">
-나눠써 구매회원 약관 동의
+세컨드샵 구매회원 약관 동의
 1. 회원의 주소 또는 e-mail주소에 도달함으로써 회사의 통지는 유효하고, 회원 정보의 변경/미변경에 대한 책임은 회원에게 있음. (제8조)
 2. 약관이 정하는 부정거래 행위를 한 회원에 대하여 제재 조치 가능 예: 직거래, 경매 부정행위, 시스템 부정행위, 결제 부정행위, 재판매 목적의 거래행위 등. (제36조)
-3. second#은 통신판매중개자로서 판매자와 구매자와의 거래에 관한 분쟁에 개입하지 않으며 어떠한 보증 및 책임도 부담하지 않음. (제6조, 제38조)
+3. 세컨드샵은 통신판매중개자로서 판매자와 구매자와의 거래에 관한 분쟁에 개입하지 않으며 어떠한 보증 및 책임도 부담하지 않음. (제6조, 제38조)
 
 전자금융거래 약관 동의
 1. 접근매체의 양도∙양수, 대여∙사용위임, 질권설정 기타 담보 제공 및 이의 알선과 접근매체를 제3자에게 누설∙노출, 방치하는 것은 금지됨. (제17조, 제21조, 제23조)
@@ -136,7 +125,7 @@
 				</tr>
 				<tr>
 					<td colspan="7">
-						상기 내용을 확인하였으며, 동의합니다. <input type="checkbox" id="terms" name="terms">
+						상기 내용을 확인하였으며 이에 동의합니다. <input type="checkbox" id="terms" name="terms">
 					</td>
 				</tr>	
 		</table>
@@ -155,11 +144,12 @@ $(document).ready(function() {
 		e.preventDefault();
 		if(fn_formCheck()){
 			if(document.getElementById("check").value == "true"){
-				alert("이미 결제가 완료되어 주문서 확인 창으로 이동됩니다.");
+				alert("이미 결제가 완료되어 주문확인 창으로 이동합니다.");
 				fn_orderPay($(this));	
 			}else{
-				alert("결제가 완료되지않아 결제창으로 이동됩니다.");
-				popup($(this));
+				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
+				fn_orderPay($(this));	
+				//popup($(this));
 			}
 		}
 	});
@@ -181,36 +171,47 @@ $(document).ready(function() {
 		var comSubmit = new ComSubmit("frm");
 		var ORDERS_NUM = "${order.ORDERS_NUM}";
 		comSubmit.setUrl("<c:url value='/shop/order/orderWrite' />");
-		//comSubmit.setUrl("<c:url value='/kakaoPay' />");
 		comSubmit.addParam("ORDERS_NUM", ORDERS_NUM);
 		comSubmit.submit();	
 		}
 	});
 
+	function zipcode() {//우편번호 검색창
+	    new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+	
+	            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+	            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+	            var addr = ''; // 주소 변수
+	
+	            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+	            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+	                addr = data.roadAddress;
+	                document.getElementById("MEM_ADD1").value = addr;
+	            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+	                alert("도로명 주소를 입력해주세요.");
+	            	return false;
+	            }
+	           
+	        }
+	    }).open();
+	}
+	
 	function fn_formCheck() {
         if(!$("#MEM_ID").val()){
-            alert("받는분의 이름을 입력해주세요.");
+            alert("받는 분의 성함을 입력해주세요.");
             $("#MEM_ID").focus();
             return false;
         }
         if(!$("#MEM_PHONE").val()){
-            alert("받는분의 연락처를 입력해주세요.");
+            alert("받는 분의 연락처를 입력해주세요.");
             $("#MEM_PHONE").focus();
-            return false;
-        }
-        if(!$("#MEM_ZIP").val()){
-            alert("배송지를 입력해주세요.");
-            $("#MEM_ZIP").focus();
             return false;
         }
         if(!$("#ADD1").val()){
             alert("배송지를 입력해주세요.");
             $("#ADD1").focus();
-            return false;
-        }
-        if(!$("#ADD2").val()){
-            alert("배송지를 입력해주세요.");
-            $("#ADD2").focus();
             return false;
         }
         if(!$("#DMEMO").val()){
@@ -229,21 +230,7 @@ $(document).ready(function() {
 	
 	var openWin;
 	
-	function popup(){
-		var url = "/second/kakaoPay";
-		var param = "?orderNum="
-				  + document.getElementById("orderNumber").value
-				  + "&goodsTcost="
-				  + document.getElementById("GOODS_TCOST").value
-				  + "&itemName="
-				  + document.getElementById("item_name").value
-				  + "&memID="
-				  + document.getElementById("MEM_ID").value;
-				  
-		openWin = window.open(url+param, "childForm", "width=570, height=550, resizable = no, scrollbars = no");
-		
-		
-	}
+
 </script>
 
 

@@ -25,9 +25,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import second.common.common.MailHandler;
+
+import second.common.common.CommandMap;
+import second.member.service.LoginService;
+import second.member.service.MailService;
+
 import second.member.service.LoginService;
 import second.member.service.MailService;
 import second.common.common.CommandMap;
+
 
 @Controller
 public class LoginController {
@@ -79,80 +85,82 @@ public class LoginController {
 		 
 		return mv;
 	}
-	
-	   @RequestMapping(value = "/logout") // 로그아웃
-	   public ModelAndView logout(HttpServletRequest request, CommandMap commandMap) throws Exception {
-	      HttpSession session = request.getSession(false);
-	      if (session != null)
-	         session.invalidate();
-	      ModelAndView mv = new ModelAndView();
-	      mv.setViewName("redirect:/sample/openBoardList");
-	      return mv;
-	   }
 
-	   @RequestMapping(value = "/findId") // 아이디 찾기 폼을 보여주는 메소드
-	   public ModelAndView findId(CommandMap commandMap) throws Exception {
-	      ModelAndView mv = new ModelAndView("findAccount");
-	      int ran = new Random().nextInt(900000) + 100000;
-	      
-	      mv.addObject("random",ran);
-	      
-	      return mv;
-	   }
-
-	   @RequestMapping(value = "/findIdResult", method = RequestMethod.POST, produces = "application/text; charset=utf8")
-
-	   public @ResponseBody String findIdResult(CommandMap commandMap) throws Exception {
-	      String id = String.valueOf(loginService.findId(commandMap.getMap()));
-	      
-	      if(id.equals("1")) {
-	         String findId = (String)(loginService.findIdWithEmail(commandMap.getMap()).get("MEM_ID"));
-	         System.out.println(findId);
-	         return findId;
-	         
-	      }else {
-	         return id;
-	      }
-	   }
-	   
-	   
-
-	   @RequestMapping(value = "/findPw") // 비밀번호 찾기 폼을 보여주는 메소드
-	   public ModelAndView findPw(CommandMap commandMap) throws Exception {
-	      ModelAndView mv = new ModelAndView("findAccount");
-	      int ran = new Random().nextInt(900000) + 100000;
-	      
-	      mv.addObject("random",ran);
-	      
-	      return mv;
-	   }
-	   
-	   @RequestMapping(value = "/findPwResult", method=RequestMethod.GET) //비밀번호 찾기
-	   @ResponseBody
-	   public boolean findPwEmail(CommandMap commandMap,@RequestParam String MEM_ID, @RequestParam String MEM_EMAIL, @RequestParam int random, HttpServletRequest req) throws Exception {
-	      
-	      
-	      String emailCheck = String.valueOf(loginService.findPwWithEmail(commandMap.getMap()));
-	      System.out.println(emailCheck);
-	      if(emailCheck.equals("1")) {
-	         int ran = new Random().nextInt(900000) + 100000;
-	            HttpSession session = req.getSession(true);
-	            String authCode = String.valueOf(ran);
-	            session.setAttribute("authCode", authCode);
-	            session.setAttribute("random", random);
-	            String subject = "second 비밀번호 변경 코드 안내 입니다.";
-	            StringBuilder sb = new StringBuilder();
-	            sb.append("귀하의 임시 비밀번호는 " + authCode + "입니다.");
-	            
-	            commandMap.put("MEM_ID", MEM_ID);
-	            commandMap.put("MEM_EMAIL", MEM_EMAIL);
-	            commandMap.put("authCode", authCode);
-	            loginService.updateTempPw(commandMap.getMap());
-	            return mailService.send(subject, sb.toString(),"cwjjgl183@gmail.com", MEM_EMAIL, null);
-	      }else {
-	           return false;
-	      }
-	   }
-	   
-
+	@RequestMapping(value = "/logout") // 로그아웃
+	public ModelAndView logout(HttpServletRequest request, CommandMap commandMap) throws Exception {
+		HttpSession session = request.getSession(false);
+		if (session != null)
+			session.invalidate();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/sample/openBoardList");
+		return mv;
 	}
+
+	@RequestMapping(value = "/findId") // 아이디 찾기 폼을 보여주는 메소드
+	public ModelAndView findId(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("findAccount");
+		int ran = new Random().nextInt(900000) + 100000;
+		
+		mv.addObject("random",ran);
+		
+		return mv;
+	}
+
+	@RequestMapping(value = "/findIdResult", method = RequestMethod.POST, produces = "application/text; charset=utf8")
+
+	public @ResponseBody String findIdResult(CommandMap commandMap) throws Exception {
+		String id = String.valueOf(loginService.findId(commandMap.getMap()));
+		
+		if(id.equals("1")) {
+			String findId = (String)(loginService.findIdWithEmail(commandMap.getMap()).get("MEM_ID"));
+			System.out.println(findId);
+			System.out.println(findId);
+			System.out.println(findId);
+			return findId;
+			
+		}else {
+			return id;
+		}
+	}
+	
+	
+
+	@RequestMapping(value = "/findPw") // 비밀번호 찾기 폼을 보여주는 메소드
+	public ModelAndView findPw(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("findAccount");
+		int ran = new Random().nextInt(900000) + 100000;
+		
+		mv.addObject("random",ran);
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "/findPwResult", method=RequestMethod.GET) //비밀번호 찾기
+	@ResponseBody
+	public boolean findPwEmail(CommandMap commandMap,@RequestParam String MEM_ID, @RequestParam String MEM_EMAIL, @RequestParam int random, HttpServletRequest req) throws Exception {
+		
+		
+		String emailCheck = String.valueOf(loginService.findPwWithEmail(commandMap.getMap()));
+		System.out.println(emailCheck);
+		if(emailCheck.equals("1")) {
+			int ran = new Random().nextInt(900000) + 100000;
+			   HttpSession session = req.getSession(true);
+			   String authCode = String.valueOf(ran);
+			   session.setAttribute("authCode", authCode);
+			   session.setAttribute("random", random);
+			   String subject = "second 비밀번호 변경 코드 안내 입니다.";
+			   StringBuilder sb = new StringBuilder();
+			   sb.append("귀하의 임시 비밀번호는 " + authCode + "입니다.");
+			   
+			   commandMap.put("MEM_ID", MEM_ID);
+			   commandMap.put("MEM_EMAIL", MEM_EMAIL);
+			   commandMap.put("authCode", authCode);
+			   loginService.updateTempPw(commandMap.getMap());
+			   return mailService.send(subject, sb.toString(),"cwjjgl183@gmail.com", MEM_EMAIL, null);
+		}else {
+			  return false;
+		}
+	}
+	
+
+}

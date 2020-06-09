@@ -6,9 +6,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository("informDAO")
 public class InformDAO extends AbstractDAO {
+	
+    public List<Map<String, Object>> selectAllMember(Map<String, Object>map)throws Exception{
+ 
+    	 return (List<Map<String, Object>>)selectList("inform.selectAllMember",map);
+	   }
 
    public void informInsert(Map<String, Object> map, String str)throws Exception{
       map.put("INFORM_CONTENT", str);
+      
       insert("inform.informinsert",map);
    }
    

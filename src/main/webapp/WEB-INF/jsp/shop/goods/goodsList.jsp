@@ -104,8 +104,9 @@ h1 {
     font-weight: bold;
 }
 .card-body {
+
 }
-.card-body-header{
+.card-body-header{ 
    line-height: 25px;
    margin: 10px 20px 0px 20px;
 }
@@ -159,7 +160,7 @@ h1 {
    background: url("images/comment.jpg") no-repeat;   
 }
 .reg_date {
-	margin-left: 15px;
+   margin-left: 15px;
    float: ;
 }
 </style>
@@ -184,182 +185,184 @@ h1 {
    
    
    <div id="main-container">
-   		<table class="board_list">
-		<colgroup>
-			<col width="100%" />
-		</colgroup>
-		<thead>
-			<tr>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-		</table>
-		<div align="center">
-		<form action="/second/shop" method="post">
-			<fieldset>
-				
-				<select name="searchType" id="searchType">
-					<option value="nothing">-----</option>
-					<option value="title" <c:out value="${searchType eq 'title'?'selected':''}"/>>상품명</option>
-					<option value="content" <c:out value="${searchType eq 'content'?'selected':''}"/>>내용</option>
-					<option value="region" <c:out value="${searchType eq 'region'?'selected':''}"/>>지역</option>
-				</select>
-				<input type="text" class="txt" placeholder="Search" name="keyword" id="keyword" value="${keyword}"/>&nbsp;
-				<input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
-				<input type="hidden" id="path" value="${path}" />
-				<input type="hidden" id="sortType" value="${sortType}" />
-			</fieldset>
-		</form>
-		</div>
-		<div id="PAGE_NAVI" align="center"></div>
-		<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
+         <table class="board_list">
+      <colgroup>
+         <col width="100%" />
+      </colgroup>
+      <thead>
+         <tr>
+         </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      </table>
+      <div align="center">
+      <form action="/second/shop" method="post">
+         <fieldset>
+            
+            <select name="searchType" id="searchType">
+               <option value="nothing">-----</option>
+               <option value="title" <c:out value="${searchType eq 'title'?'selected':''}"/>>상품명</option>
+               <option value="content" <c:out value="${searchType eq 'content'?'selected':''}"/>>내용</option>
+               <option value="region" <c:out value="${searchType eq 'region'?'selected':''}"/>>지역</option>
+            </select>
+            <input type="text" class="txt" placeholder="Search" name="keyword" id="keyword" value="${keyword}"/>&nbsp;
+            <input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
+            <input type="hidden" id="path" value="${path}" />
+            <input type="hidden" id="sortType" value="${sortType}" />
+         </fieldset>
+      </form>
+      </div>
+      
+      <div id="PAGE_NAVI" align="center"></div>
+      <input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
    
-	<div align="right">
-	<c:if test="${session_MEM_ID ne null }">
-		<a href="#this" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">글쓰기</button></a>
-	</c:if>
-	</div>
+   <div align="right">
+   <c:if test="${session_MEM_ID ne null }">
+      <a href="#this" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">글쓰기</button></a>
+   </c:if>
+   </div>
 
    </div>
 </div>
     
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
-	
+   
 <script type="text/javascript">
-		$(document).ready(function() {
-			
-			fn_selectGoodsList(1);
-			
-			$("#write").on("click", function(e) { //상품등록 버튼
-				e.preventDefault();
-				fn_goodsWrite();
-			});
+      $(document).ready(function() {
+         
+         fn_selectGoodsList(1);
+         
+         $("#write").on("click", function(e) { //상품등록 버튼
+            e.preventDefault();
+            fn_goodsWrite();
+         });
 
-			$("a[name='title']").on("click", function(e) { //제목 
-				e.preventDefault();
-				fn_goodsDetail($(this));
-			});
-			
-		});
-		
-		function fn_goodsWrite() {
-			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/shop/goodsWriteForm' />");
-			comSubmit.submit();
-		}
-	
-		function fn_goodsDetail(obj) {
-			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/shop/goodsDetail' />");
-			comSubmit.addParam("GOODS_NUM", obj.parent().find("#IDX1").val());
-			comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
-			comSubmit.submit();
-		}
-		
-		function fn_selectGoodsList(pageNo) {
-			var comAjax = new ComAjax();
-			comAjax.setUrl("<c:url value='/shop/selectGoodsList' />");
-			comAjax.setCallback("fn_selectGoodsListCallback");
-			comAjax.addParam("PAGE_INDEX", pageNo);
-			comAjax.addParam("PAGE_ROW", 6);
-			comAjax.addParam("keyword", $('#keyword').val());
-			comAjax.addParam("searchType", $('#searchType').val());
-			comAjax.addParam("sortType", $('#sortType').val());
-			comAjax.addParam("path", $('#path').val());
-			comAjax.ajax();
-		}
+         $("a[name='title']").on("click", function(e) { //제목 
+            e.preventDefault();
+            fn_goodsDetail($(this));
+         });
+         
+      });
+      
+      function fn_goodsWrite() {
+         var comSubmit = new ComSubmit();
+         comSubmit.setUrl("<c:url value='/shop/goodsWriteForm' />");
+         comSubmit.submit();
+      }
+   
+      function fn_goodsDetail(obj) {
+         var comSubmit = new ComSubmit();
+         comSubmit.setUrl("<c:url value='/shop/goodsDetail' />");
+         comSubmit.addParam("GOODS_NUM", obj.parent().find("#IDX1").val());
+         comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
+         comSubmit.submit();
+      }
+      
+      function fn_selectGoodsList(pageNo) {
+         var comAjax = new ComAjax();
+         comAjax.setUrl("<c:url value='/shop/selectGoodsList' />");
+         comAjax.setCallback("fn_selectGoodsListCallback");
+         comAjax.addParam("PAGE_INDEX", pageNo);
+         comAjax.addParam("PAGE_ROW", 6);
+         comAjax.addParam("keyword", $('#keyword').val());
+         comAjax.addParam("searchType", $('#searchType').val());
+         comAjax.addParam("sortType", $('#sortType').val());
+         comAjax.addParam("path", $('#path').val());
+         comAjax.ajax();
+      }
 
-		function fn_selectGoodsListCallback(data) {
-			var total = data.TOTAL;
-			var body = $("table>tbody");
-			body.empty();
-			if (total == 0) {
-				var str = "<tr>" + "<td colspan='4'>조회된 결과가 없습니다.</td>"
-						+ "</tr>";
-				body.append(str);
-			} else {
-				var params = {
-					divId : "PAGE_NAVI",
-					pageIndex : "PAGE_INDEX",
-					totalCount : total,
-					recordCount : 6,
-					eventName : "fn_selectGoodsList"
-				};
-				gfn_renderPaging(params);
+      function fn_selectGoodsListCallback(data) {
+         var total = data.TOTAL;
+         var body = $("table>tbody");
+         body.empty();
+         if (total == 0) {
+            var str = "<tr>" + "<td colspan='4'>조회된 결과가 없습니다.</td>"
+                  + "</tr>";
+            body.append(str);
+         } else {
+            var params = {
+               divId : "PAGE_NAVI",
+               pageIndex : "PAGE_INDEX",
+               totalCount : total,
+               recordCount : 6,
+               eventName : "fn_selectGoodsList"
+            };
+            gfn_renderPaging(params);
 
-				var str = "";
-				$.each(
-								data.list,
-								function(key, value) {
-									var imgpath = "";
-									var tstatus = "";
-									
-									if(value.GOODS_THUMBNAIL == null){
-										imgpath = 	"<div class='card-header'>"
-									}else{
-										imgpath = "<div class='card-header' style='background-image:url(\"" + $('#path').val() + value.GOODS_THUMBNAIL + "\");'>"
-										//alert(imgpath);
-									}
-									if(value.GOODS_TSTATUS == 'N'){
-										tstatus += "<div class = 'card-header-is_closed2' >" 
-										 	     + "<div class = 'card-header-text' >" 
-												 + "거래가능";
-									}else if (value.GOODS_TSTATUS == 'ING'){
-										tstatus += "<div class = 'card-header-is_closed' >" 
-										 	     + "<div class = 'card-header-text' >" 
-										 	     + "거래중";
-									}
-							
-									str +=  "<div class='card'>"
-										+		"<a href='#this' name='title'>"
-										+	      imgpath
-										+ 					tstatus
-										+ 					"</div >"
-										+	                "<div class = 'card-header-number' >"
-										+					value.GOODS_NUM + "번"
-										+					"</div >" 
-										+	            "</div >"
-										+	      "</div>"
-										+	      "<div class='card-body'>"
-										+	         "<div class='card-body-header'>"
-										+	            "<h1>"
-										+				value.GOODS_TITLE
-										+				"</h1>"
-										+	            "<p class = 'card-body-nickname'>"
-										+	                                 "작성자: "
-										+									value.MEM_ID
-										+	                          "</p>"
-										+	            "<h3>"
-										+ 				value.GOODS_PRICE +"원"
-										+				"</h3>"
-										+	         "</div>"
-										+	         "<div class='card-body-footer'>"
-										+	            "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"
-										+	            "<i class='icon icon-view_count'></i>조회수 "
-										+				value.GOODS_COUNT
-										+				"회"
-										+	            "<i class='icon icon-comments_count'></i>좋아요 "
-										+				value.TOTAL_COUNT2
-										+				"개"
-										+	            "<i class='reg_date'>"
-										+				new Date(value.GOODS_DATE).toLocaleString()
-										+				"</i>"
-										+	         "</div>"
-										+	      "</div>"
-										+ 	   "<input type='hidden' id='IDX1' value=" + value.GOODS_NUM + ">"
-										+	   "</a>"
-										+	   "</div>";
-										
-								});
-				body.append(str);
+            var str = "";
+            $.each(
+                        data.list,
+                        function(key, value) {
+                           var imgpath = "";
+                           var tstatus = "";
+                           
+                           if(value.GOODS_THUMBNAIL == null){
+                              imgpath =    "<div class='card-header'>"
+                           }else{
+                              imgpath = "<div class='card-header' style='background-image:url(\"" + $('#path').val() + value.GOODS_THUMBNAIL + "\");'>"
+                              //alert(imgpath);
+                           }
+                           if(value.GOODS_TSTATUS == 'N'){
+                              tstatus += "<div class = 'card-header-is_closed2' >" 
+                                       + "<div class = 'card-header-text' >" 
+                                     + "거래가능"; 
+                           }else if (value.GOODS_TSTATUS == 'ING'){ 
+                           /* }else if (value.GOODS_QTY == 0){ */
+                              tstatus += "<div class = 'card-header-is_closed' >" 
+                                       + "<div class = 'card-header-text' >" 
+                                       + "거래불가";
+                           }
+                     
+                           str +=  "<div class='card'>"
+                              +      "<a href='#this' name='title'>"
+                              +         imgpath
+                              +         tstatus
+                              +                "</div >"
+                              +                   "<div class = 'card-header-number' >"
+                              +               value.GOODS_QTY + "개"
+                              +               "</div >" 
+                              +               "</div >"
+                              +         "</div>"
+                              +         "<div class='card-body'>"
+                              +            "<div class='card-body-header'>"
+                              +               "<h1>"
+                              +            value.GOODS_TITLE
+                              +            "</h1>"
+                              +               "<p class = 'card-body-nickname'>"
+                              +                                    "작성자: "
+                              +                           value.MEM_ID
+                              +                             "</p>"
+                              +               "<h3>"
+                              +             value.GOODS_PRICE +"원"
+                              +            "</h3>"
+                              +            "</div>"
+                              +            "<div class='card-body-footer'>"
+                              +               "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"
+                              +               "<i class='icon icon-view_count'></i>조회수 "
+                              +            value.GOODS_COUNT
+                              +            "회"
+                              +               "<i class='icon icon-comments_count'></i>좋아요 "
+                              +            value.TOTAL_COUNT2
+                              +            "개"
+                              +               "<i class='reg_date'>"
+                              +            new Date(value.GOODS_DATE).toLocaleString()
+                              +            "</i>"
+                              +            "</div>"
+                              +         "</div>"
+                              +       "<input type='hidden' id='IDX1' value=" + value.GOODS_NUM + ">"
+                              +      "</a>"
+                              +      "</div>";
+                              
+                        });
+            body.append(str);
 
-				$("a[name='title']").on("click", function(e) { //제목
-					e.preventDefault();
-					fn_goodsDetail($(this));
-				});
-			}
-		}
-	</script>
+            $("a[name='title']").on("click", function(e) { //제목
+               e.preventDefault();
+               fn_goodsDetail($(this));
+            });
+         }
+      }
+   </script>
 </body>
 </html>
