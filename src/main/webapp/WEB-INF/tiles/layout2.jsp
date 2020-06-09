@@ -18,16 +18,19 @@
 <body>
 <div id="wrapper">
 
-<!-- header  --> 
-   <tiles:insertAttribute name="header"/><!-- // header -->
+<!-- header  -->
 
-<!-- body 1 2  --> 
-<div style="width:100%; height:300px; margin:auto;">
-   <tiles:insertAttribute name="body"/><!-- // container -->
-   <tiles:insertAttribute name="body2"/><!-- // container -->
-</div>
+	<tiles:insertAttribute name="header"/><!-- // header -->
+
+<!-- body 1 2  -->
+
+	<tiles:insertAttribute name="body"/><!-- // container -->
+
+
+	<tiles:insertAttribute name="body2"/><!-- // container -->
+
 <!-- footer --> 
-   <tiles:insertAttribute name="footer"/><!-- // footer -->
+	<tiles:insertAttribute name="footer"/><!-- // footer -->
 
 </div>
 </body>

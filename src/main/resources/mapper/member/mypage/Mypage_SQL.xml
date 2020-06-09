@@ -39,7 +39,9 @@
 	UPDATE  MEMBER
 	SET     MEM_EMAIL = #{MEM_EMAIL},
   	        MEM_PHONE = #{MEM_PHONE},
- 	       
+  	        MEM_NAME  =  #{MEM_NAME},
+            MEM_BIRTH =  #{MEM_BIRTH},
+ 	       	MEM_GEN	  =	#{MEM_GEN},
  	        MEM_ADD1 = #{MEM_ADD1}
  	        
 	WHERE   MEM_ID = #{MEM_ID}

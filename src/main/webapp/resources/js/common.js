@@ -21,8 +21,8 @@ function ComSubmit(opt_formId) {
       }
       var str = "<form id='commonForm' name='commonForm'></form>";
       $('body').append(str);
-      $("#commonForm")[0].reset();
-      $("#commonForm").empty();
+//      $("#commonForm")[0].reset();
+//      $("#commonForm").empty();
    }
    
    this.setUrl = function setUrl(url){

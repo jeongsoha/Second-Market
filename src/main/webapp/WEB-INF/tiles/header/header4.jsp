@@ -94,7 +94,7 @@
    
    .input_text {
       width: 348px; height: 21px;
-      margin: 3px 0px 3px 3px;
+      margin: 6px 0 0 9px;
       border: 0;
       line-height: 21px;
       font-size: 16px;
@@ -209,15 +209,9 @@
 
 <!-- 로그인 o  알림버튼 -->
       
-       <c:if test="${session_MEM_ID != null}">
+      <c:if test="${session_MEM_ID != null}">
          <div class="dropdown" id="h6">
          <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
-                  <div class="dropdown-content">
-             			 <table id="inform">
-                	 <tbody>
-                 </tbody>
-              </table>
-            </div>
        </div>
        </c:if>
        
@@ -302,8 +296,7 @@
          </div>
          
 <!-- 드롭메뉴 -->         
-
-         <div class="container" id="menubar">
+        <div class="container" id="menubar">
          
          
             <div class="panel-group">
@@ -330,11 +323,22 @@
         
         
       </div>
-
-
          
-    
-    
-    
          
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

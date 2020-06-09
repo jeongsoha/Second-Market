@@ -8,7 +8,7 @@
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <body>
-<div id="content">
+<div>
    <div id="vertical_tab-container">
       <ul>
          <li><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>

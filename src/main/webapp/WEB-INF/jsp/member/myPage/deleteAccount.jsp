@@ -22,7 +22,7 @@ $(document).ready(function() { //변경 버튼 클릭시
          url:"<c:url value='/myPage/deletePw'/>",
          type:'get',
          data: MEM_PW,
-         success:function(data){
+         success:function(data){              
              if($.trim(data)=="1"){
             	 var comSubmit = new ComSubmit("deleteAccountForm");
             	 comSubmit.setUrl("<c:url value='/myPage/deleteAccountCheck'/>");
@@ -39,9 +39,10 @@ $(document).ready(function() { //변경 버튼 클릭시
  
  $("#deleteAccountForm").on("submit",function(e){
  });
+
 </script>
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
       <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
       <div id="content">
@@ -68,7 +69,7 @@ $(document).ready(function() { //변경 버튼 클릭시
          
             <div class="card-body">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="탈퇴하기" id="delete" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/second/main'" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/sample/openBoardList'" style="background-color:#26a69a;">
 				<br>
             </div>
             </form>

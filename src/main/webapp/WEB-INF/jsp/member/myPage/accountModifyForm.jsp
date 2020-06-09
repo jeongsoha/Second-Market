@@ -9,8 +9,8 @@
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
 </head>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-      <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
-      <div id="content">
+      <div  style="border-radius:20px; background-color:#fff; margin-top:50px;"> <!-- class="card align-middle" -->
+      <div id="con" > <!-- id="content" -->
          <div id="vertical_tab-container">
 	         <ul>
 	         <li class="selected"><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
@@ -25,18 +25,23 @@
                <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_infochange.png"></h2>
             </div>
             <form id="accountModifyForm" method="post">
-            
             <div class="card-body">
-               <img src="/second/resources/images/mypage_id.png"> <div class="form-control">${map.MEM_ID } </div><br>
-               <img src="/second/resources/images/mypage_name.png"> <input type="text" id="MEM_NAME" name="MEM_NAME" class="form-control" placeholder="${map.MEM_NAME }"><br>
-			   <img src="/second/resources/images/mypage_birth.png"><input type="text" id="MEM_BIRTH" name="MEM_BIRTH" class="form-control" placeholder="${map.MEM_BIRTH }"><br>
-			   <img src="/second/resources/images/mypage_gen.png"> <br>
-			  		&nbsp;&nbsp;&nbsp;<input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성"/>&nbsp;&nbsp;남성&nbsp;&nbsp;
-             		&nbsp;&nbsp;&nbsp;<input type="radio" id="MEM_GEN_F" name="MEM_GEN" value="여성"/>&nbsp;&nbsp;여성&nbsp;&nbsp;<br><br>
+            	
+              <img src="/second/resources/images/mypage_id.png"> <div class="form-control">${map.MEM_ID } </div><br>
+              <img src="/second/resources/images/mypage_name.png"> <input type="text" id="MEM_NAME" name="MEM_NAME" class="form-control" placeholder="${map.MEM_NAME }"><br>
+              <img src="/second/resources/images/mypage_birth.png"><input type="text" id="MEM_BIRTH" name="MEM_BIRTH" class="form-control" placeholder="${map.MEM_BIRTH }"><br>
+              <img src="/second/resources/images/mypage_gen.png">
+              <br>&nbsp;&nbsp;
+              <input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성" checked />&nbsp;&nbsp;남성&nbsp;&nbsp;
+             &nbsp;&nbsp; <input type="radio" id="MEM_GEN_F" name="MEM_GEN" value="여성"/>&nbsp;&nbsp;여성&nbsp;&nbsp;	 <br><br>
+              
+                					
 			   <img src="/second/resources/images/mypage_email.png"><input type="text" id="MEM_EMAIL" name="MEM_EMAIL" class="form-control" placeholder="${map.MEM_EMAIL }"><br>
 		       <img src="/second/resources/images/mypage_phone.png"><input type="text" id="MEM_PHONE" name="MEM_PHONE" class="form-control" placeholder="${map.MEM_PHONE }"><br>
+			   
 			   <img src="/second/resources/images/mypage_add.png"><input type="text" id="MEM_ADD1" name="MEM_ADD1" class="form-control" placeholder="${map.MEM_ADD1 }"><br>
-			</div>
+			 
+            </div>
          
             <div class="card-body">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="수정하기" onclick="fn_check();" style="background-color:#26a69a;">
@@ -49,7 +54,7 @@
          </div>
       </div>
 	
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -84,7 +89,10 @@ function zipcode() {//우편번호 검색창
             if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                 addr = data.roadAddress;
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('MEM_ZIP').value = data.zonecode;
                 document.getElementById("MEM_ADD1").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("MEM_ADD2").focus();
             } else { // 사용자가 지번 주소를 선택했을 경우(J)
                 alert("도로명 주소를 입력해주세요.");
             	return false;
@@ -105,7 +113,7 @@ $(document).ready(function() { //변경 버튼 클릭시
  function fn_check(accountModifyForm) { //변경 버튼 클릭시(유효성검증, 데이터입력)
     var chk = $("input[name=agree_required]");
 
-    if(!$("#MEM_NAME").val()){
+     if(!$("#MEM_NAME").val()){
         alert("이름을 입력해주세요.");
         $("#MEM_NAME").focus();
         return false;
@@ -124,7 +132,6 @@ $(document).ready(function() { //변경 버튼 클릭시
         MEM_GEN.focus();
         return false;
     }
- 	
     if(!$("#MEM_EMAIL").val()){
        alert("이메일을 입력해주세요.");
        $("#MEM_EMAIL").focus();
@@ -137,11 +144,13 @@ $(document).ready(function() { //변경 버튼 클릭시
         return false;
      }
 
+   
     if(!$("#MEM_ADD1").val()){
         alert("집주소 입력해주세요.");
         $("#MEM_ADD1").focus();
         return false;
      }
+ 
     var comSubmit = new ComSubmit("accountModifyForm");
     comSubmit.setUrl("<c:url value='/myPage/accountModify'/>");
     comSubmit.submit();
