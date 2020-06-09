@@ -8,7 +8,7 @@
   
    <!-- 템플릿 1) 레이아웃1 / 로그인헤더  활용 -->
    <definition name="template1" template="/WEB-INF/tiles/layout1.jsp">
-      <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
+      <put-attribute name="header" value="/WEB-INF/tiles/header/loginheader.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>

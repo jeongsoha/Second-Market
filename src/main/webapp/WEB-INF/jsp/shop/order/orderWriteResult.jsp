@@ -6,16 +6,7 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <meta charset="UTF-8">
-<style type="text/css">
-#main-container
-{
-   min-height: 400px;
-   margin: 0 0 0 125px;
-   padding: 20px;
-   background-color: #fff;
-   border: 1px solid #888;
-}
-</style>
+
 </head>
 <body>
 <div id="content">
@@ -37,11 +28,9 @@
 				</tr>
 				<tr>
 					<td style="width: 16.6667%;">${orderG.GOODS_TITLE}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_BRAND}</td>
 					<td style="width: 16.6667%;">${orderG.ORDER_TIME}</td>
 					<td style="width: 16.6667%;">${orderG.GOODS_NUM}</td>
 					<td style="width: 16.6667%;">${orderG.GOODS_PRICE}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_DCOST}</td>
 					<td style="width: 16.6667%;">${orderG.GOODS_PRICE+orderG.GOODS_DCOST}</td>
 				</tr>
 				<tr>
@@ -51,7 +40,7 @@
 					<th>
 						휴대전화
 					</th>
-					<th colspan="5">
+					<th>
 						배송주소
 					</th>
 				</tr>
@@ -63,19 +52,18 @@
 						<input type="text" id="MEM_PHONE" name="MEM_PHONE" value="${orderM.MEM_PHONE}">
 					</td>
 					<td colspan="5"> 
-						우편번호 <input type="text" id="MEM_ZIP" name="MEM_ZIP" value="${orderM.MEM_ZIP}">
+						주소 
 						<input type="button" id="searchAddr" name="searchAddr" value="검색"><br/>
 						<input type="text" id="ADD1" name="ADD1" size="50" value="${orderM.MEM_ADD1}">
-						<input type="text" id="ADD2" name="ADD2" size="50" value="${orderM.MEM_ADD2}">
 					</td>
 				</tr>
 				<tr>
-					<th colspan="7">
+					<th>
 						배송 메모
 					</th>
 				</tr>
 				<tr>
-					<td colspan="7">
+					<td>
 						<textarea cols="180" rows="10" id="DMEMO" name="DMEMO">${order.ORDERS_DMEMO }</textarea>
 					</td>
 				</tr>
