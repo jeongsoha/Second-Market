@@ -148,9 +148,10 @@ $(document).ready(function() {
 				fn_orderPay($(this));	
 			}else{
 				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
-				//fn_orderPay($(this));	넘기기 위한 테스트용
+				
 				alert("여길가니111")
-				popup($(this));
+				fn_orderPay($(this));	//넘기기 위한 테스트용
+				//popup($(this));
 			}
 		}
 	});
