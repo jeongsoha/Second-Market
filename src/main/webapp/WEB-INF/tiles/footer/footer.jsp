@@ -49,7 +49,7 @@
                      <li><a href="/second/sample/openBoardList"><span>공지사항</span></a></li>
                      <li><a href="/second/sample/openBoardList"><span>자유게시판</span></a></li>
                      <li><a href="/second/sample/openBoardList"><span>QnA게시판</span></a></li>
-                     <li><a href="/second/sample/openBoardList"><span>신고게시판</span></a></li>
+                     <li><a href="/second/community/reportList"><span>신고게시판</span></a></li>
 
                   </ul>
                </div>

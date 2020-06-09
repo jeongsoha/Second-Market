@@ -103,22 +103,25 @@ $(document).ready(function() {
 var idV = "";
 // 아이디 값 받고 출력하는 ajax
 var idSearch_click = function(){
-	var name = $('#MEM_NAME').val();
-	$.ajax({
-		type:"POST",
-		url:"${pageContext.request.contextPath}/findIdResult?MEM_NAME="
-				+name+"&MEM_EMAIL="+$('#MEM_EMAIL').val(),
-		success:function(data){
-			if(data == "0"){
-				$('#MEMID').html("회원 정보가 틀렸습니다!").css("color", "blue");
-				
-			} else{
-				$('#MEMID').text(data); 
-				// 아이디값 별도로 저장
-				idV = data;
-			}
-		}
-	});
+   var name = $('#MEM_NAME').val();
+   $.ajax({
+      type:"POST",
+      url:"${pageContext.request.contextPath}/findIdResult?MEM_NAME="
+            +name+"&MEM_EMAIL="+$('#MEM_EMAIL').val(),
+      success:function(data){
+         if(data == "0"){
+            alert("회원 정보가 틀렸습니다!");
+            $('#MEMID').html("회원 정보가 틀렸습니다!").css("color", "blue");
+            
+         } else{
+            
+            $('#MEMID').text(data); 
+            // 아이디값 별도로 저장
+            idV = data;
+            alert("입력하신 정보로 등록된 아이디는"+" "+idV+" "+"입니다.");
+         }
+      }
+   });
 }
 
 var pwSearch_click = function(){

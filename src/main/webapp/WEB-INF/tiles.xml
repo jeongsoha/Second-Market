@@ -27,10 +27,38 @@
     <!-- 목록 -->
    <!-- 샘플 적용 -->
    <definition name="sample1" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/sample/boardList.jsp" />
+      <put-attribute name="body" value="/WEB-INF/jsp/sample/boardList.jsp" />
       <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
+   
+   <!-- ///////////////////////////////////////// -->
+   <!-- 신고  -->
+   
+   <definition name="reportWriteForm" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportWriteForm.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   <definition name="reportList" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportList.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   <definition name="reportDetail" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportDetail.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   <definition name="myreportList" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/myreportList.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   <definition name="myreportDetail" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/myreportDetail.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
     
    <!-- ///////////////////////////////////////// -->
    <!-- QNA 소하 유진-->
@@ -60,11 +88,54 @@
         <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
+   
+    <!-- myPage회원정보 변경 폼 -->
+   <definition name="accountModifyForm" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   <!-- myPage비밀번호 변경 폼 -->
+   <definition name="pwModifyForm" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwModifyForm.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+   <!-- myPage비밀번호 변경  완료 -->
+   <definition name="modifySuccess" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/modifySuccess.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   <!-- 회원탈퇴 -->
+   <definition name="deleteAccount" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/deleteAccount.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+  
+    <!-- ID/비번 찾기 폼  -->
+   <definition name="findAccount" extends="template1">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/login/findAccount.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition> 
+   
+    <!-- ID 찾기 결과  -->
+   <definition name="findIdResult" extends="template1">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/login/findIdResult.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition> 
+   
+     <!-- 비번 찾기 결과  -->
+   <definition name="findPwResult" extends="template1">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/login/findPwResult.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition> 
+  
   
   
     <!-- ///////////////////////////////////////// -->
-    
     <!--  Notlce  재필 -->
+    
     <!-- 공지사항 게시판 -->
    <definition name="noticeList" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
@@ -98,6 +169,7 @@
 
    <!-- ///////////////////////////////////////// -->
    <!-- QNA 상용 -->
+   
    <!-- QNA 게시판 -->
    <definition name="qnaList" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
