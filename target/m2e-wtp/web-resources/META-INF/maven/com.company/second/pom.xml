@@ -46,6 +46,12 @@
 	    <artifactId>iamport-rest-client-java</artifactId>
 	    <version>0.2.7</version>
 	</dependency>
+	<!-- 카카오페이 제이슨 -->
+	 <dependency>
+	    <groupId>com.googlecode.json-simple</groupId>
+	    <artifactId>json-simple</artifactId>
+	    <version>1.1.1</version>
+	</dependency>
  
 
 		<dependency> 

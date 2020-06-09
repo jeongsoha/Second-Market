@@ -71,7 +71,7 @@
 	    <c:forEach items="${asList }" var="answer">
 		<div class="answer">
 				<p>답변보기</p>
-				<table class="hide">
+				<table >
 					<tr>
 					  <th>작성자</th><td>${answer.MEM_ID }(운영자)</td><th>작성 날짜</th><td>${answer.QNA_DATE }</td>
 					</tr>
@@ -91,7 +91,7 @@
 			
 		<div class="answer">
 				<p>답변쓰기</p>
-				<table class="hide">
+				<table>
 					<tr>
 					  <th>제목</th>
 					  <td><input type="text" id="QNA_TITLE" name="QNA_TITLE"></td>
@@ -128,7 +128,7 @@
 			
 			$("#update").on("click", function(e){ //수정하기 버튼
 				e.preventDefault();
-				fn_openBoardUpdate();
+				fn_BoardUpdate();
 			});
 			$("#delete").on("click", function(e){ //삭제하기 버튼
 				e.preventDefault();
@@ -146,7 +146,7 @@
 			comSubmit.submit();
 		}
 		
-		function fn_openBoardUpdate(){
+		function fn_BoardUpdate(){
 			var idx = "${map.QNA_NUM}";
 			var type="${map.QNA_TYPE}";
 			var comSubmit = new ComSubmit();
@@ -162,6 +162,8 @@
 			comSubmit.setUrl("<c:url value='/community/qnaDetail/answerWrite' />");
 			comSubmit.addParam("QNA_NUM",idx);//QNA_PARENT의 값이된다.
 			comSubmit.addParam("QNA_TYPE",type);//어떤 유형에 대한 답변인지 보기위해 넣는다.
+
+			alert(comSubmit);
 			comSubmit.submit();
 		}
 	
@@ -189,7 +191,6 @@
 			// menu 클래스 바로 하위에 있는 p 태그를 클릭했을때
 			$(".answer>p").click(function(){
 				var submenu = $(this).next("table");
-
 				// submenu 가 화면상에 보일때는 위로 접고 아니면 아래로 펼치기
 				if( submenu.is(":visible") ){
 					submenu.slideUp();

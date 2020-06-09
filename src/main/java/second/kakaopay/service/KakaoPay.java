@@ -52,9 +52,9 @@ public class KakaoPay implements KakaoPayService{
         params.add("quantity", "1");
         params.add("total_amount", goodsTcost);
         params.add("tax_free_amount", "0");
-        params.add("approval_url", "http://localhost:8080/nnS/kakaoPaySuccess");
-        params.add("cancel_url", "http://localhost:8080/nnS/kakaoPayCancel");
-        params.add("fail_url", "http://localhost:8080/nnS/kakaoPaySuccessFail");
+        params.add("approval_url", "http://localhost:8000/second/kakaoPaySuccess");
+        params.add("cancel_url", "http://localhost:8000/second/kakaoPayCancel");
+        params.add("fail_url", "http://localhost:8000/second/kakaoPaySuccessFail");
  
          HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
          	

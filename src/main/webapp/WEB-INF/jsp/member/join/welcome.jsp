@@ -162,7 +162,7 @@ html ul.goodsTabs li.active, html ul.goodsTabs li.active a:hover  {
 					</div>
 					<center>
 						<button id="login" value="로그인" onclick="login();">로그인</button>
-						<button id="gomain" value="목록으로" onclick="document.location.href='/nnS/main'"/>
+						<button id="gomain" value="목록으로" onclick="document.location.href='/second/main'"/>
 					</center>
 					<br/><br/><br/><br/><br/><br/>
 			</td>

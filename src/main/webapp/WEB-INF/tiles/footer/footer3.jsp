@@ -16,10 +16,10 @@
 					<div class="utilMenu_unit">
 						<h4>커뮤니티</h4>
 						<ul>
-							<li><a href="/nnS/community/noticeList"><span>공지사항</span></a></li>
-							<li><a href="/nnS/community/boardList"><span>자유게시판</span></a></li>
-							<li><a href="/nnS/community/qnaList"><span>QnA게시판</span></a></li>
-							<li><a href="/nnS/community/reportList"><span>신고게시판</span></a></li>
+							<li><a href="/second/community/noticeList"><span>공지사항</span></a></li>
+							<li><a href="/second/community/boardList"><span>자유게시판</span></a></li>
+							<li><a href="/second/community/qnaList"><span>QnA게시판</span></a></li>
+							<li><a href="/second/community/reportList"><span>신고게시판</span></a></li>
 						</ul>
 					</div>
 				</div>

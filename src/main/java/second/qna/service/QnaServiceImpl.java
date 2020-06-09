@@ -88,11 +88,13 @@ public class QnaServiceImpl implements QnaService{
 	@Override
 	public void insertQnaAnswer(Map<String, Object> map) throws Exception{//답변달기
 		// TODO Auto-generated method stub
+		 
 		qnaDAO.insertQnaAnswer(map);
-		informDAO.informInsert(map, "내 문의글에 답변이 달렸습니다.");
+		//informDAO.informInsert(map, "내 문의글에 답변이 달렸습니다.");
 	}
 	@Override
 	public List<Map<String, Object>> selectQnaAnswer(Map<String, Object> map)throws Exception {
+	
 		// TODO Auto-generated method stub
 		return qnaDAO.selectQnaAnswer(map);
 	}
