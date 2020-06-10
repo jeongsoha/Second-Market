@@ -177,7 +177,7 @@ file="/WEB-INF/include/include-header.jspf" %>
     if (total == 0) {
       str += "<tr>" + "<td colspan='4'>새로운 알림이 없습니다.</td>" + "</tr>";
       body.append(str);
-      alert(str);
+      //alert(str);
     } else {
       $.each(data.list, function (key, value) {
         str +=
@@ -192,7 +192,7 @@ file="/WEB-INF/include/include-header.jspf" %>
           ">" +
           "</a>";
       });
-      alert(str);
+     // alert(str);
       body.append(str);
     }
   }
