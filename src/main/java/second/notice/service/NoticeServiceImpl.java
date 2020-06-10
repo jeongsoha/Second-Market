@@ -58,15 +58,12 @@ public class NoticeServiceImpl implements NoticeService {
 		map.put("IDX", map.get("NOTICE_NUM"));
 		System.out.println(map);
 
-		 
-		
-		 /*전체유저 뽑아내기*/  
+		/*전체유저 뽑아내고 회원수만큼 공지사항 알림 전달하기*/  
 		List<Map<String, Object>> list = informDAO.selectAllMember(map);
-				 
-		for(int i=0, size=list.size(); i<size; i++) {
  
-			map.put("IDX", list.get(i).get("MEM_NUM"));
-			informDAO.informInsert(map, "새로운 공지사항이 게시되었습니다."); // *회원수 만큼
+		for(int i=0, size=list.size(); i<size; i++) {
+ 			map.put("IDX", list.get(i).get("MEM_NUM"));
+			informDAO.informInsertNotice(map, "새로운 공지사항이 게시되었습니다."); // *회원수 만큼
 		 	
 		}
 	}

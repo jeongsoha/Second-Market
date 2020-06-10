@@ -13,7 +13,6 @@
          color:#666;
          text-align:right;
    }
-
    body {
         background:white;
    }
@@ -120,13 +119,54 @@
       width:55px;
       height:55px;
    }
-
-
+   .dropbtn {
+       /*
+       background-color: #4CAF50;
+       */
+       color: white;
+       padding: 16px;
+       font-size: 16px;
+       border: none;
+       cursor: pointer;
+   }
+   .dropdown {
+       
+        float:right;
+       position: relative;
+       display: inline-block;
+   }
+   .dropdown-content {
+       float:left;
+       display: none;
+       position: absolute;
+       background-color: #f9f9f9;
+       min-width: 260px;
+       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+       z-index: 1;
+   }
+   .dropdown-content a {
+      float:left;
+       color: black;
+       padding: 12px 16px;
+       text-decoration: none;
+       display: block;
+   }
+   .dropdown-content a:hover {
+      float:left;
+       background-color: #f1f1f1
+   }
+   .dropdown:hover .dropdown-content {
+       display: block;
+   }
+   .dropdown:hover .dropbtn {
+       /*
+       background-color: #3e8e41;
+       */
+   } 
 </style>
 
 
 <script type="text/javascript">
-
    var onSearch = function(){   
       submit();  
    };
@@ -186,11 +226,9 @@
                      + "<input type='hidden' id='INFORM_NUM' value=" + value.INFORM_NUM + ">"
                      + "</a>";
                });
-
                body.append(str);
          }
       }
-
 </script>
 
 
@@ -207,21 +245,11 @@
    <div id="menu">
 
 
-<!-- 로그인 o  알림버튼 -->
+
       
-       <c:if test="${session_MEM_ID != null}">
-         <div class="dropdown" id="h6">
-         <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
-                  <div class="dropdown-content">
-             			 <table id="inform">
-                	 <tbody>
-                 </tbody>
-              </table>
-            </div>
-       </div>
-       </c:if>
+
        
-       
+    
 <!-- 로그인 x -->
     <div id="h3">
          <c:if test="${session_MEM_ID == null }">
@@ -243,6 +271,8 @@
             </div>
          </div>
          
+
+         
 <!-- 로그인o -->
       
       <div id="h4">
@@ -255,7 +285,22 @@
                <a href="${contextPath}/second/myshop">내상점</a>              &nbsp;&nbsp;
          </c:if>
        </div>
- 
+       
+<!-- 로그인 o  알림버튼 -->      
+     
+        <c:if test="${session_MEM_ID != null}">
+           <div class="dropdown">
+              <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
+              <div class="dropdown-content">
+                    <table id="inform">
+                       <tbody>
+                          </tbody>
+                    </table>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+        </div>
+       </c:if>
+       
  <!-- 로그인o -->
     
              <div id="h7"> 
@@ -265,8 +310,6 @@
          </div>
    
 </div>
-
-
 
    <div id="head">
    
