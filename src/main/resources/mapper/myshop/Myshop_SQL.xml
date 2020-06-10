@@ -178,7 +178,6 @@
 	SET     ORDERS_DELE_NUM = #{ORDERS_DELE_NUM},
         	ORDERS_STATUS = '배송중'
 	WHERE   ORDERS_PRONUM = #{ORDERS_NUM} 
-	AND 	ORDERS_USER = #{ORDERS_USER}
  ]]>
 </update>
 
