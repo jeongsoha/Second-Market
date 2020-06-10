@@ -83,8 +83,8 @@ public class QnaServiceImpl implements QnaService{
 	public void deleteQna(Map<String, Object> map) throws Exception {//삭제하기
 		// TODO Auto-generated method stub
 		qnaDAO.deleteQna(map);
-		
 	}
+	
 	@Override
 	public void insertQnaAnswer(Map<String, Object> map) throws Exception{//답변달기
 		// TODO Auto-generated method stub
@@ -92,6 +92,7 @@ public class QnaServiceImpl implements QnaService{
 		qnaDAO.insertQnaAnswer(map);
 		//informDAO.informInsert(map, "내 문의글에 답변이 달렸습니다.");
 	}
+	
 	@Override
 	public List<Map<String, Object>> selectQnaAnswer(Map<String, Object> map)throws Exception {
 	

@@ -20,8 +20,15 @@ public class KakaoPayController {
     private KakaoPay kakaopay;
     
     
+<<<<<<< HEAD
     @RequestMapping(value="/kakaoPay", method=RequestMethod.GET)
     public String kakaoPayGet(@RequestParam("orderNum") String orderNum, @RequestParam("goodsTcost") String goodsTcost, @RequestParam("itemName") String itemName, @RequestParam("memID") String memID) {
+=======
+    @RequestMapping(value="/second/kakaoPay", method=RequestMethod.GET)
+    public String kakaoPayGet(@RequestParam("orderNum") String orderNum, @RequestParam("goodsTcost") String goodsTcost, @RequestParam("itemName") String itemName, @RequestParam("memID") String memID) {
+  //  public String kakaoPayGet(@RequestParam(value="orderNum", required=false) String orderNum, @RequestParam(value="goodsTcost", required=false) String goodsTcost, @RequestParam(value="itemName", required=false) String itemName, @RequestParam(value="memID", required=false) String memID) {
+
+>>>>>>> origin/0609
     	//ModelAndView mv = new ModelAndView("/kakaopay/kakaopay");
     	System.out.println(orderNum);
     	System.out.println(goodsTcost);

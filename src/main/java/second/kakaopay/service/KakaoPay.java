@@ -6,6 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
+import second.kakaopay.dao.AmountVO;
+import second.kakaopay.dao.KakaoPayApprovalVO;
+//import second.kakaopay.dao.KakaoPayApprovalVO;
+import second.kakaopay.dao.KakaoPayReadyVO;
+>>>>>>> origin/0609
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -14,11 +21,15 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+<<<<<<< HEAD
 
 import second.kakaopay.dao.AmountVO;
 import second.kakaopay.dao.KakaoPayApprovalVO;
 import second.kakaopay.dao.KakaoPayReadyVO;
 
+=======
+ 
+>>>>>>> origin/0609
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -52,9 +63,15 @@ public class KakaoPay implements KakaoPayService{
         params.add("quantity", "1");
         params.add("total_amount", goodsTcost);
         params.add("tax_free_amount", "0");
+<<<<<<< HEAD
         params.add("approval_url", "http://localhost:8000/second/kakaopay/kakaoPaySuccess");
         params.add("cancel_url", "http://localhost:8000/second/kakaopay/kakaoPayCancel");
         params.add("fail_url", "http://localhost:8000/second/kakaopay/kakaoPaySuccessFail");
+=======
+        params.add("approval_url", "http://localhost:8080/second/kakaoPaySuccess");
+        params.add("cancel_url", "http://localhost:8080/second/kakaoPayCancel");
+        params.add("fail_url", "http://localhost:8080/second/kakaoPaySuccessFail");
+>>>>>>> origin/0609
  
          HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
          	

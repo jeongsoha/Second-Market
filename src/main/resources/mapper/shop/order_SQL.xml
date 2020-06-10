@@ -40,12 +40,10 @@
 			                ORDERS_PHONE,
 			                ORDERS_STATUS,
 			                ORDERS_PRICE,
-			                ORDERS_DZIPCODE,
+			                ORDERS_TCOST,
 			                ORDERS_DADD1,
-			                ORDERS_DADD2,
 			                ORDERS_DMEMO,
-			                ORDERS_PAY,
-			                ORDERS_DEL_GB
+			                ORDERS_PAY
 			                )
 			VALUES          (
 			                #{IDX},
@@ -54,12 +52,10 @@
 			                #{MEM_PHONE},
 			                '주문/결제',
 			                #{GOODS_PRICE},
-			                '12345',
+			                #{GOODS_TCOST},
 			                #{ADD1},
-			                'add2',
 			                #{DMEMO},
-			                'orderpay',
-			                'N'
+			                'kakaoPay'
 			                )
 		]]>
 	</insert>
@@ -72,9 +68,8 @@
 			        ORDERS_PHONE,
 			        ORDERS_STATUS,
 			        ORDERS_PRICE,
-			        ORDERS_DZIPCODE,
+			        ORDERS_TCOST,
 			        ORDERS_DADD1,
-			        ORDERS_DADD2,
 			        ORDERS_DMEMO,
 			        ORDERS_PAY
 			FROM    ORDERS

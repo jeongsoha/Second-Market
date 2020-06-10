@@ -70,14 +70,14 @@
                               	67,500원
 							</li>
                           	<li>
-                            	주문중 일 경우 결제정보 / 배송중 일 경우 배송번호 관련된 정보를 보여주면 될 것 같음  
+                            	결제완료 / 상품준비중 / 배송중 / 배송완료
                           	</li>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			배송지 정보
-		<table border="1" height="100" style="width: 100%;">
+		<table style="width: 100%;">
 			<tbody>
 				<tr>
 					<td style="width: 875px;">
