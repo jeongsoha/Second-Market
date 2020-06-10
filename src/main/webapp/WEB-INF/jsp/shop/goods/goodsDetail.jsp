@@ -251,8 +251,12 @@
 				return true;
 			}
 		}
+
+
 		
 		/* 신고하기 */
+		
+		
 		function report_func(){
 			if(session_chk()){
 				var comSubmit = new ComSubmit();

@@ -32,7 +32,7 @@ function delchk(){
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         회원목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.
+                         회원목록페이지 수정, 삭제 기능 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -60,9 +60,7 @@ function delchk(){
 										<th style="width: 5%; text-align:center;">성별</th>
 										<th style="width: 10%; text-align:center;">E-Mail</th>										
 										<th style="width: 7%; text-align:center;">전화번호</th>
-										<th style="width: 5%; text-align:center;">우편번호</th>
 										<th style="width: 18%; text-align:center;">주소</th>
-										<th style="width: 12%; text-align:center;">상세주소</th>
 										<th style="width: 5%; text-align:center;">가입일자</th>
 										<th style="width: 3%; text-align:center;">레벨</th>
 										<th style="width: 5%; text-align:center;">탈퇴여부</th>
@@ -83,9 +81,7 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;">${list.MEM_GEN}</td>
 										<td style="text-align:center;vertical-align:middle;">${list.MEM_EMAIL}</td>
 										<td style="text-align:center;vertical-align:middle;">${list.MEM_PHONE}</td>
-										<td style="text-align:center;vertical-align:middle;">${list.MEM_ZIP}</td>
 										<td style="text-align:center;vertical-align:middle;">${list.MEM_ADD1}</td>
-										<td style="text-align:center;vertical-align:middle;">${list.MEM_ADD2}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${list.MEM_JOINDATE}" pattern="YY.MM.dd" /></td>
 										<td style="text-align:center;vertical-align:middle;">${list.MEM_LEVEL}</td>
 										<td style="text-align:center;vertical-align:middle;">${list.MEM_DEL_GB}</td>

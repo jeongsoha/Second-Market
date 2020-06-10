@@ -14,20 +14,128 @@
    </definition>
   
   
-     <!-- 템플릿 2) 레이아웃1 / 헤더1 활용 -->
+   <!-- 템플릿 2) 레이아웃1 / 헤더1 활용 -->
    <definition name="template2" template="/WEB-INF/tiles/layout1.jsp">
       <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
    </definition>
    
+   
+   <!-- 템플릿 3) 관리자페이지 활용 -->
+   <definition name="template3" template="/WEB-INF/jsp/admin/layout.jsp">
+      <put-attribute name="body" value=" " />
+   </definition>
+   
+   
     <!-- ///////////////////////////////////////// -->
     
-     <!-- 목록 -->
+    
+    <!-- 목록 -->
    <!-- 샘플 적용 -->
+   
    <definition name="sample1" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/sample/boardList.jsp" />
+      <put-attribute name="body" value="/WEB-INF/jsp/sample/boardList.jsp" />
       <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+   <!-- ///////////////////////////////////////// -->
+   <!-- 관리자페이지      소하-->
+   
+   <!-- 메인페이지 -->
+   <definition name="admin" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/main.jsp" />
+   </definition>
+   
+   <!-- 회원목록 -->
+   <definition name="admemberList" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/memberList.jsp" />
+   </definition>
+   
+   <!-- 회원목록 수정 -->
+   <definition name="admemberModify" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/memberModifyForm.jsp" />
+   </definition>
+   
+   <!-- 신고처리 -->
+   <definition name="reportPro" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/reportPro.jsp" />
+   </definition>
+   
+   <!-- 신고처리 수정 -->
+   <definition name="adreportModify" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/reportModifyForm.jsp" />
+   </definition>
+   
+   <!-- 상품목록 -->
+   <definition name="adgoodsList" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/goodsList.jsp" />
+   </definition>
+  
+   <!-- 공지사항 -->
+   <definition name="adnoticeList" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/noticeList.jsp" />
+   </definition> 
+   
+   <!-- 공지사항 글쓰기 -->
+   <definition name="noticeWriteForm" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeWriteForm.jsp" />
+    </definition>
+     
+     
+   <!-- 공지사항 수정하기 -->
+   <definition name="noticeModifyForm" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
+    </definition>
+   
+   <!-- 자유게시판 -->
+   <definition name="adboardList" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/boardList.jsp" />
+   </definition>
+   
+   <!-- Q&A -->
+   <definition name="adqnaList" extends="template3">
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/qnaList.jsp" />
+   </definition>
+   
+   
+   <!-- ///////////////////////////////////////// -->
+   <!-- 신고     소하-->
+   
+   <definition name="reportWriteForm" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportWriteForm.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+   <definition name="reportList" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportList.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+   <definition name="reportDetail" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/community/report/reportDetail.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+  
+   <definition name="myreportList" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/myreportList.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+   <definition name="myreportDetail" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/myreportDetail.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   
+   
+   <definition name="myreportDetail" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/myreportDetail.jsp" />
+        <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
     
     
@@ -57,27 +165,33 @@
     <!-- myPage  -->
    <definition name="accountDetail" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountDetail.jsp" />
-        <put-attribute name="body2" value="/workmemo.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
-  
-  <!-- myPage회원정보 변경 폼/jp -->
+   
+    <!-- myPage회원정보 변경 폼 -->
    <definition name="accountModifyForm" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/accountModifyForm.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
-  <!-- myPage비밀번호 변경 폼/jp -->
+   <!-- myPage비밀번호 변경 폼 -->
    <definition name="pwModifyForm" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwModifyForm.jsp" />
-        <put-attribute name="body2" value="/workmemo.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
 
-   <!-- myPage비밀번호 변경  완료/jp -->
+   <!-- myPage비밀번호 변경  완료 -->
    <definition name="modifySuccess" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/modifySuccess.jsp" />
-        <put-attribute name="body2" value="/workmemo.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
    
+   <!-- 회원탈퇴 -->
+   <definition name="deleteAccount" extends="template2">
+        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/deleteAccount.jsp" />
+         <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+  
     <!-- ID/비번 찾기 폼  -->
    <definition name="findAccount" extends="template1">
         <put-attribute name="body" value="/WEB-INF/jsp/member/login/findAccount.jsp" />
@@ -95,16 +209,12 @@
         <put-attribute name="body" value="/WEB-INF/jsp/member/login/findPwResult.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition> 
-   
-     <!-- 회원탈퇴 -->
-   <definition name="deleteAccount" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/deleteAccount.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
+  
+  
   
     <!-- ///////////////////////////////////////// -->
-    
     <!--  Notlce  재필 -->
+    
     <!-- 공지사항 게시판 -->
    <definition name="noticeList" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeList.jsp" />
@@ -114,58 +224,11 @@
    <definition name="noticeDetail" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeDetail.jsp" />
     </definition>
-   
-   
-    <!-- 어드민_공지게시판 (value = "/community/noticeList")-->
-   <definition name="adnoticeList" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/admin/noticeList.jsp" />
-    </definition>
-
-   
-       <!-- 어드민_공지_글쓰기(value = "/community/noticeWrite") -->
-   <definition name="noticeWriteForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeWriteForm.jsp" />
-    </definition>
-     
-     
-       <!-- 어드민_공지_수정하기(value = "/community/noticeModifyForm") -->
-   <definition name="noticeModifyForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/notice/noticeModifyForm.jsp" />
-    </definition>
-   
-   <!--  마이샵 -->
-  <!-- myshop -->
-   <definition name="orderList" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderList.jsp" />
-   </definition>
-   <definition name="orderList2" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderList2.jsp" />
-   </definition>
-   <definition name="orderList3" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderList3.jsp" />
-   </definition>
-   
-   <definition name="saleList" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/saleList.jsp" />
-   </definition>
-   <definition name="saleList2" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/saleList2.jsp" />
-   </definition>
-   <definition name="saleList3" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/saleList3.jsp" />
-   </definition>
-   
-   <definition name="goodsLikeList" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/goodsLikeList.jsp" />
-   </definition>
-   
-   <definition name="recentGoodsList" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/myshop/recentGoodsList.jsp" />
-   </definition>
   
 
    <!-- ///////////////////////////////////////// -->
    <!-- QNA 상용 -->
+   
    <!-- QNA 게시판 -->
    <definition name="qnaList" extends="template2">
         <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaList.jsp" />
@@ -186,34 +249,6 @@
         <put-attribute name="body" value="/WEB-INF/jsp/community/qna/qnaWriteForm.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>
-   
-   <!-- 게시판 -->
-
- <definition name="boardDetail" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardDetail.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   
-    <definition name="boardList" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardList.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   
-    <definition name="boardModifyForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardModifyForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   
-    <definition name="boardWriteForm" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardWriteForm.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition>
-   <!-- 
-    <definition name="boardWrite" extends="template2">
-        <put-attribute name="body" value="/WEB-INF/jsp/community/board/boardWrite.jsp" />
-         <put-attribute name="body2" value="/workmemo.jsp" />
-   </definition> -->
-   
   
   
   

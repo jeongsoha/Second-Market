@@ -10,8 +10,12 @@
 </head>
 
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-      <div  style="border-radius:20px; background-color:#fff; margin-top:50px;">
+      <div style="border-radius:20px; background-color:#fff; margin-top:50px;">
+      
+      
       <div id="con">
+      
+      
          <div id="vertical_tab-container">
 	         <ul>
 	         <li class="selected"><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
@@ -20,7 +24,9 @@
 	         <li><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
 	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
 	      </ul>
-	   </div>
+	    </div>
+	   
+	   
 	   <div id="main-container">
             <div class="card-title" style="margin-top:30px;">
                <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_myinfo.png"></h2>
@@ -32,9 +38,7 @@
 			   <img src="/second/resources/images/mypage_gen.png"><div class="form-control">${map.MEM_GEN }</div><br>
 			   <img src="/second/resources/images/mypage_email.png"><div class="form-control">${map.MEM_EMAIL }</div><br>
 		       <img src="/second/resources/images/mypage_phone.png"><div class="form-control">${map.MEM_PHONE }</div><br>
-			 
 			   <img src="/second/resources/images/mypage_add.png"><div class="form-control">${map.MEM_ADD1 }</div><br>
-			  
             </div>
          
             <div class="card-body">
@@ -43,11 +47,15 @@
 				<span id="pwc"></span>
 				<br>
             </div>
-         </div>
+       
+       </div>
+         
+         
+         
          </div>
       </div>
       
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -56,8 +64,8 @@ function ch_info(){
 }
 
 function fn_openBoardList() {
-	   document.location.href= "/second/sample/openBoardList"; 
-	}
+	document.location.href= "/second/sample/openBoardList"; 
+}
 
 $(document).ready(function() {
 

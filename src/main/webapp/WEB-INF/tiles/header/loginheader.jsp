@@ -13,6 +13,10 @@
    		color:#666;
    		text-align:right;
    }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/soha3
    body {
         background:white;
    }
@@ -119,10 +123,19 @@
 		width:55px;
 		height:55px;
 	}
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/soha3
 </style>
 
 
 <script type="text/javascript">
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/soha3
    var onSearch = function(){   
       submit();  
    };
@@ -171,7 +184,10 @@
 	         str += "<tr>" + "<td colspan='4'>새로운 알림이 없습니다.</td>"
 	         + "</tr>";
 	         body.append(str);
+<<<<<<< HEAD
 	         alert(str);
+=======
+>>>>>>> origin/soha3
 	      } else {
 	            $.each(
 	            data.list,
@@ -183,10 +199,18 @@
 	                  + "<input type='hidden' id='INFORM_NUM' value=" + value.INFORM_NUM + ">"
 	                  + "</a>";
 	            });
+<<<<<<< HEAD
 	            alert(str);
 	            body.append(str);
 	      }
 	   }
+=======
+
+	            body.append(str);
+	      }
+	   }
+
+>>>>>>> origin/soha3
 </script>
 
 
@@ -208,6 +232,7 @@
       <c:if test="${session_MEM_ID != null}">
          <div class="dropdown" id="h6">
          <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
+<<<<<<< HEAD
                   <div class="dropdown-content">
              			 <table id="inform">
                 	 <tbody>
@@ -218,6 +243,12 @@
        </c:if>
        
    
+=======
+       </div>
+       </c:if>
+       
+       
+>>>>>>> origin/soha3
 <!-- 로그인 x -->
  	<div id="h3">
          <c:if test="${session_MEM_ID == null }">
@@ -284,6 +315,10 @@
 				        <a data-toggle="collapse" href="#collapse1">Category</a>
 				      </h4>
 				    </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/soha3
 				    <div id="collapse1" class="panel-collapse collapse">
 				      <ul class="list-group">
 				      	<li class="list-group-item"><a href="/second/sample/openBoardList">패션의류</a></li>
@@ -304,3 +339,22 @@
 	      
     </div>
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> origin/soha3
