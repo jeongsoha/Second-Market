@@ -71,7 +71,7 @@
 	    <c:forEach items="${asList }" var="answer">
 		<div class="answer">
 				<p>답변보기</p>
-				<table class="hide">
+				<table class="text">
 					<tr>
 					  <th>작성자</th><td>${answer.MEM_ID }(운영자)</td><th>작성 날짜</th><td>${answer.QNA_DATE }</td>
 					</tr>
