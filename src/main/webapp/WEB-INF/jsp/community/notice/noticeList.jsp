@@ -42,7 +42,7 @@
 			<!-- 스크립트를 통해 게시글에 대한 정보가 담김 -->
 		</tbody>
 	</table>
-	<div id="PAGE_NAVI" align="center" style="background-color:red;">
+	<div id="PAGE_NAVI" align="center" >
 	
 		<!-- 페이징 정보가 담김 b1--></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
