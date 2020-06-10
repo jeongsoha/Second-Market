@@ -5,6 +5,12 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+</style>
+
+
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
@@ -39,6 +45,11 @@ blockquote : before, blockquote : after, q : before, q : after {
 table {
    border-collapse: collapse;
    border-spacing: 0;
+}
+.text_box {
+	font-family : 'Nanum Gothic';
+	text-align : center;
+	padding : 10px 0;
 }
 /*css 초기화*/
 .card {
@@ -95,8 +106,9 @@ table {
     line-height: 20px;
 }
 h1 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
+    font-color: black;
 }
 .card-body {
 
@@ -158,6 +170,14 @@ h1 {
 	margin-left: 15px;
    float: ;
 }
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+
 </style>
 
 
@@ -165,20 +185,19 @@ h1 {
 <body>
 
 <div id="content">
-<br><br><br><br><br><br><br>
-
-   <div id="vertical_tab-container">
-      <ul>
-         <li <c:if test="${sortType eq 'all'}"> class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>>등록순</a></li>
-       <%--   <li <c:if test="${sortType eq 'like'}">class="selected"</c:if>><a href=<c:url value="/shop/likeGoodsList"/>>>가격높은순</a></li> --%>
-         <li <c:if test="${sortType eq 'price'}"> class="selected"</c:if>><a href=<c:url value="/shop/priceGoodsList"/>>>가격높은순</a></li>
-         <li <c:if test="${sortType eq 'view'}"> class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>>인기순</a></li>
+	<nav id="topMenu">
+      <ul style="text-align:center" class="text_box">
+         <li style="display:inline-block"<c:if test="${sortType eq 'all'}"> class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>등록순</a></li>
+         <li style="display:inline-block" <c:if test="${sortType eq 'price'}"> class="selected"</c:if>><a href=<c:url value="/shop/priceGoodsList"/>>가격높은순</a></li>
+         <li style="display:inline-block" <c:if test="${sortType eq 'view'}"> class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>인기순</a></li>
       </ul>
-   </div>
+     </nav>
+</div>
+
    
+
    
-   
-   <div id="main-container">
+   <div id="main-container" class="text_box" style="font-size:14pt;">
    		<table class="board_list">
 		<colgroup>
 			<col width="100%" />
@@ -193,9 +212,7 @@ h1 {
 		<div align="center">
 		<form action="/second/shop" method="post">
 			<fieldset>
-				
 				<select name="searchType" id="searchType">
-					<option value="nothing">-----</option>
 					<option value="title" <c:out value="${searchType eq 'title'?'selected':''}"/>>상품명</option>
 					<option value="content" <c:out value="${searchType eq 'content'?'selected':''}"/>>내용</option>
 					<option value="region" <c:out value="${searchType eq 'region'?'selected':''}"/>>지역</option>
@@ -213,7 +230,7 @@ h1 {
    
 	<div align="right">
 	<c:if test="${session_MEM_ID ne null }">
-		<a href="#this" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">글쓰기</button></a>
+		<a href="#this" class="btn" id="write">글쓰기</a>
 	</c:if>
 	</div>
 

@@ -25,7 +25,7 @@
    </div>
        
    <!-- container --> 
-<div id="container" style="width:100%; margin:auto; display:block">
+<div id="container">
       <tiles:insertAttribute name="body"/><!-- // container -->
    </div>
    <!-- footer --> 
