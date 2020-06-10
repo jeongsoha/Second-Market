@@ -255,7 +255,7 @@ function fn_selectOrderListCallback1(data) {
 	      	      			+	new Date(value.ORDERS_DATE).toLocaleString()
 		      	      		+	"</td>"
 		      	      		+	"<td width='200px' align='center'>"
-		      	      		+	value.ORDERS_DNUM
+		      	      		+	value.ORDERS_DELE_NUM
 		      	      		+	"</td>"
 		      	      		+	"<td width='100px' align='center'>"
 		      	      		+	value.ORDERS_PRICE

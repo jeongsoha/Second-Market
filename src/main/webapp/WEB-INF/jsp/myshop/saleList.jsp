@@ -169,7 +169,7 @@ $(document).ready(function() {
 	
 	/* $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
 		e.preventDefault();
-		fn_dnum_in($(this));	
+		fn_DELE_NUM_in($(this));	
 	}); */
 	
 });
@@ -182,10 +182,10 @@ function fn_goodsDetail(obj) {
 }
 
 // 입력확인 버튼
-function fn_dnum_in(num) {
+function fn_DELE_NUM_in(num) {
 	var comSubmit = new ComSubmit("");
 	comSubmit.setUrl("<c:url value='/myshop/inputDnum' />");
-	comSubmit.addParam("ORDERS_DNUM", $("#ORDERS_DNUM").val());
+	comSubmit.addParam("ORDERS_DELE_NUM", $("#ORDERS_DELE_NUM").val());
 	comSubmit.addParam("ORDERS_NUM", num);
 	comSubmit.submit();
 }
@@ -221,7 +221,7 @@ function fn_selectMySaleListCallback1(data) {
 		+		"<th width='200px' align='center'><img src=<c:url value='/resources/images/mysale_list3.png'/>></th>"
 		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list4.png'/>></th>"
 		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list5.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_dnum.png'/>></th>"
+		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_DELE_NUM.png'/>></th>"
 		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_sstatus.png'/>></th>"
 		+	"</tr>";
 	if (total == 0) {
@@ -262,13 +262,13 @@ function fn_selectMySaleListCallback1(data) {
 		      	      		+	value.ORDERS_STATUS	
 		      	      		+	"</td>";
 		      	      	if(value.ORDERS_STATUS == "배송중") {
-							str1 += "<td width='200px' align='center'>"+value.ORDERS_DNUM+"</td>"+"<td></td>";
+							str1 += "<td width='200px' align='center'>"+value.ORDERS_DELE_NUM+"</td>"+"<td></td>";
 						} else if(value.ORDERS_STATUS == "주문/결제") {
 							str1 +=	"<td width='200px' align='center'>"
-		      	      			 +	"<input type='text' id='ORDERS_DNUM' name='ORDERS_DNUM'>"
+		      	      			 +	"<input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>"
 		      	      			 +	"</td>"
 		      	      			 +  "<td>"
-	      	      				 +	"<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_dnum_in("+value.GOODS_NUM+")' >" 
+	      	      				 +	"<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_DELE_NUM_in("+value.GOODS_NUM+")' >" 
 		      	      			 +	"</td>";
 		      	      	}else{
 		      	      		str1 += "<td></td><td></td>";

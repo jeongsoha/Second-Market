@@ -15,6 +15,7 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
+        	O.ORDERS_DELE_NUM,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
         	
         
@@ -41,6 +42,7 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
+        	O.ORDERS_DELE_NUM,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
         	 
         
@@ -67,6 +69,7 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
+        	O.ORDERS_DELE_NUM,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
         	 
         
@@ -93,6 +96,7 @@
         	TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
         	G.GOODS_THUMBNAIL,
         	G.GOODS_STATUS,
+        	O.ORDERS_DELE_NUM,
         	G.GOODS_TSTATUS
 	FROM    GOODS G,
         	(
@@ -123,6 +127,7 @@
         	O.ORDERS_PRICE,
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
+        	O.ORDERS_DELE_NUM,
         	O.ORDERS_DATE,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
          
@@ -152,6 +157,7 @@
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
         	G.GOODS_THUMBNAIL,
+        	O.ORDERS_DELE_NUM,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
         	 
 	FROM    ORDERS O,
@@ -169,9 +175,10 @@
 <update id="updateOrderDnum" parameterType="hashMap">
 <![CDATA[
 	UPDATE  ORDERS
-	SET     ORDERS_DNUM = #{ORDERS_DNUM},
+	SET     ORDERS_DELE_NUM = #{ORDERS_DELE_NUM},
         	ORDERS_STATUS = '배송중'
-	WHERE   ORDERS_PRONUM = #{ORDERS_NUM}
+	WHERE   ORDERS_PRONUM = #{ORDERS_NUM} 
+	AND 	ORDERS_USER = #{ORDERS_USER}
  ]]>
 </update>
 
