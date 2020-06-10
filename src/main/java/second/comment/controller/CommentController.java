@@ -44,7 +44,7 @@ public class CommentController {
 		commentService.insertGoodsComment(commandMap.getMap());
 		
 		mv.addObject("GOODS_NUM", commandMap.get("COMMENTS_PARENT"));
-		
+		System.out.println("===============컨트롤러 확인===================");
 		return mv;
 	}
 	
@@ -131,6 +131,7 @@ public class CommentController {
 	public ModelAndView boardCommentWrite(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("redirect:/community/boardDetail");
 		
+		commandMap.put("idq", commandMap.get("idq"));//(유진추가) goodsDetail.jsp 에서 받아온 id 값을 서비스에 전달
 		commentService.insertBoardComment(commandMap.getMap());
 		
 		mv.addObject("BOARD_NUM", commandMap.get("BOARD_NUM"));

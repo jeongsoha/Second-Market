@@ -9,11 +9,15 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import second.common.dao.InformDAO;
 import second.comment.dao.CommentDAO;
 
 @Service("commentService")
 public class CommentServiceImpl implements CommentService{
 	Logger log = Logger.getLogger(this.getClass());
+	
+	@Resource(name="informDAO")
+	private InformDAO informDAO;
 	
 	@Resource(name="commentDAO")
 	private CommentDAO commentDAO;
@@ -25,7 +29,11 @@ public class CommentServiceImpl implements CommentService{
 
 	@Override
 	public void insertBoardComment(Map<String, Object> map) throws Exception {
+		System.out.println("===============DAO 확인===================");
 		commentDAO.insertBoardComment(map);
+		
+		
+		System.out.println("===============DAO 확인 2===================");
 	}
 
 	@Override
@@ -41,6 +49,7 @@ public class CommentServiceImpl implements CommentService{
 	@Override
 	public void insertGoodsComment(Map<String, Object> map) throws Exception {
 		commentDAO.insertGoodsComment(map);
+		informDAO.informInsert(map, "내 판매상품에 답변이 달렸습니다."); //(유진추가) goodsDetail.jsp 에서 받아온 id 값을 서비스에 전달
 	}
 
 	@Override
