@@ -43,7 +43,8 @@
 			                ORDERS_TCOST,
 			                ORDERS_DADD1,
 			                ORDERS_DMEMO,
-			                ORDERS_PAY
+			                ORDERS_PAY,
+			                ORDERS_GB_DEL
 			                )
 			VALUES          (
 			                #{IDX},
@@ -56,6 +57,7 @@
 			                #{ADD1},
 			                #{DMEMO},
 			                'kakaoPay'
+			                'N'
 			                )
 		]]>
 	</insert>
