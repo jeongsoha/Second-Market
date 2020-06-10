@@ -3,16 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
- 
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
-
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
-
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 <style>
@@ -168,7 +163,6 @@ h1 {
 
 </head>
 <body>
-
 
 <div id="content">
 <br><br><br><br><br><br><br>
