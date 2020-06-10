@@ -3,6 +3,15 @@
 
 <mapper namespace="inform">
 
+
+<!-- 모든회원 뽑아내기 -->
+   <select id="selectAllMember" parameterType="hashmap" resultType="hashmap">
+   SELECT 
+       MEM_NUM
+   FROM MEMBER
+   </select>
+
+<!-- 기본형태 알림 -->
    <insert id="informinsert" parameterType="hashmap">
    INSERT INTO INFORM 
                (INFORM_NUM,
@@ -38,6 +47,27 @@
          )
    </insert>
    
+   <!-- 공지사항 알림 -->
+    <insert id="informinsertNotice" parameterType="hashmap">
+   INSERT INTO INFORM 
+               (INFORM_NUM,
+                INFORM_PARENT,
+                INFORM_CONTENT,
+                INFORM_CONFIRM,
+                INFORM_DATE,
+                INFORM_USER
+                )
+         VALUES(
+         INFORM_SEQ.NEXTVAL,
+         #{NOTICE_NUM},
+         #{INFORM_CONTENT},
+         'N',
+         SYSDATE,
+         #{IDX}
+         )
+   </insert>
+   
+   <!-- 인폼유저가 Null 이면 알림리스트에 보여지게 해놓음 -->
    <select id="informList" parameterType="hashmap" resultType="hashmap">
    SELECT 
        INFORM_NUM, 
