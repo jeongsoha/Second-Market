@@ -4,6 +4,7 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/include/include-header.jspf" %>
+	
   	<script>
 /*   		$(document).ready(function(){ 
   			$('.bxslider').bxSlider({ 
