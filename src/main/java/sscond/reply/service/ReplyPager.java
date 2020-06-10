@@ -1,12 +1,12 @@
 package sscond.reply.service;
 
-public class RepltPager {
+public class ReplyPager {
 
 	// 페이지당 게시물수
 	public static final int PAGE_SCALE = 10;
 
 	// 화면당 페이지수
-	public static final int BLOCK_SCALE = 4;
+	public static final int BLOCK_SCALE = 5;
 
 	private int curPage; // 현재 페이지
 	private int prevPage; // 이전 페이
@@ -22,35 +22,38 @@ public class RepltPager {
 
 //생성자
 //BOARDPAGER(레코드 갯수, ㅜ현재 페이지 번호)
-public ReplyPager(int count, int curPage) {
-	curBlock = 1;			//현재 페이지 블록
-	this.curPage = curPage;	//현재 페이지 설정
-	setTotPage(count);		//전체 페이지 갯수 계산
-	setPageRange();		
-	setTotBlock();		//전체 페이지 블록 갯수 계산
-	setBlockRange();		//페이지 블록의 시작, 끝번호 계산
-	
-}
+	public ReplyPager(int count, int curPage) {
+		curBlock = 1; // 현재 페이지 블록
+		this.curPage = curPage; // 현재 페이지 설정
+		setTotPage(count); // 전체 페이지 갯수 계산
+		setPageRange();
+		setTotBlock(); // 전체 페이지 블록 갯수 계산
+		setBlockRange(); // 페이지 블록의 시작, 끝번호 계산
 
-public void setBlockRange() {
-	
-	curBlock = (int)Math.ceil(curPage-1) / BLOCK_SCALE)+1;
-	
-	blockBegin = (curBlock-1)*BLOCK_SCALE+1;
-	blockEnd = blockBegin+BLOCK_SCALE-1;
-	
-	if(blockEnd >totPage) blockEnd = totPage;
-	
-	prevPage =(curPage ==1)? 1:(curBlock-1)*BLOCK_SCALE;
-	nextPage = curBlock > totBlock ? (curBlock*BLOCK_SCALE): (curBlock*BLOCK_SACLE)+1;
-	//마지막 페이지가 범위 초과하지 않도록 처리
-	if(nextPage >= totPage) nextPage = totPage;
-			
-}
+	}
+
+	public void setBlockRange() {
+
+		curBlock = (int) Math.ceil((curPage - 1) / BLOCK_SCALE) + 1;
+
+		blockBegin = (curBlock - 1) * BLOCK_SCALE + 1;
+		blockEnd = blockBegin + BLOCK_SCALE - 1;
+
+		if (blockEnd > totPage)
+			blockEnd = totPage;
+
+		prevPage = (curPage == 1) ? 1 : (curBlock - 1) * BLOCK_SCALE;
+		nextPage = curBlock > totBlock ? (curBlock * BLOCK_SCALE) : (curBlock * BLOCK_SCALE) + 1;
+		// 마지막 페이지가 범위 초과하지 않도록 처리
+		if (nextPage >= totPage)
+			nextPage = totPage;
+
+	}
 
 	public void setPageRange() {
-		pageBegin = (cuePage - 1) * PAGE_SCALE + 1;
-		PageEnd = pageBegin + PAGE_SCALE - 1;
+		// 시작 번호 =(현재페이지-1) *페이지당 게시물수 +1
+		pageBegin = (curPage - 1) * PAGE_SCALE + 1;
+		pageEnd = pageBegin + PAGE_SCALE - 1;
 	}
 
 	public int getCurPage() {
