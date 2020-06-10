@@ -45,19 +45,9 @@ function fn_check() { //변경 버튼 클릭시(유효성검증, 데이터입력
         return false;
      }
 
-    if(!$("#MEM_ZIP").val()){
-        alert("우편번호를 입력해주세요.");
-        $("#MEM_ZIP").focus();
-        return false;
-     }
     if(!$("#MEM_ADD1").val()){
         alert("집주소 입력해주세요.");
         $("#MEM_ADD1").focus();
-        return false;
-     }
-    if(!$("#MEM_ADD2").val()){
-        alert("상세주소를 입력해주세요.");
-        $("#MEM_ADD2").focus();
         return false;
      }
     if(!$("#MEM_LEVEL").val()){
@@ -124,19 +114,9 @@ function back(){
                             <p class="help-block">01000000000  ,- 없이 입력합니다</p>
                         </div>
                         <div class="form-group">
-                            <label>우편번호</label>
-                            <input type="text" class="form-control" value="${map.MEM_ZIP}" name="MEM_ZIP" id="MEM_ZIP" style="width:100px;"/>
-                            <p class="help-block">12345 형식 입니다</p>
-                        </div>
-                        <div class="form-group">
                             <label>주소</label>
                             <input type="text" class="form-control" value="${map.MEM_ADD1}" name="MEM_ADD1" id="MEM_ADD1" style="width:250px;"/>
                         </div>
-                        <div class="form-group">
-                            <label>상세주소</label>
-                            <input type="text" class="form-control" value="${map.MEM_ADD2}" name="MEM_ADD2" id="MEM_ADD2" style="width:250px;"/>
-                        </div>
-
                         <div class="form-group">
                             <label>가입일자</label>
                             <input type="text" class="form-control" value="<fmt:formatDate value='${map.MEM_JOINDATE}' pattern='YY.MM.dd'/>" name="MEM_JOINDATE" id="MEM_JOINDATE" style="width:250px;"/>                                                   

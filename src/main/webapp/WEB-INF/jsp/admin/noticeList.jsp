@@ -48,7 +48,7 @@ function fn_openBoardDetail(obj) {
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-             	공지사항 작성, 검색, 삭제 기능하는 페이지입니다.
+             	공지사항 작성, 삭제 기능 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">

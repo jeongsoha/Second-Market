@@ -49,6 +49,8 @@ public class AdminBoardController {
 	//공지사항
 	@RequestMapping(value="/admin/noticeList")
 	public ModelAndView noticeList(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		
+		System.out.println("==========컨트롤러 확인1==============");
 		ModelAndView mv = new ModelAndView("adnoticeList");
 		List<Map<String,Object>> list = adminBoardService.noticeList(commandMap.getMap());
 		mv.addObject("noticeList",list);	
@@ -59,6 +61,8 @@ public class AdminBoardController {
     	else{
     		mv.addObject("TOTAL", 0);
     	}	
+		
+		System.out.println("==========컨트롤러 확인2==============");
 		return mv;
 	}
 	

@@ -47,7 +47,7 @@ function fn_openBoardDetail(obj) {
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         자유게시판 검색, 삭제 기능하는 페이지입니다.
+                         자유게시판 삭제 기능 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
