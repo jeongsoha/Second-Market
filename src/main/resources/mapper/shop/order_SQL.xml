@@ -44,7 +44,7 @@
 			                ORDERS_DADD1,
 			                ORDERS_DMEMO,
 			                ORDERS_PAY,
-			                ORDERS_GB_DEL
+			                ORDERS_DEL_GB
 			                )
 			VALUES          (
 			                #{IDX},
