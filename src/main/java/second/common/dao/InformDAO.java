@@ -11,6 +11,13 @@ public class InformDAO extends AbstractDAO {
  
     	 return (List<Map<String, Object>>)selectList("inform.selectAllMember",map);
 	   }
+    
+    public void informInsertNotice(Map<String, Object> map, String str)throws Exception{
+        
+        map.put("INFORM_CONTENT", str);
+        insert("inform.informinsertNotice",map);
+     }
+    
 
    public void informInsert(Map<String, Object> map, String str)throws Exception{
       map.put("INFORM_CONTENT", str);
