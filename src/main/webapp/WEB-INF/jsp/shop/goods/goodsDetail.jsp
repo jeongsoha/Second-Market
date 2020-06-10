@@ -308,11 +308,11 @@
 		
 		function fn_writeComment(){
 			var comSubmit = new ComSubmit("frm");
-			var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 답글 알람을 위한 변수
+			var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 댓글 알람을 위한 변수
 			comSubmit.setUrl("<c:url value='/shop/goodsDetail/commentWrite'/>");
 			comSubmit.addParam("GOODS_NUM", $("#GOODS_NUM").val());
 			
-			comSubmit.addParam("idq", idq);// (유진 추가) 상품 답글 알람을 위한 변수 전송
+			comSubmit.addParam("idq", idq);// (유진 추가) 상품 댓글 알람을 위한 변수 전송
 			alert(idq)
 			// 댓글 내용 필요
 	         if(!$("#COMMENTS_CONTENT").val()){
