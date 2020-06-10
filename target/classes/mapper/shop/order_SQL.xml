@@ -40,9 +40,8 @@
 			                ORDERS_PHONE,
 			                ORDERS_STATUS,
 			                ORDERS_PRICE,
-			                ORDERS_DZIPCODE,
+			                ORDERS_TCOST,
 			                ORDERS_DADD1,
-			                ORDERS_DADD2,
 			                ORDERS_DMEMO,
 			                ORDERS_PAY
 			                )
@@ -53,11 +52,10 @@
 			                #{MEM_PHONE},
 			                '주문/결제',
 			                #{GOODS_PRICE},
-			                #{MEM_ZIP},
+			                #{GOODS_TCOST},
 			                #{ADD1},
-			                #{ADD2},
 			                #{DMEMO},
-			                #{ORDER_PAY}
+			                'kakaoPay'
 			                )
 		]]>
 	</insert>
@@ -70,9 +68,8 @@
 			        ORDERS_PHONE,
 			        ORDERS_STATUS,
 			        ORDERS_PRICE,
-			        ORDERS_DZIPCODE,
+			        ORDERS_TCOST,
 			        ORDERS_DADD1,
-			        ORDERS_DADD2,
 			        ORDERS_DMEMO,
 			        ORDERS_PAY
 			FROM    ORDERS

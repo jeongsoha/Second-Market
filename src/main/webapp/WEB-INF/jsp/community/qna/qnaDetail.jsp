@@ -91,7 +91,7 @@
 			
 		<div class="answer">
 				<p>답변쓰기</p>
-				<table class="hide">
+				<table>
 					<tr>
 					  <th>제목</th>
 					  <td><input type="text" id="QNA_TITLE" name="QNA_TITLE"></td>

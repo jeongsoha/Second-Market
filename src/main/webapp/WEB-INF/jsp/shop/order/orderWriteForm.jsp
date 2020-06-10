@@ -10,6 +10,8 @@
 <style type="text/css">
 
 </style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
@@ -67,7 +69,7 @@
 				<tr>
 					<th>
 						<textarea id="DMEMO" name="DMEMO"></textarea>
-					</td>
+					</th>
 				</tr>
 				<tr>
 					<td>
@@ -75,6 +77,7 @@
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${orderG.GOODS_NUM}"/>
 						<input type="hidden" id="GOODS_PRICE" name="GOODS_PRICE" value="${orderG.GOODS_PRICE}"/>
 						<input type="hidden" id="orderNumber" name="orderNumber" value="${orderG.GOODS_NUM}" />
+						<input type="hidden" id="GOODS_TCOST" name="GOODS_TCOST" value="${orderG.GOODS_PRICE+orderG.GOODS_DCOST}" />
 						<input type="hidden" id="item_name" name="item_name" value="${orderG.GOODS_TITLE}"/>
 					</td>
 				</tr>
@@ -83,7 +86,8 @@
 						결제수단
 					</th>
 					<td>
-					무통장 / 카드 / 계좌이체 / 등 
+					무통장 / 카드 / 계좌이체 </br> 	
+					카카오페이 <input type="radio" id="ORDER_PAY" name="ORDER_PAY" value="kakaopay" checked="checked">
 					</td>
 					<th>
 						결제확인
@@ -161,7 +165,7 @@ $(document).ready(function() {
 				alert("결제가 완료되어 주문서 확인 창으로 이동됩니다.");
 				fn_orderPay($(this));	
 			}else{
-				alert("결제가 완료되지않아 결제창으로 이동됩니다.");
+				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
 				popup($(this));
 			}
 		}
@@ -172,44 +176,11 @@ $(document).ready(function() {
 		var comSubmit = new ComSubmit("frm");
 		var ORDERS_NUM = "${order.ORDERS_NUM}";
 		comSubmit.setUrl("<c:url value='/shop/order/orderWrite' />");
+		//comSubmit.setUrl("<c:url value='/kakaoPay' />");
 		comSubmit.addParam("ORDERS_NUM", ORDERS_NUM);
 		comSubmit.submit();	
 		}
 	});
-
-
-function fn_popup(){
-    var IMP = window.IMP; // 생략가능
-    IMP.init('imp07872997'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-    // WxO3Xw3xQQTdywvPEpoYBTHFBwoQrjEnRsqOYumPlg2TNyIrY7qz07eBECs5W6sNzTCxnZnIfpB3YkuW
-
-    IMP.request_pay({
-        pg : 'kakao',
-        pay_method : 'card',
-        merchant_uid : 'merchant_' + new Date().getTime(),
-        name : '주문명:결제테스트',
-        amount : 14000,
-        buyer_email : 'iamport@siot.do',
-        buyer_name : '구매자이름',
-        buyer_tel : '010-1234-5678',
-        buyer_addr : '서울특별시 강남구 삼성동',
-        buyer_postcode : '123-456',
-        m_redirect_url : '/second/payEnd.action'	// 결제 완료 후 보낼 컨트롤러의 메소드명
-    }, function(rsp) {
-        if ( rsp.success ) { { // 성공시
-            var msg = '결제가 완료되었습니다.';
-            msg += '고유ID : ' + rsp.imp_uid;
-            msg += '상점 거래ID : ' + rsp.merchant_uid;
-            msg += '결제 금액 : ' + rsp.paid_amount;
-            msg += '카드 승인번호 : ' + rsp.apply_num;
-        } else {	 // 실패 시
-            var msg = '결제에 실패하였습니다.';
-            msg += '에러내용 : ' + rsp.error_msg;
-        }
-
-        alert(msg);
-    });
-};
 
 
 	function fn_formCheck() {
@@ -243,6 +214,59 @@ function fn_popup(){
 		}
 	
 	var openWin;
+	/* 
+	function popup(){
+		var url = "/second/kakaoPay";
+		console.log(document.getElementById("GOODS_TCOST").value);
+		var param = "?orderNum="
+				  + document.getElementById("orderNumber").value
+				  + "&goodsTcost="
+				  + document.getElementById("GOODS_TCOST").value
+				  + "&itemName="
+				  + document.getElementById("item_name").value
+				  + "&memID="
+				  + document.getElementById("MEM_ID").value;
+				  
+		openWin = window.open(url+param, "childForm", "width=570, height=550, resizable = no, scrollbars = no");
+	} */
+	
+	
+	
+	
+ 	function popup(){ 
+	    var IMP = window.IMP; // 생략가능
+	    IMP.init('imp07872997'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+	    // WxO3Xw3xQQTdywvPEpoYBTHFBwoQrjEnRsqOYumPlg2TNyIrY7qz07eBECs5W6sNzTCxnZnIfpB3YkuW
+
+	    IMP.request_pay({
+	        pg : 'kakao',
+	        pay_method : 'card',
+	        merchant_uid : 'merchant_' + new Date().getTime(),
+	        name : '주문명:결제테스트',
+	        amount : Number(document.getElementById("GOODS_TCOST").value),
+	        buyer_email : 'iamport@siot.do',
+	        buyer_name : $("#MEM_ID").val(),
+	        buyer_tel : $("#MEM_PHONE").val(),
+	        buyer_addr : $("#ADD1").val(),
+	        buyer_postcode : '123-456',
+	        m_redirect_url : '/second/payEnd.action'	// 결제 완료 후 보낼 컨트롤러의 메소드명
+	    }, function(rsp) {
+	        if ( rsp.success ) { // 성공시
+	            var msg = '결제가 완료되었습니다.';
+	            msg += '고유ID : ' + rsp.imp_uid;
+	            msg += '상점 거래ID : ' + rsp.merchant_uid;
+	            msg += '결제 금액 : ' + rsp.paid_amount;
+	            msg += '카드 승인번호 : ' + rsp.apply_num;
+	            document.getElementById("check").value = "true"
+	        } else {	 // 실패 시
+	            var msg = '결제에 실패하였습니다.';
+	            msg += '에러내용 : ' + rsp.error_msg;
+	        }
+
+	        alert(msg);
+	    });
+	};
+	
 	
 
 </script>
