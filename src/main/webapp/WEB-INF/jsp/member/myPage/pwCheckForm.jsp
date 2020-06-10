@@ -7,27 +7,50 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
-   </style>
+
+<style type="text/css">
+
+#pass{
+	clear: both;
+}
+
+</style>
+   
+   
+   
 </head>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-      <div class="card align-middle" style="width:20rem; height:400px; border-radius:20px; background-color:#fff; margin-top:50px;">
+     
+      <div class="card align-middle" style="width:30rem; height:400px; height:300px; border-radius:20px; background-color:#fff; margin-top:50px;" id="pass">
          <div>
-            <div class="card-title" style="margin-top:30px;">
+         
+         
+            <div class="card-title" style="margin-top:100px;">
                <h2 class="card-title text-center" style="color:#113366;"><img src="./resources/images/mypage_pwcheck.png"></h2>
             </div>
-            <div class="card-body">
-               <img src="/second/resources/images/mypage_pw.png"> <input type="password" id="MEM_PW" name="MEM_PW" class="form-control" placeholder="Password">
+            
+            
+            <div class="card-body" style="margin-top:30px;">
+               <img src="/second/resources/images/mypage_pw.png"> 
+               <input type="password" style="margin-top:20px;" id="MEM_PW" name="MEM_PW" class="form-control" placeholder="Password">
             </div>
          
-            <div class="card-body">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="확인" onclick="fn_pwCheck();" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="back();" style="background-color:#26a69a;">
+         
+            <div class="card-body" style="margin-top:30px; margin-botton:0px;" >
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="확인" onclick="fn_pwCheck();" style="background-color:#333333;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="back();" style="background-color:#333333;">
 				<span id="pwc"></span>
 				<br>
             </div>
+            
+            
+            
          </div>
       </div>
+      
 </body>
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">

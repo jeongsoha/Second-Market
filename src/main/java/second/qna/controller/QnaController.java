@@ -145,6 +145,7 @@ public class QnaController {
 		
 		HttpSession session = request.getSession();
 		commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));
+		commandMap.put("idq", commandMap.get("idq")); //(유진추가) qna.jsp 에서 받아온 id 값을 서비스에 전달
 		qnaService.insertQnaAnswer(commandMap.getMap());
 		mv.addObject("QNA_NUM", commandMap.get("QNA_NUM"));
 		return mv;		

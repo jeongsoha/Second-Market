@@ -34,7 +34,7 @@ public class OrderController {
 	@RequestMapping(value="/shop/order/orderWrite", method = RequestMethod.POST)
 	public ModelAndView orderWrite(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("orderWriteResult");
-		
+		System.out.println(request);
 		orderService.insertOrder(commandMap.getMap(), request);
 		Map<String,Object> map = orderService.orderDetail(commandMap.getMap());
 		mv.addObject("order", map.get("order"));

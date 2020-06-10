@@ -11,6 +11,7 @@
 <body>
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
 <div id="content">
+
    <div id="vertical_tab-container">
    
          <ul>
@@ -22,6 +23,7 @@
          </ul>
    
    </div>
+   
    <div id="main-container">
 		<img src="./../resources/images/commu_rtitle.png" width="200" height="70"> 
 	<table border="1" align="center" class="tbl_type">
@@ -33,7 +35,7 @@
 			<col width="10%" />
 		</colgroup>  
 		<caption><h2>신고게시판</h2></caption>
-		<form action="/nnS/myPage/reportList" method="post">
+		<form action="/second/community/reportList" method="post">
 	      <select name="search" id="search">
 	                  <option value="0">전체보기</option>
 	               <option value="1" <c:out value="${search eq '1' ? 'selected' :''}"/>>처리대기</option>
@@ -43,6 +45,7 @@
 	      </select>
 	      <input type="submit" value="분류" class="search_btn" onClick="onSearch()"/>
 	    </form>
+	    
 		<thead>
 			<tr>
 				<th scope="col"><img src="./../resources/images/commu_num.png" height="25"></th>
@@ -63,7 +66,10 @@
 
 	<br />
 	</div>
-	</div>
+</div>
+	
+	
+	
 </div>
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">

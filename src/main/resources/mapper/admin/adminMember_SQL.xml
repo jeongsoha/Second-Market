@@ -15,9 +15,7 @@
               MEM_GEN,
               MEM_EMAIL,
               MEM_PHONE,
-              MEM_ZIP,
               MEM_ADD1,
-              MEM_ADD2,
               MEM_JOINDATE,
               MEM_VERIFY,
               MEM_LEVEL,
@@ -48,9 +46,7 @@
                MEM_GEN = #{MEM_GEN},
                MEM_EMAIL = #{MEM_EMAIL},
                    MEM_PHONE = #{MEM_PHONE},
-                  MEM_ZIP = #{MEM_ZIP},
                   MEM_ADD1 = #{MEM_ADD1},
-                  MEM_ADD2 = #{MEM_ADD2},
                   MEM_JOINDATE = #{MEM_JOINDATE},
                   MEM_LEVEL = #{MEM_LEVEL}
          WHERE   MEM_ID = #{MEM_ID}

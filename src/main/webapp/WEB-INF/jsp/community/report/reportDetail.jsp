@@ -3,7 +3,34 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <html lang="ko">
 <head>
-   <meta charset="UTF-8">
+
+<style type="text/css">
+
+#content{
+	clear:both;
+}
+
+#vertical_tab-container{
+	float: left;
+	margin:100px 150px auto 150px;
+	display:inline;
+}
+
+#main-container{
+	float: left;
+   width:1100px;
+   align:center;
+   margin:0px auto 100px auto;
+   border-top: 1px solid #fff;  
+   border-right: 1px solid #fff;     
+   border-left: 1px solid #fff; 
+   border-bottom: 1px solid #fff;
+   display:inline;
+}
+
+</style>
+
+<meta charset="UTF-8">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 </head>
@@ -17,6 +44,7 @@
          <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
    </ul>
    </div>
+   
    <div id="main-container">
 		<img src="./../resources/images/form_t3.png" width="100" height="30">
    <table border="1" align="center" class="tbl_type">

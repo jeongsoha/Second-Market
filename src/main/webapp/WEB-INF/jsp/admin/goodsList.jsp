@@ -49,7 +49,7 @@ function fn_openBoardDetail(obj) {
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         상품목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.
+                         상품목록페이지 수정, 삭제 기능 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">

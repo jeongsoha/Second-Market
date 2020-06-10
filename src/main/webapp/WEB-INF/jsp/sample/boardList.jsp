@@ -58,13 +58,11 @@
 				e.preventDefault();
 				fn_openBoardWrite();
 			});
-
 			$("a[name='title']").on("click", function(e) { //제목 
 				e.preventDefault();
 				fn_openBoardDetail($(this));
 			});
 		});
-
 		function fn_openBoardWrite() {
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/sample/openBoardWrite' />");
@@ -85,7 +83,6 @@
 			comAjax.addParam("PAGE_ROW", 15);
 			comAjax.ajax();
 		}
-
 		function fn_selectBoardListCallback(data) {
 			var total = data.TOTAL;
 			var body = $("table>tbody");
@@ -104,7 +101,6 @@
 					
 				};
 				gfn_renderPaging(params);
-
 				var str = "";
 				$.each(
 								data.list,
@@ -123,7 +119,6 @@
 											+ "</td>" + "</tr>";
 								});
 				body.append(str);
-
 				$("a[name='title']").on("click", function(e) { //제목
 					e.preventDefault();
 					fn_openBoardDetail($(this));

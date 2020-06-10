@@ -6,6 +6,32 @@
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 
+<style type="text/css">
+
+#content{
+	clear:both;
+}
+
+#vertical_tab-container{
+	float: left;
+	display:inline;
+	margin:100px 150px auto 150px;
+}
+
+#main-container{
+	float: left;
+   width:1100px;
+   align:center;
+   margin:0px auto 100px auto;
+   border-top: 1px solid #fff;  
+   border-right: 1px solid #fff;     
+   border-left: 1px solid #fff; 
+   border-bottom: 1px solid #fff;
+   display:inline;
+}
+
+</style>
+
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
@@ -19,6 +45,7 @@
          <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
       </ul>
    </div>
+   
    <div id="main-container">
  	<img src="./../resources/images/form_t.png" width="100" height="30">
    <form id="frm" name="frm" enctype="multipart/form-data">
