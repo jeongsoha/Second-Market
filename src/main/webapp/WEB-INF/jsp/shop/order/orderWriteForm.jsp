@@ -236,7 +236,6 @@ $(document).ready(function() {
  	function popup(){ 
 	    var IMP = window.IMP; // 생략가능
 	    IMP.init('imp07872997'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-	    // WxO3Xw3xQQTdywvPEpoYBTHFBwoQrjEnRsqOYumPlg2TNyIrY7qz07eBECs5W6sNzTCxnZnIfpB3YkuW
 
 	    IMP.request_pay({
 	        pg : 'kakao',
