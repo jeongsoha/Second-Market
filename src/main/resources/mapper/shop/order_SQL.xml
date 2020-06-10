@@ -56,7 +56,7 @@
 			                #{GOODS_TCOST},
 			                #{ADD1},
 			                #{DMEMO},
-			                'kakaoPay'
+			                'kakaoPay',
 			                'N'
 			                )
 		]]>
