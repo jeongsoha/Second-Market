@@ -90,7 +90,7 @@ public class QnaServiceImpl implements QnaService{
 		// TODO Auto-generated method stub
 		 
 		qnaDAO.insertQnaAnswer(map);
-		//informDAO.informInsert(map, "내 문의글에 답변이 달렸습니다.");
+		informDAO.informInsert(map, "내 QNA에 답변이 달렸습니다.");
 	}
 	
 	@Override
