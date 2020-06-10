@@ -91,7 +91,7 @@
 			
 		<div class="answer">
 				<p>답변쓰기</p>
-				<table class="hide">
+				<table>
 					<tr>
 					  <th>제목</th>
 					  <td><input type="text" id="QNA_TITLE" name="QNA_TITLE"></td>
@@ -156,12 +156,15 @@
 			comSubmit.submit();
 		}
 		function fn_insertBoard(){
+
 			var comSubmit = new ComSubmit("frm");
 			var idx="${map.QNA_NUM}"
 			var type="${map.QNA_TYPE}"
+			var idq = "${map.MEM_ID }" // (유진 추가) 답글 알람을 위한 변수
 			comSubmit.setUrl("<c:url value='/community/qnaDetail/answerWrite' />");
 			comSubmit.addParam("QNA_NUM",idx);//QNA_PARENT의 값이된다.
 			comSubmit.addParam("QNA_TYPE",type);//어떤 유형에 대한 답변인지 보기위해 넣는다.
+			comSubmit.addParam("idq",idq);//(유진 추가)글쓴이가 알람을 받기위해 넣는다
 			comSubmit.submit();
 		}
 	

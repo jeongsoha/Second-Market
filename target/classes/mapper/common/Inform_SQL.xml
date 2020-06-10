@@ -16,7 +16,7 @@
          #{INFORM_CONTENT},
          'N',
          SYSDATE,
-         (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID =#{IDX})
+         (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID =#{idq})
          )
    </insert>
    
