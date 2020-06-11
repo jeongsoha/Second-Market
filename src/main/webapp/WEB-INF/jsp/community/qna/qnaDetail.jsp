@@ -4,25 +4,51 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+<style type="text/css">
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+#vertical_tab-container{
+	float:right;
+	margin:auto 350px auto auto;
+	clear:both;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
+}
+
+#main-container{
+   width:1100px;
+   align:center;
+   margin:auto 410px auto 410px;
+   border-top: 1px solid #fff;  
+   border-right: 1px solid #fff;     
+   border-left: 1px solid #fff; 
+   border-bottom: 1px solid #fff;
+   clear:both;
+   font-family: 'Nanum Gothic';
+}
+
+</style>
+
 <body>
 <div id="content">
-   <div id="vertical_tab-container">
   
-      <ul>
-      
-         <li><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
-        </ul>
-
-   </div>
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
+    <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
+    <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
+    <a href="qnaList"><button class="tab_menu_btn on" type="button">Q&A게시판</button></a>
+  </div>
+  </div>
    <div id="main-container">
-		<img src="./../resources/images/form_t3.png" width="100" height="30">
+		<H2>게시글보기</H2>
     <form id="frm" name="frm">
-	<table class="tbl_type" align="center">
+	<table class="table table-condensed" align="center">
 		<colgroup>
 			<col width="15%"/>
 			<col width="35%"/>
@@ -32,21 +58,21 @@
 		
 		<tbody>
 			<tr>
-				<th scope="row"><img src="./../resources/images/commu_num.png" height="25"></th>
+				<th style=text-align:center; scope="row">글번호</th>
 				<td>${map.QNA_NUM }
-				<th scope="row"><img src="./../resources/images/commu_hit.png" height="25"></th>
+				<th style=text-align:center; scope="row">조회수</th>
 				<td>${map.QNA_COUNT }</td>
 			</tr>
 			<tr>
-				<th scope="row"><img src="./../resources/images/commu_writer.png" height="25"></th>
+				<th style=text-align:center; scope="row">작성자</th>
 				<td>${map.MEM_ID }</td>
-				<th scope="row"><img src="./../resources/images/form_type.png" height="25"></th>
+				<th style=text-align:center; scope="row">유형</th>
 				<td>${map.QNA_TYPE }</td>
 			</tr>
 			<tr>
-				<th scope="row"><img src="./../resources/images/commu_title.png" height="25"></th>
+				<th style=text-align:center; scope="row">제목</th>
 				<td>${map.QNA_TITLE }</td>
-				<th scope="row"><img src="./../resources/images/commu_date.png" height="25"></th>
+				<th style=text-align:center; scope="row">작성일</th>
 				<td>${map.QNA_TIME }</td>
 			</tr>
 			<tr>
@@ -80,7 +106,7 @@
 					   <th>내용</th><td><pre>${answer.QNA_CONTENT}</pre></td>
 					</tr>
 					<tr align="right">
-					  <td><a href="#this" class="btn" id="deleteAnswer" name="deleteAnswer">삭제하기</a>
+					  <td><a href="#this" class="btn btn-primary" id="deleteAnswer" name="deleteAnswer">삭제하기</a>
 					  <input type="hidden" id="QNA_NUM" value="${answer.QNA_NUM }"></td>
 					</tr>
 				</table>
@@ -101,16 +127,19 @@
 					  <td><textarea rows="20" cols="100" title="내용" id="QNA_CONTENT" name="QNA_CONTENT"></textarea></td>
 					</tr>
 					<tr align="right">
-					 <td><a href="#this" class="btn" id="write">답변달기</a></td>
+					 <td><a href="#this" class="btn btn-primary" id="write">답변달기</a></td>
 					</tr> 
 				</table>
 				
 		</div>
-	<a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
+		
+<div align="right">
+	<a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
 	<c:if test="${session_MEM_ID eq map.MEM_ID && session_MEM_ID ne null}">
-		<a href="#this" class="btn" id="update"><button class="bttn-bordered bttn-xs bttn-primary">수정하기</button></a>
-		<a href="#this" class="btn" id="delete"><button class="bttn-bordered bttn-xs bttn-primary">삭제하기</button></a>
+		<a href="#this" id="update"><button class="btn btn-primary">수정하기</button></a>
+		<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
 	</c:if>
+</div>
 	</form>
 	</div>
 	</div>

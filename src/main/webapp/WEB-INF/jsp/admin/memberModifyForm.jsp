@@ -74,11 +74,11 @@ function back(){
 
 <!-- 메뉴 시작 -->
 
-<div class="row" style="padding-left:15px;width:700px;">    
+<div class="row" style="padding-left:50px;width:700px;">    
    <h1 class="page-header">회원수정</h1>
 </div>
 
-<div class="row" style="padding-left:15px;width:700px;">
+<div class="row" style="padding-left:50px;width:700px;">
    <div class="panel panel-default">
       <div class="panel-heading" >회원수정 페이지입니다.</div>
          <div class="panel-body">

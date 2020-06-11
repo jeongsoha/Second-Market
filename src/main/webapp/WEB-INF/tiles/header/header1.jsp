@@ -26,7 +26,7 @@
    #h1{
          float:left;
          width:30%;
-         margin: 30px 0px 15px 0px;
+         margin: 0px 0px 15px 0px;
          display: inline;
          
    }
@@ -278,7 +278,7 @@
       <div id="h4">
          <c:if test="${session_MEM_ID != null }">
          <c:if test="${session_MEM_ID == 'admin' }">
-             <a href="/second/admin">관리자페이지</a>
+             <a href="/second/admin">관리자페이지</a> &nbsp;&nbsp;
           </c:if>
                <a href="${contextPath}/second/logout" class="log">로그아웃</a> &nbsp;&nbsp;
                <a href="${contextPath}/second/myPage">마이페이지</a>           &nbsp;&nbsp;

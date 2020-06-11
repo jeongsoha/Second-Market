@@ -6,48 +6,53 @@
 
 <style type="text/css">
 
-#content{
-	clear:both;
-}
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 #vertical_tab-container{
-	float: left;
-	margin:100px 150px auto 150px;
-	display:inline;
+	float:right;
+	clear:both;
+	margin:auto 350px auto auto;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
 }
 
 #main-container{
-	float: left;
    width:1100px;
    align:center;
-   margin:0px auto 100px auto;
+   margin:auto 410px auto 410px;
    border-top: 1px solid #fff;  
    border-right: 1px solid #fff;     
    border-left: 1px solid #fff; 
    border-bottom: 1px solid #fff;
-   display:inline;
+   clear:both;
+   font-family: 'Nanum Gothic';
+	font-size:15px;
 }
+
+
 
 </style>
 
 <meta charset="UTF-8">
-<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 </head>
 <body>
 <div id="content">
-   <div id="vertical_tab-container">
-   <ul>
-      <li><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
-   </ul>
-   </div>
+   
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
+    <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
+    <a href="reportList"><button class="tab_menu_btn on" type="button">신고게시판</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
+  </div>
+  </div>
    
    <div id="main-container">
-		<img src="./../resources/images/form_t3.png" width="100" height="30">
-   <table border="1" align="center" class="tbl_type">
+		<h2>게시글보기</h2>
+   <table align="center" class="table table-condensed">
       <colgroup>
          <col width="15%"/>
          <col width="35%"/>
@@ -58,28 +63,28 @@
       <p/>
       <tbody>
          <tr>
-            <th scope="row"><img src="./../resources/images/commu_num.png" height="25"></th>
+            <th style=text-align:center; scope="row">글번호</th>
             <td>${map.REPORT_NUM }
             <input type="hidden" id="REPORT_NUM" name="REPORT_NUM" value="${map.REPORT_NUM }"></td>
-            <th scope="row"><img src="./../resources/images/commu_hit.png" height="25"></th>
+            <th style=text-align:center; scope="row">조회수</th>
             <td>${map.REPORT_COUNT }</td>
          </tr>
          <tr>
-            <th scope="row"><img src="./../resources/images/commu_writer.png" height="25"></th>
+            <th style=text-align:center; scope="row">작성자</th>
             <td>${map.MEM_ID }</td>
-            <th scope="row"><img src="./../resources/images/commu_date.png" height="25"></th>
+            <th style=text-align:center; scope="row">작성일</th>
             <td>${map.REPORT_DATE }</td>
          </tr>
          <tr>
-           <th scope="row"><img src="./../resources/images/report_pid.png" height="25"></th>
+           <th style=text-align:center; scope="row">신고대상</th>
            <td>${map.REPORT_GOODS_SELLER_ID }
-           <th scope="row"><img src="./../resources/images/report_p.png" height="25"></th>
+           <th style=text-align:center; scope="row">신고할상품번호</th>
            <td>${map.REPORT_PRONUM }</td>
          </tr>
          <tr>
-            <th scope="row"><img src="./../resources/images/commu_title.png" height="25"></th>
+            <th style=text-align:center; scope="row">제목</th>
             <td>${map.REPORT_TITLE }</td>
-            <th scope="row"><img src="./../resources/images/report_reason.png" height="25"></th>
+            <th style=text-align:center; scope="row">신고사유</th>
             <td>${map.REPORT_TYPE }
             <c:if test="${session_MEM_INFO.MEM_LEVEL eq '2'}">
             <form id="frm" name="frm">
@@ -102,10 +107,13 @@
          </tr>
       </tbody>
    </table>
-   <a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
+   
+   <div align="right">
+   <a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
    <c:if test="${session_MEM_ID eq map.MEM_ID && session_MEM_ID ne null}">
-   	<a href="#this" class="btn" id="delete"><button class="bttn-bordered bttn-xs bttn-primary">삭제하기</button></a>
+   	<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
    </c:if>
+   </div>
    </div>
 </div>
    

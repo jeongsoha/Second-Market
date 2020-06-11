@@ -81,13 +81,13 @@ function fn_openBoardDetail(obj) {
 </style>
 </head>
 
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:50px;width:900px;">    
 	<h1 class="page-header">Q&A 게시판</h1>
 </div>
-<div class="row">
+<div class="row" style="padding-left:50px;">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-               Q&A 게시판 삭제 기능 페이지입니다.
+               Q&A게시판 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
