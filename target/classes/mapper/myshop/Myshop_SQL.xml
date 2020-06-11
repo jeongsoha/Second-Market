@@ -105,7 +105,7 @@
         	) M,
         	ORDERS O
 	WHERE   G.GOODS_SELLER = M.MEM_NUM
-	AND     G.GOODS_DEL_GB = 'N'
+	AND     G.GOODS_STATUS = 'N'
 	AND     G.GOODS_NUM = O.ORDERS_PRONUM(+)
 	AND     M.MEM_ID = #{MEM_ID}
 	AND 	G.GOODS_TSTATUS = 'N'
@@ -226,7 +226,7 @@ SELECT
 			        G.GOODS_STATUS,
 			        G.GOODS_THUMBNAIL,
 			        G.GOODS_TSTATUS,
-			        G.GOODS_HASH,
+			  
 			        G.GOODS_CONTENT,
 			        NVL(GL.TOTAL_COUNT, 0) AS TOTAL_COUNT2
 			FROM    GOODS G,
@@ -242,7 +242,7 @@ SELECT
 			        ) GL
 			WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
 			AND     G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
-			AND     G.GOODS_DEL_GB = 'N'
+			AND     G.GOODS_STATUS = 'N'
 			AND     G.GOODS_TSTATUS IN ('N', 'ING')
 			AND     M.MEM_ID = #{MEM_ID}
 			
