@@ -1,4 +1,4 @@
-package sscond.reply.service;
+package scond.reply.service;
 
 public class ReplyPager {
 
@@ -12,8 +12,9 @@ public class ReplyPager {
 	private int prevPage; // 이전 페이
 	private int nextPage; // 다음페이
 	private int totPage; // 전체 페이지
-	private int totBlock; // 현재 페이지
-	private int curBlock; // 이전 페이지 블록
+	private int totBlock; //전체 페이지 블록수
+	private int curBlock; // 현재 페이지 블록
+	private int prevBlock;//이전 페이지 블록
 	private int nextBlock; // 다음 페이지 블록
 	private int pageBegin; // #{start}
 	private int pageEnd; // #{end}
@@ -31,30 +32,29 @@ public class ReplyPager {
 		setBlockRange(); // 페이지 블록의 시작, 끝번호 계산
 
 	}
-
+	
 	public void setBlockRange() {
-
-		curBlock = (int) Math.ceil((curPage - 1) / BLOCK_SCALE) + 1;
-
-		blockBegin = (curBlock - 1) * BLOCK_SCALE + 1;
-		blockEnd = blockBegin + BLOCK_SCALE - 1;
-
-		if (blockEnd > totPage)
-			blockEnd = totPage;
-
-		prevPage = (curPage == 1) ? 1 : (curBlock - 1) * BLOCK_SCALE;
-		nextPage = curBlock > totBlock ? (curBlock * BLOCK_SCALE) : (curBlock * BLOCK_SCALE) + 1;
-		// 마지막 페이지가 범위 초과하지 않도록 처리
-		if (nextPage >= totPage)
-			nextPage = totPage;
-
+		curBlock = (int)Math.ceil((curPage-1)/ BLOCK_SCALE)+1;
+		blockBegin = (curBlock-1)*BLOCK_SCALE+1;
+		blockEnd =blockBegin+BLOCK_SCALE-1;
+		if(blockEnd>totPage)blockEnd=totPage;
+		prevPage =(curPage ==1)? 1:(curBlock-1)*BLOCK_SCALE;
+		nextPage =curBlock>totPage ? (curBlock*BLOCK_SCALE) :
+			(curBlock*BLOCK_SCALE)+1;
+		if(nextPage>=totPage) nextPage = totPage;
 	}
-
+	
 	public void setPageRange() {
-		// 시작 번호 =(현재페이지-1) *페이지당 게시물수 +1
-		pageBegin = (curPage - 1) * PAGE_SCALE + 1;
-		pageEnd = pageBegin + PAGE_SCALE - 1;
+		
+		//시작번 = (현재페이지-1)*페이지당 게시물수 +1
+		pageBegin =(curPage-1)*PAGE_SCALE+1;
+
+		//끝번호 = 시작번호 + 페이지당 게시물수 -1
+		pageEnd =pageBegin+PAGE_SCALE-1;
+		
 	}
+		
+	
 
 	public int getCurPage() {
 		return curPage;
@@ -84,16 +84,17 @@ public class ReplyPager {
 		return totPage;
 	}
 
-	public void setTotPage(int totPage) {
-		this.totPage = totPage;
+	public void setTotPage(int count) {
+		totPage =(int) Math.ceil(count*1.0/PAGE_SCALE);
 	}
 
 	public int getTotBlock() {
 		return totBlock;
 	}
 
-	public void setTotBlock(int totBlock) {
-		this.totBlock = totBlock;
+	public void setTotBlock() {
+		// this.totBlock = totBlock;
+		totBlock = (int) Math.ceil(totPage/BLOCK_SCALE);
 	}
 
 	public int getCurBlock() {
@@ -102,6 +103,14 @@ public class ReplyPager {
 
 	public void setCurBlock(int curBlock) {
 		this.curBlock = curBlock;
+	}
+
+	public int getPrevBlock() {
+		return prevBlock;
+	}
+
+	public void setPrevBlock(int prevBlock) {
+		this.prevBlock = prevBlock;
 	}
 
 	public int getNextBlock() {
@@ -151,5 +160,7 @@ public class ReplyPager {
 	public static int getBlockScale() {
 		return BLOCK_SCALE;
 	}
+
+	
 
 }

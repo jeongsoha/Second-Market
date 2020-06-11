@@ -181,6 +181,7 @@ $.ajax({
 
 <!-- 댓글 목록 출력할 위치  -->
 <div id="listReply"></div>
+<!-- <div id="replyList"></div> -->
 
 
 

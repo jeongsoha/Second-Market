@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class ReplyVO {
 
-	private Integer rno;		//댓글 번호
-	private Integer bno;		//게시글 번호
+	private int rno;		//댓글 번호
+	private int bno;		//게시글 번호
 	private String replytext;	//댓글 내용  
 	private String replyer;		//댓글 작성자 
 	private String username;	// 댓글 작성자의 이름  
@@ -13,16 +13,14 @@ public class ReplyVO {
 	private Date updatedate;	//수정일 
 	private String secretReply; //댈슬 굼김 유무 
 	private String writer;		//게시글의 작성자
-	public Integer getRno() {
+	public int getRno() {
 		return rno;
 	}
-	public void setRno(Integer rno) {
-		this.rno = rno;
-	}
-	public Integer getBno() {
+	
+	public int getBno() {
 		return bno;
 	}
-	public void setBno(Integer bno) {
+	public void setBno(int bno) {
 		this.bno = bno;
 	}
 	public String getReplytext() {
@@ -67,6 +65,11 @@ public class ReplyVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "ReplyVO [rno=" + rno+ ", bno=" +bno+ ", replytext=" +replytext+", replyer="+replyer

@@ -1,4 +1,4 @@
-package sscond.reply.service;
+package scond.reply.service;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 	// 댓글 목록
 	@Override
-	public List<ReplyVO> list(integer bno, int start, int end, HttpSession session);
+	public List<ReplyVO> list(int bno, int start, int end, HttpSession session){
 
-	List<ReplyVO> items = replyDao.list(bno, start, end);
+	List<ReplyVO> items = replyDAO.list(bno, start, end);
 	// 세션에서 현재 사용자 id값 저장
 	String userId = (String)session.getAttribute("userId");for(
 	ReplyVO vo:items)
@@ -40,14 +40,15 @@ public class ReplyServiceImpl implements ReplyService {
 			}
 		}
 
-	}return items;
+	}
+	return items;
 
 }
 
 //댓글 작성
 @Override
 public void create(ReplyVO vo) {
-	replyDao.create(vo);
+	replyDAO.create(vo);
 }
 
 //수정
@@ -64,6 +65,6 @@ public void delete(Integer rno) {
 //댓글 갯수
 @Override
 public int count(int bno) {
-	return replyDao.count(bno);
+	return replyDAO.count(bno);
 }
 }

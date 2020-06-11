@@ -1,4 +1,4 @@
-package sscond.reply.service;
+package scond.reply.service;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import second.reply.dto.ReplyVO;
 public interface ReplyService {
 	
 	//댓글목록
-	public List<ReplyVO> list(Integer bno,
+	public List<ReplyVO> list(int bno,
 			int start, int end, HttpSession session);
 	
 	//댓글입력
