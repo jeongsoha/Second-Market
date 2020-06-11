@@ -166,6 +166,7 @@
 			
 			fn_selectCommentList(1);
 			
+			
 			$("#list").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
 				fn_openGoodsList();
