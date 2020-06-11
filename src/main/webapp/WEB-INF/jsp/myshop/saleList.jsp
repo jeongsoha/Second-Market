@@ -54,16 +54,16 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
 	border: 0px;
 	padding: 5px;
 }
-</style>
+</style>`
 </head>
 <body>
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
   <div id="content">
    <div id="vertical_tab-container">
       <ul>
-         <li><a href="/second/myshop"><img src="/second/resources/images/myshop_tab1.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="/second/myshop/saleList"><img src="/second/resources/images/myshop_tab2.png" width="100" height="30"></a></li>
-         <li><a href="/second/myshop/goodsLikeList"><img src="/second/resources/images/myshop_tab3.png" width="100" height="30"></a></li>
+         <li><a href="/second/myshop">나의 주문내역</a></li>
+         <li class="selected"><a href="/second/myshop/saleList">나의 판매내역</a></li>
+         <li><a href="/second/myshop/goodsLikeList">찜 상품목록</a></li>
       </ul>
    </div>
    <div id="main-container">
@@ -94,9 +94,9 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    		</table>
    		<div class='container' style="width:100%;">
 			<ul class='goodsTabs'>
-				<li class='selected'><a href='#goodsTab1'><img src="../resources/images/mysale_tab_1.png" alt="" width="90" height="30"/></a></li>
-				<li><a href='#goodsTab2'><img src="../resources/images/mysale_tab_2.png" alt="" width="90" height="30"/></a></li>
-				<li><a href='#goodsTab3'><img src="../resources/images/mysale_tab_3.png" alt="" width="90" height="30"/></a></li>
+				<li class='selected'><a href='#goodsTab1'>전체 판매상품</a></li>
+				<li><a href='#goodsTab2'>거래 진행중</a></li>
+				<li><a href='#goodsTab3'>판매 완료</a></li>
 			</ul>
 			<div class='goodsTab_container'>
 				<div id="goodsTab1" class="goodsTab_content">
@@ -138,7 +138,7 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
 
 $(document).ready(function() {
 	
-	fn_selectMySaleList(1,1);
+			fn_selectMySaleList(1,1);
 	
 	//Default Action
 	$(".goodsTab_content").hide(); //Hide all content
@@ -154,6 +154,7 @@ $(document).ready(function() {
 		
 		if($(this).find("a").attr("href") == "#goodsTab2"){
 			fn_selectMySaleList(1,2);
+
 		}else if($(this).find("a").attr("href") == "#goodsTab3"){
 			fn_selectMySaleList(1,3);
 		}
@@ -216,8 +217,8 @@ function fn_selectMySaleListCallback1(data) {
 	var str1 = "";	
 	body.empty();
 	str1 	+= 	"<tr>"
-		+		"<th width='200px' align='center'>상품번호</th>"
-		+		"<th width='100px' align='center'>상품이름</th>"
+		+		"<th width='200px' align='center'>상품번호aa</th>"
+		+		"<th width='100px' align='center'>상품이름aa</th>"
 		+		"<th width='200px' align='center'>상품이미지</th>"
 		+		"<th width='100px' align='center'>등록일자</th>"
 		+		"<th width='100px' align='center'>판매상태</th>"
@@ -229,7 +230,7 @@ function fn_selectMySaleListCallback1(data) {
 			+	"<td colspan='7'>조회된 결과가 없습니다.</td>"
 			+	"</tr>";
 		body.append(str1);
-	} else {
+	} else { //각 탭 상황에 맞는 바디내용 행 구성
 		var params = {
 			divId : "PAGE_NAVI",
 			pageIndex : "PAGE_INDEX",

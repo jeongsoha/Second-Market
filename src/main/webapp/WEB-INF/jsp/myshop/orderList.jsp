@@ -62,9 +62,9 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
   <div id="content">
    <div id="vertical_tab-container">
       <ul>
-         <li class="selected"><a href="/second/myshop"><img src="/second/resources/images/myshop_tab1.png" width="100" height="30"></a></li>
-         <li><a href="/second/myshop/saleList"><img src="/second/resources/images/myshop_tab2.png" width="100" height="30"></a></li>
-         <li><a href="/second/myshop/goodsLikeList"><img src="/second/resources/images/myshop_tab3.png" width="100" height="30"></a></li>
+         <li class="selected"><a href="/second/myshop">나의 주문내역</a></li>
+         <li><a href="/second/myshop/saleList">나의 판매내역</a></li>
+         <li><a href="/second/myshop/goodsLikeList">찜 상품목록</a></li>
       </ul>
    </div>
    <div id="main-container">
@@ -95,9 +95,9 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    		</table>
    		<div class='container' style="width:100%;">
 			<ul class='goodsTabs'>
-				<li class='selected'><a href='#goodsTab1'><img src="./resources/images/myshop_tab_1.png" alt="" width="90" height="30"/></a></li>
-				<li><a href='#goodsTab2'><img src="./resources/images/myshop_tab_2.png" alt="" width="90" height="30"/></a></li>
-				<li><a href='#goodsTab3'><img src="./resources/images/myshop_tab_3.png" alt="" width="90" height="30"/></a></li>
+				<li class='selected'><a href='#goodsTab1'>주문/결제</a></li>
+				<li><a href='#goodsTab2'>배송중</a></li>
+				<li><a href='#goodsTab3'>배송완료</a></li>
 			</ul>
 			<div class='goodsTab_container'>
 				<div id="goodsTab1" class="goodsTab_content">
@@ -220,12 +220,12 @@ function fn_selectOrderListCallback1(data) {
 	var str1 = "";
 	body.empty();
 	str1 	+= 	"<tr>"
-				+		"<th width='200px' align='center'><img src=<c:url value='/resources/images/myorder_list1.png'/>></th>"
-				+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myorder_list2.png'/>></th>"
-				+		"<th width='200px' align='center'><img src=<c:url value='/resources/images/myorder_list3.png'/>></th>"
-				+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myorder_list4.png'/>></th>"
-				+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myorder_list5.png'/>></th>"
-				+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_ostatus.png'/>></th>"
+				+		"<th width='200px' align='center'>주문번호</th>"
+				+		"<th width='100px' align='center'>주문일자</th>"
+				+		"<th width='200px' align='center'>송장번호</th>"
+				+		"<th width='100px' align='center'>주문금액</th>"
+				+		"<th width='100px' align='center'>주문상태</th>"
+				+		"<th width='100px' align='center'>주문상태 변경</th>"
 				+	"</tr>";
 	if (total == 0) {
 		str1 += "<tr align='center'>" 
