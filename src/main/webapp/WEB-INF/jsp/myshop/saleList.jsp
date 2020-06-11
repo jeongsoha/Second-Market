@@ -220,7 +220,7 @@ function fn_selectMySaleListCallback1(data) {
 		+		"<th width='200px' align='center'>상품번호aa</th>"
 		+		"<th width='100px' align='center'>상품이름aa</th>"
 		+		"<th width='200px' align='center'>상품이미지</th>"
-		+		"<th width='100px' align='center'>등록일자</th>"
+		+		"<th width='100px' align='center'>주문일시</th>"
 		+		"<th width='100px' align='center'>판매상태</th>"
 		+		"<th width='100px' align='center'>배송현황</th>"
 		+		"<th width='100px' align='center'>판매상태 변경</th>"

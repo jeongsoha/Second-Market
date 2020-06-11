@@ -75,7 +75,7 @@ function fn_openBoardDetail(obj) {
 										<th style="width: 32%; text-align:center;">상품명</th>
 										<th style="width: 10%; text-align:center;">가격</th>
 										<th style="width: 10%; text-align:center;">상품상태</th>
-										<th style="width: 10%; text-align:center;">등록일자</th>
+										<th style="width: 10%; text-align:center;">주문일시</th>
 										<th style="width: 10%; text-align:center;">관리</th>
 									</tr>
 								</thead>

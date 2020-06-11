@@ -94,6 +94,8 @@
         	G.GOODS_PRICE,
         	G.GOODS_DATE,
         	TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
+        	O.ORDERS_DATE,
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
         	G.GOODS_THUMBNAIL,
         	G.GOODS_STATUS,
         	O.ORDERS_DELE_NUM,
@@ -155,9 +157,9 @@
         	O.ORDERS_PRICE,
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
-        	O.ORDERS_DATE,
         	G.GOODS_THUMBNAIL,
         	O.ORDERS_DELE_NUM,
+        	O.ORDERS_DATE,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
         	 
 	FROM    ORDERS O,
