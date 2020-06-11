@@ -4,23 +4,50 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
  
-<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<style type="text/css">
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+#vertical_tab-container{
+	float:right;
+	clear:both;
+	margin:auto 350px auto auto;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
+}
+
+#main-container{
+   width:1100px;
+   align:center;
+   margin:auto 410px auto 410px;
+   clear:both;
+   font-family: 'Nanum Gothic';
+	font-size:15px;
+}
+
+
+</style>
 
 </head>
 <body> 
 <div id="content" style="clear:both;" >
-	<div >
-	<ul style="display:inline-block; margin-left:200px ">
-		<li style="display:inline-block" class="selected"><a href="noticeList" ><img  src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-        | <li style="display:inline-block"><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-        | <li style="display:inline-block"><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-        | <li style="display:inline-block"><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
-	</ul>
-	</div>
+	
+	<div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="noticeList"><button class="tab_menu_btn on" type="button">공지사항</button></a>
+    <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
+    <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
+  </div>
+  </div>
+  
 	<div id="main-container">
-	<img src="./../resources/images/commu_ntitle.png" width="200" height="70"> 
-	<table border="1" align="center" class="tbl_type">
+	<h2>공지사항</h2>
+	<table align="center" class="table table-striped table-condensed">
 		<colgroup>
 			<col width="10%" />
 			<col width="*" />
@@ -31,26 +58,25 @@
 		<caption><h2>공지사항2</h2></caption>
 		<thead>
 			<tr>
-				<th scope="col"><img src="./../resources/images/commu_num.png" width="70" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_title.png" width="70" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_writer.png" width="70" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_date.png" width="70" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_hit.png" width="70" height="25"></th>
+				<th style=text-align:center; scope="col">글번호</th>
+				<th style=text-align:center; scope="col">제목</th>
+				<th style=text-align:center; scope="col">작성자</th>
+				<th style=text-align:center; scope="col">작성일</th>
+				<th style=text-align:center; scope="col">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
 			<!-- 스크립트를 통해 게시글에 대한 정보가 담김 -->
 		</tbody>
 	</table>
-	<div id="PAGE_NAVI" align="center" >
+	<div id="PAGE_NAVI" align="center" style="background-color:white;">
 	
 		<!-- 페이징 정보가 담김 b1--></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<div align="right">
 			<c:if test="${session_MEM_ID != null }">
-		<%--  	<c:if test="${session_MEM_INFO.MEM_LEVEL == '2' }"> --%>
-				<a href="#write" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">글쓰기</button></a>
-	  	 	</c:if>    <%--어드민 권한 시 글쓰기 버튼 --%>
+				<a href="noticeWriteForm"><button type="button" class="btn btn-primary">글쓰기</button></a>
+	  	 	</c:if>
 		</div>
 	</div>
 	</div>

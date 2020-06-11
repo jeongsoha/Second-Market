@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:50px;width:900px;">    
    <h1 class="page-header">관리자페이지에 오신걸 환영합니다</h1>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-default" style="padding-left:10px;">
                         <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> 관리자 공지사항
                         </div>

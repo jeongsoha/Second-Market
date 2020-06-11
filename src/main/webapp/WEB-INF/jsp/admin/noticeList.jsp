@@ -42,13 +42,13 @@ function fn_openBoardDetail(obj) {
 </style>
 </head>
 
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:50px;width:900px;">    
 	<h1 class="page-header">공지사항</h1>
 </div>
-<div class="row">
+<div class="row" style="padding-left:50px;">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-             	공지사항 작성, 삭제 기능 페이지입니다.
+             	공지사항 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">

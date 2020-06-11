@@ -5,20 +5,78 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+
+<style type="text/css">
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+#vertical_tab-container{
+	float:right;
+	clear:both;
+	margin:auto 350px auto auto;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
+}
+
+#main-container{
+   width:1100px;
+   align:center;
+   margin:auto 410px auto 410px;
+   border-top: 1px solid #fff;  
+   border-right: 1px solid #fff;     
+   border-left: 1px solid #fff; 
+   border-bottom: 1px solid #fff;
+   clear:both;
+   font-family: 'Nanum Gothic';
+	font-size:15px;
+}
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+}
+.tab_menu_btn {
+  width:80px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	margin-right:350px;
+	font-family: 'Nanum Gothic';
+}
+
+</style>
+
 </head>
 <body>
 <div id="content">
-	<div id="vertical_tab-container">
-	<ul>
-		<li class="selected"><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
-	</ul>
-	</div>
+	
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="noticeList"><button class="tab_menu_btn on" type="button">공지사항</button></a>
+    <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
+    <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
+  </div>
+  </div>
 	<div id="main-container">
-		<img src="./../resources/images/form_t3.png" width="100" height="30">
-	<table border="1" align="center" class="tbl_type">
+		<h2>게시글보기</h2>
+	<table align="center" class="table table-condensed">
 		<colgroup>
 			<col width="15%"/>
 			<col width="35%"/>
@@ -28,20 +86,20 @@
 		<caption><h2>공지사항</h2></caption>
 		<tbody>
 			<tr>
-				<th scope="row"><img src="./../resources/images/commu_num.png" height="25"></th>
+				<th style=text-align:center; scope="row">글번호</th>
 				<td>${map.NOTICE_NUM }
 				<input type="hidden" id="NOTICE_NUM" name="NOTICE_NUM" value="${map.NOTICE_NUM }"></td>
-				<th scope="row"><img src="./../resources/images/commu_hit.png" height="25"></th>
+				<th style=text-align:center; scope="row">조회수</th>
 				<td>${map.NOTICE_COUNT }</td>
 			</tr>
 			<tr>
-				<th scope="row"><img src="./../resources/images/commu_writer.png" height="25"></th>
+				<th style=text-align:center; scope="row">작성자</th>
 				<td>관리자</td>
-				<th scope="row"><img src="./../resources/images/commu_date.png" height="25"></th>
+				<th style=text-align:center; scope="row">작성일</th>
 				<td>${map.NOTICE_DATE }</td>
 			</tr>
 			<tr>
-				<th scope="row"><img src="./../resources/images/commu_title.png" height="25"></th>
+				<th style=text-align:center; scope="row">제목</th>
 				<td colspan="3">${map.NOTICE_TITLE }</td>
 			</tr>
 			<tr>
@@ -49,12 +107,12 @@
 			</tr>
 		</tbody>
 	</table>
-	<div align="center">
-		<a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
-	  <c:if test="${session_MEM_ID == 'admin1' }">  
+	<div align="right">
+		<a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+	  <c:if test="${session_MEM_ID == 'admin' }">  
 <%-- 		<c:if test="${session_MEM_INFO.MEM_LEVEL == '2'}"> 인포에 꺼내서 활용하지않더라.. --%>
-		<a href="#this" class="btn" id="modify"><button class="bttn-bordered bttn-xs bttn-primary">수정하기</button></a>
-		<a href="#this" class="btn" id="delete"><button class="bttn-bordered bttn-xs bttn-primary">삭제하기</button></a>
+		<a href="#this" id="modify"><button class="btn btn-primary">수정하기</button></a>
+		<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
 		</c:if>
 	</div>
 	</div>
