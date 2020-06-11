@@ -222,7 +222,7 @@ function fn_selectMySaleListCallback1(data) {
 		+		"<th width='200px' align='center'>상품이미지</th>"
 		+		"<th width='100px' align='center'>주문일시</th>"
 		+		"<th width='100px' align='center'>판매상태</th>"
-		+		"<th width='100px' align='center'>배송현황</th>"
+		+		"<th width='100px' align='center'>송장번호</th>"
 		+		"<th width='100px' align='center'>판매상태 변경</th>"
 		+	"</tr>";
 	if (total == 0) {
@@ -262,10 +262,10 @@ function fn_selectMySaleListCallback1(data) {
 		      	      		+	"<td width='100px' align='center'>"
 		      	      		+	value.ORDERS_STATUS	
 		      	      		+	"</td>";
-		      	      	if(value.ORDERS_STATUS == "배송중") {
+		      	      	if(value.ORDERS_STATUS == "배송중" || value.ORDERS_STATUS == "거래완료") {
 							str1 += "<td width='200px' align='center'>"+value.ORDERS_DELE_NUM+"</td>"+"<td></td>";
 						} else if(value.ORDERS_STATUS == "주문/결제") {
-							str1 +=	"<td width='200px' align='center'>"
+							str1 +=	"<td width='200px' align='center'> 송장번호 입력 : "
 		      	      			 +	"<input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>"
 		      	      			 +	"</td>"
 		      	      			 +  "<td>"
