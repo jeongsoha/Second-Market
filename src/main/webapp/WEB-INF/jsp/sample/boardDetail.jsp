@@ -58,7 +58,7 @@
 				e.preventDefault();
 				fn_openBoardList();
 			});
-			
+				
 			$("#update").on("click", function(e){ //수정하기 버튼
 				e.preventDefault();
 				fn_openBoardUpdate();

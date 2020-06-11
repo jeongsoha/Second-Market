@@ -162,6 +162,8 @@
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
 		$(document).ready(function(){
+
+			
 			fn_selectCommentList(1);
 			
 			$("#list").on("click", function(e){ //목록으로 버튼
