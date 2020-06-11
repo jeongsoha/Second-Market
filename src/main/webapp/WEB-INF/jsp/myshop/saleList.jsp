@@ -216,13 +216,13 @@ function fn_selectMySaleListCallback1(data) {
 	var str1 = "";	
 	body.empty();
 	str1 	+= 	"<tr>"
-		+		"<th width='200px' align='center'><img src=<c:url value='/resources/images/mysale_list1.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list2.png'/>></th>"
-		+		"<th width='200px' align='center'><img src=<c:url value='/resources/images/mysale_list3.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list4.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list5.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_DELE_NUM.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_sstatus.png'/>></th>"
+		+		"<th width='200px' align='center'>상품번호</th>"
+		+		"<th width='100px' align='center'>상품이름</th>"
+		+		"<th width='200px' align='center'>상품이미지</th>"
+		+		"<th width='100px' align='center'>등록일자</th>"
+		+		"<th width='100px' align='center'>판매상태</th>"
+		+		"<th width='100px' align='center'>배송현황</th>"
+		+		"<th width='100px' align='center'>판매상태 변경</th>"
 		+	"</tr>";
 	if (total == 0) {
 		str1 += "<tr align=\"center\">" 
