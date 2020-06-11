@@ -212,12 +212,13 @@
 <!-- 내 찜목록 조회 -->
 <select id="selectLikeList" parameterType="hashMap" resultType="hashmap">
 <![CDATA[
-SELECT  
-					ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
+	SELECT 
+	
+	ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
 					G.GOODS_NUM,
 			        G.GOODS_TITLE,
 			        G.GOODS_PRICE,
-			        M.MEM_ID,
+			       (select MEM_ID FROM MEMBER WHERE MEM_NUM= G.GOODS_SELLER) SELLER_ID,
 			        G.GOODS_REGION,
 			        G.GOODS_CATEGORY,
 			        G.GOODS_COUNT,
@@ -226,24 +227,25 @@ SELECT
 			        G.GOODS_STATUS,
 			        G.GOODS_THUMBNAIL,
 			        G.GOODS_TSTATUS,
-			  
-			        G.GOODS_CONTENT,
-			        NVL(GL.TOTAL_COUNT, 0) AS TOTAL_COUNT2
+			        G.GOODS_CONTENT
+			       
 			FROM    GOODS G,
 			        (
 			         SELECT  MEM_NUM, MEM_ID
 			         FROM    MEMBER
 			        ) M,
 			        (
-			        SELECT   GOODS_LIKE_PARENT, 
-			                 COUNT(*) AS TOTAL_COUNT
+			        SELECT   distinct  GOODS_LIKE_PARENT, 
+			        		 GOODS_LIKE_USER
 			        FROM     GOODS_LIKE 
-			        GROUP BY GOODS_LIKE_PARENT
+                      
 			        ) GL
-			WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
-			AND     G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
-			AND     G.GOODS_STATUS = 'N'
-			AND     G.GOODS_TSTATUS IN ('N', 'ING')
+                    
+                    WHERE    GL.GOODS_LIKE_USER = M.MEM_NUM(+) 
+		    AND  G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
+		 	AND     G.GOODS_STATUS = 'N'
+		 	AND     G.GOODS_TSTATUS IN ('N', 'ING')
+	 	 
 			AND     M.MEM_ID = #{MEM_ID}
 			
  ]]>

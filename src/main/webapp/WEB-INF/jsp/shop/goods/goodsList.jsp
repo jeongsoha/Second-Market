@@ -301,7 +301,7 @@ h1 {
 										imgpath = 	"<div class='card-header'>"
 									}else{
 										imgpath = "<div class='card-header' style='background-image:url(\"" + $('#path').val() + value.GOODS_THUMBNAIL + "\");'>"
-										//alert(imgpath);
+										alert(imgpath);
 									}
 									if(value.GOODS_TSTATUS == 'N'){
 										tstatus += "<div class = 'card-header-is_closed2' >" 
