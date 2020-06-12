@@ -8,26 +8,55 @@
 
 <style type="text/css">
 
-#content{
-	clear:both;
-}
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 
 #vertical_tab-container{
-	float: left;
-	display:inline;
-	margin:100px 150px auto 150px;
+	float:right;
+	clear:both;
+	margin:auto 350px auto auto;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
 }
 
 #main-container{
-	float: left;
    width:1100px;
    align:center;
-   margin:0px auto 100px auto;
+   margin:auto 410px auto 410px;
    border-top: 1px solid #fff;  
    border-right: 1px solid #fff;     
    border-left: 1px solid #fff; 
    border-bottom: 1px solid #fff;
-   display:inline;
+   clear:both;
+   font-family: 'Nanum Gothic';
+   font-size:15px;
+}
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+}
+.tab_menu_btn {
+  width:80px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	margin-right:350px;
+	font-family: 'Nanum Gothic';
 }
 
 </style>
@@ -37,19 +66,20 @@
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <body>
 <div id="content">
-   <div id="vertical_tab-container">
-      <ul>
-         <li><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
-      </ul>
-   </div>
+   
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
+    <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
+    <a href="reportList"><button class="tab_menu_btn on" type="button">신고게시판</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
+  </div>
+  </div>
    
    <div id="main-container">
- 	<img src="./../resources/images/form_t.png" width="100" height="30">
+ 	<h2>게시글작성</h2>
    <form id="frm" name="frm" enctype="multipart/form-data">
-      <table class="tbl_type">
+      <table class="table table-condensed">
          <colgroup>
             <col width="10%">
             <col width="*"/>
@@ -59,11 +89,11 @@
          <tbody>
          	<br/>
          	<tr>
-         		<td><img src="./../resources/images/form_preport.png"></td>
+         		<td style=font-weight:bold;>신고게시글</td>
          		<td style="background-color:#fff;">${GOODS_NUM}
             	<input type="hidden" id="REPORT_PRONUM" name="REPORT_PRONUM" value="${GOODS_NUM}"></td>
          		</td>
-         		<td><img src="./../resources/images/form_reason.png"></td>
+         		<td style=font-weight:bold;>신고사유</td>
          		<td style="background-color:#fff;">
             		<select id="REPORT_TYPE" name="REPORT_TYPE">
 					
@@ -81,8 +111,8 @@
          	</tr>
          	
          	<tr>
-         		<td><img src="./../resources/images/form_title.png"></td>
-         		<td style="background-color:#fff;"><input type="text" id="REPORT_TITLE" name="REPORT_TITLE" style="width:95%"/>
+         		<td style=font-weight:bold;>제목</td>
+         		<td style="background-color:#fff;"><input type="text" id="REPORT_TITLE" name="REPORT_TITLE" style="width:100%"/>
          			<input type="hidden" id="REPORT_NUM" name="REPORT_NUM">
          		</td>
          	</tr>
@@ -95,10 +125,12 @@
       </table>
       
       <br/><br/>
-      <center>
-      <a href="#this" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">작성하기</button></a>
-      <a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
-      </center>
+      
+      <div align="right">
+      <a href="#this" id="write"><button class="btn btn-primary">작성하기</button></a>
+      <a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+      </div>
+      
    </form>
    
    

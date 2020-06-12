@@ -43,13 +43,13 @@ function fn_openBoardDetail(obj) {
 </style>
 </head>
 
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:50px;width:900px;">    
 	<h1 class="page-header">상품목록</h1>
 </div>
-<div class="row">
+<div class="row" style="padding-left:50px;">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         상품목록페이지 수정, 삭제 기능 페이지입니다.
+                         상품목록 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -75,7 +75,7 @@ function fn_openBoardDetail(obj) {
 										<th style="width: 32%; text-align:center;">상품명</th>
 										<th style="width: 10%; text-align:center;">가격</th>
 										<th style="width: 10%; text-align:center;">상품상태</th>
-										<th style="width: 10%; text-align:center;">등록일자</th>
+										<th style="width: 10%; text-align:center;">주문일시</th>
 										<th style="width: 10%; text-align:center;">관리</th>
 									</tr>
 								</thead>

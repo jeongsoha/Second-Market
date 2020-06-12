@@ -162,7 +162,10 @@
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
 		$(document).ready(function(){
+
+			
 			fn_selectCommentList(1);
+			
 			
 			$("#list").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
@@ -221,14 +224,13 @@
 		function like_func(){
 			if(session_chk()){
 				var IDX="${map.MEM_ID}";
-				var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 좋아요 알람을 위한 변수
+				var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 좋아요 알람을 위한 판매자ID변수
 				var comSubmit = new ComSubmit();
 				comSubmit.setUrl("<c:url value='/shop/goodsDetail/goodsLike'/>");
 				comSubmit.addParam("LIKE_GOODS_NUM", "${map.GOODS_NUM}");
 				comSubmit.addParam("IDX", IDX);
+				comSubmit.addParam("idq", idq);// (유진 추가) 품 좋아요 알람을 위한을 판매자ID 변수 전송
 				comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
-				
-				comSubmit.addParam("idq", idq);// (유진 추가) 상품 좋아요 알람을 위한 변수 전송
 				comSubmit.submit();	
 			}
 		}
@@ -311,11 +313,11 @@
 		
 		function fn_writeComment(){
 			var comSubmit = new ComSubmit("frm");
-			var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 댓글 알람을 위한 변수
+			var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 답글 알람을 위한 변수
 			comSubmit.setUrl("<c:url value='/shop/goodsDetail/commentWrite'/>");
 			comSubmit.addParam("GOODS_NUM", $("#GOODS_NUM").val());
 			
-			comSubmit.addParam("idq", idq);// (유진 추가) 상품 댓글 알람을 위한 변수 전송
+			comSubmit.addParam("idq", idq);// (유진 추가) 상품 답글 알람을 위한 변수 전송
 			alert(idq)
 			// 댓글 내용 필요
 	         if(!$("#COMMENTS_CONTENT").val()){

@@ -43,7 +43,8 @@
 			                ORDERS_TCOST,
 			                ORDERS_DADD1,
 			                ORDERS_DMEMO,
-			                ORDERS_PAY
+			                ORDERS_PAY,
+			                ORDERS_DEL_GB
 			                )
 			VALUES          (
 			                #{IDX},
@@ -55,7 +56,8 @@
 			                #{GOODS_TCOST},
 			                #{ADD1},
 			                #{DMEMO},
-			                'kakaoPay'
+			                'kakaoPay',
+			                'N'
 			                )
 		]]>
 	</insert>

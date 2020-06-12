@@ -1,0 +1,30 @@
+/* 위 메뉴 */
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+  margin:50px auto auto auto;
+}
+.tab_menu_btn {
+  width:90px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	margin-right:350px;
+	font-family: 'Nanum Gothic';
+}

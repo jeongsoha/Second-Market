@@ -96,10 +96,7 @@ table {
    background-size: 100% 280px;
    background-repeat: no-repeat;   
 }
-.card:hover .card-header  {
-   opacity: 0.8;
-   height: 100px;
-}
+ 
 .card-header-is_closed{
     background-color: #EF5A31 ;
     color: #FFF ;
@@ -135,14 +132,7 @@ h1 {
    height: 180px;
    margin: 5px 20px;
 }
-.card:hover .card-body-description {
-    opacity: 1;
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -ms-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition : .5s ease-in-out;
-    overflow: scroll;
+ 
 }
 .card-body-hashtag {
    color: #2478FF;
@@ -187,9 +177,9 @@ h1 {
 <div id="content">
    <div id="vertical_tab-container">
       <ul>
-         <li><a href="/second/myshop"><img src="/second/resources/images/myshop_tab1.png" width="100" height="30"></a></li>
-         <li><a href="/second/myshop/saleList"><img src="/second/resources/images/myshop_tab2.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="/second/myshop/goodsLikeList"><img src="/second/resources/images/myshop_tab3.png" width="100" height="30"></a></li>
+         <li><a href="/second/myshop">나의 주문내역</a></li>
+         <li><a href="/second/myshop/saleList">나의 판매내역</a></li>
+         <li class="selected"><a href="/second/myshop/goodsLikeList">찜 상품목록</a></li>
       </ul>
    </div>
    <div id="main-container">
@@ -270,24 +260,31 @@ h1 {
 								data.list,
 								function(key, value) {
 									var imgpath = "";
+									var tstatus = "";
 									
 									if(value.GOODS_THUMBNAIL == null){
 										imgpath = 	"<div class='card-header'>"
 									}else{
-										imgpath = "<div class='card-header' style='background-image:url(\"" + $('#path').val() + value.GOODS_THUMBNAIL + "\");'>"
+										imgpath = "<div class='card-header' style='background-image:url(\"/second/file/"+ value.GOODS_THUMBNAIL + "\");'>"
 										//alert(imgpath);
+									}
+									if(value.GOODS_TSTATUS == 'N'){
+										tstatus += "<div class = 'card-header-is_closed2' >" 
+										 	     + "<div class = 'card-header-text' >" 
+												 + "거래가능"; 
+									}else if (value.GOODS_TSTATUS == 'ING'){ 
+									/* }else if (value.GOODS_QTY == 0){ */
+										tstatus += "<div class = 'card-header-is_closed' >" 
+										 	     + "<div class = 'card-header-text' >" 
+										 	     + "거래불가";
 									}
 									
 									str +=  "<div class='card'>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
-										+	         "<div class = 'card-header-is_closed' >" 
-										+	                "<div class = 'card-header-text' >"
-										+ 					"(거래중)"
+										+ 		  tstatus
 										+ 					"</div >"
-										+	                "<div class = 'card-header-number' >"
-										+					value.GOODS_TSTATUS
-										+					"</div >" 
+ 
 										+	            "</div >"
 										+	      "</div>"
 										+	      "<div class='card-body'>"
@@ -295,12 +292,10 @@ h1 {
 										+	            "<h1>"
 										+				value.GOODS_TITLE
 										+				"</h1>"
-										+	            "<p class='card-body-hashtag'>"
-										+				value.GOODS_HASH
-										+				"</p>"
+ 
 										+	            "<p class = 'card-body-nickname'>"
-										+	                                 "작성자: "
-										+									value.MEM_ID
+										+	                                 "판매자: "
+										+									value.SELLER_ID
 										+	                          "</p>"
 										+	         "</div>"
 										+	         "<p class='card-body-description'>"
@@ -311,9 +306,7 @@ h1 {
 										+	            "<i class='icon icon-view_count'></i>조회수 "
 										+				value.GOODS_COUNT
 										+				"회"
-										+	            "<i class='icon icon-comments_count'></i>좋아요 "
-										+				value.TOTAL_COUNT2
-										+				"개"
+ 
 										+	            "<i class='reg_date'>"
 										+				new Date(value.GOODS_DATE).toLocaleString()
 										+				"</i>"

@@ -42,13 +42,13 @@ function fn_openBoardDetail(obj) {
 </style>
 </head>
 
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:50px;width:900px;">    
 	<h1 class="page-header">신고목록</h1>
 </div>
-<div class="row">
+<div class="row" style="padding-left:50px;">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         신고내용을 확인, 처리하는 페이지입니다.
+                         신고목록 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">

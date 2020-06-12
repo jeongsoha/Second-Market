@@ -38,13 +38,14 @@ function fn_openBoardDetail(obj) {
 .paging a:first-child{margin-left:0;}
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
 .paging .page_arw{font-size:11px;line-height:30px;}
+
 </style>
 </head>
 
-<div class="row" style="padding-left:15px;width:900px;">    
+<div class="row" style="padding-left:50px;width:900px;">    
 	<h1 class="page-header">자유게시판</h1>
 </div>
-<div class="row">
+<div class="row" style="padding-left:50px;">
 	<div class="panel panel-default">
 		<div class="panel-heading">
                          자유게시판 삭제 기능 페이지입니다.

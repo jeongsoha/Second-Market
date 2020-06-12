@@ -6,22 +6,46 @@
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 
-<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<style type="text/css">
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+#vertical_tab-container{
+	float:right;
+	margin:auto 350px auto auto;
+	clear:both;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
+}
+
+#main-container{
+   width:1100px;
+   align:center;
+   margin:auto 410px auto 410px;
+   clear:both;
+   font-family: 'Nanum Gothic';
+}
+</style>
+
 <body>
 <div id="content">
-   <div id="vertical_tab-container">
-      <ul>
-         <li><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
-      </ul>
-   </div>
+  
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
+    <a href="boardList"><button class="tab_menu_btn on" type="button">자유게시판</button></a>
+    <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
+  </div>
+  </div>
+  
    <div id="main-container">
-	<img src="./../resources/images/form_t2.png" width="100" height="30">
+	<h2>게시글수정</h2>
    <form id="frm" name="frm" enctype="multipart/form-data">
-      <table class="tbl_type">
+      <table class="table table-condensed">
          <colgroup>
             <col width="10%">
             <col width="*"/>
@@ -47,10 +71,10 @@
       </table>
       
       <br/><br/>
-      <center>
-      <a href="#this" class="btn" id="write"><button class="bttn-bordered bttn-xs bttn-primary">작성하기</button></a>
-      <a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
-      </center>
+      <div align="right">
+      <a href="#this" id="write"><button class="btn btn-primary">작성하기</button></a>
+      <a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+      </div>
    </form>
   </div>
 </div>
