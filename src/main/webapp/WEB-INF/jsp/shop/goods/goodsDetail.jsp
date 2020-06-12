@@ -162,22 +162,23 @@ nav a:nth-child(5):hover ~ .nav-underline {
 			</tbody>
 		</table>
 		
-		
+		<nav>
+		    <a href="#goodsTab1" class="is-current">상품상세보기</a>
+		    <a href="#goodsTab2" class="is-current">상품문의</a>
+		    <a href="#goodsTab3" class="is-current">판매자정보</a>
+		    <div class="nav-underline"></div>
+		</nav>
 		<div class="container" style="width:100%">
 		
-			<ul class="goodsTabs">
-		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
-		        <li><a href="#goodsTab2">상품문의</a></li>
-		        <li><a href="#goodsTab3">판매자정보</a></li>
-		    </ul>
+
 		
-		
-<!-- 		    <ul class="goodsTabs">
+		    <!-- <ul class="goodsTabs">
 		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
 		        <li><a href="#goodsTab2">상품문의</a></li>
 		        <li><a href="#goodsTab3">판매자정보</a></li>
 		    </ul>
 		     -->
+		     
 		    <div class="goodsTab_container">
 		    
 		        <div id="goodsTab1" class="goodsTab_content">
