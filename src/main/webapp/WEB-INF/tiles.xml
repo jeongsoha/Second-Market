@@ -357,8 +357,12 @@
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderDetail.jsp" />
    </definition>
  
-  
-  
+   <!-- error  -->
+   
+     <definition name="exception" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/error/exception.jsp" />
+   </definition>
+ 
   
   </tiles-definitions>
   

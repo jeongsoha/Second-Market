@@ -11,8 +11,7 @@
 <body>
 	<article>
 		<div class="container">
-			<p>데이터를 처리 하는 과정에서 문제가 발생하였습니다. 404</p>
-			<p>관리자에게 문의하여 주십시오.</p>
+			<p>존재하지 않는 경로입니다. ERROR 404.</p>
 		</div>
 	</article>
 </body>
