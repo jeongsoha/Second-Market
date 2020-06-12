@@ -49,7 +49,7 @@ public class CommentServiceImpl implements CommentService{
 	@Override
 	public void insertGoodsComment(Map<String, Object> map) throws Exception {
 		commentDAO.insertGoodsComment(map);
-		informDAO.informInsert(map, "내 판매상품에 답변이 달렸습니다."); //(유진추가) goodsDetail.jsp 에서 받아온 id 값을 서비스에 전달
+		informDAO.informInsert(map, "내 판매상품에 댓글이 달렸습니다."); //(유진추가) goodsDetail.jsp 에서 받아온 id 값을 서비스에 전달
 	}
 
 	@Override
@@ -79,6 +79,7 @@ public class CommentServiceImpl implements CommentService{
 	@Override
 	public void insertGoodsCommentReply(Map<String, Object> map) throws Exception {
 		commentDAO.insertGoodsCommentReply(map);
+		informDAO.informInsert(map, "내 문의글에 답글이 달렸습니다."); //(유진추가) commentDetail.jsp 에서 받아온 id 값을 서비스에 전달
 	}
 
 	@Override

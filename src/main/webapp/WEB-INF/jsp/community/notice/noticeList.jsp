@@ -113,6 +113,7 @@
 		function fn_openBoardDetail(obj) {
 			<!-- 디스 달리면 이게 동작 안하는지 파악하자. b1-->
 			var comSubmit = new ComSubmit();
+			alert(obj.parent().find("#NOTICE_NUM").val());
 			comSubmit.setUrl("<c:url value='/community/noticeDetail' />");
 			comSubmit.addParam("NOTICE_NUM", obj.parent().find("#NOTICE_NUM").val());
 			comSubmit.submit();

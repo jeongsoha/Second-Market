@@ -104,9 +104,14 @@
 		
 		function fn_replyWriteComment(){
 			var comSubmit = new ComSubmit("frm");
+
+			var idq = "${cMap.MEM_ID }"; // (유진 추가) 상품 답글 알람을 위한 변수
+			
 			comSubmit.setUrl("<c:url value='/shop/goodsDetail/commentReplyWrite'/>");
 			comSubmit.addParam("COMMENTS_NUM", $("#COMMENTS_NUM").val());
 			comSubmit.addParam("G_MEM_ID", "${G_MEM_ID}");
+			comSubmit.addParam("idq",idq);//(유진 추가)댓글 쓴이가 알람을 받기위해 넣는다
+			
 			
 			// 댓글 내용 필요
 	         if(!$("#COMMENTS_CONTENT").val()){
@@ -136,39 +141,6 @@
 		}
 	</script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

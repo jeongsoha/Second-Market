@@ -11,18 +11,20 @@
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
       <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
       <div id="content">
-         <div id="vertical_tab-container">
-	         <ul>
-	         <li><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
-	         <li class="selected"><a href="pwModifyForm"><img src="./../resources/images/mypage_tab2.png" width="100" height="30"></a></li>
-	         <li><a href="deleteAccount"><img src="./../resources/images/mypage_tab3.png" width="100" height="30"></a></li>
-	         <li><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
-	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
-	      </ul>
-	   </div>
-	   <div id="main-container">
+      
+	  <div style= "padding: 0px 0px 0px 700px;" >
+		<ul style="display:inline-block; margin-left:200px ">
+			<li style="display:inline-block" class="selected"><a href="accountDetail" >회원정보</a></li>
+		 |	<li style="display:inline-block" ><a href="pwModifyForm">비밀번호 변경</a></li>
+       	 | <li style="display:inline-block"><a href="deleteAccount">회 원 탈 퇴</a></li>
+       	 | <li style="display:inline-block"><a href="reportList">내 신고 내역</a></li>
+       	 | <li style="display:inline-block"><a href="qnaList">내 문의 내역</a></li>
+		</ul>
+	  </div>
+		
+	   <div id="main-container" style= "padding: 0px 0px 0px 700px;" >
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="./../resources/images/mypage_success.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;">회 원 정 보 변 경 완 료</h2>
             </div>
             <div class="card-body">
                정보 변경이 완료되었습니다.
