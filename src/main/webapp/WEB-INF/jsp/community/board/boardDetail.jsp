@@ -84,7 +84,7 @@
 					<div width="100%">
 						<textarea id="COMMENTS_CONTENT" name="COMMENTS_CONTENT" rows="6" cols="113"></textarea>
 						<div align="right" style="float:right;">
-							<a href="#this" id="cWrite" name="cWrite">코멘트달기 <br>이미지 넣을거</a>
+							<a href="#this" id="cWrite" name="cWrite">코멘트달기 <br></a>
 						</div>
 						<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="3"/>
 						<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${map.BOARD_NUM }"/>

@@ -284,37 +284,68 @@
    
    <!-- 자유게시판 -->
 
-	<definition name="boardDetail" extends="template2">
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/community/board/boardDetail.jsp" />
-		<put-attribute name="body2" value="/workmemo.jsp" />
-	</definition>
+   <definition name="boardDetail" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/board/boardDetail.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
 
-	<definition name="boardList" extends="template2">
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/community/board/boardList.jsp" />
-		<put-attribute name="body2" value="/workmemo.jsp" />
-	</definition>
+   <definition name="boardList" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/board/boardList.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
 
-	<definition name="boardModifyForm" extends="template2">
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/community/board/boardModifyForm.jsp" />
-		<put-attribute name="body2" value="/workmemo.jsp" />
-	</definition>
+   <definition name="boardModifyForm" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/board/boardModifyForm.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
 
-	<definition name="boardWriteForm" extends="template2">
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/community/board/boardWriteForm.jsp" />
-		<put-attribute name="body2" value="/workmemo.jsp" />
-	</definition>
+   <definition name="boardWriteForm" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/board/boardWriteForm.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
 
-	<definition name="boardWrite" extends="template2">
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/community/board/boardWrite.jsp" />
-		<put-attribute name="body2" value="/workmemo.jsp" />
-	</definition>
+   <definition name="boardWrite" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/board/boardWrite.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
    
+  <!-- 자유게시판 댓글 -->
   
+ <definition name="replyboardDetail" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/replyboard/replyboardDetail.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+   <definition name="replyboardList" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/replyboard/replyboardList.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+   <definition name="replyboardModifyForm" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/replyboard/replyboardModifyForm.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+   <definition name="replyboardWriteForm" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/replyboard/replyboardWrite.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+
+  <!--  <definition name="replyList" extends="template2">
+      <put-attribute name="body"
+         value="/WEB-INF/jsp/community/replyboard/replyList.jsp" />
+      <put-attribute name="body2" value="/workmemo.jsp" />
+   </definition>
+   -->
   
   
     <!-- ///////////////////////////////////////// -->
@@ -357,12 +388,8 @@
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderDetail.jsp" />
    </definition>
  
-   <!-- error  -->
-   
-     <definition name="exception" extends="template2">
-      <put-attribute name="body" value="/WEB-INF/jsp/error/exception.jsp" />
-   </definition>
- 
+  
+  
   
   </tiles-definitions>
   
