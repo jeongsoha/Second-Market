@@ -6,10 +6,12 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
-<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <style type="text/css">
-   @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-   
+
+ @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+ 
 html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    p, blockquote, pre, a, abbr, acronym, address, big, quotes, code, del,
    dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, u,
@@ -24,20 +26,54 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    do: inherit;
    vertical-align: baseline;
 }
+
+/*메뉴버튼*/
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+  margin:50px auto auto auto;
+}
+.tab_menu_btn {
+  width:90px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #7112FF;
+  font-weight:700;
+  color:#7112FF;
+}
+.tab_menu_btn:hover {
+  color:#7112FF;
+}
+.tab_menu_container{
+	float:right;
+	margin-right:350px;
+	font-family: 'Nanum Gothic';
+}
+
+/*메뉴버튼끝*/
+
    html {
       height: 100%;
    }
    
    body {
-        background:linear-gradient(to bottom right, #f0e199, #f0e199);
+        background:white;
    }
-   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
+   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-size:12px;color:#666;font-weight:400;}
    
     .card {
-        margin: 0 auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        clear:both;
+        padding: 50px;
+        background:#eeeeee;
    }
    
    .form-signin .form-control {
@@ -54,51 +90,91 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
 	margin: auto;
 	border: 0px;
 	padding: 5px;
-}
+	}
+	
+	#main-container{
+	   align:center;
+	   clear:both;
+	   font-family: 'Nanum Gothic';
+	}
+	
+	#menu{
+		clear:both;
+		margin:0px 240px 100px auto;
+	}
+	
+	#con{
+		margin: auto 200px auto 200px;
+	}
+	#dot{
+		margin:0px auto;
+	}
+
 </style>
 </head>
 <body>
+<div id="con">
+ 
+  <div class="tab_wrap" id="menu">
+     <div class="tab_menu_container">
+	    <a href="/second/myshop"><button class="tab_menu_btn on" type="button">나의 주문내역</button></a>
+	    <a href="/second/myshop/saleList"><button class="tab_menu_btn" type="button">나의 판매내역</button></a>
+	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn" type="button">찜 상품목록</button></a>
+     </div>
+  </div>
+  
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
   <div id="content">
-   <div id="vertical_tab-container">
-      <ul>
-         <li class="selected"><a href="/second/myshop">나의 주문내역</a></li>
-         <li><a href="/second/myshop/saleList">나의 판매내역</a></li>
-         <li><a href="/second/myshop/goodsLikeList">찜 상품목록</a></li>
-      </ul>
-   </div>
+   
    <div id="main-container">
    		<table>
    		<tr>
+   		
 			<td>
+			<div style="text-align:center;">
 			<a href="#goodsTab1">
-			<img src="./resources/images/d_money.png" alt="" width="100" height="100"/>
-			</a>
+			<img src="./resources/images/d_money.png" class='selected' alt="" width="150" height="150"/><br>주문결제</a>
+			</div>
 			</td>
+			
 			<td>
+			<div id="dot">
 			<img src="./resources/images/d_dot.png" alt="" width="50" height="50"/>
+			</div>
 			</td>
+			
 			<td>
+			<div style="text-align:center;">
 			<a href="#goodsTab2">
-			<img src="./resources/images/d_truck.png" alt="" width="100" height="100"/>
+			<img src="./resources/images/d_truck.png" alt="" width="150" height="150"/><br>배송중
 			</a>
+			</div>
 			</td>
+			
 			<td>
+			<div id="dot">
 			<img src="./resources/images/d_dot.png" alt="" width="50" height="50"/>
+			</div>
 			</td>
+			
 			<td>
+			<div style="text-align:center;">
 			<a href="#goodsTab3">
-			<img src="./resources/images/d_hand.png" alt="" width="100" height="100"/>
-			</a>	
+			<img src="./resources/images/d_hand.png" alt="" width="150" height="150"/><br>배송완료
+			</a>
+			</div>	
 			</td>
-			</tr>
-   		</table>
+			
+		
+	</tr>
+   	</table>
+   	
    		<div class='container' style="width:100%;">
-			<ul class='goodsTabs'>
+<!-- 			<ul class='goodsTabs'>
 				<li class='selected'><a href='#goodsTab1'>주문/결제</a></li>
 				<li><a href='#goodsTab2'>배송중</a></li>
 				<li><a href='#goodsTab3'>배송완료</a></li>
-			</ul>
+			</ul> -->
 			<div class='goodsTab_container'>
 				<div id="goodsTab1" class="goodsTab_content">
 					<table id="main_table1" class="tbl_type">
@@ -131,6 +207,10 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
 		</div>
    	</div>
    </div>
+   
+   
+</div>
+
 </div>
 </div>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>

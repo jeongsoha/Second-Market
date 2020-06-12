@@ -11,8 +11,8 @@
 
 <style type="text/css">
 
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+ @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+ 
 #vertical_tab-container{
 	float:right;
 	margin:auto 350px auto auto;
