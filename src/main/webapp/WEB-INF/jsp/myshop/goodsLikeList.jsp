@@ -7,8 +7,11 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 
 <meta charset="UTF-8">
-<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <style type="text/css">
+
 td{
 	margin:0 0 0 10px
 }
@@ -28,11 +31,12 @@ td img
    }
    
    body {
-        background:linear-gradient(to bottom right, #f0e199, #f0e199);
+        background:white;
    }
    body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
    
    }
+   
 </style>
 
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
@@ -96,10 +100,7 @@ table {
    background-size: 100% 280px;
    background-repeat: no-repeat;   
 }
-.card:hover .card-header  {
-   opacity: 0.8;
-   height: 100px;
-}
+ 
 .card-header-is_closed{
     background-color: #EF5A31 ;
     color: #FFF ;
@@ -135,14 +136,7 @@ h1 {
    height: 180px;
    margin: 5px 20px;
 }
-.card:hover .card-body-description {
-    opacity: 1;
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -ms-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition : .5s ease-in-out;
-    overflow: scroll;
+ 
 }
 .card-body-hashtag {
    color: #2478FF;
@@ -178,21 +172,75 @@ h1 {
 	margin-left: 15px;
    float: ;
 }
+
+/*메뉴버튼*/
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+  margin:50px auto auto auto;
+}
+.tab_menu_btn {
+  width:90px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #7112FF;
+  font-weight:700;
+  color:#7112FF;
+}
+.tab_menu_btn:hover {
+  color:#7112FF;
+}
+.tab_menu_container{
+	float:right;
+	margin-right:350px;
+	font-family: 'Nanum Gothic';
+}
+
+/*메뉴버튼끝*/
+
+	#main-container{
+	   align:center;
+	   clear:both;
+	   font-family: 'Nanum Gothic';
+	}
+	
+	#menu{
+		clear:both;
+		margin:0px 240px 100px auto;
+	}
+	
+	#con{
+		margin: auto 200px auto 200px;
+	}
+	#dot{
+		margin:0px auto;
+	}
+
 </style>
 
 
 </head>
 <body>
+<div id="con">
+
+  <div class="tab_wrap" id="menu">
+     <div class="tab_menu_container">
+	    <a href="/second/myshop"><button class="tab_menu_btn" type="button">나의 주문내역</button></a>
+	    <a href="/second/myshop/saleList"><button class="tab_menu_btn" type="button">나의 판매내역</button></a>
+	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn on" type="button">찜 상품목록</button></a>
+     </div>
+  </div>
+  
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin:50px 0 80px 0; width:100%; height:100%;">
 <div id="content">
-   <div id="vertical_tab-container">
-      <ul>
-         <li><a href="/second/myshop"><img src="/second/resources/images/myshop_tab1.png" width="100" height="30"></a></li>
-         <li><a href="/second/myshop/saleList"><img src="/second/resources/images/myshop_tab2.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="/second/myshop/goodsLikeList"><img src="/second/resources/images/myshop_tab3.png" width="100" height="30"></a></li>
-      </ul>
-   </div>
-   <div id="main-container">
    		<table class="board_list">
 		<colgroup>
 			<col width="100%" />
@@ -209,7 +257,7 @@ h1 {
    </div>
 </div>
 </div>
-    
+</div>
     <%@ include file="/WEB-INF/include/include-body.jspf" %>
 	
 
@@ -270,24 +318,31 @@ h1 {
 								data.list,
 								function(key, value) {
 									var imgpath = "";
+									var tstatus = "";
 									
 									if(value.GOODS_THUMBNAIL == null){
 										imgpath = 	"<div class='card-header'>"
 									}else{
-										imgpath = "<div class='card-header' style='background-image:url(\"" + $('#path').val() + value.GOODS_THUMBNAIL + "\");'>"
+										imgpath = "<div class='card-header' style='background-image:url(\"/second/file/"+ value.GOODS_THUMBNAIL + "\");'>"
 										//alert(imgpath);
+									}
+									if(value.GOODS_TSTATUS == 'N'){
+										tstatus += "<div class = 'card-header-is_closed2' >" 
+										 	     + "<div class = 'card-header-text' >" 
+												 + "거래가능"; 
+									}else if (value.GOODS_TSTATUS == 'ING'){ 
+									/* }else if (value.GOODS_QTY == 0){ */
+										tstatus += "<div class = 'card-header-is_closed' >" 
+										 	     + "<div class = 'card-header-text' >" 
+										 	     + "거래불가";
 									}
 									
 									str +=  "<div class='card'>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
-										+	         "<div class = 'card-header-is_closed' >" 
-										+	                "<div class = 'card-header-text' >"
-										+ 					"(거래중)"
+										+ 		  tstatus
 										+ 					"</div >"
-										+	                "<div class = 'card-header-number' >"
-										+					value.GOODS_TSTATUS
-										+					"</div >" 
+ 
 										+	            "</div >"
 										+	      "</div>"
 										+	      "<div class='card-body'>"
@@ -295,12 +350,10 @@ h1 {
 										+	            "<h1>"
 										+				value.GOODS_TITLE
 										+				"</h1>"
-										+	            "<p class='card-body-hashtag'>"
-										+				value.GOODS_HASH
-										+				"</p>"
+ 
 										+	            "<p class = 'card-body-nickname'>"
-										+	                                 "작성자: "
-										+									value.MEM_ID
+										+	                                 "판매자: "
+										+									value.SELLER_ID
 										+	                          "</p>"
 										+	         "</div>"
 										+	         "<p class='card-body-description'>"
@@ -311,9 +364,7 @@ h1 {
 										+	            "<i class='icon icon-view_count'></i>조회수 "
 										+				value.GOODS_COUNT
 										+				"회"
-										+	            "<i class='icon icon-comments_count'></i>좋아요 "
-										+				value.TOTAL_COUNT2
-										+				"개"
+ 
 										+	            "<i class='reg_date'>"
 										+				new Date(value.GOODS_DATE).toLocaleString()
 										+				"</i>"

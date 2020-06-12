@@ -26,7 +26,7 @@
    #h1{
          float:left;
          width:30%;
-         margin: 30px 0px 15px 0px;
+         margin: 0px 0px 15px 0px;
          display: inline;
          
    }
@@ -80,7 +80,8 @@
    #header{
          width:100%;
          height:20px;
-         background-color:#2db400;
+         background:linear-gradient(to bottom right, #2db400, #77E56F);
+         
    }
    
    
@@ -119,50 +120,50 @@
       width:55px;
       height:55px;
    }
-   .dropbtn {
-       /*
-       background-color: #4CAF50;
-       */
-       color: white;
-       padding: 16px;
-       font-size: 16px;
-       border: none;
-       cursor: pointer;
-   }
-   .dropdown {
-       
+	.dropbtn {
+	    /*
+	    background-color: #4CAF50;
+	    */
+	    color: white;
+	    padding: 16px;
+	    font-size: 16px;
+	    border: none;
+	    cursor: pointer;
+	}
+	.dropdown {
+	    
         float:right;
-       position: relative;
-       display: inline-block;
-   }
-   .dropdown-content {
-       float:left;
-       display: none;
-       position: absolute;
-       background-color: #f9f9f9;
-       min-width: 260px;
-       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-       z-index: 1;
-   }
-   .dropdown-content a {
-      float:left;
-       color: black;
-       padding: 12px 16px;
-       text-decoration: none;
-       display: block;
-   }
-   .dropdown-content a:hover {
-      float:left;
-       background-color: #f1f1f1
-   }
-   .dropdown:hover .dropdown-content {
-       display: block;
-   }
-   .dropdown:hover .dropbtn {
-       /*
-       background-color: #3e8e41;
-       */
-   } 
+	    position: relative;
+	    display: inline-block;
+	}
+	.dropdown-content {
+		 float:left;
+	    display: none;
+	    position: absolute;
+	    background-color: #f9f9f9;
+	    min-width: 260px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    z-index: 1;
+	}
+	.dropdown-content a {
+		float:left;
+	    color: black;
+	    padding: 12px 16px;
+	    text-decoration: none;
+	    display: block;
+	}
+	.dropdown-content a:hover {
+		float:left;
+	    background-color: #f1f1f1
+	}
+	.dropdown:hover .dropdown-content {
+	    display: block;
+	}
+	.dropdown:hover .dropbtn {
+	    /*
+	    background-color: #3e8e41;
+	    */
+	} 
 </style>
 
 
@@ -278,7 +279,7 @@
       <div id="h4">
          <c:if test="${session_MEM_ID != null }">
          <c:if test="${session_MEM_ID == 'admin' }">
-             <a href="/second/admin">관리자페이지</a>
+             <a href="/second/admin">관리자페이지</a> &nbsp;&nbsp;
           </c:if>
                <a href="${contextPath}/second/logout" class="log">로그아웃</a> &nbsp;&nbsp;
                <a href="${contextPath}/second/myPage">마이페이지</a>           &nbsp;&nbsp;
@@ -289,18 +290,18 @@
 <!-- 로그인 o  알림버튼 -->      
      
         <c:if test="${session_MEM_ID != null}">
-           <div class="dropdown">
-              <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
-              <div class="dropdown-content">
-                    <table id="inform">
-                       <tbody>
-                          </tbody>
-                    </table>
-                </div>
-                &nbsp;&nbsp;&nbsp;
-        </div>
+   		  <div class="dropdown">
+       		 <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
+     			<div class="dropdown-content">
+        		      <table id="inform">
+        		         <tbody>
+      			           </tbody>
+    		          </table>
+       		   </div>
+       		   &nbsp;&nbsp;&nbsp;
+    	 </div>
        </c:if>
-       
+ 		
  <!-- 로그인o -->
     
              <div id="h7"> 
@@ -332,10 +333,7 @@
                  
                  
                   <span class='green_window'>
-                  
-                  
-                  <input type='text' class='input_text' placeholder="Search" maxlength="20"  name="keyword" id="keyword" value="${keyword}"  />
-				<input type="hidden" id="searchType" value="all" />
+                  <input type='text' class='input_text' placeholder="Search" maxlength="20"  />
                </span>
                
                <button type='submit' class='sch_smit' onClick="onSearch()">검색</button>
@@ -362,12 +360,10 @@
 
                 <div id="collapse1" class="panel-collapse collapse">
                   <ul class="list-group">
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">패션의류</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">가전제품</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">패션잡화</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">뷰티</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">도서/음반</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">티켓/쿠폰</a></li>
+                     <li class="list-group-item"><a href="/second/sample/openBoardList">의류</a></li>
+                     <li class="list-group-item"><a href="/second/sample/openBoardList">전자기기</a></li>
+                     <li class="list-group-item"><a href="/second/sample/openBoardList">악세서리</a></li>
+                     <li class="list-group-item"><a href="/second/sample/openBoardList">기타</a></li>
                   </ul>
                   <div class="panel-footer"><a href="/second/sample/openBoardList">Q&A</a></div>
                 </div>
@@ -377,4 +373,5 @@
         
       </div>
 
+         
     </div>

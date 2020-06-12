@@ -53,12 +53,26 @@
 	
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
+
+	function noEvent() { // 새로 고침 방지
+        if (event.keyCode == 116) {
+            alert("새로고침을 할 수 없습니다.");
+            event.keyCode = 2;
+            return false;
+        } else if (event.ctrlKey
+                && (event.keyCode == 78 || event.keyCode == 82)) {
+            return false;
+        }
+    }
+	document.onkeydown = noEvent;
+
 		$(document).ready(function(){
+		
 			$("#list").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
 				fn_openBoardList();
 			});
-			
+				
 			$("#update").on("click", function(e){ //수정하기 버튼
 				e.preventDefault();
 				fn_openBoardUpdate();

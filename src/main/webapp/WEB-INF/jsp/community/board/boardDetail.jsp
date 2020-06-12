@@ -5,20 +5,46 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+
+<style type="text/css">
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+#vertical_tab-container{
+	float:right;
+	margin:auto 350px auto auto;
+	clear:both;
+	font-family: 'Nanum Gothic';
+	font-size:15px;
+}
+
+#main-container{
+   width:1100px;
+   align:center;
+   margin:auto 410px auto 410px;
+   clear:both;
+   font-family: 'Nanum Gothic';
+   font-size:15px;
+}
+
+</style>
+
 </head>
 <body>
 <div id="content">
-	<div id="vertical_tab-container">
-	<ul>
-		<li><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
-	</ul>
-	</div>
+	
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
+    <a href="boardList"><button class="tab_menu_btn on" type="button">자유게시판</button></a>
+    <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
+  </div>
+  </div>
+	
 		<div id="main-container">
-		<img src="./../resources/images/form_t3.png" width="100" height="30">
-			<table border="1" align="center" class="tbl_type">
+		 <h2>게시글작성</h2>
+			<table align="center" class="table table-condensed">
 				<colgroup>
 					<col width="15%" />
 					<col width="35%" />
@@ -26,20 +52,20 @@
 					<col width="35%" />
 				</colgroup>
 				<tr>
-					<th scope="row"><img src="./../resources/images/commu_num.png" height="25"></th>
+					<th scope="row">글번호</th>
 					<td>${map.BOARD_NUM }<input type="hidden" id="BOARD_NUM"
 						name="BOARD_NUM" value="${map.BOARD_NUM }"></td>
-					<th scope="row"><img src="./../resources/images/commu_hit.png" height="25"></th>
+					<th scope="row">조회수</th>
 					<td>${map.BOARD_COUNT }</td>
 				</tr>
 				<tr>
-					<th scope="row"><img src="./../resources/images/commu_writer.png" height="25"></th>
+					<th scope="row">작성자</th>
 					<td>${map.MEM_ID }</td>
-					<th scope="row"><img src="./../resources/images/commu_date.png" height="25"></th>
+					<th scope="row">작성일</th>
 					<td>${map.BOARD_DATE }</td>
 				</tr>
 				<tr>
-					<th scope="row"><img src="./../resources/images/commu_title.png" height="25"></th>
+					<th scope="row">제목</th>
 					<td colspan="3">${map.BOARD_TITLE }</td>
 				</tr>
 				<tr>
@@ -50,7 +76,7 @@
 			
 			<br />
 			<div align="center"></div>
-			<img src="./../resources/images/form_co.png">
+			댓글
 			<div align="center">
 			<br/>
 			<form id="frm" name="frm" enctype="multipart/form-data">
@@ -58,7 +84,7 @@
 					<div width="100%">
 						<textarea id="COMMENTS_CONTENT" name="COMMENTS_CONTENT" rows="6" cols="113"></textarea>
 						<div align="right" style="float:right;">
-							<a href="#this" id="cWrite" name="cWrite">코멘트달기 <br>이미지 넣을거</a>
+							<a href="#this" id="cWrite" name="cWrite">코멘트달기 <br></a>
 						</div>
 						<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="3"/>
 						<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${map.BOARD_NUM }"/>
@@ -78,14 +104,14 @@
 			<div id="PAGE_NAVI" align="center"></div>
 			<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		
-		<div align="center">
-				<br /> <a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
+		<div align="right">
+				<br /> <a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
 				<c:if test="${session_MEM_INFO.MEM_ID == map.MEM_ID && session_MEM_INFO.MEM_ID ne null}">
-					<a href="#this" class="btn" id="modify"><button class="bttn-bordered bttn-xs bttn-primary">수정하기</button></a>
+					<a href="#this" id="modify"><button class="btn btn-primary">수정하기</button></a>
 				</c:if>
 				<c:if
 					test="${session_MEM_INFO.MEM_ID == map.MEM_ID || session_MEM_INFO.MEM_LEVEL == '2'}">
-					<a href="#this" class="btn" id="delete"><button class="bttn-bordered bttn-xs bttn-primary">삭제하기</button></a>
+					<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
 				</c:if>
 			</div>
 	</div>

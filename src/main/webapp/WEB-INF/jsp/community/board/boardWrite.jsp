@@ -32,9 +32,11 @@
 		</div>
 		
 		<br/><br/>
+	<div align="right">
 		<a href="#this" class="btn" id="addFile">파일 추가</a>
 		<a href="#this" class="btn" id="write">작성하기</a>
 		<a href="#this" class="btn" id="list">목록으로</a>
+	</div>
 	</form>
 	
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>

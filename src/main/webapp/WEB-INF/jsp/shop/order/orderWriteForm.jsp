@@ -10,6 +10,7 @@
 <style type="text/css">
 
 </style>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
@@ -22,7 +23,7 @@
 	<h1 align="center">주문</h1>
 	
 	<div>
-			<table>
+			<table border="1">
 				<tr>
 					<th style="width: 16.6667%;">상품정보</th>
 					<th style="width: 16.6667%;">주문일자</th>
@@ -44,7 +45,7 @@
 					<th>
 						휴대전화
 					</th>
-					<th colspan="5">
+					<th colspan="1">
 						배송주소
 					</th>
 				</tr>
@@ -56,10 +57,15 @@
 						<input type="text" id="MEM_PHONE" name="MEM_PHONE" value="${orderM.MEM_PHONE}">
 					</td>
 					<td> 
-						우편번호 <input type="text">
-						<input type="button" id="searchAddr" name="searchAddr" value="검색"><br/>
-						<input type="text" id="ADD1" name="ADD1" size="50" value="${orderM.MEM_ADD1}">
+						우편번호 <input type="text"  id="MEM_ZIP" name="MEM_ZIP" >
+						<input type="button" id="searchAddr" name="searchAddr"  onclick="zipcode()" value="우편번호 찾기"><br/>
+						 <label for="username">주소</label>
+						 <input type="text" id="ADD1" name="ADD1" style="width:90%;">
+						  <label for="username">상세주소</label><br/>
+						 <input type="text" id="ADD2" name="ADD2" style="width:90%;">
+						
 					</td>
+	 
 				</tr>
 				<tr>
 					<th>
@@ -153,7 +159,8 @@ $(document).ready(function() {
 				fn_orderPay($(this));	
 			}else{
 				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
-				popup($(this));
+				fn_orderPay($(this));	
+				//popup($(this));
 			}
 		}
 	});
@@ -166,7 +173,8 @@ $(document).ready(function() {
 				fn_orderPay($(this));	
 			}else{
 				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
-				popup($(this));
+				fn_orderPay($(this));	
+				//popup($(this));
 			}
 		}
 	});
@@ -183,6 +191,36 @@ $(document).ready(function() {
 	});
 
 
+
+function zipcode() {//우편번호 검색창
+	new daum.Postcode({
+	oncomplete: function(data) {
+        // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+        // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+        var addr = ''; // 주소 변수
+        popupName: 'postcodePopup' // 팝업창 여러개 생성방지
+        //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+            addr = data.roadAddress;
+          
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('MEM_ZIP').value = data.zonecode;
+            document.getElementById("ADD1").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("ADD2").focus();
+           
+            
+        } else if (data.userSelectedType === 'J'){ // 사용자가 지번 주소를 선택했을 경우(J)
+        	 
+             alert("도로명 주소를 입력해주세요.");
+        	return false;
+        }  
+    }
+  	  }).open();
+	  
+	}
+
 	function fn_formCheck() {
         if(!$("#MEM_ID").val()){
             alert("받는 분의 성함을 입력해주세요.");
@@ -197,6 +235,11 @@ $(document).ready(function() {
         if(!$("#ADD1").val()){
             alert("배송지를 입력해주세요.");
             $("#ADD1").focus();
+            return false;
+        }
+        if(!$("#ADD2").val()){
+            alert("상세 배송주소를 입력해주세요.");
+            $("#ADD2").focus();
             return false;
         }
         if(!$("#DMEMO").val()){
@@ -246,7 +289,8 @@ $(document).ready(function() {
 	        buyer_email : 'iamport@siot.do',
 	        buyer_name : $("#MEM_ID").val(),
 	        buyer_tel : $("#MEM_PHONE").val(),
-	        buyer_addr : $("#ADD1").val(),
+	        buyer_addr : $("#ADD1").val()+$("#ADD2").val(),
+	       
 	        buyer_postcode : '123-456',
 	        m_redirect_url : '/second/payEnd.action'	// 결제 완료 후 보낼 컨트롤러의 메소드명
 	    }, function(rsp) {

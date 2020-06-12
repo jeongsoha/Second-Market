@@ -6,7 +6,10 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <style type="text/css">
+
  @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
    
 html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
@@ -23,20 +26,54 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    do: inherit;
    vertical-align: baseline;
 }
+
+/*메뉴버튼*/
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+  margin:50px auto auto auto;
+}
+.tab_menu_btn {
+  width:90px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #7112FF;
+  font-weight:700;
+  color:#7112FF;
+}
+.tab_menu_btn:hover {
+  color:#7112FF;
+}
+.tab_menu_container{
+	float:right;
+	margin-right:350px;
+	font-family: 'Nanum Gothic';
+}
+
+/*메뉴버튼끝*/
+
    html {
       height: 100%;
    }
    
    body {
-        background:linear-gradient(to bottom right, #f0e199, #f0e199);
+        background:white;
    }
    body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
    
     .card {
-        margin: 0 auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        clear:both;
+        padding: 50px;
+        background:#eeeeee;
    }
    
    .form-signin .form-control {
@@ -54,50 +91,88 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
 	border: 0px;
 	padding: 5px;
 }
-</style>
+
+	#main-container{
+	   align:center;
+	   clear:both;
+	   font-family: 'Nanum Gothic';
+	}
+	
+	#menu{
+		clear:both;
+		margin:0px 240px 100px auto;
+	}
+	
+	#con{
+		margin: auto 200px auto 200px;
+	}
+	#dot{
+		margin:0px auto;
+	}
+
+</style>`
 </head>
 <body>
+
+<div id="con">
+
+  <div class="tab_wrap" id="menu">
+     <div class="tab_menu_container">
+	    <a href="/second/myshop"><button class="tab_menu_btn" type="button">나의 주문내역</button></a>
+	    <a href="/second/myshop/saleList"><button class="tab_menu_btn on" type="button">나의 판매내역</button></a>
+	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn" type="button">찜 상품목록</button></a>
+     </div>
+  </div>
+  
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
   <div id="content">
-   <div id="vertical_tab-container">
-      <ul>
-         <li><a href="/second/myshop"><img src="/second/resources/images/myshop_tab1.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="/second/myshop/saleList"><img src="/second/resources/images/myshop_tab2.png" width="100" height="30"></a></li>
-         <li><a href="/second/myshop/goodsLikeList"><img src="/second/resources/images/myshop_tab3.png" width="100" height="30"></a></li>
-      </ul>
-   </div>
+
    <div id="main-container">
    		<table>
+   		
    		<tr>
+   		
 			<td>
+			<div style="text-align:center;">
 			<a href="#goodsTab1">
-			<img src="../resources/images/d_money.png" alt="" width="100" height="100"/>
+			<img src="../resources/images/d_money.png" alt="" width="150" height="150"/><br>전체 판매상품
 			</a>
+			</div>
 			</td>
+			
 			<td>
+			<div id="dot">
 			<img src="../resources/images/d_dot.png" alt="" width="50" height="50"/>
+			</div>
 			</td>
+			
 			<td>
+			<div style="text-align:center;">
 			<a href="#goodsTab2">
-			<img src="../resources/images/d_truck.png" alt="" width="100" height="100"/>
+			<img src="../resources/images/d_truck.png" alt="" width="150" height="150"/><br>거래 진행중
 			</a>
+			</div>
 			</td>
+			
 			<td>
+			<div id="dot">
 			<img src="../resources/images/d_dot.png" alt="" width="50" height="50"/>
+			</div>
 			</td>
+			
 			<td>
+			<div style="text-align:center;">
 			<a href="#goodsTab3">
-			<img src="../resources/images/d_hand.png" alt="" width="100" height="100"/>
+			<img src="../resources/images/d_hand.png" alt="" width="150" height="150"/><br>판매 완료
 			</a>	
+			</div>
 			</td>
-			</tr>
+			
+		</tr>
+			
    		</table>
+   		
    		<div class='container' style="width:100%;">
-			<ul class='goodsTabs'>
-				<li class='selected'><a href='#goodsTab1'><img src="../resources/images/mysale_tab_1.png" alt="" width="90" height="30"/></a></li>
-				<li><a href='#goodsTab2'><img src="../resources/images/mysale_tab_2.png" alt="" width="90" height="30"/></a></li>
-				<li><a href='#goodsTab3'><img src="../resources/images/mysale_tab_3.png" alt="" width="90" height="30"/></a></li>
-			</ul>
 			<div class='goodsTab_container'>
 				<div id="goodsTab1" class="goodsTab_content">
 					<table id="main_table1" class="tbl_type">
@@ -132,13 +207,15 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </div>
+
+</div>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
 	
-	fn_selectMySaleList(1,1);
+			fn_selectMySaleList(1,1);
 	
 	//Default Action
 	$(".goodsTab_content").hide(); //Hide all content
@@ -154,6 +231,7 @@ $(document).ready(function() {
 		
 		if($(this).find("a").attr("href") == "#goodsTab2"){
 			fn_selectMySaleList(1,2);
+
 		}else if($(this).find("a").attr("href") == "#goodsTab3"){
 			fn_selectMySaleList(1,3);
 		}
@@ -169,7 +247,7 @@ $(document).ready(function() {
 	
 	/* $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
 		e.preventDefault();
-		fn_dnum_in($(this));	
+		fn_DELE_NUM_in($(this));	
 	}); */
 	
 });
@@ -182,10 +260,10 @@ function fn_goodsDetail(obj) {
 }
 
 // 입력확인 버튼
-function fn_dnum_in(num) {
+function fn_DELE_NUM_in(num) {
 	var comSubmit = new ComSubmit("");
 	comSubmit.setUrl("<c:url value='/myshop/inputDnum' />");
-	comSubmit.addParam("ORDERS_DNUM", $("#ORDERS_DNUM").val());
+	comSubmit.addParam("ORDERS_DELE_NUM", $("#ORDERS_DELE_NUM").val());
 	comSubmit.addParam("ORDERS_NUM", num);
 	comSubmit.submit();
 }
@@ -216,20 +294,20 @@ function fn_selectMySaleListCallback1(data) {
 	var str1 = "";	
 	body.empty();
 	str1 	+= 	"<tr>"
-		+		"<th width='200px' align='center'><img src=<c:url value='/resources/images/mysale_list1.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list2.png'/>></th>"
-		+		"<th width='200px' align='center'><img src=<c:url value='/resources/images/mysale_list3.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list4.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/mysale_list5.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_dnum.png'/>></th>"
-		+		"<th width='100px' align='center'><img src=<c:url value='/resources/images/myshop_sstatus.png'/>></th>"
+		+		"<th width='200px' align='center'>상품번호aa</th>"
+		+		"<th width='100px' align='center'>상품이름aa</th>"
+		+		"<th width='200px' align='center'>상품이미지</th>"
+		+		"<th width='100px' align='center'>주문일시</th>"
+		+		"<th width='100px' align='center'>판매상태</th>"
+		+		"<th width='100px' align='center'>송장번호</th>"
+		+		"<th width='100px' align='center'>판매상태 변경</th>"
 		+	"</tr>";
 	if (total == 0) {
 		str1 += "<tr align=\"center\">" 
 			+	"<td colspan='7'>조회된 결과가 없습니다.</td>"
 			+	"</tr>";
 		body.append(str1);
-	} else {
+	} else { //각 탭 상황에 맞는 바디내용 행 구성
 		var params = {
 			divId : "PAGE_NAVI",
 			pageIndex : "PAGE_INDEX",
@@ -261,14 +339,14 @@ function fn_selectMySaleListCallback1(data) {
 		      	      		+	"<td width='100px' align='center'>"
 		      	      		+	value.ORDERS_STATUS	
 		      	      		+	"</td>";
-		      	      	if(value.ORDERS_STATUS == "배송중") {
-							str1 += "<td width='200px' align='center'>"+value.ORDERS_DNUM+"</td>"+"<td></td>";
+		      	      	if(value.ORDERS_STATUS == "배송중" || value.ORDERS_STATUS == "거래완료") {
+							str1 += "<td width='200px' align='center'>"+value.ORDERS_DELE_NUM+"</td>"+"<td></td>";
 						} else if(value.ORDERS_STATUS == "주문/결제") {
-							str1 +=	"<td width='200px' align='center'>"
-		      	      			 +	"<input type='text' id='ORDERS_DNUM' name='ORDERS_DNUM'>"
+							str1 +=	"<td width='200px' align='center'> 송장번호 입력 : "
+		      	      			 +	"<input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>"
 		      	      			 +	"</td>"
 		      	      			 +  "<td>"
-	      	      				 +	"<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_dnum_in("+value.GOODS_NUM+")' >" 
+	      	      				 +	"<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_DELE_NUM_in("+value.GOODS_NUM+")' >" 
 		      	      			 +	"</td>";
 		      	      	}else{
 		      	      		str1 += "<td></td><td></td>";

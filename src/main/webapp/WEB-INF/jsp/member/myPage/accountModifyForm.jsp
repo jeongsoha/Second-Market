@@ -11,7 +11,9 @@
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
       <div  style="border-radius:20px; background-color:#fff; margin-top:50px;"> <!-- class="card align-middle" -->
       <div id="con" > <!-- id="content" -->
-         <div id="vertical_tab-container">
+      
+      
+     <!--     <div id="vertical_tab-container">
 	         <ul>
 	         <li class="selected"><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
 	         <li><a href="pwModifyForm"><img src="./../resources/images/mypage_tab2.png" width="100" height="30"></a></li>
@@ -19,27 +21,37 @@
 	         <li><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
 	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
 	      </ul>
-	   </div>
-	   <div id="main-container">
+	   </div> -->
+	   	<div style= "padding: 0px 0px 0px 700px;" >
+		<ul style="display:inline-block; margin-left:200px ">
+			<li style="display:inline-block" class="selected"><a href="accountDetail" >회원정보</a></li>
+		 |	<li style="display:inline-block" ><a href="pwModifyForm">비밀번호 변경</a></li>
+       	 | <li style="display:inline-block"><a href="deleteAccount">회 원 탈 퇴</a></li>
+       	 | <li style="display:inline-block"><a href="reportList">내 신고 내역</a></li>
+       	 | <li style="display:inline-block"><a href="qnaList">내 문의 내역</a></li>
+		</ul>
+		</div>
+	   
+	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 700px;">
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_infochange.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;">회 원 정 보 확 인</h2>
             </div>
             <form id="accountModifyForm" method="post">
             <div class="card-body">
             	
-              <img src="/second/resources/images/mypage_id.png"> <div class="form-control">${map.MEM_ID } </div><br>
-              <img src="/second/resources/images/mypage_name.png"> <input type="text" id="MEM_NAME" name="MEM_NAME" class="form-control" placeholder="${map.MEM_NAME }"><br>
-              <img src="/second/resources/images/mypage_birth.png"><input type="text" id="MEM_BIRTH" name="MEM_BIRTH" class="form-control" placeholder="${map.MEM_BIRTH }"><br>
-              <img src="/second/resources/images/mypage_gen.png">
+              	아 이 디 <div class="form-control">${map.MEM_ID } </div><br>
+             	 이 름 <input type="text" id="MEM_NAME" name="MEM_NAME" class="form-control" placeholder="${map.MEM_NAME }"><br>
+           	   생 년 월 일<input type="text" id="MEM_BIRTH" name="MEM_BIRTH" class="form-control" placeholder="${map.MEM_BIRTH }"><br>
+             	성 별	
               <br>&nbsp;&nbsp;
               <input type="radio" id="MEM_GEN_M" name="MEM_GEN" value="남성" checked />&nbsp;&nbsp;남성&nbsp;&nbsp;
              &nbsp;&nbsp; <input type="radio" id="MEM_GEN_F" name="MEM_GEN" value="여성"/>&nbsp;&nbsp;여성&nbsp;&nbsp;	 <br><br>
               
                 					
-			   <img src="/second/resources/images/mypage_email.png"><input type="text" id="MEM_EMAIL" name="MEM_EMAIL" class="form-control" placeholder="${map.MEM_EMAIL }"><br>
-		       <img src="/second/resources/images/mypage_phone.png"><input type="text" id="MEM_PHONE" name="MEM_PHONE" class="form-control" placeholder="${map.MEM_PHONE }"><br>
+			   이 메 일<input type="text" id="MEM_EMAIL" name="MEM_EMAIL" class="form-control" placeholder="${map.MEM_EMAIL }"><br>
+		       	휴대전화<input type="text" id="MEM_PHONE" name="MEM_PHONE" class="form-control" placeholder="${map.MEM_PHONE }"><br>
 			   
-			   <img src="/second/resources/images/mypage_add.png"><input type="text" id="MEM_ADD1" name="MEM_ADD1" class="form-control" placeholder="${map.MEM_ADD1 }"><br>
+			   	주소<input type="text" id="MEM_ADD1" name="MEM_ADD1" class="form-control" placeholder="${map.MEM_ADD1 }"><br>
 			 
             </div>
          

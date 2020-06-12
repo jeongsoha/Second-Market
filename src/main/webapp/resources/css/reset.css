@@ -202,11 +202,11 @@ select.slct{width:100%;height:29px;line-height:29px;}
 }
 /* Btn Color
 -------------------------------- */
-.btn.btnC_01 input, .btn.btnC_01 span{background:#ee1c25;border:1px solid #ee1c25;} /* 로고색 */
-.btn.btnC_02 input, .btn.btnC_02 span{background:#fff;border:1px solid #efebdb;} /* 베이지색선 */
-.btn.btnC_03 input, .btn.btnC_03 span{background:#9b9c9c;border:1px solid #919191;} /* 연회색 -기본 */
-.btn.btnC_04 input, .btn.btnC_04 span{background:#009bd7;border:1px solid #009bd7;} /* 파랑 */
-.btn.btnC_05 input, .btn.btnC_05 span{background:#2a2e33;border:1px solid #2a2e33;} /* 검정 */
+.btn.btnC_01 input, .btn.btnC_01 span{background:#ee1c25;border:1px solid ;} /* 로고색 */
+.btn.btnC_02 input, .btn.btnC_02 span{background:#fff;border:1px solid ;} /* 베이지색선 */
+.btn.btnC_03 input, .btn.btnC_03 span{background:#9b9c9c;border:1px solid ;} /* 연회색 -기본 */
+.btn.btnC_04 input, .btn.btnC_04 span{background:#009bd7;border:1px solid ;} /* 파랑 */
+.btn.btnC_05 input, .btn.btnC_05 span{background:#2a2e33;border:1px solid ;} /* 검정 */
 
 /* Btn all
 -------------------------------- */

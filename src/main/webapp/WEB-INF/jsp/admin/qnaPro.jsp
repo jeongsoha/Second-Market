@@ -87,8 +87,8 @@ $(function(){
                             <textarea rows="20" cols="60" title="답변" id="QNA_RE" name="QNA_RE"></textarea>
                         </div>
                         
-						<a href="#this" class="btn" id="write">답변작성</button>
-						<button type="reset" onclick="back();">작성취소</button>					
+						<a href="#this" id="write"><button class="btn btn-primary">답변작성</button></a>
+						<button type="reset" class="btn btn-primary" onclick="back();">작성취소</button>					
 				</form>
 			</div>
 	</div>
