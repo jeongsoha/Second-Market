@@ -7,26 +7,21 @@
 
 <style type="text/css">
 
-#content{
+#vertical_tab-container{
+	float:right;
+	margin:auto 430px auto auto;
 	clear:both;
 }
 
-#vertical_tab-container{
-	float: left;
-	display:inline;
-	margin:100px 150px auto 150px;
-}
-
 #main-container{
-	float: left;
    width:1100px;
    align:center;
-   margin:0px auto 100px auto;
+   margin:auto 410px auto 410px;
    border-top: 1px solid #fff;  
    border-right: 1px solid #fff;     
    border-left: 1px solid #fff; 
    border-bottom: 1px solid #fff;
-   display:inline;
+   clear:both;
 }
 
 </style>
@@ -37,14 +32,16 @@
 </head>
 <body>
 <div id="content">
+
 	<div id="vertical_tab-container">
-	<ul>
-		<li><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
-         <li><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
-         <li class="selected"><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
-         <li><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
+	<ul style="display:inline-block; margin-left:200px ">
+		<li style="display:inline-block"><a href="noticeList"><img src="./../resources/images/tab_notice.png" width="100" height="30"></a></li>
+        | <li style="display:inline-block"><a href="boardList"><img src="./../resources/images/tab_board.png" width="100" height="30"></a></li>
+        | <li style="display:inline-block" class="selected"><a href="reportList"><img src="./../resources/images/tab_report.png" width="100" height="30"></a></li>
+        | <li style="display:inline-block"><a href="qnaList"><img src="./../resources/images/tab_qna.png" width="100" height="30"></a></li>
 	</ul>
 	</div> 
+	
 	<div id="main-container">
 		<img src="./../resources/images/commu_rtitle.png" width="200" height="70"> 
 	<table border="1" align="center" class="tbl_type">

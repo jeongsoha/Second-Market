@@ -6,7 +6,7 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
-<link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
+
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -51,7 +51,7 @@ function fn_pwchangeCheck(){ //pw check
             	comSubmit.setUrl("<c:url value='/myPage/modifySuccess'/>");
             	comSubmit.submit();
             }else{
-               $('#pwc').html("비밀번호가 틀렸습니다.").css("color", "red");
+               $('#pw').html("비밀번호가 틀렸습니다.").css("color", "red");
             }
         },
         error:function(){
@@ -69,24 +69,36 @@ $("#pwchangeform").on("submit",function(e){
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
       <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
       <div id="content">
-         <div id="vertical_tab-container">
+      
+ <!--         <div id="vertical_tab-container">
 	         <ul>
 	         <li><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
 	         <li class="selected"><a href="pwModifyForm"><img src="./../resources/images/mypage_tab2.png" width="100" height="30"></a></li>
 	         <li><a href="deleteAccount"><img src="./../resources/images/mypage_tab3.png" width="100" height="30"></a></li>
 	         <li><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
 	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
-	      </ul>
+	      </ul> -->
+	      
+	<div style= "padding: 0px 0px 0px 700px;" >
+		<ul style="display:inline-block; margin-left:200px ">
+			<li style="display:inline-block" class="selected"><a href="accountDetail" >회원정보</a></li>
+		 |	<li style="display:inline-block" ><a href="pwModifyForm">비밀번호 변경</a></li>
+       	 | <li style="display:inline-block"><a href="deleteAccount">회 원 탈 퇴</a></li>
+       	 | <li style="display:inline-block"><a href="reportList">내 신고 내역</a></li>
+       	 | <li style="display:inline-block"><a href="qnaList">내 문의 내역</a></li>
+		</ul>
+	</div>
+	      
 	   </div>
-	   <div id="main-container">
+	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 700px;">
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/mypage_pwchange.png"></h2>
+               <h2 class="card-title text-center" style="color:#113366;">비 밀 번 호 변 경</h2>
             </div>
             <form id="pwchangeform" method="post">
             <div class="card-body">
-               <img src="/second/resources/images/mypage_opw.png"> <input class="form-control" type="password" id="MEM_PW" name="MEM_PW"><br>
-               <img src="/second/resources/images/mypage_npw.png"> <input class="form-control" type="password" id="MEM_TEMP_PW" name="MEM_TEMP_PW"><br>
-			   <img src="/second/resources/images/mypage_npwc.png"> <input class="form-control" type="password" id="MEM_TEMP_PW2" name="MEM_TEMP_PW2"><br>
+              	 기존비밀번호 <input class="form-control" type="password" id="MEM_PW" name="MEM_PW"><br>
+              	 새 비밀번호<input class="form-control" type="password" id="MEM_TEMP_PW" name="MEM_TEMP_PW"><br>
+			   	새 비밀번호 확인 <input class="form-control" type="password" id="MEM_TEMP_PW2" name="MEM_TEMP_PW2"><br>
 			   <span id="pw"></span>
             </div>
          

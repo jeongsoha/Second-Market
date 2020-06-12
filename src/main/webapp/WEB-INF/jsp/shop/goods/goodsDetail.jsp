@@ -221,11 +221,14 @@
 		function like_func(){
 			if(session_chk()){
 				var IDX="${map.MEM_ID}";
+				var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 좋아요 알람을 위한 변수
 				var comSubmit = new ComSubmit();
 				comSubmit.setUrl("<c:url value='/shop/goodsDetail/goodsLike'/>");
 				comSubmit.addParam("LIKE_GOODS_NUM", "${map.GOODS_NUM}");
 				comSubmit.addParam("IDX", IDX);
 				comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
+				
+				comSubmit.addParam("idq", idq);// (유진 추가) 상품 좋아요 알람을 위한 변수 전송
 				comSubmit.submit();	
 			}
 		}

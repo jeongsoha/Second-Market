@@ -51,7 +51,7 @@
 	</table>
 	<div align="center">
 		<a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
-	  <c:if test="${session_MEM_ID == 'admin1' }">  
+	  <c:if test="${session_MEM_ID == 'admin' }">  
 <%-- 		<c:if test="${session_MEM_INFO.MEM_LEVEL == '2'}"> 인포에 꺼내서 활용하지않더라.. --%>
 		<a href="#this" class="btn" id="modify"><button class="bttn-bordered bttn-xs bttn-primary">수정하기</button></a>
 		<a href="#this" class="btn" id="delete"><button class="bttn-bordered bttn-xs bttn-primary">삭제하기</button></a>
