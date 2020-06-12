@@ -40,7 +40,7 @@
 					<th>
 						휴대전화
 					</th>
-					<th>
+					<th colspan="2">
 						배송주소
 					</th>
 				</tr>
@@ -51,10 +51,14 @@
 					<td>
 						<input type="text" id="MEM_PHONE" name="MEM_PHONE" value="${orderM.MEM_PHONE}">
 					</td>
-					<td colspan="5"> 
-						주소 
-						<input type="button" id="searchAddr" name="searchAddr" value="검색"><br/>
-						<input type="text" id="ADD1" name="ADD1" size="50" value="${orderM.MEM_ADD1}">
+				
+					<td>주소 
+						<input type="button" id="searchAddr" name="searchAddr" ><br/>
+						<input type="text" id="ADD1" name="ADD1" size="50" value="${orderM.MEM_ADD1}"> 
+					</td>	
+					<td>상세주소 
+						<input type="button" id="searchAddr" name="searchAddr" ><br/>
+						<input type="text" id="ADD2" name="ADD2" size="50" value="${orderM.MEM_ADD2}">
 					</td>
 				</tr>
 				<tr>

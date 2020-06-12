@@ -1,4 +1,4 @@
-var token = $("meta[name='_csrf']").attr("content");
+/*var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
  
 $(function() {
@@ -63,7 +63,7 @@ $(function() {
 		
 		var deliveryInfo = '하하호호';
 		
-		/*if(deliveryInfo == 2) {
+		if(deliveryInfo == 2) {
 			if(addr1.length == '' || addr2.length == '' || deli_zipcode.length == ''){
 				$('#message').find('h4').text("정확한 주소를 입력해주세요");
 				$('#myModal').modal('show');
@@ -88,9 +88,9 @@ $(function() {
 	        	phone = phone4 + "-" + phone5 + "-" + phone6;
 	        	$('#DELI_PHONENUM').val(phone);
 	        }
-		}*/
+		}
 		
-		/* m_redirect_url : 'http://localhost:7080/main.do' */
+		 m_redirect_url : 'http://localhost:7080/main.do' 
 		
 		
 		
@@ -144,4 +144,4 @@ $(function() {
 			return false;
 		}
 	})
-});
+});*/
