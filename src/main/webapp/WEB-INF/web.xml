@@ -48,5 +48,15 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:config/spring/context-*.xml</param-value>
   	</context-param>
+  	
+  	<!-- Error Page -->
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/error/404error.jsp</location>
+	</error-page>
+
+
+
 
 </web-app>
