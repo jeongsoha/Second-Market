@@ -18,7 +18,11 @@ h3 {
     font-color: #ff0000;
 }
 	
-.container {width: 100%; margin: 10px auto;}
+.container {
+	width: 100%; 
+	margin: 10px auto; 
+	text-align: center;
+}
 ul.goodsTabs {
 	margin: 0;
 	padding: 0;
@@ -28,6 +32,7 @@ ul.goodsTabs {
 	/* border-bottom: 1px solid #999; */
 	border-left: 1px solid #999;
 	width: 100%;
+	
 }
 ul.goodsTabs li {
 	

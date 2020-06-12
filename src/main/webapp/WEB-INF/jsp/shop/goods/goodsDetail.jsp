@@ -159,25 +159,26 @@ nav a:nth-child(5):hover ~ .nav-underline {
 		</c:choose>
 				</td>	
 				</tr>
-			</tbody>
+			</tbody>	
 		</table>
 		
-		<nav>
+<!-- 		<nav>  ul 속성이 없으면 링크 적용 불가
 		    <a href="#goodsTab1" class="is-current">상품상세보기</a>
 		    <a href="#goodsTab2" class="is-current">상품문의</a>
 		    <a href="#goodsTab3" class="is-current">판매자정보</a>
 		    <div class="nav-underline"></div>
-		</nav>
+		</nav> -->
+		
 		<div class="container" style="width:100%">
-		
-
-		
-		    <!-- <ul class="goodsTabs">
+		<nav>
+		    <ul class="goodsTabs">
 		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
 		        <li><a href="#goodsTab2">상품문의</a></li>
 		        <li><a href="#goodsTab3">판매자정보</a></li>
+		        <div class="nav-underline"></div>
 		    </ul>
-		     -->
+		</nav>
+		 
 		     
 		    <div class="goodsTab_container">
 		    

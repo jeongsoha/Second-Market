@@ -332,8 +332,9 @@
                <fieldset>
                  
                  
-                  <span class='green_window'>
-                  <input type='text' class='input_text' placeholder="Search" maxlength="20"  />
+               <span class='green_window'>
+                <input type='text' class='input_text' placeholder="Search" maxlength="20"  name="keyword" id="keyword" value="${keyword}"  />
+				<input type="hidden" id="searchType" value="all" />
                </span>
                
                <button type='submit' class='sch_smit' onClick="onSearch()">검색</button>
