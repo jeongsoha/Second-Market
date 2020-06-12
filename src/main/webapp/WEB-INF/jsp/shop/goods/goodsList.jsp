@@ -10,7 +10,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 </style>
 
-
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
@@ -54,12 +53,12 @@ table {
 /*css 초기화*/
 .card {
    float:left;
-   height: 400px;
-   width: 25%;
+   height: 350px;
+   width: 20%;
    border-radius: 15px;
    display: inline-block;
    margin-top: 30px;
-   margin-left: 50px;
+   margin-left: 20px;
    margin-bottom: 30px;
    position: relative;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -72,7 +71,7 @@ table {
     -o-transition: 0.5s;  /*오페라*/
     transition: 0.5s;
    width: 100%;
-   height: 270px;
+   height: 230px;
    border-radius: 15px 15px 0 0;
    background-image: url("second/resources/images/no_image.png");
    background-size: 100% 280px;
@@ -108,8 +107,14 @@ table {
 h1 {
     font-size: 20px;
     font-weight: bold;
-    font-color: black;
 }
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
 .card-body {
 
 }
@@ -145,7 +150,7 @@ h1 {
      margin-top: 15px;
      margin-bottom: 6px;
     bottom: 0; 
-    width: 314px;
+    width: 250px;
     font-size: 10px;
     color: #9FA5A8;
     padding: 0 10px;
@@ -170,13 +175,61 @@ h1 {
 	margin-left: 15px;
    float: ;
 }
-
-button {
-  background:none;
-  border:0;
-  outline:0;
-  cursor:pointer;
+nav {
+  position: relative;
+  display: flex;
+  width: 1000px;
+  margin: 0 0 0 300px;
+    text-align: center;
 }
+nav a {
+  display: block;
+  width: 20%;
+  padding: .75em 0;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+.nav-underline {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 20%;
+  height: 2px;
+  background: #333;
+  transition: all .3s ease-in-out;
+}
+nav a:nth-child(1).is-current ~ .nav-underline {
+  left: 0;
+}
+nav a:nth-child(2).is-current ~ .nav-underline {
+  left: 20%;
+}
+nav a:nth-child(3).is-current ~ .nav-underline {
+  left: 40%;
+}
+nav a:nth-child(4).is-current ~ .nav-underline {
+  left: 60%;
+}
+nav a:nth-child(5).is-current ~ .nav-underline {
+  left: 80%;
+}
+nav a:nth-child(1):hover ~ .nav-underline {
+  left: 0;
+}
+nav a:nth-child(2):hover ~ .nav-underline {
+  left: 20%;
+}
+nav a:nth-child(3):hover ~ .nav-underline {
+  left: 40%;
+}
+nav a:nth-child(4):hover ~ .nav-underline {
+  left: 60%;
+}
+nav a:nth-child(5):hover ~ .nav-underline {
+  left: 80%;
+}
+
 
 </style>
 
@@ -184,20 +237,27 @@ button {
 </head>
 <body>
 
-<div id="content">
-	<nav id="topMenu">
-      <ul style="text-align:center" class="text_box">
-         <li style="display:inline-block"<c:if test="${sortType eq 'all'}"> class="selected"</c:if>><a href=<c:url value="/shop/allGoodsList"/>>등록순</a></li>
+	
+<%-- <nav>
+      <ul style="text-align:center">
+         <li style="display:inline-block"<c:if test="${sortType eq 'all'}"> class="selected"</c:if>> <a href=<c:url value="/shop/allGoodsList"/> class="is-current">등록순</a> </li>
          <li style="display:inline-block" <c:if test="${sortType eq 'price'}"> class="selected"</c:if>><a href=<c:url value="/shop/priceGoodsList"/>>가격높은순</a></li>
          <li style="display:inline-block" <c:if test="${sortType eq 'view'}"> class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>인기순</a></li>
       </ul>
-     </nav>
-</div>
+</nav> --%>
+
+<nav>
+  <a href="<c:url value="/shop/allGoodsList"/>" <c:if test="${sortType eq 'all'}"> class="is-current"</c:if>>등록순</a>
+  <a href="<c:url value="/shop/priceGoodsList"/>" <c:if test="${sortType eq 'price'}"> class="is-current"</c:if>>가격높은순</a>
+  <a href="<c:url value="/shop/viewGoodsList"/>" <c:if test="${sortType eq 'view'}"> class="is-current"</c:if>>인기순</a>
+  <div class="nav-underline"></div>
+</nav>
 
    
 
    
    <div id="main-container" class="text_box" style="font-size:14pt;">
+   
    		<table class="board_list">
 		<colgroup>
 			<col width="100%" />
@@ -207,6 +267,8 @@ button {
 			</tr>
 		</thead>
 		<tbody>
+		
+		
 		</tbody>
 		</table>
 		<div align="center">
@@ -235,7 +297,7 @@ button {
 	</div>
 
    </div>
-</div>
+
     
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
 	
@@ -275,7 +337,7 @@ button {
 			comAjax.setUrl("<c:url value='/shop/selectGoodsList' />");
 			comAjax.setCallback("fn_selectGoodsListCallback");
 			comAjax.addParam("PAGE_INDEX", pageNo);
-			comAjax.addParam("PAGE_ROW", 6);
+			comAjax.addParam("PAGE_ROW", 8);
 			comAjax.addParam("keyword", $('#keyword').val());
 			comAjax.addParam("searchType", $('#searchType').val());
 			comAjax.addParam("sortType", $('#sortType').val());
@@ -374,6 +436,8 @@ button {
 				});
 			}
 		}
+		
+
 	</script>
 </body>
 </html>

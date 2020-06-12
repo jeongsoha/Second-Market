@@ -1344,8 +1344,8 @@ html {
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, "Nanum Gothic";
+	font-size: 14px;s
 	line-height: 1.42857143;
 	color: #333;
 	background-color: #fff
@@ -6594,7 +6594,7 @@ button.close {
 		box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
 	}
 	.modal-sm {
-		width: 300px
+		width: 200px
 	}
 }
 

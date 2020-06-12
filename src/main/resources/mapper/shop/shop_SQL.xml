@@ -54,6 +54,7 @@
 			<if test="searchType == 'title'.toString()">AND G.GOODS_TITLE LIKE '%' || #{keyword} || '%'</if>
 			<if test="searchType == 'content'.toString()">AND G.GOODS_CONTENT LIKE '%' || #{keyword} || '%'</if>
 			<if test="searchType == 'region'.toString()">AND G.GOODS_REGION LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'all'.toString()">AND (G.GOODS_REGION LIKE '%' || #{keyword} || '%'  or G.GOODS_TITLE LIKE '%' || #{keyword} || '%' or G.GOODS_CONTENT LIKE '%' || #{keyword} || '%')</if>
 		</if>
 	</sql>
 	

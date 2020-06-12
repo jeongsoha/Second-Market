@@ -21,6 +21,77 @@
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+<style>
+
+.degoodsti{
+	font-size: 20px;
+    line-height: 30px;
+}
+
+.degoodspr{
+	color: #ed1b2f;
+    font-size: 22px;
+    line-height: 32px;
+}
+.degoodsco{
+	color: #a3a3a3;
+    font-size: 14px;
+}
+nav {
+  position: relative;
+  display: flex;
+  width: 1000px;
+  margin: 0 0 0 300px;
+    text-align: center;
+}
+nav a {
+  display: block;
+  width: 20%;
+  padding: .75em 0;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+.nav-underline {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 20%;
+  height: 2px;
+  background: #333;
+  transition: all .3s ease-in-out;
+}
+nav a:nth-child(1).is-current ~ .nav-underline {
+  left: 0;
+}
+nav a:nth-child(2).is-current ~ .nav-underline {
+  left: 20%;
+}
+nav a:nth-child(3).is-current ~ .nav-underline {
+  left: 40%;
+}
+nav a:nth-child(4).is-current ~ .nav-underline {
+  left: 60%;
+}
+nav a:nth-child(5).is-current ~ .nav-underline {
+  left: 80%;
+}
+nav a:nth-child(1):hover ~ .nav-underline {
+  left: 0;
+}
+nav a:nth-child(2):hover ~ .nav-underline {
+  left: 20%;
+}
+nav a:nth-child(3):hover ~ .nav-underline {
+  left: 40%;
+}
+nav a:nth-child(4):hover ~ .nav-underline {
+  left: 60%;
+}
+nav a:nth-child(5):hover ~ .nav-underline {
+  left: 80%;
+}
+</style>
 </head>
 <body>
 
@@ -29,48 +100,55 @@
 
 	</div>
 	<div id="main-container">
-		<table border="1" align="center" style="min-height:100%">
+		<table align="center" style="min-height:100%">
 			<colgroup>
 				<col width="45%"/>
 				<col width="15%"/>
 				<col width="15%"/>
 				<col width="15%"/>
 			</colgroup>
+			
 			<caption>상품 상세</caption>
-			<tbody>
-				<tr colspan="2">
-					<td rowspan="2">
+			
+			<tbody >
+				<tr>
+					<td rowspan="4">
 						<c:choose>
 							<c:when test="${map.GOODS_THUMBNAIL eq null}">
-								<img alt="" style="width:95%; height:300px; padding:10px 10px 10px 10px;" src=<c:url value="/resources/images/no_image.png"/>>
+								<img alt="" style="width:90%; height:500px; padding:10px 10px 10px 10px;" src=<c:url value="/resources/images/no_image.png"/>>
 							</c:when>
 							<c:otherwise>
-								<img alt="" style="width:95%; height:300px; padding:10px 10px 10px 10px;" src="${path}${map.GOODS_THUMBNAIL}">	
+								<img alt="" style="width:90%; height:500px; padding:10px 10px 10px 10px;" src="${path}${map.GOODS_THUMBNAIL}">	
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td colspan="3" style="padding:0 0 0 20px; font-size:15px;">
+					<td colspan="3" style="padding:0 0 0 70px; font-size:15px;">
 						<br>
 
-						제목 : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
-						판매수량 : ${map.GOODS_QTY} <br/>
+						<h1 class="degoodsti" >${map.GOODS_TITLE} </h1>	
+						<%-- 판매수량 : ${map.GOODS_QTY} <br/> --%>
 						<input type="hidden" id="IDX" name="IDX" value="${map.GOODS_NUM}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
-						판매가격 : ${map.GOODS_PRICE}<br /> 
-						거래지역 : ${map.GOODS_REGION}
-						<br/>
+						<h1 class="degoodspr">₩${map.GOODS_PRICE}</h1>
+						<h1 class="degoodsco">${map.GOODS_REGION}에서 거래 가능</h1>
+						<br/> 	
 						<br>
 					</td>
 				</tr>
-				<tr align="center">
-				<td>
-					<a href='#this' id="buy"> 바로구매</a>
-				</td>
-				<td> 
-					<a href='javascript: report_func();'>신고하기</a>
-				</td>
-				<td>	
 				
+				<tr align="center" class="debtn01">
+					<td colspan="3">
+					<a href='#this' id="buy" class="debtn01" > 바로구매</a> 	
+					</td>
+				</tr>
+				<tr align="center" class="debtn02">
+					<td colspan="3">
+					<a href='javascript: report_func();'>신고하기</a>
+					</td>
+				</tr>
+				
+				<tr align="center" >
+				<td colspan="3">	
 		<c:choose>
 			<c:when test="${goodsLikeMap.GOODS_LIKE_YN eq 0}">
 		    	<a href='javascript: like_func();'><img src=<c:url value="/resources/images/like_black.png"/> id='unlike_img' style="width:30px; height:30px"></a>
@@ -79,19 +157,28 @@
 		    	<a href='javascript: unlike_func();'><img src=<c:url value="/resources/images/like_red.png"/> id='like_img' style="width:30px; height:30px"></a>
 		  	</c:otherwise>
 		</c:choose>
-				
 				</td>	
 				</tr>
 			</tbody>
 		</table>
+		
+		
 		<div class="container" style="width:100%">
-		    <ul class="goodsTabs">
+		
+			<ul class="goodsTabs">
 		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
 		        <li><a href="#goodsTab2">상품문의</a></li>
 		        <li><a href="#goodsTab3">판매자정보</a></li>
 		    </ul>
+		
+		
+<!-- 		    <ul class="goodsTabs">
+		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
+		        <li><a href="#goodsTab2">상품문의</a></li>
+		        <li><a href="#goodsTab3">판매자정보</a></li>
+		    </ul>
+		     -->
 		    <div class="goodsTab_container">
-		    
 		    
 		        <div id="goodsTab1" class="goodsTab_content">
 		       
