@@ -18,6 +18,10 @@ a:link, a:visited {text-decoration: none; color: #656565;}
 .board_view tbody th.th_file {padding:0 0 0 15px; vertical-align:middle}
 
 .wdp_90 {width:90%}
-.pad_5 {padding: 5px;}
+
+
+.pad_5 {
+	padding: 5px;
+	}
 
 <!-- 샘플보드css end -->
