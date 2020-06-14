@@ -135,7 +135,7 @@ button {
 			<td>
 			<div style="text-align:center;">
 			<a href="#goodsTab1">
-			<img src="../resources/images/d_money.png" alt="" width="150" height="150"/><br>전체 판매상품
+			<img src="../resources/images/d_money.png" alt="" width="150" height="150"/> 
 			</a>
 			</div>
 			</td>
@@ -149,7 +149,7 @@ button {
 			<td>
 			<div style="text-align:center;">
 			<a href="#goodsTab2">
-			<img src="../resources/images/d_truck.png" alt="" width="150" height="150"/><br>거래 진행중
+			<img src="../resources/images/d_truck.png" alt="" width="150" height="150"/> 
 			</a>
 			</div>
 			</td>
@@ -163,7 +163,7 @@ button {
 			<td>
 			<div style="text-align:center;">
 			<a href="#goodsTab3">
-			<img src="../resources/images/d_hand.png" alt="" width="150" height="150"/><br>판매 완료
+			<img src="../resources/images/d_hand.png" alt="" width="150" height="150"/> 
 			</a>	
 			</div>
 			</td>
@@ -173,6 +173,11 @@ button {
    		</table>
    		
    		<div class='container' style="width:100%;">
+   			<ul class='goodsTabs'>
+				<li class='selected'><a href='#goodsTab1'>전체 판매상품</a></li>
+				<li><a href='#goodsTab2'>거래 진행중</a></li>
+				<li><a href='#goodsTab3'>판매 완료</a></li>
+			</ul>
 			<div class='goodsTab_container'>
 				<div id="goodsTab1" class="goodsTab_content">
 					<table id="main_table1" class="tbl_type">

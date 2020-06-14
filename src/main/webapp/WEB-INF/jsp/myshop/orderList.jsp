@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
+<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet"> //세부탭 css 있음
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -133,7 +134,7 @@ button {
 			<td>
 			<div style="text-align:center;">
 			<a href="#goodsTab1">
-			<img src="./resources/images/d_money.png" class='selected' alt="" width="150" height="150"/><br>주문결제</a>
+			<img src="./resources/images/d_money.png" class='selected' alt="" width="150" height="150"/> 
 			</div>
 			</td>
 			
@@ -146,7 +147,7 @@ button {
 			<td>
 			<div style="text-align:center;">
 			<a href="#goodsTab2">
-			<img src="./resources/images/d_truck.png" alt="" width="150" height="150"/><br>배송중
+			<img src="./resources/images/d_truck.png" alt="" width="150" height="150"/>
 			</a>
 			</div>
 			</td>
@@ -160,7 +161,7 @@ button {
 			<td>
 			<div style="text-align:center;">
 			<a href="#goodsTab3">
-			<img src="./resources/images/d_hand.png" alt="" width="150" height="150"/><br>배송완료
+			<img src="./resources/images/d_hand.png" alt="" width="150" height="150"/>
 			</a>
 			</div>	
 			</td>
@@ -170,11 +171,11 @@ button {
    	</table>
    	
    		<div class='container' style="width:100%;">
-<!-- 			<ul class='goodsTabs'>
+ 			<ul class='goodsTabs'>
 				<li class='selected'><a href='#goodsTab1'>주문/결제</a></li>
 				<li><a href='#goodsTab2'>배송중</a></li>
 				<li><a href='#goodsTab3'>배송완료</a></li>
-			</ul> -->
+			</ul> 
 			<div class='goodsTab_container'>
 				<div id="goodsTab1" class="goodsTab_content">
 					<table id="main_table1" class="tbl_type">
