@@ -5,7 +5,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet"> //세부탭 css 있음
+<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet"> <!-- //세부탭 css 있음 -->
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 

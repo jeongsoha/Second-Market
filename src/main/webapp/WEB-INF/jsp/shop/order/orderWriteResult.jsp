@@ -31,7 +31,7 @@
 					<td style="width: 16.6667%;">${orderG.ORDER_TIME}</td>
 					<td style="width: 16.6667%;">${orderG.GOODS_NUM}</td>
 					<td style="width: 16.6667%;">${orderG.GOODS_PRICE}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_PRICE+orderG.GOODS_DCOST}</td>
+					<td style="width: 16.6667%;">${order.ORDERS_TCOST}</td>
 				</tr>
 				<tr>
 					<th>
@@ -54,11 +54,11 @@
 				
 					<td>주소 
 						<input type="button" id="searchAddr" name="searchAddr" ><br/>
-						<input type="text" id="ADD1" name="ADD1" size="50" value="${orderM.MEM_ADD1}"> 
+						<input type="text" id="ADD1" name="ADD1" size="50" value="${order.ORDERS_DADD1}"> 
 					</td>	
 					<td>상세주소 
 						<input type="button" id="searchAddr" name="searchAddr" ><br/>
-						<input type="text" id="ADD2" name="ADD2" size="50" value="${orderM.MEM_ADD2}">
+						<input type="text" id="ADD2" name="ADD2" size="50" value="${order.ORDERS_DADD2}">
 					</td>
 				</tr>
 				<tr>
@@ -89,6 +89,18 @@
 	</div>
 </div>
 <script type="text/javascript">
+function noEvent() { // 새로 고침 방지
+    if (event.keyCode == 116) {
+        alert("새로고침을 할 수 없습니다.");
+        event.keyCode = 2;
+        return false;
+    } else if (event.ctrlKey
+            && (event.keyCode == 78 || event.keyCode == 82)) {
+        return false;
+    }
+}
+document.onkeydown = noEvent;
+
 $(document).ready(function(){
 	$("#list").on("click", function(e){ //목록으로 버튼
 		e.preventDefault();
