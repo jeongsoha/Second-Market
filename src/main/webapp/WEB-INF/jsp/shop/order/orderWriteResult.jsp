@@ -89,7 +89,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-function noEvent() { // 새로 고침 방지
+function noEvent() { // 새로 고침 방지 적용
     if (event.keyCode == 116) {
         alert("새로고침을 할 수 없습니다.");
         event.keyCode = 2;
