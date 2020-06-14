@@ -271,11 +271,11 @@ function fn_DELE_NUM_in(num) {
 function fn_selectMySaleList(pageNo, tabNo) {
 	var comAjax = new ComAjax();
 	comAjax.setUrl("<c:url value='/myshop/selectSaleList' />");
-	comAjax.setCallback("fn_selectMySaleListCallback1");
-	comAjax.addParam("PAGE_INDEX", pageNo);
+	comAjax.setCallback("fn_selectMySaleListCallback1"); //과정이 끝나고 가져온 DATA(맵형태)를 콜백할 곳
+	comAjax.addParam("PAGE_INDEX", pageNo); //기본 페이징넘버 스트링
 	comAjax.addParam("PAGE_ROW", 15);
 	comAjax.addParam("MEM_ID", "${MEM_ID}");
-	comAjax.addParam("tabNo", tabNo);
+	comAjax.addParam("tabNo", tabNo); // 어떤 SQL SELECT문을 활용할지 판단하는 String DATA
 	comAjax.ajax();
 }
 

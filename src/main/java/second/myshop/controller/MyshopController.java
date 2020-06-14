@@ -69,7 +69,8 @@ public class MyshopController {
 	}
 
 	@RequestMapping(value="/myshop/selectSaleList")
-	public ModelAndView myshopSaleList(CommandMap commandMap, HttpServletRequest request, @RequestParam(value = "tabNo", defaultValue="") String tabNo) throws Exception{
+	public ModelAndView myshopSaleList(CommandMap commandMap, HttpServletRequest request, 
+			@RequestParam(value = "tabNo", defaultValue="") String tabNo) throws Exception{
 		ModelAndView mv = new ModelAndView("jsonView");
 		HttpSession session = request.getSession();
 		commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));

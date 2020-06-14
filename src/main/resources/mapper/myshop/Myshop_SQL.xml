@@ -85,7 +85,7 @@
 <include refid="common.pagingPost"/>
 </select>
 
-<!-- 내 판매내역 조회 -->
+<!-- 내 판매 전체내역 조회 -->
 <select id="selectMySaleList1" parameterType="hashMap" resultType="hashmap">
 <include refid="common.pagingPre"/>
 <![CDATA[
@@ -97,9 +97,9 @@
         	TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
         	
         	NVL(O.ORDERS_STATUS, '판매중(미결제)') AS ORDERS_STATUS,
-        	O.ORDERS_DATE, 
-        	 
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
+        	
+        	NVL(TO_CHAR(O.ORDERS_DATE),'111') AS ORDER_DATE,  
+        	NVL(TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss'),'222') AS ORDERS_TIME,
         	G.GOODS_THUMBNAIL,
         	G.GOODS_STATUS,
         	O.ORDERS_DELE_NUM,

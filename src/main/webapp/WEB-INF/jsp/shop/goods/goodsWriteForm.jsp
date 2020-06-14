@@ -50,7 +50,7 @@
 				</select>
 	      	</td>
 	      	<td>
-				 test1<br/>
+			<br/>
 			</td>
 		<!-- <td>
 				<input type="text" id="GOODS_HASH" name="GOODS_HASH" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_HASH}"</c:if>>
