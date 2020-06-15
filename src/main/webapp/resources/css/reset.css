@@ -108,7 +108,7 @@ input[type="submit"], input[type="button"]{padding:0;}
 input[type="text"], input[type="tel"] , input[type="number"], input[type="search"], input[type="password"],input[type="email"],select{
 	text-indent:5px;
 	font-size:15px;
-	border:1px solid #cfcecd;
+	/* border:1px solid #cfcecd; */
 	background:#fff;
 }
 
