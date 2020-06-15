@@ -82,7 +82,7 @@ table {
 .card:hover  {
    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
 }
-.card-header-is_closed{
+.card-header-is_closed{  /* 거래완료 */
     background-color: #EF5A31 ;
     color: #FFF ;
     font-weight: bold ;
@@ -94,7 +94,20 @@ table {
     padding: 10px 10px;
     line-height: 20px;
 }
-.card-header-is_closed2{
+.card-header-is_closed1{ /* 거래중 */
+    background-color: #cfc327 ;
+    color: #FFF ;
+    font-weight: bold ;
+    text-align: center ;
+    float: right;
+    margin: 15px 15px 0 0;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 10px 10px;
+    line-height: 20px;
+    }
+    
+.card-header-is_closed2{ /* 판매중(거래가능) */
     background-color: #3fb50e ;
     color: #FFF ;
     font-weight: bold ;
@@ -106,6 +119,7 @@ table {
     padding: 10px 10px;
     line-height: 20px;
 }
+
 h1 {
     font-size: 20px;
     font-weight: bold;
@@ -423,15 +437,20 @@ nav a:nth-child(5):hover ~ .nav-underline {
 										imgpath = "<div class='card-header' style='background-image:url(\"" + $('#path').val() + value.GOODS_THUMBNAIL + "\");'>"
 										//alert(imgpath);
 									}
-									if(value.GOODS_TSTATUS == 'N'){
+									if(value.GOODS_TSTATUS == 'N'){ //거래가능(판매중)
 										tstatus += "<div class = 'card-header-is_closed2' >" 
 										 	     + "<div class = 'card-header-text' >" 
 												 + "거래가능"; 
 									}else if (value.GOODS_TSTATUS == 'ING'){ 
 									/* }else if (value.GOODS_QTY == 0){ */
-										tstatus += "<div class = 'card-header-is_closed' >" 
+										tstatus += "<div class = 'card-header-is_closed1' >" 
 										 	     + "<div class = 'card-header-text' >" 
-										 	     + "거래완료";
+										 	     + "거래중";
+									}else if (value.GOODS_TSTATUS == 'END'){ 
+										/* }else if (value.GOODS_QTY == 0){ */
+											tstatus += "<div class = 'card-header-is_closed' >" 
+											 	     + "<div class = 'card-header-text' >" 
+											 	     + "거래완료";
 									}
 							
 									str +=  "<div class='card'>"
