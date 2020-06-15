@@ -60,6 +60,8 @@ public class MyshopDAO extends AbstractDAO {
 	
 	public void buyComplete(Map<String, Object> map) throws Exception{
 		update("myshop.updateOrderStatus", map);
+		update("shop.updateGoodsTstatus_END", map);
+		
 	}
 	
 	public void orderCancel(Map<String, Object> map) throws Exception{

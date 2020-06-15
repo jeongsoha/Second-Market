@@ -41,7 +41,7 @@
 			WHERE   G.GOODS_SELLER = M.MEM_NUM(+)
 			AND     G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
 			AND     G.GOODS_STATUS = 'N'
-			AND     G.GOODS_TSTATUS IN ('N', 'ING')
+			AND     G.GOODS_TSTATUS IN ('N', 'ING', 'END')
 			]]>
 		<include refid="search"></include>	
 		<!-- <include refid="sort"></include> -->
@@ -227,6 +227,7 @@
 		]]>
 	</update>
 	
+	<!-- 등록된 물품 삭제하기 버튼 -->
 	<update id="goodsDelete" parameterType="hashmap">
 		<![CDATA[
 			UPDATE GOODS
@@ -289,6 +290,7 @@
 		]]>
 	</delete>
 	
+	<!-- 판매노출 상태 N = 노출로 전환, Y= 숨김 // 미사용 -->
 	<update id="updateGoodsTstatus" parameterType="hashmap">
 		<![CDATA[
 			UPDATE GOODS
@@ -298,5 +300,30 @@
 				GOODS_NUM = #{GOODS_NUM}
 		]]>
 	</update>
+	
+	<!-- 판매중상태 -->
+	<update id="updateGoodsTstatus_ING" parameterType="hashmap">
+		<![CDATA[
+			UPDATE GOODS
+			SET
+				GOODS_STATUS = 'N'
+				,GOODS_TSTATUS = 'ING'
+			WHERE
+				GOODS_NUM = #{GOODS_NUM}
+		]]>
+	</update>
+	
+	<!-- 판매완료상태 / 마이샵 수취완료 시 -->
+	<update id="updateGoodsTstatus_END" parameterType="hashmap">
+		<![CDATA[
+			UPDATE GOODS
+			SET
+				GOODS_STATUS = 'N'
+				,GOODS_TSTATUS = 'END'
+			WHERE
+				GOODS_NUM = #{GOODS_NUM}
+		]]>
+	</update>
+	
 </mapper>
 

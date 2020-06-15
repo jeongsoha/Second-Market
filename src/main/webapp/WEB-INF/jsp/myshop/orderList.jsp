@@ -272,6 +272,7 @@ function fn_Buychk(num) {
 	var comSubmit = new ComSubmit("");
 	comSubmit.setUrl("<c:url value='/myshop/BuyComplete' />");
 	comSubmit.addParam("ORDERS_NUM", num);
+	comSubmit.addParam("GOODS_NUM", num);
 	comSubmit.submit();
 }
 

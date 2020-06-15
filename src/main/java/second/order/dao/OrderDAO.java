@@ -26,7 +26,7 @@ public class OrderDAO extends AbstractDAO {
 
 	public void insertOrder(Map<String, Object> map) throws Exception{
 		insert("order.insertOrder", map);
-		update("shop.updateGoodsTstatus", map);
+		update("shop.updateGoodsTstatus_ING", map);
 	}
 	
 	@SuppressWarnings("unchecked")

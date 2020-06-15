@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 
 //import second.report.dao.ReportDAO;
 import second.myshop.dao.MyshopDAO;
+import second.shop.dao.ShopDAO;
 
 @Service("myshopService")
 public class MyshopServiceImpl implements MyshopService{
 	
 	@Resource(name="myshopDAO")
 	private MyshopDAO myshopDAO;
+	
 	
 	@Override
 	public List<Map<String, Object>> selectMyOrderList1(Map<String, Object> map) throws Exception {
@@ -67,9 +69,11 @@ public class MyshopServiceImpl implements MyshopService{
 		myshopDAO.insertDnum(map);
 	}
 
+	/* 수취완료 */
 	@Override
 	public void buyComplete(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		myshopDAO.buyComplete(map);
+		
 	}
 	
 	@Override

@@ -114,7 +114,7 @@
 	AND     G.GOODS_STATUS = 'N'
 	AND     G.GOODS_NUM = O.ORDERS_PRONUM(+)
 	AND     M.MEM_ID = #{MEM_ID}
-	AND 	G.GOODS_TSTATUS = 'N'
+	AND 	G.GOODS_TSTATUS IN ('N', 'ING', 'END')
 	ORDER BY G.GOODS_DATE DESC
  ]]>
 <include refid="common.pagingPost"/>
