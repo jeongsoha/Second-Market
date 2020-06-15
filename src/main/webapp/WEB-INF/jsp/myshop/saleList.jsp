@@ -299,12 +299,12 @@ function fn_selectMySaleListCallback1(data) {
 	var str1 = "";	
 	body.empty();
 	str1 	+= 	"<tr>"
-		+		"<th width='200px' align='center'>상품번호aa</th>"
+		+		"<th width='150px' align='center'>상품번호aa</th>"
 		+		"<th width='100px' align='center'>상품이름aa</th>"
 		+		"<th width='200px' align='center'>상품이미지</th>"
 		+		"<th width='100px' align='center'>주문일시</th>"
 		+		"<th width='100px' align='center'>판매상태</th>"
-		+		"<th width='100px' align='center'>송장번호</th>"
+		+		"<th width='200px' align='center'>송장번호</th>"
 		+		"<th width='100px' align='center'>판매상태 변경</th>"
 		+	"</tr>";
 	if (total == 0) {
@@ -326,7 +326,7 @@ function fn_selectMySaleListCallback1(data) {
 		$.each(data.list, 
 				function(key, value) {
 						str1 +=	"<tr>"
-				    		+	"<td width='200px' align='center'>"
+				    		+	"<td width='70px' align='center'>"
 							+	value.GOODS_NUM
 							+	"</td>"
 		      	      		+	"<td width='100px' align='center'>"
@@ -347,8 +347,7 @@ function fn_selectMySaleListCallback1(data) {
 		      	      	if(value.ORDERS_STATUS == "배송중" || value.ORDERS_STATUS == "거래완료") {
 							str1 += "<td width='200px' align='center'>"+value.ORDERS_DELE_NUM+"</td>"+"<td></td>";
 						} else if(value.ORDERS_STATUS == "주문/결제") {
-							str1 +=	"<td width='200px' align='center'> 송장번호 입력 : "
-		      	      			 +	"<input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>"
+							str1 +=	"<td width='200px' align='center'> 송장번호 입력  <input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>"
 		      	      			 +	"</td>"
 		      	      			 +  "<td>"
 	      	      				 +	"<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_DELE_NUM_in("+value.GOODS_NUM+")' >" 

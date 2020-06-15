@@ -6,9 +6,12 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 </head>
 <style type="text/css">
+   
+   @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
  .form-control {
         
@@ -21,6 +24,49 @@
        
    }
    
+#main-container{
+   width:1100px;
+   align:center;
+   font-family: 'Nanum Gothic';
+   clear:both;
+}
+
+#content{
+	width:1120px;
+	margin-left:50px;
+}
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+}
+.tab_menu_btn {
+  width:90px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	font-family: 'Nanum Gothic';
+	margin-bottom:50px;
+}
+.tab_wrap{
+	clear:both;
+}
+   
 </style>
 
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
@@ -30,20 +76,20 @@
       <div id="con">
       
     
-	<div style= "padding: 0px 0px 0px 700px;" >
-		<ul style="display:inline-block; margin-left:200px ">
-			<li style="display:inline-block" class="selected"><a href="accountDetail" >회원정보</a></li>
-		 |	<li style="display:inline-block" ><a href="pwModifyForm">비밀번호 변경</a></li>
-       	 | <li style="display:inline-block"><a href="deleteAccount">회 원 탈 퇴</a></li>
-       	 | <li style="display:inline-block"><a href="reportList">내 신고 내역</a></li>
-       	 | <li style="display:inline-block"><a href="qnaList">내 문의 내역</a></li>
-	</ul>
-	</div>
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="accountDetail"><button class="tab_menu_btn on" type="button">회원정보</button></a>
+    <a href="pwModifyForm"><button class="tab_menu_btn" type="button">비밀번호 변경</button></a>
+    <a href="deleteAccount"><button class="tab_menu_btn" type="button">회원탈퇴</button></a>
+    <a href="reportList"><button class="tab_menu_btn" type="button">내 신고 내역</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">내 문의 내역</button></a>
+  </div>
+  </div>
 	   
 	   
-	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 700px;">
+	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 400px;">
             <div  style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;">회 원 정 보 확 인</h2>
+               <h2 class="card-title text-center" style="color:#113366;">회 원 정 보 확 인</h2><br>
             </div>
             <div>
             	  아 이 디<div class="form-control">${map.MEM_ID } </div><br>
@@ -56,8 +102,8 @@
             </div>
          
             <div class="card-body">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="수정 하러 가기" onclick="ch_info();" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="fn_openBoardList();" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-success" style="width:110px; height:40px;" value="수정 하러 가기" onclick="ch_info();">
+            	<input type="button" class="btn btn-success" style="width:80px; height:40px;" value="취소" onclick="fn_openBoardList();">
 				<span id="pwc"></span>
 				<br>
             </div>
