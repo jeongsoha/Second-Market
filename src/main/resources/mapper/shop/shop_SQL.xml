@@ -219,7 +219,7 @@
 			        GOODS_PRICE = #{GOODS_PRICE},
 			        GOODS_REGION = #{GOODS_REGION},
 			        GOODS_CATEGORY = #{GOODS_CATEGORY},
-			       
+			        
 			        GOODS_DATE = SYSDATE
 			WHERE   GOODS_NUM = #{GOODS_NUM}
 			AND     GOODS_STATUS = 'N'
