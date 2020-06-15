@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
+import second.common.dao.InformDAO;
 import second.common.util.FileUtils;
 import second.order.dao.OrderDAO;
 
@@ -17,6 +18,9 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Resource(name="orderDAO")
 	private OrderDAO orderDAO;
+	
+	@Resource(name="informDAO")
+	private InformDAO informDAO;
 	
 	@Resource(name="fileUtils")
 	private FileUtils fileUtils;
@@ -41,6 +45,7 @@ public class OrderServiceImpl implements OrderService {
 	public void insertOrder(Map<String, Object> map, HttpServletRequest request) throws Exception {
 				
 		orderDAO.insertOrder(map);
+	//	informDAO.informInsert(map, "상대방이 내 상품을 결제했습니다.");
 	
 	}
 	

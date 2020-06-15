@@ -88,7 +88,7 @@
 			                GOODS_CATEGORY,
 			                GOODS_STATUS,
 			                GOODS_TSTATUS,
-			                GOODS_THUMBNAIL,
+			                GOODS_THUMBNAIL
 			               
 			                )
 			VALUES          
@@ -103,8 +103,8 @@
 			                #{GOODS_CATEGORY},
 			                'N',
 			                'N',
-			                #{GOODS_THUMBNAIL},
-			                #{GOODS_QTY}
+			                #{GOODS_THUMBNAIL}
+			              
 			                )
 		]]>
 	</insert>
