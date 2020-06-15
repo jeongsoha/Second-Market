@@ -218,7 +218,7 @@ button {
 	}
 	
 	#con{
-		margin: auto 200px auto 200px;
+		margin: auto 100px auto 100px;
 	}
 	#dot{
 		margin:0px auto;

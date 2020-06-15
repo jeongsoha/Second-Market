@@ -73,7 +73,7 @@ button {
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         clear:both;
-        padding: 50px;
+        padding: 0px;
         background:#eeeeee;
    }
    
@@ -105,10 +105,13 @@ button {
 	}
 	
 	#con{
-		margin: auto 200px auto 200px;
+		margin: auto 100px auto 100px;
 	}
 	#dot{
 		margin:0px auto;
+	}
+	#con2{
+		clear:both;
 	}
 
 </style>
@@ -170,7 +173,8 @@ button {
 	</tr>
    	</table>
    	
-   		<div class='container' style="width:100%;">
+   	
+   		<div class='container' style="width:100%;" id="con2">
  			<ul class='goodsTabs'>
 				<li class='selected'><a href='#goodsTab1'>주문/결제</a></li>
 				<li><a href='#goodsTab2'>배송중</a></li>
@@ -207,12 +211,17 @@ button {
 			
 		</div>
    	</div>
+   	
+   	
+   	
    </div>
    
    
 </div>
 
 </div>
+
+
 </div>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -11,20 +11,43 @@
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-#vertical_tab-container{
-	float:right;
-	margin:auto 350px auto auto;
-	clear:both;
-	font-family: 'Nanum Gothic';
-	font-size:15px;
-}
-
 #main-container{
    width:1100px;
    align:center;
-   margin:auto 410px auto 410px;
-   clear:both;
    font-family: 'Nanum Gothic';
+}
+
+#content{
+	width:1120px;
+	margin-left:50px;
+}
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+}
+.tab_menu_btn {
+  width:80px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	font-family: 'Nanum Gothic';
+	margin-bottom:50px;
 }
 
 </style>
