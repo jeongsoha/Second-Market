@@ -7,25 +7,71 @@
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+
+<style type="text/css">
+
+ @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+
+#main-container{
+   width:1100px;
+   align:center;
+   font-family: 'Nanum Gothic';
+}
+
+#content{
+	width:1120px;
+	margin-left:50px;
+}
+
+/*메뉴버튼*/
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+}
+.tab_menu_btn {
+  width:80px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	font-family: 'Nanum Gothic';
+	margin-bottom:50px;
+}
+/*메뉴버튼 끝*/
+
+</style>
 </head>
 <body>
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
 <div id="content">
 
-   <div id="vertical_tab-container">
    
-         <ul>
-	         <li><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
-	         <li><a href="pwModifyForm"><img src="./../resources/images/mypage_tab2.png" width="100" height="30"></a></li>
-	         <li><a href="deleteAccount"><img src="./../resources/images/mypage_tab3.png" width="100" height="30"></a></li>
-	         <li class="selected"><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
-	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
-         </ul>
-   
-   </div>
+    <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="accountDetail"><button class="tab_menu_btn" type="button">회원정보</button></a>
+    <a href="pwModifyForm"><button class="tab_menu_btn" type="button">비밀번호 변경</button></a>
+    <a href="deleteAccount"><button class="tab_menu_btn" type="button">회원탈퇴</button></a>
+    <a href="/myPage/reportList"><button class="tab_menu_btn on" type="button">내신고내역</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">내문의내역</button></a>
+  </div>
+  </div>
    
    <div id="main-container">
-		<img src="./../resources/images/commu_rtitle.png" width="200" height="70"> 
+		<h2>신고게시판</h2>
 	<table border="1" align="center" class="tbl_type">
 		<colgroup>
 			<col width="10%" />
@@ -35,7 +81,7 @@
 			<col width="10%" />
 		</colgroup>  
 		<caption><h2>신고게시판</h2></caption>
-		<form action="/second/community/reportList" method="post">
+		<form action="/second/myPage/reportList" method="post">
 	      <select name="search" id="search">
 	                  <option value="0">전체보기</option>
 	               <option value="1" <c:out value="${search eq '1' ? 'selected' :''}"/>>처리대기</option>
@@ -48,13 +94,13 @@
 	    
 		<thead>
 			<tr>
-				<th scope="col"><img src="./../resources/images/commu_num.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_title.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_writer.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_date.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_status.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_rid.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_hit.png" height="25"></th>
+				<th style=text-align:center; scope="col">글번호</th>
+				<th style=text-align:center; scope="col">제목</th>
+				<th style=text-align:center; scope="col">작성자</th>
+				<th style=text-align:center; scope="col">작성일</th>
+				<th style=text-align:center; scope="col">처리상태</th>
+				<th style=text-align:center; scope="col">신고대상</th>
+				<th style=text-align:center; scope="col">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
