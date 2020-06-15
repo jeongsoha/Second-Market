@@ -89,7 +89,7 @@
 			                GOODS_STATUS,
 			                GOODS_TSTATUS,
 			                GOODS_THUMBNAIL,
-			                GOODS_QTY
+			               
 			                )
 			VALUES          
 			                (
@@ -219,7 +219,7 @@
 			        GOODS_PRICE = #{GOODS_PRICE},
 			        GOODS_REGION = #{GOODS_REGION},
 			        GOODS_CATEGORY = #{GOODS_CATEGORY},
-			        GOODS_QTY = #{GOODS_QTY},
+			       
 			        GOODS_DATE = SYSDATE
 			WHERE   GOODS_NUM = #{GOODS_NUM}
 			AND     GOODS_STATUS = 'N'
@@ -321,7 +321,7 @@
 				GOODS_STATUS = 'N'
 				,GOODS_TSTATUS = 'END'
 			WHERE
-				GOODS_NUM = #{GOODS_NUM}
+				GOODS_NUM = #{ORDERS_NUM}
 		]]>
 	</update>
 	

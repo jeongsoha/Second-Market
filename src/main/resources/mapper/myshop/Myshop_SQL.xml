@@ -250,7 +250,7 @@
                     WHERE    GL.GOODS_LIKE_USER = M.MEM_NUM(+) 
 		    AND  G.GOODS_NUM = GL.GOODS_LIKE_PARENT(+)
 		 	AND     G.GOODS_STATUS = 'N'
-		 	AND     G.GOODS_TSTATUS IN ('N', 'ING')
+		 	AND     G.GOODS_TSTATUS IN ('N', 'ING', 'END')
 	 	 
 			AND     M.MEM_ID = #{MEM_ID}
 			

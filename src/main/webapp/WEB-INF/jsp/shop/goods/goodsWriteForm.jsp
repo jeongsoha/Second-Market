@@ -58,18 +58,18 @@
 				<input type="text" id="GOODS_TITLE" name="GOODS_TITLE" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_TITLE}"</c:if>>
 				<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_ID}">
 			</td>
-	      	<td>
+	      	<!-- <td>
 	      		중고상태
 	      	</td>
 	      	<td>
-	      		<!-- <select name="GOODS_STATUS" id="GOODS_STATUS">
+	      		<select name="GOODS_STATUS" id="GOODS_STATUS">
 					 <option value="" selected disabled hidden>==선택하세요==</option>
 				    <option value="1">A</option>
 				    <option value="2">B</option>
 				    <option value="3">C</option>
 				    <option value="4">D</option> 
-				</select> -->
-	      	</td>
+				</select>
+	      	</td> -->
 		</tr>
 		<tr>
 			<td>
@@ -81,12 +81,12 @@
 			
 		</tr>
 		<tr>
-			<td>
+			<%-- <td>
 				판매수량(기존 브랜드-타입변경필요)<br/>
 			</td>
 			<td>
 				<input type="text" id="GOODS_QTY" name="GOODS_QTY" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_QTY}"</c:if>>
-			</td>
+			</td> --%>
 			<td>
 				판매지역<br/>
 			</td>
@@ -96,7 +96,7 @@
 		</tr>
 		<tr>
 			<td colspan="4">
-               <img src="./../resources/images/form_pinfo.png"> <br/>
+               상품정보 작성 <br/>
             </td>
         </tr>
         <tr>

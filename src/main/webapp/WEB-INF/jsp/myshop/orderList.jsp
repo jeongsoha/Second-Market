@@ -271,8 +271,7 @@ function fn_goodsDetail(obj) {
 function fn_Buychk(num) {
 	var comSubmit = new ComSubmit("");
 	comSubmit.setUrl("<c:url value='/myshop/BuyComplete' />");
-	comSubmit.addParam("ORDERS_NUM", num);
-	comSubmit.addParam("GOODS_NUM", num);
+	comSubmit.addParam("ORDERS_NUM", num);//GOODS에 END업데이트 작업에도 쓰임	
 	comSubmit.submit();
 }
 

@@ -417,7 +417,7 @@ nav a:nth-child(5):hover ~ .nav-underline {
 					divId : "PAGE_NAVI",
 					pageIndex : "PAGE_INDEX",
 					totalCount : total,
-					recordCount : 6,
+					recordCount : 8,
 					eventName : "fn_selectGoodsList"
 				};
 				gfn_renderPaging(params);
