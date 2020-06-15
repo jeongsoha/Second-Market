@@ -72,7 +72,7 @@ button {
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         clear:both;
-        padding: 50px;
+        padding: 0px;
         background:#eeeeee;
    }
    
@@ -104,7 +104,7 @@ button {
 	}
 	
 	#con{
-		margin: auto 200px auto 200px;
+		margin: auto 100px auto 100px;
 	}
 	#dot{
 		margin:0px auto;
