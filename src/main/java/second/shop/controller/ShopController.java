@@ -189,8 +189,10 @@ public class ShopController{
 		mv.addObject("goodsLikeMap", map.get("goodsLikeMap"));
 		mv.addObject("memberMap", map.get("memberMap"));
 		mv.addObject("list", map.get("list"));
-		/* mv.addObject("list",map.get("list")); */
 		
+		mv.addObject("reportMap", map.get("reportMap"));//(유진추가) 신고당한 게시글을 구분한 데이터를 리턴 
+		/* mv.addObject("list",map.get("list")); */
+		System.out.println(mv+"======================");
 		return mv;
 	}
 	

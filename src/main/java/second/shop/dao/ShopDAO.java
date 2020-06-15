@@ -38,6 +38,11 @@ public class ShopDAO extends AbstractDAO {
 		return (Map<String, Object>) selectOne("shop.selectGoodsDetail", map);
 	}
 	
+	@SuppressWarnings("unchecked") //(유진추가) 신고당한 게시글을 알아보기 위한 DAO
+	public Map<String, Object> selectGoodsReport(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>) selectOne("shop.selectGoodsReport", map);
+	}
+	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectMemberInfo(Map<String, Object> map) throws Exception{
 		return (Map<String, Object>) selectOne("mypage.selectAccountInfo", map);
