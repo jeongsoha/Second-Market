@@ -79,7 +79,7 @@ $("#pwchangeform").on("submit",function(e){
 	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
 	      </ul> -->
 	      
-	<div style= "padding: 0px 0px 0px 700px;" >
+	<div style= "padding: 0px 0px 0px 500px;" >
 		<ul style="display:inline-block; margin-left:200px ">
 			<li style="display:inline-block" class="selected"><a href="accountDetail" >회원정보</a></li>
 		 |	<li style="display:inline-block" ><a href="pwModifyForm">비밀번호 변경</a></li>
@@ -90,7 +90,7 @@ $("#pwchangeform").on("submit",function(e){
 	</div>
 	      
 	   </div>
-	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 700px;">
+	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 390px;">
             <div class="card-title" style="margin-top:30px;">
                <h2 class="card-title text-center" style="color:#113366;">비 밀 번 호 변 경</h2>
             </div>

@@ -15,6 +15,8 @@
   				pager:true, 
 			}); 
 		}); */
+
+
 	</script>
   	
 <meta charset="UTF-8">
@@ -57,6 +59,12 @@
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
 						판매가격 : ${map.GOODS_PRICE}<br /> 
 						거래지역 : ${map.GOODS_REGION}
+						<br/><br/>
+						<c:if test="${reportMap.REPORTS != 0}">
+						 <div style="color:red; font-weight:bold;">
+						 ※신고당한 판매상품 입니다.
+						 </div>
+						 </c:if>
 						<br/>
 						<br>
 					</td>
@@ -79,7 +87,8 @@
 		  	</c:otherwise>
 		</c:choose>
 				
-				</td>	
+				</td>
+				
 				</tr>
 			</tbody>
 		</table>

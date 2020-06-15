@@ -81,10 +81,13 @@ public class ShopServiceImpl implements ShopService {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		Map<String, Object> tempMap = shopDAO.selectGoodsDetail(map);
 		Map<String, Object> memberMap = shopDAO.selectMemberInfo(tempMap);
+		Map<String, Object> reportMap = shopDAO.selectGoodsReport(map); //(유진추가) 신고당한 글을 알아보기 위한 맵
 		
 		resultMap.put("map", tempMap);
 		resultMap.put("memberMap", memberMap);
+		resultMap.put("reportMap", reportMap);
 		System.out.println("@@@@@@@@@@@@@@@@@"+tempMap);
+		System.out.println("!!!!!!!!!!!!!!!!!!"+reportMap);
 		
 		if(map.containsKey("LIKE_MEM_ID")) {
 			Map<String, Object> goodsLikeMap = shopDAO.selectGoodsLike(map);

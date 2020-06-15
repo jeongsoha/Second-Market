@@ -42,9 +42,9 @@ $(document).ready(function() { //변경 버튼 클릭시
 
 </script>
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-      <div  style="border-radius:20px; background-color:#fff; margin-top:50px;">
+      <div  >
       <div >
       
 <!--          <div id="vertical_tab-container">
@@ -57,7 +57,7 @@ $(document).ready(function() { //변경 버튼 클릭시
 	      </ul>
 	   </div> -->
 	   
-	 <div style= "padding: 0px 0px 0px 700px;" >
+	 <div style= "padding: 0px 0px 0px 500px;" >
 		<ul style="display:inline-block; margin-left:200px ">
 			<li style="display:inline-block" class="selected"><a href="accountDetail" >회원정보</a></li>
 		 |	<li style="display:inline-block" ><a href="pwModifyForm">비밀번호 변경</a></li>
@@ -69,17 +69,17 @@ $(document).ready(function() { //변경 버튼 클릭시
 	   
 	   <div id="main-container">
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366; padding: 0px 0px 0px 590px;">회 원 탈 퇴</h2>
+               <h2 class="card-title text-center" style="color:#113366; padding: 0px 0px 0px 350px;">회 원 탈 퇴</h2>
             </div>
             <form id="deleteAccountForm" method="post">
-            <div class="card-body" style="width:1000px; padding: 0px 0px 0px 700px;">
+            <div class="card-body" style="width:1000px; padding: 0px 0px 0px 390px;">
             <p>
             	한 번 탈퇴하시면 회원님의 정보를 복구할 수 없습니다.<br/>신중히 선택해 주시길 바랍니다.
 			</p>
                	비밀번호<input class="form-control" type="password" id="MEM_PW" name="MEM_PW"><br>
             </div>
          
-            <div class="card-body" style="width:1000px; padding: 0px 0px 0px 700px;">
+            <div class="card-body" style="width:1000px; padding: 0px 0px 0px 390px;">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="탈퇴하기" id="delete" style="background-color:#26a69a;">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/sample/openBoardList'" style="background-color:#26a69a;">
 				<br>
