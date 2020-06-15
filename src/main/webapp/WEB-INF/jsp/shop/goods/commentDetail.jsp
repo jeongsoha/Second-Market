@@ -5,53 +5,89 @@
 <head>
 	<%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="EUC-KR">
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+</style>
+<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+<style>
+td {
+	font-size:15px;
+	text-align: center;
+}
+
+table {
+	border-color: #dfdfdf;
+	
+}
+
+
+
+</style>
 <title>문의 답글 등록</title>
 </head>
 <body>
-	<table border="1">
-		<tr>
-			<td style="width: 150px">${cMap.MEM_ID }</td>
-			<td style="width: 250px">${cMap.COMMENTS_DATE }</td>
+	<table border="1" bordercolor="#dfdfdf">
+		<tr style="height: 70px;">
+		<td style="width:150px">${cMap.MEM_ID }</td>
+			<td colspan="2" style="width:250px">${cMap.COMMENTS_DATE }</td>
+			
 			<c:choose> 
 				<c:when test="${cMap.COMMENTS_REPLY == 'N'}">
-					답변대기</td>
+					<td style="width:100px">답변대기</td>
 				</c:when>
 				<c:when test="${cMap.COMMENTS_REPLY == 'Y'}">
-					답변완료</td>
+					<td style="width:100px">답변완료</td>
 				</c:when>
 			</c:choose>
-					<td rowspan="2" style="width: 100px" align="center">
-						<a href="#this" id="cDelete" name="cDelete">문의삭제 
-						<input type="hidden" id="COMMENTS_NUM" name="COMMENTS_NUM" value="${cMap.COMMENTS_NUM }">
-						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${cMap.COMMENTS_PARENT }">
-						</a>
-					</td>
+
 		</tr>
 		<tr>
-			<td colspan="3" style="height:150px">${cMap.COMMENTS_CONTENT}</td>
+
+			<td colspan="3" style="height:200px; background-color: #f6f6f6; text-align: left; padding-left: 30px;"> 
+				<div style="border:1px solie red;"> ${cMap.COMMENTS_CONTENT}
+				</div>	
+			</td>
+
+			
+			<td>
+				<a href="#this" id="cDelete" name="cDelete" style="font-size: 15px;">문의삭제 
+				<input type="hidden" id="COMMENTS_NUM" name="COMMENTS_NUM" value="${cMap.COMMENTS_NUM }">
+				<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${cMap.COMMENTS_PARENT }">
+				</a>
+			</td>
 		</tr>
+		<tr></tr>
+	</table>
+	<br></br>
+	<table>
 		<c:choose> 
 			<c:when test="${cMap.COMMENTS_REPLY == 'N' && session_MEM_INFO.MEM_ID == G_MEM_ID}" >
 				<form id="frm" name="frm">
-					<tr>
-						<td>${session_MEM_INFO.MEM_ID}</td>
-						<td><a href="#this" id="rcWrite" name="rcWrite">답글등록</a>
+
+					<tr style="height: 70px;">
+						<td style="width: 180px;">${session_MEM_INFO.MEM_ID}</td>
+						<td style="height:150px;text-align: left;"><textarea name='COMMENTS_CONTENT' id='COMMENTS_CONTENT' rows='5' cols='120' style='resize: none;'></textarea></td>
+						<td style="text-align: right;"><a href="#this" id="rcWrite" name="rcWrite" class="btn">답글등록</a>
 							<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="1">
 							<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${cMap.COMMENTS_PARENT }">
 							<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_INFO.MEM_ID }">
 							<input type="hidden" id="COMMENTS_RNUM" name="COMMENTS_RNUM" value="${cMap.COMMENTS_NUM }">
 						</td>
 					</tr>
-					<tr>
-						<td colspan="3" style="height:150px"><textarea name='COMMENTS_CONTENT' id='COMMENTS_CONTENT' rows='5' cols='120' style='resize: none;'></textarea></td>
-					</tr>
 				</form>
 			</c:when>
+		</c:choose>
+	</table>
+	<table border="1" bordercolor="#dfdfdf">
+		<c:choose>
 			<c:when test="${cMap.COMMENTS_REPLY == 'Y'}">
-	      		<tr>
-					<td>판매자 : ${rMap.MEM_ID}</td>
-					<td>${rMap.COMMENTS_DATE}</td>
-					<td>
+	      		<tr style="height: 70px;">
+					<td style="width: 150px; width: 390px;">답변 : ${rMap.MEM_ID}</td>
+					<td colspan="2">${rMap.COMMENTS_DATE}</td>
+					
+					<td style="width: 260px;">
 					<c:if test="${session_MEM_INFO.MEM_ID == G_MEM_ID}">
 						<a href="#this" id="rcDelete" name="rcDelete">답글삭제
 						<input type="hidden" id="REPLY_NUM" name="REPLY_NUM" value="${rMap.COMMENTS_NUM }">
@@ -60,15 +96,18 @@
 						</a>
 					</c:if>
 					</td>
+					
 				</tr>
-				<tr>
-					<td colspan="3" style="height:150px">${rMap.COMMENTS_CONTENT}</td>
+				<tr style="background-color: #f6f6f6;">
+					<td colspan="4" style="height:150px; text-align: left; padding-left: 30px;">${rMap.COMMENTS_CONTENT}</td>
 				</tr>
 			</c:when>
 		</c:choose>
 	</table>
-	<div align="center">
-		<a href="#this" id="goGoodsDetail" name="goGoodsDetail">상품페이지로 이동
+	
+	
+	<div align="center" style="margin: 20px;">
+		<a href="#this" id="goGoodsDetail" name="goGoodsDetail" class="btn" style="width: 180px;">상품페이지로 이동
 		<input type="hidden" id="H_GOODS_NUM" name="H_GOODS_NUM" value="${cMap.COMMENTS_PARENT }">
 		</a>
 	</div>

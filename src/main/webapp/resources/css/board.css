@@ -1,9 +1,29 @@
 /* UI Object */   
-.tbl_type,.tbl_type th,.tbl_type td{border:0}
-.tbl_type{width:100%;border-bottom:1px solid #bbbbbb;font-family:Tahoma;font-size:11px;text-align:center}
-.tbl_type caption{display:none}
-.tbl_type th{padding:7px 0 4px;border-bottom:1px solid #949494;border-top:1px solid #949494;background-color:#e1e6e5;color:#666;}
-.tbl_type td{padding:6px 0 4px;border-top:1px dashed #cecece;color:#595959}
+.tbl_type,.tbl_type th,.tbl_type td{
+	border:0
+}
+.tbl_type{
+	width:100%;
+	border-bottom:1px solid #bbbbbb;
+	font-size:15px;
+	text-align:center
+}
+.tbl_type caption{
+	display:none
+}
+.tbl_type th{
+	padding:7px 0 4px;
+	border-bottom:1px solid #949494;
+	border-top:1px solid #949494;
+	background-color:#e1e6e5;
+	color:#666;
+}
+.tbl_type td{
+	padding:6px 0 4px;
+	border-top:1px dashed #cecece;
+	color:#595959
+}
+
 /* //UI Object */
 
 h1 {
@@ -20,7 +40,7 @@ h3 {
 	
 .container {
 	width: 100%; 
-	margin: 10px auto; 
+	margin: 100px auto; 
 	text-align: center;
 }
 ul.goodsTabs {
@@ -30,9 +50,9 @@ ul.goodsTabs {
 	list-style: none;
 	height: 32px;
 	/* border-bottom: 1px solid #999; */
-	border-left: 1px solid #999;
+	/* border-left: 1px solid #999; */
 	width: 100%;
-	
+	height: 50px;
 }
 ul.goodsTabs li {
 	
@@ -41,10 +61,10 @@ ul.goodsTabs li {
 	padding: 0;
 	height: 31px;
 	line-height: 31px;
-	border: 1px solid #999;
+	/* border: 1px solid #999; */
 	border-left: none;
 	margin-bottom: -1px;
-	background: #F0F0F0;
+	/* background: #F0F0F0; */
 	overflow: hidden;
 	position: relative;
 }
@@ -83,6 +103,10 @@ html ul.goodsTabs li.selected, html ul.goodsTabs li.active a:hover  {
 .goodsTab_content {
 	padding: 20px;
 	font-size: 1.2em;
+	color: #a3a3a3;
+	border-bottom: 1px solid #dfdfdf;
+	margin-bottom: 10px;
+	padding-bottom: 150px;
 }
 .goodsTab_content h2 {
 	font-weight: normal;
@@ -94,7 +118,7 @@ html ul.goodsTabs li.selected, html ul.goodsTabs li.active a:hover  {
 	color: #254588;
 }
 .goodsTab_content img {
-	float: left;
+	/* float: left; */
 	margin: 0 20px 20px 0;
 	border: 1px solid #ddd;
 	padding: 5px;

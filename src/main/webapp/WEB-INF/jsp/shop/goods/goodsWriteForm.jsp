@@ -38,23 +38,17 @@
          </colgroup>
 		<tr>
 			<td>
-	      		<img src="./../resources/images/form_category.png">
+	      		카테고리
 	      	</td>
-	      	<td>
+	      	<td>  
 	      		<select name="GOODS_CATEGORY" id="GOODS_CATEGORY">
-					<option value="" selected disabled hidden>==선택하세요==</option>
-				    <option value="1">의류</option>
-				    <option value="2">전자기기</option>
-				    <option value="3">악세서리</option>
-				    <option value="4">기타</option>
+					<option value="" disabled hidden>==선택하세요==</option>
+				    <option value="1" <c:if test="${map.GOODS_CATEGORY eq '1'}">selected</c:if>>의류</option>
+				    <option value="2" <c:if test="${map.GOODS_CATEGORY eq '2'}">selected</c:if>>전자기기</option>
+				    <option value="3" <c:if test="${map.GOODS_CATEGORY eq '3'}">selected</c:if>>악세서리</option>
+				    <option value="4" <c:if test="${map.GOODS_CATEGORY eq '4'}">selected</c:if>>기타</option>
 				</select>
 	      	</td>
-	      	<td>
-				 test1<br/>
-			</td>
-		<!-- <td>
-				<input type="text" id="GOODS_HASH" name="GOODS_HASH" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_HASH}"</c:if>>
-			</td> -->	
 		</tr>
 		<tr>
 			<td>
@@ -84,12 +78,7 @@
 			<td>
 				<input type="text" id="GOODS_PRICE" name="GOODS_PRICE" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_PRICE}"</c:if>>
 			</td>
-			<td>
-				배송비인가요<br/>
-			</td>
-		<!-- 	<td>
-				<input type="text" id="GOODS_DCOST" name="GOODS_DCOST" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_DCOST}"</c:if>>
-			</td>  -->
+			
 		</tr>
 		<tr>
 			<td>

@@ -19,13 +19,17 @@
 	</script>
   	
 <meta charset="UTF-8">
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+</style>
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <style>
 
 .degoodsti{
-	font-size: 20px;
+	font-size: 30px;
     line-height: 30px;
+    font-weight: bold;
 }
 
 .degoodspr{
@@ -35,7 +39,7 @@
 }
 .degoodsco{
 	color: #a3a3a3;
-    font-size: 14px;
+    font-size: 22px;
 }
 nav {
   position: relative;
@@ -44,7 +48,7 @@ nav {
   margin: 0 0 0 300px;
     text-align: center;
 }
-nav a {
+nav li {
   display: block;
   width: 20%;
   padding: .75em 0;
@@ -61,35 +65,39 @@ nav a {
   background: #333;
   transition: all .3s ease-in-out;
 }
-nav a:nth-child(1).is-current ~ .nav-underline {
+nav li:nth-child(1).selected ~ .nav-underline {
   left: 0;
 }
-nav a:nth-child(2).is-current ~ .nav-underline {
+nav li:nth-child(2).selected ~ .nav-underline {
   left: 20%;
 }
-nav a:nth-child(3).is-current ~ .nav-underline {
+nav li:nth-child(3).selected ~ .nav-underline {
   left: 40%;
 }
-nav a:nth-child(4).is-current ~ .nav-underline {
+nav li:nth-child(4).selected ~ .nav-underline {
   left: 60%;
 }
-nav a:nth-child(5).is-current ~ .nav-underline {
+nav li:nth-child(5).selected ~ .nav-underline {
   left: 80%;
 }
-nav a:nth-child(1):hover ~ .nav-underline {
+nav li:nth-child(1):hover ~ .nav-underline {
   left: 0;
 }
-nav a:nth-child(2):hover ~ .nav-underline {
+nav li:nth-child(2):hover ~ .nav-underline {
   left: 20%;
 }
-nav a:nth-child(3):hover ~ .nav-underline {
+nav li:nth-child(3):hover ~ .nav-underline {
   left: 40%;
 }
-nav a:nth-child(4):hover ~ .nav-underline {
+nav li:nth-child(4):hover ~ .nav-underline {
   left: 60%;
 }
-nav a:nth-child(5):hover ~ .nav-underline {
+nav li:nth-child(5):hover ~ .nav-underline {
   left: 80%;
+}
+
+a{
+	text-align:center;
 }
 </style>
 </head>
@@ -115,15 +123,14 @@ nav a:nth-child(5):hover ~ .nav-underline {
 					<td rowspan="4">
 						<c:choose>
 							<c:when test="${map.GOODS_THUMBNAIL eq null}">
-								<img alt="" style="width:90%; height:500px; padding:10px 10px 10px 10px;" src=<c:url value="/resources/images/no_image.png"/>>
+								<img alt="" style="width:100%; height:500px; padding:10px 10px 10px 10px;" src=<c:url value="/resources/images/no_image.png"/>>
 							</c:when>
 							<c:otherwise>
-								<img alt="" style="width:90%; height:500px; padding:10px 10px 10px 10px;" src="${path}${map.GOODS_THUMBNAIL}">	
+								<img alt="" style="width:100%; height:500px; padding:10px 10px 10px 10px;" src="${path}${map.GOODS_THUMBNAIL}">	
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td colspan="3" style="padding:0 0 0 70px; font-size:15px;">
-						<br>
+					<td colspan="3" style="padding:0 0 0 70px; font-size:15px; padding-top: 100px;">
 
 						<h1 class="degoodsti" >${map.GOODS_TITLE} </h1>	
 						<%-- 판매수량 : ${map.GOODS_QTY} <br/> --%>
@@ -131,24 +138,23 @@ nav a:nth-child(5):hover ~ .nav-underline {
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
 						<h1 class="degoodspr">₩${map.GOODS_PRICE}</h1>
 						<h1 class="degoodsco">${map.GOODS_REGION}에서 거래 가능</h1>
-						<br/> 	
-						<br>
+
 					</td>
 				</tr>
 				
-				<tr align="center" class="debtn01">
-					<td colspan="3">
-					<a href='#this' id="buy" class="debtn01" > 바로구매</a> 	
+				<tr align="center">
+					<td colspan="3" style="padding-left: 70px;">
+					<a href='#this' id="buy"><div class="debtn01">바로구매</div></a> 	
 					</td>
 				</tr>
-				<tr align="center" class="debtn02">
-					<td colspan="3">
-					<a href='javascript: report_func();'>신고하기</a>
+				<tr align="center">
+					<td colspan="3" style="padding-left: 70px;">
+					<a href='javascript: report_func();'><div class="debtn02">신고하기</div></a>
 					</td>
 				</tr>
 				
-				<tr align="center" >
-				<td colspan="3">	
+				<tr align="center" > 
+				<td colspan="3" style="padding-left: 70px; padding-bottom: 20px;">	
 		<c:choose>
 			<c:when test="${goodsLikeMap.GOODS_LIKE_YN eq 0}">
 		    	<a href='javascript: like_func();'><img src=<c:url value="/resources/images/like_black.png"/> id='unlike_img' style="width:30px; height:30px"></a>
@@ -172,9 +178,9 @@ nav a:nth-child(5):hover ~ .nav-underline {
 		<div class="container" style="width:100%">
 		<nav>
 		    <ul class="goodsTabs">
-		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
-		        <li><a href="#goodsTab2">상품문의</a></li>
-		        <li><a href="#goodsTab3">판매자정보</a></li>
+		        <li class="goodsTabsLi selected"><a href="#goodsTab1">상품상세보기</a></li>
+		        <li class="goodsTabsLi"><a href="#goodsTab2">상품문의</a></li>
+		        <li class="goodsTabsLi"><a href="#goodsTab3">판매자정보</a></li>
 		        <div class="nav-underline"></div>
 		    </ul>
 		</nav>
@@ -210,12 +216,12 @@ nav a:nth-child(5):hover ~ .nav-underline {
 				      				<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="1"/>
 				      				<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${map.GOODS_NUM}"/>
 				      				<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_INFO.MEM_ID }"/>
-									<input type="button" id="cWrite" name="cWrite" value="문의하기" onClick="" style="vertical-align : middle;">
+									<input type="button" id="cWrite" name="cWrite" class="btn" value="문의하기" onClick="" style="vertical-align : middle; height: 50px;">
 			      				</div>
 			      			</c:if>
 	      				</form>
 	      				<br>
-					<table id="goodsTab2_ct" class="tbl_type" style="width:100%; height: 100px;">
+					<table id="goodsTab2_ct" class="tbl_type" style="width:100%; height: 150px;">
 						<tbody>
 						</tbody>
 			       </table>
@@ -464,22 +470,22 @@ nav a:nth-child(5):hover ~ .nav-underline {
 				$.each(
 								data.list,
 								function(key, value) {									
-							str +=				"<tr style='border-top-style: Double; border-color: #000000;'>"
-						           		+	    "<td length='30%' target='_blank' style='width:300px;'>";
+							str +=				"<tr style='border-top: 1px solid #dfdfdf;'>"
+						           		+	    "<td length='30%' target='_blank' style='width:500px;'>";
 						    if('${session_MEM_INFO.MEM_ID}' == value.MEM_ID || '${session_MEM_INFO.MEM_ID}' == '${memberMap.MEM_ID}'){
 						    	
-						    str +=				"<a href='#this' onClick='fn_detailComment("+value.COMMENTS_NUM+")'>"
+						    str +=				"<a href='#this' onClick='fn_detailComment("+value.COMMENTS_NUM+")' style='font-weight: bold;'>"
 						    			+		"<input type='hidden' id='G_MEM_ID' name='G_MEM_ID' value='${memberMap.MEM_ID}'>"
 						         		+       		value.MEM_ID
 						         		+		" 님의 상품문의입니다.</a>";
 						    } else {
-						    str +=				"<a href='#this' onClick='fn_chkUsr()'>"
+						    str +=				"<a href='#this' onClick='fn_chkUsr()' style='font-weight: bold;'>"
 						         		+       		value.MEM_ID
 						         		+		" 님의 상품문의입니다.</a>";
 						    	
 						    }      		
 						    str+=      	    	"</td>"
-							            +   		"<td colspan='2' style='width:170px; align=center;'>"
+							            +   		"<td colspan='2' style='width:200px; align=center;'>"
 							            +     			new Date(value.COMMENTS_DATE).toLocaleString()
 							            +     	"</td>"
 								        +        "<td>";

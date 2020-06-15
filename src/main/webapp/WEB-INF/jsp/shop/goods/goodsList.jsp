@@ -13,7 +13,9 @@
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
 <style>
 html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
@@ -52,16 +54,17 @@ table {
 }
 /*css 초기화*/
 .card {
-   float:left;
+/*    float:left; */
    height: 350px;
    width: 20%;
-   border-radius: 15px;
    display: inline-block;
    margin-top: 30px;
-   margin-left: 20px;
+   margin-left: 10px;
+   margin-right: 10px;
    margin-bottom: 30px;
    position: relative;
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+   border: 1px solid #dfdfdf;
    overflow: hidden;
 }
 .card-header {
@@ -72,7 +75,6 @@ table {
     transition: 0.5s;
    width: 100%;
    height: 230px;
-   border-radius: 15px 15px 0 0;
    background-image: url("second/resources/images/no_image.png");
    background-size: 100% 280px;
    background-repeat: no-repeat;   
@@ -161,7 +163,6 @@ h3 {
     margin-right: 2px;
 }
 .icon-view_count {
-    width: 25px;
     height: 17px;
    background: url("images/eye.jpg") no-repeat;
 }
@@ -344,7 +345,51 @@ nav a:nth-child(5):hover ~ .nav-underline {
 			comAjax.addParam("path", $('#path').val());
 			comAjax.ajax();
 		}
+		
+		Number.prototype.format = function(){			// 숫자 3자리마다 콤마 삽입
+		    if(this==0) return 0;	
+		 
+		    var reg = /(^[+-]?\d+)(\d{3})/;			//정규식
+		    var n = (this + '');
+		 
+		    while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');
+		 
+		    return n;
+		};
+		
+		Date.prototype.format = function (f) {
+		    if (!this.valueOf()) return " ";
+		    var weekKorName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		    var weekKorShortName = ["일", "월", "화", "수", "목", "금", "토"];
+		    var weekEngName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		    var weekEngShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+		    var d = this;
 
+		    return f.replace(/(yyyy|yy|MM|dd|KS|KL|ES|EL|HH|hh|mm|ss|a\/p)/gi, function ($1) {
+
+		        switch ($1) {
+		            case "yyyy": return d.getFullYear(); // 년 (4자리)
+		            case "yy": return (d.getFullYear() % 1000).zf(2); // 년 (2자리)
+		            case "MM": return (d.getMonth() + 1).zf(2); // 월 (2자리)
+		            case "dd": return d.getDate().zf(2); // 일 (2자리)
+		            case "KS": return weekKorShortName[d.getDay()]; // 요일 (짧은 한글)
+		            case "KL": return weekKorName[d.getDay()]; // 요일 (긴 한글)
+		            case "ES": return weekEngShortName[d.getDay()]; // 요일 (짧은 영어)
+		            case "EL": return weekEngName[d.getDay()]; // 요일 (긴 영어)
+		            case "HH": return d.getHours().zf(2); // 시간 (24시간 기준, 2자리)
+		            case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2); // 시간 (12시간 기준, 2자리)
+		            case "mm": return d.getMinutes().zf(2); // 분 (2자리)
+		            case "ss": return d.getSeconds().zf(2); // 초 (2자리)
+		            case "a/p": return d.getHours() < 12 ? "오전" : "오후"; // 오전/오후 구분
+		            default: return $1;
+		        }
+		    });
+		};
+		
+		String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+		String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+		Number.prototype.zf = function (len) { return this.toString().zf(len); };
+		
 		function fn_selectGoodsListCallback(data) {
 			var total = data.TOTAL;
 			var body = $("table>tbody");
@@ -369,7 +414,9 @@ nav a:nth-child(5):hover ~ .nav-underline {
 								function(key, value) {
 									var imgpath = "";
 									var tstatus = "";
-									
+									var goods_price = value.GOODS_PRICE;
+										goods_price = goods_price.format();  /* number가 아니면 에러 */
+										
 									if(value.GOODS_THUMBNAIL == null){
 										imgpath = 	"<div class='card-header'>"
 									}else{
@@ -384,7 +431,7 @@ nav a:nth-child(5):hover ~ .nav-underline {
 									/* }else if (value.GOODS_QTY == 0){ */
 										tstatus += "<div class = 'card-header-is_closed' >" 
 										 	     + "<div class = 'card-header-text' >" 
-										 	     + "거래불가";
+										 	     + "거래완료";
 									}
 							
 									str +=  "<div class='card'>"
@@ -393,23 +440,30 @@ nav a:nth-child(5):hover ~ .nav-underline {
 										+ 		  tstatus
 										+ 					"</div >"
 										+	                "<div class = 'card-header-number' >"
-										+					value.GOODS_QTY + "개"
 										+					"</div >" 
 										+	            "</div >"
 										+	      "</div>"
 										+	      "<div class='card-body'>"
 										+	         "<div class='card-body-header'>"
+
+										+			"<div style='float: left;'>"
 										+	            "<h1>"
 										+				value.GOODS_TITLE
 										+				"</h1>"
-										+	            "<p class = 'card-body-nickname'>"
-										+	                                 "작성자: "
-										+									value.MEM_ID
-										+	                          "</p>"
+										+			"</div>"
+										+	"<br>"
+										+		"<div>"
+										+			"<div style='display: inline-block; float: left;'>"
 										+	            "<h3>"
-										+ 				value.GOODS_PRICE +"원"
+										+ 				goods_price +"원"
 										+				"</h3>"
+										+			"</div>"
+										+	            "<div class = 'card-body-nickname' style='display: inline-block; float: right;'>"
+										+	                                 "판매자: "
+										+									value.MEM_ID
+										+	            "</div>"
 										+	         "</div>"
+										+		"</div>"
 										+	         "<div class='card-body-footer'>"
 										+	            "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"
 										+	            "<i class='icon icon-view_count'></i>조회수 "
@@ -419,14 +473,13 @@ nav a:nth-child(5):hover ~ .nav-underline {
 										+				value.TOTAL_COUNT2
 										+				"개"
 										+	            "<i class='reg_date'>"
-										+				new Date(value.GOODS_DATE).toLocaleString()
+										+				new Date(value.GOODS_DATE).format('yyyy-MM-dd')
 										+				"</i>"
 										+	         "</div>"
 										+	      "</div>"
 										+ 	   "<input type='hidden' id='IDX1' value=" + value.GOODS_NUM + ">"
 										+	   "</a>"
 										+	   "</div>";
-										
 								});
 				body.append(str);
 
