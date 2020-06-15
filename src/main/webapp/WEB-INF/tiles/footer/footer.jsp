@@ -81,7 +81,7 @@
       <!-- 로고 & 글 -->   
             <div class="qrcode">
                <p><img src="<c:url value="/resources/images/logo6_1.png"/>" style="width:200px;height: auto;"/></p>
-               <div class="utilMenu_unit2">
+               <div class="utilMenu_unit2">  
                   <p class="escrow_info">second샵은 통신판매중개자로서 중고거래마켓 second샵의 거래 당사자가 아니며,<br/>입점판매가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.<br/>
                </div>
             </div>
