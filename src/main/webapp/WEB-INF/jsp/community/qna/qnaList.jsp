@@ -66,6 +66,7 @@ button {
     <a href="qnaList"><button class="tab_menu_btn on" type="button">Q&A게시판</button></a>
   </div>
   </div>
+  
    <div id="main-container">
    
 	<h2>Q&A게시판</h2>
@@ -96,7 +97,7 @@ button {
 	<br />
 	<div align="right">
 	<c:if test="${session_MEM_INFO.MEM_ID != NULL }">
-		<a href="qnaWriteForm"><button class="btn btn-primary">글쓰기</button></a>
+		<a href="qnaWriteForm"><button class="btn btn-success">글쓰기</button></a>
 	</c:if>
 	</div>
 	</div>

@@ -310,7 +310,7 @@ function fn_selectOrderListCallback1(data) {
 	var str1 = "";
 	body.empty();
 	str1 	+= 	"<tr>"
-				+		"<th width='200px' align='center'>주문번호</th>"
+				+		"<th width='150px' align='center'>주문번호</th>"
 				+		"<th width='100px' align='center'>주문일자</th>"
 				+		"<th width='200px' align='center'>송장번호</th>"
 				+		"<th width='100px' align='center'>주문금액</th>"
