@@ -299,8 +299,8 @@ function fn_selectMySaleListCallback1(data) {
 	var str1 = "";	
 	body.empty();
 	str1 	+= 	"<tr>"
-		+		"<th width='200px' align='center'>상품번호aa</th>"
-		+		"<th width='100px' align='center'>상품이름aa</th>"
+		+		"<th width='200px' align='center'>상품번호</th>"
+		+		"<th width='100px' align='center'>상품이름</th>"
 		+		"<th width='200px' align='center'>상품이미지</th>"
 		+		"<th width='100px' align='center'>주문일시</th>"
 		+		"<th width='100px' align='center'>판매상태</th>"

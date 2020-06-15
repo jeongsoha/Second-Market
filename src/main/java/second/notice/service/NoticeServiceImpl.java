@@ -56,8 +56,7 @@ public class NoticeServiceImpl implements NoticeService {
 				
 		noticeDAO.insertNotice(map);
 		map.put("IDX", map.get("NOTICE_NUM"));
-		System.out.println(map);
-
+	 
 		/*전체유저 뽑아내고 회원수만큼 공지사항 알림 전달하기*/  
 		List<Map<String, Object>> list = informDAO.selectAllMember(map);
  
@@ -70,17 +69,11 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void updateNoticeModify(Map<String, Object> map, HttpServletRequest request) throws Exception {
-		System.out.println("77775");
-		System.out.println(map);
-		noticeDAO.updateNoticeModify(map);
-		System.out.println("77776");
+ 		noticeDAO.updateNoticeModify(map);
+		 
 		map.put("IDX", map.get("NOTICE_NUM"));
-		System.out.println(map);
-		System.out.println("77777");
 		noticeDAO.deleteFileList(map);
 		List<Map<String, Object>> list = fileUtils.parseUpdateFileInfo(map, request);
-		System.out.println("====================list===============");
-		System.out.println(list);
 		Map<String, Object> tempMap = null;
 		for(int i=0, size=list.size(); i<size; i++) {
 			tempMap = list.get(i);

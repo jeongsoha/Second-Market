@@ -36,7 +36,7 @@ public class SampleController {
 	
 	@RequestMapping(value="/sample/openBoardList")
     public ModelAndView openBoardList(CommandMap commandMap) throws Exception{
-		//System.out.println("111");
+		 
     	ModelAndView mv = new ModelAndView("sample1");
     
     	return mv;
@@ -45,7 +45,7 @@ public class SampleController {
 	@RequestMapping(value="/sample/selectBoardList")
     public ModelAndView selectBoardList(CommandMap commandMap) throws Exception{
     	ModelAndView mv = new ModelAndView("jsonView");
-    	System.out.println("112");
+     
     	List<Map<String,Object>> list = sampleService.selectBoardList(commandMap.getMap());
     	mv.addObject("list", list);
         if(list.size() > 0){
@@ -54,7 +54,7 @@ public class SampleController {
         else{
             mv.addObject("TOTAL", 0);
         }
-       // System.out.println("113");
+       
     	return mv;
     }
 	

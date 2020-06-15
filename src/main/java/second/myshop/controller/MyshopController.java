@@ -44,7 +44,7 @@ public class MyshopController {
 			list = myshopService.selectMyOrderList3(commandMap.getMap());
 		}else {
 			list = myshopService.selectMyOrderList1(commandMap.getMap());
-			System.out.println("asdsaasd");
+			 
 		}
 		mv.addObject("list", list);
 		mv.addObject("tabNo", tabNo);

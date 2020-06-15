@@ -377,7 +377,7 @@ button {
 										+				"</h1>"
  
 										+	            "<p class = 'card-body-nickname'>"
-										+	                                 "판매1자: "
+										+	                                 "판매자: "
 										+									value.SELLER_ID
 										+	                          "</p>"
 										+	         "</div>"

@@ -114,8 +114,6 @@ public class LoginController {
 		if(id.equals("1")) {
 			String findId = (String)(loginService.findIdWithEmail(commandMap.getMap()).get("MEM_ID"));
 			System.out.println(findId);
-			System.out.println(findId);
-			System.out.println(findId);
 			return findId;
 			
 		}else {

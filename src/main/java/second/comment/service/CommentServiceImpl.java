@@ -31,9 +31,7 @@ public class CommentServiceImpl implements CommentService{
 	public void insertBoardComment(Map<String, Object> map) throws Exception {
 		System.out.println("===============DAO 확인===================");
 		commentDAO.insertBoardComment(map);
-		
-		
-		System.out.println("===============DAO 확인 2===================");
+		 
 	}
 
 	@Override

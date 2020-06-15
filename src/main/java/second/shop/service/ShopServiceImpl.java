@@ -61,7 +61,7 @@ public class ShopServiceImpl implements ShopService {
 		
 		// 상품정보 등록 쿼리 실행
 		shopDAO.insertGoods(map);
-		System.out.println("****12132* " + map);
+		 
 		
 		// 상품 등록 시 IDX 값을 받아 이미지 테이블에 값들을 담아줌
 		if(img_templist!="") { // img_list가 비어있지 않을 경우			
@@ -86,8 +86,7 @@ public class ShopServiceImpl implements ShopService {
 		resultMap.put("map", tempMap);
 		resultMap.put("memberMap", memberMap);
 		resultMap.put("reportMap", reportMap);
-		System.out.println("@@@@@@@@@@@@@@@@@"+tempMap);
-		System.out.println("!!!!!!!!!!!!!!!!!!"+reportMap);
+		 
 		
 		if(map.containsKey("LIKE_MEM_ID")) {
 			Map<String, Object> goodsLikeMap = shopDAO.selectGoodsLike(map);
