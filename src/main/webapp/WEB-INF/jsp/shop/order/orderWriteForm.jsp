@@ -8,44 +8,66 @@
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <meta charset="UTF-8">
 <style type="text/css">
-
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<style>
+/* tr, th {
+	text-align:center;
+	height: 50px;
+} */
+</style>
 </head>
 <body>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
 
-
 <div id="content">
 	<form  method="post" id="frm" name="frm" enctype="multipart/form-data" onsubmit="return formCheck();">
-	<h1 align="center">주문</h1>
-	
+	<h1>주문/결제</h1>
+
 	<div>
 			<table border="1">
 				<tr>
-					<th style="width: 16.6667%;">상품정보</th>
-					<th style="width: 16.6667%;">주문일자</th>
-					<th style="width: 16.6667%;">주문번호</th>
-					<th style="width: 16.6667%;">구매수량</th>
-					<th style="width: 16.6667%;">최종 결제금액</th>
+					<th>상품정보</th>
+				</tr>	
+				<tr>
+					<td>${orderG.GOODS_TITLE}</td>
+				</tr>
+				<tr>			
+					<th>주문일자</th>
 				</tr>
 				<tr>
-					<td style="width: 16.6667%;">${orderG.GOODS_TITLE}</td>
-					<td style="width: 16.6667%;">${orderG.ORDER_TIME}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_NUM}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_PRICE}</td>
-					<td style="width: 16.6667%;">${orderG.GOODS_PRICE}</td>
+					<td>${orderG.ORDER_TIME}</td>
 				</tr>
+				<tr>
+					<th>주문번호</th>
+				</tr>
+				<tr>
+					<td>${orderG.GOODS_NUM}</td>
+				</tr>
+				<tr>
+					<th>최종 결제금액</th>
+				</tr>
+				<tr>
+					<td>${orderG.GOODS_PRICE}</td>
+				</tr>
+			</table>
+			<table>
 				<tr>
 					<th>
 						이름
 					</th>
+				</tr>
+				<tr>
+					<td>
+					</td>
+				</tr>
 					<th>
 						휴대전화
 					</th>
-					<th colspan="1">
+					<th colspan="2">
 						배송주소
 					</th>
 				</tr>
@@ -56,7 +78,7 @@
 					<td>
 						<input type="text" id="MEM_PHONE" name="MEM_PHONE" value="${orderM.MEM_PHONE}">
 					</td>
-					<td> 
+					<td colspan="2"> 
 						우편번호 <input type="text"  id="MEM_ZIP" name="MEM_ZIP" >
 						<input type="button" id="searchAddr" name="searchAddr"  onclick="zipcode()" value="우편번호 찾기"><br/>
 						 <label for="username">주소</label>
@@ -87,12 +109,13 @@
 						<input type="hidden" id="item_name" name="item_name" value="${orderG.GOODS_TITLE}"/>
 					</td>
 				</tr>
+			</table>
+			<table border="1">
 				<tr>
 					<th>
 						결제수단
 					</th>
 					<td>
-					무통장 / 카드 / 계좌이체 </br> 	
 					카카오페이 <input type="radio" id="ORDER_PAY" name="ORDER_PAY" value="kakaopay" checked="checked">
 					</td>
 					<th>
@@ -114,12 +137,12 @@
 					<td></td>
 				</tr>
 				<tr>
-					<th> 
+					<th colspan="4"> 
 						개인정보 제 3자 제공 동의(필수)
 					</th>
 				</tr>
 				<tr>
-						<td>
+						<td colspan="4" >
 							<textarea>
 세컨드샵 구매회원 약관 동의
 1. 회원의 주소 또는 e-mail주소에 도달함으로써 회사의 통지는 유효하고, 회원 정보의 변경/미변경에 대한 책임은 회원에게 있음. (제8조)
