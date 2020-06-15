@@ -25,7 +25,7 @@ td {
 	padding-left: 20px;
 }
 .area{
-	width: 100%;
+	width: 980px;
 	height: 200px;
 	resize:none;
 	margin-top: 20px;
@@ -104,7 +104,7 @@ td {
 			<table>
 				<tr style="border-top: 2px solid #ccc;border-bottom: 1px solid #dfdfdf;">
 					<th>결제수단</th>
-					<td >카카오페이 <input type="radio" id="ORDER_PAY" name="ORDER_PAY" value="kakaopay" checked="checked"></td>
+					<td style="width:150px;">카카오페이 <input type="radio" id="ORDER_PAY" name="ORDER_PAY" value="kakaopay" checked="checked"></td>
 					<td colspan="4">
 						 <input type="hidden" id="check" name="check"/>
 						 <div id="test"></div>
@@ -112,7 +112,7 @@ td {
 						 if(document.getElementById("check").value == "true"){
 							 $("#test").append("결제완료");
 						 }else{
-							 $("#test").append("<a href='#this' class='btn' id='pay_btn'><button class='bttn-bordered bttn-xs bttn-primary'>결제하기</button></a>"); 
+							 $("#test").append("<a href='#this' class='btn' id='pay_btn'>결제하기</a>"); 
 						 }
 						 </script>
 					</td>
@@ -136,14 +136,14 @@ td {
 						</td>
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td colspan="5" style="border-bottom: 1px solid #dfdfdf; padding-bottom: 10px;">
 						상기 내용을 확인하였으며 이에 동의합니다.
 						<input type="checkbox" id="terms" name="terms">
 					</td>
 				</tr>	
 		</table>
 		<p align="center">
-			<a href="#this" class="btn" id="submitPay"><button class="bttn-bordered bttn-xs bttn-primary">주문하기</button></a>
+			<a href="#this" class="btn" id="submitPay">주문하기</a>
 		</p>
 	</div>
 	</form>

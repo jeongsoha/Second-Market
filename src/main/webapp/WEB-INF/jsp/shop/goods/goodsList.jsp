@@ -341,7 +341,7 @@ nav a:nth-child(5):hover ~ .nav-underline {
 		Number.prototype.format = function(){			// 숫자 3자리마다 콤마 삽입
 		    if(this==0) return 0;	
 		 
-		    var reg = /(^[+-]?\d+)(\d{3})/;			//정규식
+		    var reg = /(^[+-]?\d+)(\d{3})/;			// 정규식
 		    var n = (this + '');
 		 
 		    while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');

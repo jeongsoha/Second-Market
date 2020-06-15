@@ -92,9 +92,9 @@ td {
 	  </table>
 	  
       	<div align="center">
-      		<c:if test="${request_type eq 'modify'}"><a href="#this" class="btn" id="updateBtn"><button>수정하기</button></a></c:if>
-			<c:if test="${request_type eq 'write'}"><a href="#this" class="btn" id="addBtn"><button>작성하기</button></a></c:if>
-			<a href="#this" class="btn" id="list"><button>목록으로</button></a>
+      		<c:if test="${request_type eq 'modify'}"><a href="#this" class="btn" id="updateBtn">수정하기</a></c:if>
+			<c:if test="${request_type eq 'write'}"><a href="#this" class="btn" id="addBtn">작성하기</a></c:if>
+			<a href="#this" class="btn" id="list">목록으로</a>
 			
       	</div>
 	  
