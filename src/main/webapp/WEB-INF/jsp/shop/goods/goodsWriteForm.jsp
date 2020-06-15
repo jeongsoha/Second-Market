@@ -11,15 +11,33 @@
 
 <meta charset="UTF-8">
 <style type="text/css">
-#main-container
-{
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+#main-container{
    min-height: 200px;
    margin: auto;
    padding: 20px;
    background-color: #fff;
-   border: 1px solid #888;
 }
-
+th {
+	height: 50px;
+	width: 18%;
+	padding-right: 20px;
+	text-align: right;
+    background-color: #f6f6f6;
+} 
+td {
+	padding-left: 20px;
+}
+.text_type{
+	width: 500px;
+    height: 40px;
+    font-size: 15px;
+}
+.search_box1{
+	width: 100px;
+    height: 40px;
+}
 </style>
 </head>
 <body>
@@ -27,21 +45,13 @@
 
 <div id="content">
 	<div id="main-container">
-	<center><img src="./../resources/images/form_tgoods.png"></center>
+	<h1 style="text-align:center; letter-spacing:5px;">상품등록</h1>
 		<form  method="post" id="frm" name="frm" enctype="multipart/form-data" onsubmit="return formCheck();">
-		<table class="tbl_type">
-		<colgroup>
-            <col width="10%">
-            <col width="*"/>
-            <col width="10%">
-            <col width="*%">
-         </colgroup>
-		<tr>
-			<td>
-	      		카테고리
-	      	</td>
+		<table>
+		<tr style="border-top: 2px solid #ccc;border-bottom: 1px solid #dfdfdf;">
+			<th>카테고리</th>
 	      	<td>  
-	      		<select name="GOODS_CATEGORY" id="GOODS_CATEGORY">
+	      		<select name="GOODS_CATEGORY" id="GOODS_CATEGORY" class="search_box1">
 					<option value="" disabled hidden>==선택하세요==</option>
 				    <option value="1" <c:if test="${map.GOODS_CATEGORY eq '1'}">selected</c:if>>의류</option>
 				    <option value="2" <c:if test="${map.GOODS_CATEGORY eq '2'}">selected</c:if>>전자기기</option>
@@ -50,69 +60,43 @@
 				</select>
 	      	</td>
 		</tr>
-		<tr>
+		<tr style="border-bottom: 1px solid #dfdfdf;">
+			<th>제목</th>
 			<td>
-				제목<br/>
-			</td>
-			<td>
-				<input type="text" id="GOODS_TITLE" name="GOODS_TITLE" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_TITLE}"</c:if>>
+				<input type="text" id="GOODS_TITLE" name="GOODS_TITLE" class="text_type" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_TITLE}"</c:if>>
 				<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_ID}">
 			</td>
-	      	<!-- <td>
-	      		중고상태
-	      	</td>
-	      	<td>
-	      		<select name="GOODS_STATUS" id="GOODS_STATUS">
-					 <option value="" selected disabled hidden>==선택하세요==</option>
-				    <option value="1">A</option>
-				    <option value="2">B</option>
-				    <option value="3">C</option>
-				    <option value="4">D</option> 
-				</select>
-	      	</td> -->
 		</tr>
-		<tr>
+		<tr style="border-bottom: 1px solid #dfdfdf;">
+			<th>가격</th>
 			<td>
-				가격<br/>
-			</td>
-			<td>
-				<input type="text" id="GOODS_PRICE" name="GOODS_PRICE" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_PRICE}"</c:if>>
+				<input type="text" id="GOODS_PRICE" name="GOODS_PRICE" class="text_type" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_PRICE}"</c:if>>
 			</td>
 			
 		</tr>
-		<tr>
-			<%-- <td>
-				판매수량(기존 브랜드-타입변경필요)<br/>
-			</td>
+		<tr style="border-bottom: 1px solid #dfdfdf;">
+			<th>판매지역</th>
 			<td>
-				<input type="text" id="GOODS_QTY" name="GOODS_QTY" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_QTY}"</c:if>>
-			</td> --%>
-			<td>
-				판매지역<br/>
-			</td>
-			<td>
-				<input type="text" id="GOODS_REGION" name="GOODS_REGION" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_REGION}"</c:if>>
+				<input type="text" id="GOODS_REGION" name="GOODS_REGION" class="text_type" value=<c:if test="${request_type eq 'modify'}">"${map.GOODS_REGION}"</c:if>>
 			</td>
 		</tr>
-		<tr>
-			<td colspan="4">
-               상품정보 작성 <br/>
-            </td>
-        </tr>
+	</table>
+	<br>
+	<table>
         <tr>
-        	<td colspan="4">
+        	<td style="padding-left: 0px;">
                <textarea name="GOODS_CONTENT" id="GOODS_CONTENT" rows="30" cols="100"><c:if test="${request_type eq 'modify'}">${map.GOODS_CONTENT}</c:if></textarea>
 			</td>
 		</tr>
-      </ul>
+
 	  </table>
 	  
-      	<p align="left">
-      		<c:if test="${request_type eq 'modify'}"><a href="#this" class="btn" id="updateBtn"><button class="bttn-bordered bttn-xs bttn-primary">수정하기</button></a></c:if>
-			<c:if test="${request_type eq 'write'}"><a href="#this" class="btn" id="addBtn"><button class="bttn-bordered bttn-xs bttn-primary">작성하기</button></a></c:if>
-			<a href="#this" class="btn" id="list"><button class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
+      	<div align="center">
+      		<c:if test="${request_type eq 'modify'}"><a href="#this" class="btn" id="updateBtn">수정하기</a></c:if>
+			<c:if test="${request_type eq 'write'}"><a href="#this" class="btn" id="addBtn">작성하기</a></c:if>
+			<a href="#this" class="btn" id="list">목록으로</a>
 			
-      	</p>
+      	</div>
 	  
 	  <c:if test="${request_type eq 'modify'}"><input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}"></c:if>
       </form>

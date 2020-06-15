@@ -245,21 +245,16 @@ nav a:nth-child(5):hover ~ .nav-underline {
   left: 80%;
 }
 
-
+.search_box1{
+	width: 100px;
+    height: 30px;
+}
 </style>
 
 
 </head>
 <body>
 
-	
-<%-- <nav>
-      <ul style="text-align:center">
-         <li style="display:inline-block"<c:if test="${sortType eq 'all'}"> class="selected"</c:if>> <a href=<c:url value="/shop/allGoodsList"/> class="is-current">등록순</a> </li>
-         <li style="display:inline-block" <c:if test="${sortType eq 'price'}"> class="selected"</c:if>><a href=<c:url value="/shop/priceGoodsList"/>>가격높은순</a></li>
-         <li style="display:inline-block" <c:if test="${sortType eq 'view'}"> class="selected"</c:if>><a href=<c:url value="/shop/viewGoodsList"/>>인기순</a></li>
-      </ul>
-</nav> --%>
 
 <nav>
   <a href="<c:url value="/shop/allGoodsList"/>" <c:if test="${sortType eq 'all'}"> class="is-current"</c:if>>등록순</a>
@@ -267,9 +262,6 @@ nav a:nth-child(5):hover ~ .nav-underline {
   <a href="<c:url value="/shop/viewGoodsList"/>" <c:if test="${sortType eq 'view'}"> class="is-current"</c:if>>인기순</a>
   <div class="nav-underline"></div>
 </nav>
-
-   
-
    
    <div id="main-container" class="text_box" style="font-size:14pt;">
    
@@ -288,14 +280,14 @@ nav a:nth-child(5):hover ~ .nav-underline {
 		</table>
 		<div align="center">
 		<form action="/second/shop" method="post">
-			<fieldset>
-				<select name="searchType" id="searchType">
+			<fieldset style="margin-top: 10px;">
+				<select name="searchType" id="searchType" class="search_box1">
 					<option value="title" <c:out value="${searchType eq 'title'?'selected':''}"/>>상품명</option>
 					<option value="content" <c:out value="${searchType eq 'content'?'selected':''}"/>>내용</option>
 					<option value="region" <c:out value="${searchType eq 'region'?'selected':''}"/>>지역</option>
 				</select>
 				<input type="text" class="txt" placeholder="Search" name="keyword" id="keyword" value="${keyword}"/>&nbsp;
-				<input type="submit" value="검색" class="search_btn" onClick="onSearch()"/>
+				<input type="submit" value="검색" class="btn" onClick="onSearch()"/>
 				<input type="hidden" id="path" value="${path}" />
 				<input type="hidden" id="sortType" value="${sortType}" />
 			</fieldset>
@@ -363,7 +355,7 @@ nav a:nth-child(5):hover ~ .nav-underline {
 		Number.prototype.format = function(){			// 숫자 3자리마다 콤마 삽입
 		    if(this==0) return 0;	
 		 
-		    var reg = /(^[+-]?\d+)(\d{3})/;			//정규식
+		    var reg = /(^[+-]?\d+)(\d{3})/;			// 정규식
 		    var n = (this + '');
 		 
 		    while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');
