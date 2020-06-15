@@ -31,7 +31,7 @@
 			   <span id="pw"></span>
             </div> 
             <div >
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="메인으로" id="gomain" onclick="document.location.href='/second/sample/openBoardList'" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="메인으로" id="gomain" onclick="document.location.href='/second/shop/allGoodsList'" style="background-color:#26a69a;">
 				<br>
             </div>
          </div>

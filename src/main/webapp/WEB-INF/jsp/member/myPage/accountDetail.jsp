@@ -57,7 +57,7 @@
          
             <div class="card-body">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="수정 하러 가기" onclick="ch_info();" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="fn_openBoardList();" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="fn_openMain();" style="background-color:#26a69a;">
 				<span id="pwc"></span>
 				<br>
             </div>
@@ -77,8 +77,8 @@ function ch_info(){
 	document.location.href= "/second/myPage/accountModifyForm";   
 }
 
-function fn_openBoardList() {
-	document.location.href= "/second/sample/openBoardList"; 
+function fn_openMain() {
+	document.location.href= "/second/shop/allGoodsList"; 
 }
 
 $(document).ready(function() {

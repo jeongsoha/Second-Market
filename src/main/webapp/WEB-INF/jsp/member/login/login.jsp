@@ -18,7 +18,7 @@ $(document).ready(function(){
 			history.go(-1);
 		}
 	}else{
-		location.href = "<c:url value='/sample/openBoardList'/>";
+		location.href = "<c:url value='/shop/allGoodsList'/>";
 	}
 })
 /* message는 아이디가 없을 때,비밀번호가 맞지않을 때 이메일 인증을 하지 않았을 때, 제재기한이 남았을때 출력

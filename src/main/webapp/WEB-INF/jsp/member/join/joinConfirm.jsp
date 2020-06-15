@@ -11,7 +11,7 @@
 이메일 인증이 완료되었습니다.
 <br/>
 <input type="button" id="goLogin" name="goLogin" value="로그인" onclick="location.href='/second/loginForm'"/>
-<input type="button" id="goMain" name="goMain" value="메인으로" onclick="location.href='/second/sample/openBoardList'"/>
+<input type="button" id="goMain" name="goMain" value="메인으로" onclick="location.href='/second/shop/allGoodsList'"/>
 </p>
 
 

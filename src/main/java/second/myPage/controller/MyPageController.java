@@ -120,7 +120,7 @@ public class MyPageController {
 		myPageService.deleteAccount(commandMap.getMap());
 		if (session != null)
 			session.invalidate();
-		ModelAndView mv = new ModelAndView("redirect:/sample/openBoardList");
+		ModelAndView mv = new ModelAndView("redirect:/shop/allGoodsList");
 		return mv;
 	}
 

@@ -81,7 +81,7 @@ $(document).ready(function() { //변경 버튼 클릭시
          
             <div class="card-body" style="width:1000px; padding: 0px 0px 0px 390px;">
             	<input type="button" class="btn btn-lg btn-primary btn-block" value="탈퇴하기" id="delete" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/sample/openBoardList'" style="background-color:#26a69a;">
+            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소하기" onclick="document.location.href='/shop/allGoodsList'" style="background-color:#26a69a;">
 				<br>
             </div>
             </form>
