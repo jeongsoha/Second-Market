@@ -25,7 +25,7 @@ public class SampleController {
 	@ExceptionHandler(RuntimeException.class)
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
     public String exceptionHandler() {
-        log.debug("SampleController_예외사항_발생!");
+        log.debug("예외사항_발생!");
         return "/error/exception";
     }
 	
