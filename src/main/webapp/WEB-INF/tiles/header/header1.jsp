@@ -317,7 +317,7 @@
 <!-- second로고 -->
    
    <div class="header_area" id="h1">
-      <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo5.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
+      <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
    </div>
    
    

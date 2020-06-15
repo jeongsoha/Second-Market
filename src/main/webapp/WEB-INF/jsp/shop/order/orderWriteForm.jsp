@@ -14,90 +14,80 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <style>
-/* tr, th {
-	text-align:center;
+th {
 	height: 50px;
-} */
+	width: 18%;
+	padding-right: 20px;
+	text-align: right;
+    background-color: #f6f6f6;
+} 
+td {
+	padding-left: 20px;
+}
+.area{
+	width: 100%;
+	height: 200px;
+	resize:none;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.text_type{
+	width: 500px;
+    height: 40px;
+    font-size: 15px;
+}
 </style>
 </head>
 <body>
 <%@ include file="/WEB-INF/include/include-body.jspf" %>
-
+<div id="content">
+	<div id="main-container">
+<div style="padding: 0 20px; text-align: center;">
+	<h1 style="letter-spacing:5px;">주문/결제</h1>
+</div>
 <div id="content">
 	<form  method="post" id="frm" name="frm" enctype="multipart/form-data" onsubmit="return formCheck();">
-	<h1>주문/결제</h1>
-
 	<div>
-			<table border="1">
-				<tr>
+			<table>
+				<tr style="border-top: 2px solid #ccc;border-bottom: 1px solid #dfdfdf;">
 					<th>상품정보</th>
-				</tr>	
-				<tr>
 					<td>${orderG.GOODS_TITLE}</td>
-				</tr>
-				<tr>			
+				</tr>	
+				<tr style="border-bottom: 1px solid #dfdfdf;">			
 					<th>주문일자</th>
-				</tr>
-				<tr>
 					<td>${orderG.ORDER_TIME}</td>
 				</tr>
-				<tr>
+				<tr style="border-bottom: 1px solid #dfdfdf;">
 					<th>주문번호</th>
-				</tr>
-				<tr>
 					<td>${orderG.GOODS_NUM}</td>
 				</tr>
-				<tr>
+				<tr style="border-bottom: 1px solid #dfdfdf;">
 					<th>최종 결제금액</th>
-				</tr>
-				<tr>
 					<td>${orderG.GOODS_PRICE}</td>
 				</tr>
 			</table>
+			<br></br>
 			<table>
-				<tr>
-					<th>
-						이름
-					</th>
+				<tr style="border-top: 2px solid #ccc;border-bottom: 1px solid #dfdfdf;">
+					<th>이름</th>
+					<td><input type="text" id="MEM_NAME" name="MEM_NAME" value="${orderM.MEM_NAME}" class="text_type"></td>
 				</tr>
-				<tr>
-					<td>
-					</td>
+				<tr style="border-bottom: 1px solid #dfdfdf;">
+					<th>휴대전화</th>
+					<td><input type="text" id="MEM_PHONE" name="MEM_PHONE" value="${orderM.MEM_PHONE}" class="text_type"></td>
 				</tr>
-					<th>
-						휴대전화
-					</th>
-					<th colspan="2">
-						배송주소
-					</th>
-				</tr>
-				<tr>
-					<td>
-						<input type="text" id="MEM_NAME" name="MEM_NAME" value="${orderM.MEM_NAME}">
-					</td>
-					<td>
-						<input type="text" id="MEM_PHONE" name="MEM_PHONE" value="${orderM.MEM_PHONE}">
-					</td>
-					<td colspan="2"> 
-						우편번호 <input type="text"  id="MEM_ZIP" name="MEM_ZIP" >
+				<tr style="border-bottom: 1px solid #dfdfdf;">
+					<th>배송주소</th>
+					<td style="padding: 5px;padding-left: 20px;"> 
+						<input type="text"  id="MEM_ZIP" name="MEM_ZIP" class="text_type" placeholder="우편번호입력">
 						<input type="button" id="searchAddr" name="searchAddr"  onclick="zipcode()" value="우편번호 찾기"><br/>
-						 <label for="username">주소</label>
-						 <input type="text" id="ADD1" name="ADD1" style="width:90%;">
-						  <label for="username">상세주소</label><br/>
-						 <input type="text" id="ADD2" name="ADD2" style="width:90%;">
-						
+						 <input type="text" id="ADD1" name="ADD1" placeholder="주소입력" class="text_type"><br/>
+						 <input type="text" id="ADD2" name="ADD2" placeholder="주소입력" class="text_type"> 
 					</td>
-	 
 				</tr>
-				<tr>
-					<th>
-						배송 메모
-					</th>
-				</tr>
-				<tr>
-					<th>
-						<textarea id="DMEMO" name="DMEMO"></textarea>
-					</th>
+				<tr style="border-bottom: 1px solid #dfdfdf;">
+					<th>배송 메모</th>
+					<td><div><textarea id="DMEMO" name="DMEMO" class="area"></textarea></div></td>
 				</tr>
 				<tr>
 					<td>
@@ -110,65 +100,55 @@
 					</td>
 				</tr>
 			</table>
-			<table border="1">
-				<tr>
-					<th>
-						결제수단
-					</th>
-					<td>
-					카카오페이 <input type="radio" id="ORDER_PAY" name="ORDER_PAY" value="kakaopay" checked="checked">
-					</td>
-					<th>
-						결제확인
-					</th>
-					<td>
+			<br></br>
+			<table>
+				<tr style="border-top: 2px solid #ccc;border-bottom: 1px solid #dfdfdf;">
+					<th>결제수단</th>
+					<td >카카오페이 <input type="radio" id="ORDER_PAY" name="ORDER_PAY" value="kakaopay" checked="checked"></td>
+					<td colspan="4">
 						 <input type="hidden" id="check" name="check"/>
 						 <div id="test"></div>
 						 <script type="text/javascript">
 						 if(document.getElementById("check").value == "true"){
-							 $("#test").append("결제가 완료되었습니다.");
+							 $("#test").append("결제완료");
 						 }else{
-							 $("#test").append("결제를 먼저 진행해주세요.<a href='#this' class='btn' id='pay_btn'><button class='bttn-bordered bttn-xs bttn-primary'>결제하기</button></a>"); 
+							 $("#test").append("<a href='#this' class='btn' id='pay_btn'><button class='bttn-bordered bttn-xs bttn-primary'>결제하기</button></a>"); 
 						 }
 						 </script>
 					</td>
 				</tr>
+				
+
 				<tr>
-					<td></td>
-				</tr>
-				<tr>
-					<th colspan="4"> 
-						개인정보 제 3자 제공 동의(필수)
-					</th>
-				</tr>
-				<tr>
-						<td colspan="4" >
-							<textarea>
-세컨드샵 구매회원 약관 동의
+					<th rowspan="2">개인정보 <br>제3자 제공 동의(필수)</th>
+					<td colspan="4">
+					<div><textarea class="area">
+세컨드마켓 구매회원 약관 동의
 1. 회원의 주소 또는 e-mail주소에 도달함으로써 회사의 통지는 유효하고, 회원 정보의 변경/미변경에 대한 책임은 회원에게 있음. (제8조)
 2. 약관이 정하는 부정거래 행위를 한 회원에 대하여 제재 조치 가능 예: 직거래, 경매 부정행위, 시스템 부정행위, 결제 부정행위, 재판매 목적의 거래행위 등. (제36조)
-3. 세컨드샵은 통신판매중개자로서 판매자와 구매자와의 거래에 관한 분쟁에 개입하지 않으며 어떠한 보증 및 책임도 부담하지 않음. (제6조, 제38조)
+3. 세컨드마켓은 통신판매중개자로서 판매자와 구매자와의 거래에 관한 분쟁에 개입하지 않으며 어떠한 보증 및 책임도 부담하지 않음. (제6조, 제38조)
 
 전자금융거래 약관 동의
 1. 접근매체의 양도∙양수, 대여∙사용위임, 질권설정 기타 담보 제공 및 이의 알선과 접근매체를 제3자에게 누설∙노출, 방치하는 것은 금지됨. (제17조, 제21조, 제23조)
 2. 소비자가 재화 등을 공급받은 날부터 3영업일이 지나도록 정당한 사유의 제시 없이 그 공급받은 사실을 통보하지 않는 경우 소비자의 동의 없이 판매자에게 결제대금을 지급할 수 있으며, 회사가 결제대금을 지급하기 전에 소비자가 그 결제대금을 환급 받을 사유가 발생한 경우 이를 소비자에게 환급함. (제19조)
 3. 이용자의 선불전자지급수단 잔액이 구매 취소 등의 사유 발생으로 회사가 이용자로부터 환수해야 하는 환수대상액보다 작을 경우 회사는 당해 이용자의 선불전자지급수단을 마이너스로 처리할 수 있음. (제27조)
-							</textarea>
+							</textarea></div>
 						</td>
 				</tr>
 				<tr>
-					<td>
+					<td colspan="4">
 						상기 내용을 확인하였으며 이에 동의합니다.
 						<input type="checkbox" id="terms" name="terms">
 					</td>
 				</tr>	
 		</table>
-		<p align="right">
+		<p align="center">
 			<a href="#this" class="btn" id="submitPay"><button class="bttn-bordered bttn-xs bttn-primary">주문하기</button></a>
 		</p>
 	</div>
 	</form>
 </div>
+</div></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 

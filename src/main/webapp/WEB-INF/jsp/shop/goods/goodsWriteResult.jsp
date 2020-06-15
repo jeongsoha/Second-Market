@@ -14,7 +14,7 @@
    margin: 0 0 0 125px;
    padding: 20px;
    background-color: #fff;
-   border: 1px solid #888;
+
 }
 </style>
 <body>

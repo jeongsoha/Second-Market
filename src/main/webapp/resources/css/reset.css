@@ -23,28 +23,6 @@ a{color:#707070;text-decoration:none;}
 iframe{max-width:100%;}
 a:hover,a:focus,a:active{text-decoration:none;}
 
-/* @font-face {
-  font-family:'Nanum Gothic';
-  font-style:normal;
-  font-weight:400;
-  src: url(/fonts/NanumGothic-Regular.eot);
-  src: url(/fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
-		 url(/fonts/NanumGothic-Regular.woff2) format('woff2'),
-		 url(/fonts/NanumGothic-Regular.woff) format('woff'),
-		 url(/fonts/NanumGothic-Regular.ttf) format('truetype');
-}
-@font-face {
-  font-family:'Nanum Gothic-Bold';
-  font-style:normal;
-  font-weight:800;
-  src: url(/fonts/NanumGothic-Bold.eot);
-  src: url(/fonts/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
-		 url(/fonts/NanumGothic-Bold.woff2) format('woff2'),
-		 url(/fonts/NanumGothic-Bold.woff) format('woff'),
-		 url(/fonts/NanumGothic-Bold.ttf) format('truetype');
-} */
-
-/* Align_Style
 -------------------------------------------------------------- */
 .cb{clear:both;}
 .clearFix{display:block;content:"";clear:both;}
@@ -129,7 +107,7 @@ a:hover,a:focus,a:active{text-decoration:none;}
 input[type="submit"], input[type="button"]{padding:0;}
 input[type="text"], input[type="tel"] , input[type="number"], input[type="search"], input[type="password"],input[type="email"],select{
 	text-indent:5px;
-	font-size:12px;
+	font-size:15px;
 	border:1px solid #cfcecd;
 	background:#fff;
 }
@@ -140,6 +118,8 @@ input[type="text"], input[type="tel"] , input[type="number"], input[type="search
 input.txt{    padding: 2px 2px 2px 4px;
     border: 1px solid #d9d9d9;
     color: #555;
+    height: 30px;
+    width: 300px;
 }
 textarea {border: 1px solid #d9d9d9;}
 select.slct{width:100%;height:29px;line-height:29px;}
