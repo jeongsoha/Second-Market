@@ -1,4 +1,4 @@
-package second.cheat.controller;
+package second.chat.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class WebSocketChat {
     }
     @RequestMapping(value="/chat.do")
     public ModelAndView getChatViewPage(ModelAndView mav) {
-        mav.setViewName("/cheat/cheat");
+        mav.setViewName("/chat/chat");
         return mav;
     }
     @OnOpen
