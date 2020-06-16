@@ -21,13 +21,6 @@ import second.order.service.OrderService;
 public class OrderController {
 	Logger log = Logger.getLogger(this.getClass());
 	
-	@ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-    public String exceptionHandler() {
-        log.debug("OrderController_예외사항_발생!");
-        return "/error/exception";
-    }
-	
 	@Resource(name="orderService")
 	private OrderService orderService;
 	
@@ -46,7 +39,10 @@ public class OrderController {
 	@RequestMapping(value="/shop/order/orderWrite", method = RequestMethod.POST)
 	public ModelAndView orderWrite(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("orderWriteResult");
-		System.out.println(request);
+		System.out.println("====88====");
+		System.out.println(commandMap.getMap());
+		System.out.println("====89====");
+		//System.out.println(request);
 		orderService.insertOrder(commandMap.getMap(), request);
 		Map<String,Object> map = orderService.orderDetail(commandMap.getMap());
 		mv.addObject("order", map.get("order"));

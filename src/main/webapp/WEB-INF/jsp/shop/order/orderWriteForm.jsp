@@ -93,6 +93,7 @@ td {
 					<td>
 						<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_ID}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${orderG.GOODS_NUM}"/>
+						<input type="hidden" id="GOODS_SELLER" name="GOODS_SELLER" value="${orderG.GOODS_SELLER}"/> <!-- 셀러 전달 추가 -->
 						<input type="hidden" id="GOODS_PRICE" name="GOODS_PRICE" value="${orderG.GOODS_PRICE}"/>
 						<input type="hidden" id="orderNumber" name="orderNumber" value="${orderG.GOODS_NUM}" />
 						<input type="hidden" id="GOODS_TCOST" name="GOODS_TCOST" value="${orderG.GOODS_PRICE+orderG.GOODS_DCOST}" />
@@ -152,6 +153,18 @@ td {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 
+function noEvent() { // 새로 고침 방지 적용
+    if (event.keyCode == 116) {
+        alert("새로고침을 할 수 없습니다.");
+        event.keyCode = 2;
+        return false;
+    } else if (event.ctrlKey
+            && (event.keyCode == 78 || event.keyCode == 82)) {
+        return false;
+    }
+}
+document.onkeydown = noEvent;
+
 $(document).ready(function() {
 	
 	$("#pay_btn").on("click", function(e) { // 결제하기 버튼
@@ -184,7 +197,7 @@ $(document).ready(function() {
 	
 	function fn_orderPay() {
 		var comSubmit = new ComSubmit("frm");
-		var ORDERS_NUM = "${order.ORDERS_NUM}";
+		var ORDERS_NUM = "${orderG.GOODS_NUM}";
 		comSubmit.setUrl("<c:url value='/shop/order/orderWrite' />");
 		//comSubmit.setUrl("<c:url value='/kakaoPay' />");
 		comSubmit.addParam("ORDERS_NUM", ORDERS_NUM);
@@ -287,7 +300,7 @@ function zipcode() {//우편번호 검색창
 	        pay_method : 'card',
 	        merchant_uid : 'merchant_' + new Date().getTime(),
 	        name : '주문명:결제테스트',
-	        amount : Number(document.getElementById("GOODS_TCOST").value),
+	        amount : Number(document.getElementById("GOODS_TCOST").value), //결제 총금액
 	        buyer_email : 'iamport@siot.do',
 	        buyer_name : $("#MEM_ID").val(),
 	        buyer_tel : $("#MEM_PHONE").val(),

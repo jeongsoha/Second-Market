@@ -45,8 +45,7 @@ public class OrderServiceImpl implements OrderService {
 	public void insertOrder(Map<String, Object> map, HttpServletRequest request) throws Exception {
 				
 		orderDAO.insertOrder(map);
-//	informDAO.informInsert(map, "상대방이 내 상품을 결제했습니다.");
-	
+		informDAO.informinsertSeller(map, "상대방이 내 상품을 결제했습니다.");
 	}
 	
 	@Override

@@ -42,7 +42,6 @@ public class LoginController {
 
 	Logger log = Logger.getLogger(this.getClass());
 	
-	
 	@Resource(name="mailService")
 	private MailService mailService;
 
