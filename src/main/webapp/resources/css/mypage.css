@@ -88,7 +88,7 @@ html ul.goodsTabs li.active, html ul.goodsTabs li.active a:hover  {
    border-radius:20px;
    clear:both;
 }
-
+body {top-margin:0; bottom-margin:0; left-margin:0; right-margin:0}   
 
 #vertical_tab-container
 {

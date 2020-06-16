@@ -7,11 +7,32 @@
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+a{
+   color: #000;
+   text-decoration: none;	
+}
+
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color: #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 #main-container{
    width:1100px;
    align:center;
@@ -50,19 +71,23 @@ button {
 	font-family: 'Nanum Gothic';
 	margin-bottom:50px;
 }
-
+.search_box1 {
+    width: 150px;
+    height: 30px;
+    border: 0.1em solid #000;
+}
 </style>
 
 <body>
-<div>
+<div id="content">
      <div class="tab_wrap">
-  <div class="tab_menu_container">
-    <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
-    <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
-    <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
-    <a href="qnaList"><button class="tab_menu_btn on" type="button">Q&A게시판</button></a>
-  </div>
-  </div>
+		  <div class="tab_menu_container">
+		    <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
+		    <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
+		    <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
+		    <a href="qnaList"><button class="tab_menu_btn on" type="button">Q&A게시판</button></a>
+		  </div>
+  	 </div>
    <div id="main-container">
 	<h2>게시글작성</h2>
 	<form id="frm" name="frm" enctype="multipart/form-data">
@@ -76,17 +101,15 @@ button {
 			<tbody>
 				<br/>
 				<tr>
-	         		<th style=text-align:center;>제목</th>
+	         		<th style="text-align:center; vertical-align: middle;">제목</th>
 	         		<td style="background-color:#fff;"><input type="text" id="QNA_TITLE" name="QNA_TITLE" style="width:95%"/></td>
-					<th style=text-align:center; scope="row">유형</th>
-					<td style="background-color:#fff;"><select name="QNA_TYPE" id="QNA_TYPE">
-					<option value="상품 관련 문의">상품 관련 문의</option>
-					
-					<option value="회원 관리 문의">회원 관리 문의</option>
-					
-					<option value="게시판 사용 관련 문의">게시판 사용 관련 문의</option>
-					<option value="기타 문의">기타 문의</option>
-					
+					<th style="text-align:center; vertical-align: middle;" scope="row">유형</th>
+					<td style="background-color:#fff;">
+					<select name="QNA_TYPE" id="QNA_TYPE" class="search_box1">
+						<option value="상품 관련 문의">상품 관련 문의</option>
+						<option value="회원 관리 문의">회원 관리 문의</option>
+						<option value="게시판 사용 관련 문의">게시판 사용 관련 문의</option>
+						<option value="기타 문의">기타 문의</option>
 					</select></td>
 				</tr>
 				<tr>
