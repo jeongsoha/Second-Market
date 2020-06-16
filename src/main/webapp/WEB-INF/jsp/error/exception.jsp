@@ -12,15 +12,17 @@
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+
 #container{
 	width:1000px;
 	height:350px;
 	background:#eeeeee;
 	font-family: 'Nanum Gothic';
-	margin-left:350px;
+	margin-left:auto;
+	margin-right:auto;
 	margin-top:200px;
 	padding:80px;
-	margin-bottom:350px;
+	margin-bottom:200px;
 	align:center;
 }
 

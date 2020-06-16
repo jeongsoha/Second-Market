@@ -42,12 +42,6 @@ public class LoginController {
 
 	Logger log = Logger.getLogger(this.getClass());
 	
-	@ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-    public String exceptionHandler() {
-        log.debug("LoginController_예외사항_발생!");
-        return "/error/exception";
-    }
 	
 	@Resource(name="mailService")
 	private MailService mailService;
