@@ -97,7 +97,7 @@ td {
 					</td>
 					<td>
 						<input type="button" id="searchAddr" name="searchAddr" >
-						${order.ORDERS_DADD1}
+						${order.ORDERS_DADD2}
 					</td>
 				</tr>
 
