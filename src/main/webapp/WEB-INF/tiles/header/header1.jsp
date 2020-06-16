@@ -12,6 +12,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+
 <style type="text/css">
    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
    
@@ -227,15 +229,48 @@
 
 
 
+*{
+        margin: 0; padding: 0;
+      }
+      .slide{
+        width: 1000px;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+      }
+      .slide ul{
+        width: 5000px;
+        position: absolute;
+        top:0;
+        left:0;
+        font-size: 0;
+      }
+      .slide ul li{
+        display: inline-block;
+      }
+      #back{
+        position: absolute;
+        top: 100px;
+        left: 0;
+        cursor: pointer;
+        z-index: 1;
+        height: 40px;
+    	width: 40px;
+      }
+      #next{
+        position: absolute;
+        top: 100px;
+        right: 0;
+        cursor: pointer;
+        z-index: 1;
+        height: 40px;
+    	width: 40px;
+      }
 
 
-
- .rolling_panel { position: relative; width: 625px; height: 150px; margin: 0; padding: 0; border: 1px solid #c7c7c7; overflow: hidden; }
-            .rolling_panel ul { position: absolute; margin: 5px; padding: 0; list-style: none; }
-            .rolling_panel ul li { float: left; width: 205px; height: 140px;}
             
 </style>
-
 
 <script type="text/javascript">
    var onSearch = function(){   
@@ -300,100 +335,51 @@
                body.append(str);
          }
       }
-      
 
       
       
-      
-      
-      $(document).ready(function() {
-    	  
-          var $panel = $(".rolling_panel").find("ul");
 
-          var itemWidth = $panel.children().outerWidth(); // 아이템 가로 길이
-          var itemLength = $panel.children().length;      // 아이템 수
+      $(document).ready(function(){
+          var imgs;
+          var img_count;
+          var img_position = 1;
 
-          // Auto 롤링 아이디
-          var rollingId;
+          imgs = $(".slide ul");
+          img_count = imgs.children().length;
 
-          auto();
-
-          // 배너 마우스 오버 이벤트
-          $panel.mouseover(function() {
-              clearInterval(rollingId);
+          //버튼을 클릭했을 때 함수 실행
+          $('#back').click(function () {
+            back();
+          });
+          $('#next').click(function () {
+            next();
           });
 
-          // 배너 마우스 아웃 이벤트
-          $panel.mouseout(function() {
-              auto();
-          });
-
-          // 이전 이벤트
-          $("#prev").on("click", prev);
-
-          $("#prev").mouseover(function(e) {
-              clearInterval(rollingId);
-          });
-
-          $("#prev").mouseout(auto);
-
-          // 다음 이벤트
-          $("#next").on("click", next);
-
-          $("#next").mouseover(function(e) {
-              clearInterval(rollingId);
-          });
-
-          $("#next").mouseout(auto);
-
-          function auto() {
-
-              // 2초마다 start 호출
-              rollingId = setInterval(function() {
-                  start();
-              }, 2000);
-          }
-
-          function start() {
-              $panel.css("width", itemWidth * itemLength);
-              $panel.animate({"left": - itemWidth + "px"}, function() {
-
-                  // 첫번째 아이템을 마지막에 추가하기
-                  $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
-
-                  // 첫번째 아이템을 삭제하기
-                  $(this).find("li:first").remove();
-
-                  // 좌측 패널 수치 초기화
-                  $(this).css("left", 0);
+          function back() {
+            if(1<img_position){
+              imgs.animate({
+                left:'+=1000px'
               });
+              img_position--;
+            }
           }
-
-          // 이전 이벤트 실행
-          function prev(e) {
-$('#prev').attr('disabled', true);
-
-$panel.css("left", - itemWidth);
-$panel.prepend("<li>" + $panel.find("li:last").html() + "</li>");
-
-$panel.animate({"left": "0px"}, function() {
-$(this).find("li:last").remove();
-$('#prev').attr('disabled', false);
-});
-}
-
-          // 다음 이벤트 실행
-          function next(e) {
-              $panel.animate({"left": - itemWidth + "px"}, function() {
-                  $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
-                  $(this).find("li:first").remove();
-                  $(this).css("left", 0);
+          function next() {
+            if(img_count>img_position){
+              imgs.animate({
+                left:'-=1000px'
               });
+              img_position++;
+            }
           }
-      });
-      
-      
-      
+
+
+          //이미지 끝까지 가면 버튼 사라지기
+
+
+          //첫 이미지로 돌아오기
+
+
+        });
 </script>
 
 
@@ -526,24 +512,19 @@ $('#prev').attr('disabled', false);
       
          </div>
                   
-    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        <button id="prev">이전</button>
-		<button id="next">다음</button>
-        <div class="rolling_panel">
-            <ul>
-                <li><img src="/resources/images/sell1.png"></li>
-                <li><img src="/resources/images/sell2.png"></li>
-                <li><img src="201609121740379940.jpg.200"></li>
-                <li><img src="201609121740379940.jpg.200"></li>
-                <li><img src="201609121740379940.jpg.200"></li>
-            </ul>
-        </div>
+    </div><br><br><br>
 
 
 
-
-
-</div>
-</div>
-    
+  <div class="slide">
+      <img id="back" src="<c:url value="/resources/images/back.png"/>" alt="" width="100">
+      <ul>
+        <li><img src="<c:url value="/resources/images/ka01.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        
+        <li><img src="<c:url value="/resources/images/ka02.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka03.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka04.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka05.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+      </ul>
+      <img id="next" src="<c:url value="/resources/images/next.png"/>" alt="" width="100">
+    </div>
