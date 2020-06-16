@@ -193,7 +193,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 class="btn btn-success"
                 style="width: 110px; height: 40px;"
                 value="취소하기"
-                onclick="document.location.href='/sample/openBoardList'"
+                onclick="document.location.href='/second/shop/allGoodsList'"
               />
               <br />
             </div>

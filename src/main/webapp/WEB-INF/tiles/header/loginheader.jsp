@@ -356,39 +356,9 @@ file="/WEB-INF/include/include-header.jspf" %>
 		<!-- second로고 -->
    
    <div class="header_area" id="h1">
-      <a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
+      <a href="/second/shop/allGoodsList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
       		style="display: block; max-width:250px; margin-left: 100px;" alt="second#"/></a>
    </div>
    
 
-
-  <!-- 드롭메뉴 -->
-  <!-- 
-	      <div class="container" id="menubar">
-	      
-	      
-				<div class="panel-group">
-				  <div class="panel panel-default">
-				    <div class="panel-heading">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" href="#collapse1">Category</a>
-				      </h4>
-				    </div>
-				    <div id="collapse1" class="panel-collapse collapse">
-				      <ul class="list-group">
-				      	<li class="list-group-item"><a href="/second/sample/openBoardList">패션의류</a></li>
-				      	<li class="list-group-item"><a href="/second/sample/openBoardList">가전제품</a></li>
-				      	<li class="list-group-item"><a href="/second/sample/openBoardList">패션잡화</a></li>
-				      	<li class="list-group-item"><a href="/second/sample/openBoardList">뷰티</a></li>
-				      	<li class="list-group-item"><a href="/second/sample/openBoardList">도서/음반</a></li>
-				      	<li class="list-group-item"><a href="/second/sample/openBoardList">티켓/쿠폰</a></li>
-				      </ul>
-				      <div class="panel-footer"><a href="/second/sample/openBoardList">Q&A</a></div>
-				    </div>
-				  </div>
-				</div>
-		  
-		  
-		</div>
-  -->
 </div>

@@ -74,7 +74,7 @@
 			</div>
 			
 			<br><br><br><br>
-			<a href="/second/sample/openBoardList" id="main"><span>메인으로 이동</span></a>
+			<a href="/second/shop/allGoodsList" id="main"><span>메인으로 이동</span></a>
 			
 		</div>
 		
