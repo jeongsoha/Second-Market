@@ -78,7 +78,7 @@
 			        ORDERS_DADD2,
 			        ORDERS_DMEMO,
 			        ORDERS_PAY
-			FROM    ORDERS, 
+			FROM    ORDERS
 			WHERE   ORDERS_NUM = #{IDX}
 		]]>
 	</select>
