@@ -20,7 +20,7 @@
    }
    
    body {
-        background:linear-gradient(to bottom right, #f0e199, #f0e199);
+        background:linear-gradient(to bottom right);
    }
    body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
    
@@ -183,8 +183,8 @@ var pwSearch_click = function(){
 						</div>
 					</div>
 					<div class="form-group">
-						<button id="searchBtn" type="button" onclick="idSearch_click()" class="btn btn-primary btn-block" style="background-color:#26a69a; border-color:#26a69a;">확인</button>
-					<a class="btn btn-danger btn-block"	href="${pageContext.request.contextPath}" style="background-color:#26a69a; border-color:#26a69a;">취소</a>
+						<button id="searchBtn" type="button" onclick="idSearch_click()" class="btn btn-primary btn-block" style="background-color:#8EEA2A; border-color:#8EEA2A;">확인</button>
+					<a class="btn btn-danger btn-block"	href="${pageContext.request.contextPath}" style="background-color:#8EEA2A; border-color:#8EEA2A;">취소</a>
 					</div>
 				</div>
 				
@@ -204,9 +204,9 @@ var pwSearch_click = function(){
 						</div>
 					</div>
 					<div class="form-group">
-						<button id="searchBtn2" type="button" onclick="pwSearch_click()" class="btn btn-primary btn-block">확인</button>
-						<input type="hidden" path="random" id="random" value="${random}"/>
-					<a class="btn btn-danger btn-block"	href="${pageContext.request.contextPath}">취소</a>
+						<button id="searchBtn2" type="button" onclick="pwSearch_click()" style="background-color:#8EEA2A; border-color:#8EEA2A;" class="btn btn-primary btn-block">확인</button>
+						<input type="hidden" path="random" id="random"  value="${random}"/>
+					<a class="btn btn-danger btn-block"	style="background-color:#8EEA2A; border-color:#8EEA2A;" href="${pageContext.request.contextPath}">취소</a>
 				</div>
 				</div>
 			</div>
