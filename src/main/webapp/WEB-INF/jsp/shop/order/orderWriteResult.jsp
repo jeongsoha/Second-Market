@@ -93,11 +93,11 @@ td {
 					<th>배송주소</th>
 					<td>
 						<input type="button" id="searchAddr" name="searchAddr" >
-						${orderM.MEM_ADD1}"
+						${order.ORDERS_DADD1}
 					</td>
 					<td>
 						<input type="button" id="searchAddr" name="searchAddr" >
-						${orderM.MEM_ADD2}"
+						${order.ORDERS_DADD1}
 					</td>
 				</tr>
 

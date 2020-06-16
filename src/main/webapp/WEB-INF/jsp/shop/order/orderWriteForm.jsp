@@ -79,9 +79,9 @@ td {
 				<tr style="border-bottom: 1px solid #dfdfdf;">
 					<th>배송주소</th>
 					<td style="padding: 5px;padding-left: 20px;"> 
-						<input type="text"  id="MEM_ZIP" name="MEM_ZIP" class="text_type" placeholder="우편번호입력">
+						<input type="text"  id="MEM_ZIP" name="MEM_ZIP" class="text_type" placeholder="우편번호입력" readonly>
 						<input type="button" id="searchAddr" name="searchAddr"  onclick="zipcode()" value="우편번호 찾기"><br/>
-						 <input type="text" id="ADD1" name="ADD1" placeholder="주소입력" class="text_type"><br/>
+						 <input type="text" id="ADD1" name="ADD1" placeholder="주소입력" readonly class="text_type"><br/>
 						 <input type="text" id="ADD2" name="ADD2" placeholder="주소입력" class="text_type"> 
 					</td>
 				</tr>
