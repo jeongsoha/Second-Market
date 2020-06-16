@@ -69,9 +69,9 @@
                   <h4>고객센터</h4>
                   <ul>
                      <li class="phone">010-5780-3412</li>
-                     <li><span><strong>평일  오전09:00 ~ 오후06:00</strong></span><br/>
-                     	<span><strong>점심시간  12:30~13:30</strong></span><br/>
-                     	<span><strong>토,일,공휴일 휴무</strong></span></li>
+                     <li><span>평일  오전09:00 ~ 오후06:00</span><br/>
+                     	<span>점심시간  12:30~13:30</span><br/>
+                     	<span>토,일,공휴일 휴무</span></li>
                   </ul>
                </div>
                
@@ -80,7 +80,7 @@
          
       <!-- 로고 & 글 -->   
             <div class="qrcode">
-               <p><img src="<c:url value="/resources/images/logo6_1.png"/>" style="width:200px;height: auto;"/></p>
+               <p><img src="<c:url value="/resources/images/logo6_1.png"/>" style="width:230px;height: auto;"/></p>
                <div class="utilMenu_unit2">  
                   <p class="escrow_info">second샵은 통신판매중개자로서 중고거래마켓 second샵의 거래 당사자가 아니며,<br/>입점판매가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.<br/>
                </div>

@@ -24,13 +24,14 @@
    #head{
          width:100%;
          margin: 10px auto;
+         margin-left: 100px;
          clear:both;
    }
    
    #h1{
          float:left;
-         width:30%;
-         margin: 30px 0px 15px 0px;
+         width:24%;
+         margin: 3px 0px 15px 15px;
          display: inline;
          
    }
@@ -38,7 +39,7 @@
    #h2{
          float:left;
          width:30%;
-         margin: 15px 0px 10px 30px; 
+         margin: 15px 0px 10px 20px; 
          display: inline;
    }
    
@@ -94,7 +95,7 @@
    
    .green_window {
       display: inline-block;
-      width: 366px; height: 34px;
+      width: 350px; height: 34px;
       border: 1px solid #80EB1C;
       background: white;
       border-radius: 5px;
@@ -198,19 +199,25 @@
 .imgser1{
 	float:left;
 	margin-right:-5px;
-	margin-top:12px;
+	margin-top:-10px;
 	clear:both;
 }
 .imgser2{
 	float:left;
 	margin-right:-5px;
-	margin-top:12px;
+	margin-top:-8px;
 	clear:both;
 }
 .a_menu{
 	font-size: 15px;
 	vertical-align: middle;
 	font-weight: bold;
+}
+.d_menu{
+	clear: both;
+    float: left;
+    width: 40%;
+    margin-top: 23px;
 }
 </style>
 
@@ -331,67 +338,7 @@
 
 <!-- 오른쪽 위 작은 메뉴들 -->
    <div id="menu">
-  
-    
-<!-- 로그인 x -->
-<%--     <div id="h3">
-         <c:if test="${session_MEM_ID == null }">
-            <a href="${contextPath}/second/loginForm" class="log">로그인</a>  &nbsp;&nbsp;
-            <a href="${contextPath}/second/joinForm">회원가입</a>              &nbsp;&nbsp;
-            <a href="${contextPath}/second/findId">ID/PW찾기</a>             &nbsp;&nbsp;
-         </c:if>
-    </div> --%>
-         
-         
-<!-- 로그인 o,x -->
-<%--       
-         <div class="tab_cate" id="h5">    
-            <div class="tabs_area">  
-               <class="tabs">
-                  <a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a>     &nbsp;&nbsp;
-                 <a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a>  &nbsp;&nbsp;
-               </class>
-            </div>
-         </div>
-          --%>
-
-         
-<!-- 로그인o -->
-      
-      <%-- <div id="h4">
-         <c:if test="${session_MEM_ID != null }">
-         <c:if test="${session_MEM_ID == 'admin' }">
-             <a href="/second/admin">관리자페이지</a> &nbsp;&nbsp;
-          </c:if>
-               <a href="${contextPath}/second/logout" class="log">로그아웃</a> &nbsp;&nbsp;
-               <a href="${contextPath}/second/myPage">마이페이지</a>           &nbsp;&nbsp;
-               <a href="${contextPath}/second/myshop">내상점</a>              &nbsp;&nbsp;
-         </c:if>
-       </div> --%>
-       
-<%-- <!-- 로그인 o  알림버튼 -->      
-     
-        <c:if test="${session_MEM_ID != null}">
-   		  <div class="dropdown">
-       		 <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/ring.png"/>"/></button>
-     			<div class="dropdown-content">
-        		      <table id="inform">
-        		         <tbody>
-      			           </tbody>
-    		          </table>
-       		   </div>
-       		   &nbsp;&nbsp;&nbsp;
-    	 </div>
-       </c:if>
- 		 --%>
- <!-- 로그인o -->
-    
-            <%-- <div id="h7"> 
-                   <c:if test="${session_MEM_ID != null }">
-                    <a href="#" style="font-color:#666; font-size:12px;" class="tab_a1"><span>${session_MEM_ID}&nbsp;님</span></a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </c:if>
-         	</div> --%>
-   
+ 
 </div>
 
    <div id="head">
@@ -400,7 +347,7 @@
    
    <div class="header_area" id="h1">
       <a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
-      		style="margin-left: 100px; display: block; max-width:250px;margin: -30px 0 0 215px;" alt="second#"/></a>
+      		style="display: block; max-width:250px; margin-left: 100px;" alt="second#"/></a>
    </div>
    
    
@@ -457,13 +404,13 @@
 
  		
       <!-- 로그인 o,x -->
-         <div class="tab_cate" id="h5" style="width: 230px;">    
+         <div class="tab_cate" id="h5" style="width: 300px;">    
 
-              <div style="clear:both;float: left;width: 50%;">
-                 <a href="/second/shop/allGoodsList" class="a_menu"><img style="width:50px;" class="imgser1" src="<c:url value="/resources/images/sell1.png"/>"/>
+              <div class="d_menu">
+                 <a href="/second/shop/allGoodsList" class="a_menu"> <img style="width:50px;" class="imgser1" src="<c:url value="/resources/images/sell1.png"/>"/>
                  	쇼핑몰</a>  
               </div>
-              <div style="float: left;width: 50%;">
+              <div style="float: left;width: 40%; height:35px; margin-top: 23px;">
                  <a href="/second/community/noticeList" class="a_menu"><img style="width:40px;" class="imgser2" src="<c:url value="/resources/images/sell2.png"/>"/>
                  	커뮤니티</a>  
               </div>
