@@ -7,7 +7,7 @@
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
-
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -25,7 +25,10 @@
 	width:1120px;
 	margin-left:50px;
 }
-
+a{
+   color: #000;
+   text-decoration: none;	
+}
 button {
   background:none;
   border:0;
@@ -53,13 +56,26 @@ button {
 	font-family: 'Nanum Gothic';
 	margin-bottom:50px;
 }
-
-
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color: #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 </style>
 
 <body>
-	<div id="content">
-		
+
+<div id="content">
   <div class="tab_wrap">
   <div class="tab_menu_container">
     <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
@@ -68,7 +84,6 @@ button {
     <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
   </div>
   </div>
-  
 		<div id="main-container">
 			<h2>게시글작성</h2>
 			<form id="frm" name="frm" enctype="multipart/form-data">
@@ -102,17 +117,13 @@ button {
 				<br />
 				<br />
 				<div align="right">
-					<a href="#this" class="btn" id="write"><button
-							class="bttn-bordered bttn-xs bttn-primary">작성하기</button></a> <a
-						href="#this" class="btn" id="list"><button
-							class="bttn-bordered bttn-xs bttn-primary">목록으로</button></a>
+					<a href="#this" id="write"><button class="btn">작성하기</button></a> 
+					<a href="#this" id="list"><button class="btn">목록으로</button></a>
 				</div>
 			</form>
-
-
-
 		</div>
 	</div>
+	
 	<script type="text/javascript">
       var gfv_count=1;
       $(document).ready(function(){

@@ -302,7 +302,7 @@ function zipcode() {//우편번호 검색창
     <form id="joinForm" method="post">
       <div class="row">
         <div class="input-field col s12 center">
-          <h4><img src="/second/resources/images/join.png"></h4>
+          <h4>회원가입</h4>
           <p class="center">Join to our community now !</p>
         </div>
       </div>
@@ -311,7 +311,7 @@ function zipcode() {//우편번호 검색창
         <div class="input-field col s12">
           <input type="text" id="MEM_ID" name="MEM_ID"  style="width:80%;">
           <label for="username">아이디</label>
-          <button onclick="fn_idCheck();" type="button">아이디 중복 확인
+          <button onclick="fn_idCheck();" type="button" class="btn">아이디 중복 확인</button>
             
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id = "chkMsg"></span>
@@ -411,9 +411,9 @@ function zipcode() {//우편번호 검색창
        
       <div>
           <label>
-          <fieldset>
-          <legend>nns# 서비스 이용약관 동의</legend>
-             <svg width="30" height="30" viewBox="0 0 31 31">
+          <fieldset style="    width: 750px;">
+          <legend>Second Market 서비스 이용약관 동의</legend>
+             <svg width="60" height="30" viewBox="0 0 31 31">
                 <g fill="none" fill-rule="evenodd">
                    <g>
                       <circle class="Circle__fill" cx="15.5" cy="15.5" r="15.5"></circle>
@@ -434,8 +434,8 @@ function zipcode() {//우편번호 검색창
       
       <div class="row">
         <div class="input-field col s12">
-        	<button id="join" class="btn waves-effect waves-light col s12" style="width:60%; background-color:#26a69a; border-color:#26a69a;">회원가입</button>
-         	<button onclick="back();" type="button" class="btn waves-effect waves-light col s12" style="width:35%; margin:0 0 0 20px; background-color:#26a69a; border-color:#26a69a;">취소</button>
+        	<button id="join" class="btn" style="width:60%;">회원가입</button>
+         	<button onclick="back();" type="button" class="btn" style="width:35%;">취소</button>
           
           
         </div>

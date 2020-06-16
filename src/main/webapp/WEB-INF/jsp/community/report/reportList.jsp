@@ -10,7 +10,15 @@
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+a{
+   color: #000;
+   text-decoration: none;
+}
+.search_box1 {
+    width: 100px;
+    height: 30px;
+    border: 0.1em solid #000;
+}
 #main-container{
    width:1100px;
    align:center;
@@ -49,7 +57,21 @@ button {
 	font-family: 'Nanum Gothic';
 	margin-bottom:50px;
 }
-
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color: #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 </style>
 
 <meta charset="UTF-8">
@@ -79,13 +101,13 @@ button {
 		</colgroup>  
 		<caption><h2>신고게시판</h2></caption>
 		<form action="/second/community/reportList" method="post">
-	      <select name="search" id="search">
+	      <select name="search" id="search" class="search_box1"">
 	                  <option value="0">전체보기</option>
 	               <option value="1" <c:out value="${search eq '1' ? 'selected' :''}"/>>처리대기</option>
 	               <option value="2" <c:out value="${search eq '2' ? 'selected' :''}"/>>신고접수</option>
 	               <option value="3" <c:out value="${search eq '3' ? 'selected' :''}"/>>허위신고</option>
 	               <option value="4" <c:out value="${search eq '4' ? 'selected' :''}"/>>처리완료</option>
-	      </select>
+	      </select> &nbsp;
 	      <input type="submit" value="분류" class="search_btn" onClick="onSearch()"/>
 	    </form>
 		<thead>
@@ -109,7 +131,7 @@ button {
 	<br />
 	<div align="right">
 	<c:if test="${session_MEM_INFO.MEM_ID != NULL }">
-		<a href="reportWriteForm"><button  class="btn btn-success">글쓰기</button></a>
+		<a href="reportWriteForm"><button  class="btn">글쓰기</button></a>
 	</c:if>
 	</div>
 	</div>

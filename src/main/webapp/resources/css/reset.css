@@ -22,7 +22,7 @@ pre{overflow-x:scroll;font-size:1.1em;}
 a{color:#707070;text-decoration:none;}
 iframe{max-width:100%;}
 a:hover,a:focus,a:active{text-decoration:none;}
-
+body {top-margin:0; bottom-margin:0; left-margin:0; right-margin:0}   
 -------------------------------------------------------------- */
 .cb{clear:both;}
 .clearFix{display:block;content:"";clear:both;}

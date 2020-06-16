@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ include file="/WEB-INF/include/include-header.jspf" %>
 <html lang="ko">
 <head>
-
+<%@ include file="/WEB-INF/include/include-header.jspf" %>
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a{
+   color: #000;
+   text-decoration: none;	
+}
 
 #main-container{
    width:1100px;
@@ -15,6 +20,25 @@
 	font-size:15px;
 }
 
+.btn3{
+    width: 100px;
+    background-color: #fff;
+    border: 1px solid #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.btn3:hover {
+  /*   background-color: #74C043; */
+  	background-color: #80EB1C;
+    color:#fff;
+}
 #content{
 	width:1120px;
 	margin-left:50px;
@@ -77,7 +101,6 @@ button {
          <col width="35%"/>
       </colgroup>
       <caption><h2>신고게시판</h2></caption>
-      <p/>
       <tbody>
          <tr>
             <th style=text-align:center; scope="row">글번호</th>
@@ -120,15 +143,15 @@ button {
             
          </tr>
          <tr>
-            <td colspan="4" height="600px" style="vertical-align:top;"><pre style="overflow:hidden;  white-space: pre-wrap">${map.REPORT_CONTENT }</pre></td>
+            <td colspan="4" height=auto; style="vertical-align:top;"><pre style="overflow:hidden;  white-space: pre-wrap">${map.REPORT_CONTENT }</pre></td>
          </tr>
       </tbody>
    </table>
    
    <div align="right">
-   <a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+   <a href="#this" id="list"><button class="btn3">목록으로</button></a>
    <c:if test="${session_MEM_ID eq map.MEM_ID && session_MEM_ID ne null}">
-   	<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
+   	<a href="#this" id="delete"><button class="btn3">삭제하기</button></a>
    </c:if>
    </div>
    </div>

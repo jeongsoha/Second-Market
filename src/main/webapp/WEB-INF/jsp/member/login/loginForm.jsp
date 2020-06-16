@@ -3,15 +3,21 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
    <style>
    @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-   
+   a{
+   color: #000;
+   text-decoration: none;	
+}
    html {
       height: 100%;
    }
    
    body {
-        background:white;
+	    background:white;
+	    margin: 0;
+	    padding: 0;
    }
    body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
    
@@ -19,7 +25,7 @@
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border:1px solid #ccc;
    }
    
    .form-signin .form-control {
@@ -36,7 +42,10 @@
    		margin-top: -150px;
    }
 
-   
+   h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
    </style>
    <%-- <script src="<c:url value='/js/common.js'/>" charset="utf-8"></script> --%>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -137,11 +146,11 @@
    <form name="myform" id="log" action="login" method="post" class="form-signin" style="clear:both">
    
    
-      <div class="card align-middle" style="width:30rem; border-radius:30px; height:300px; ">
+      <div class="card align-middle" style="width:30rem; border-radius:10px; height:300px; ">
          <div>
          
-            <div class="card-title" style="margin-top:50px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/login.png"></h2>
+            <div class="card-title">
+               <p style="font-weight: bold;font-size: 20px;padding-top: 20px;}">로그인</p>
             </div>
             
             <div class="card-body" style="margin-top:20px;">   
@@ -153,7 +162,7 @@
             </div>
          
             <div class="card-body" style="margin-top:20px;">
-               <input type="button" class="btn btn-lg btn-primary btn-block" value="로그인" onclick="fsubmit();" style="background-color:#333333;">
+               <input type="button" class="btn" value="로그인" onclick="fsubmit();">
             </div>
          
             <div align="center" style="margin-top:10px;">
@@ -170,7 +179,7 @@
    </form>
    
    <div align="center">
-      <input type="button" value="회원가입" onclick="location.href='/second/joinForm'" class="bttn-bordered bttn-xs bttn-primary"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/second/findId'" class="bttn-bordered bttn-xs bttn-primary"/>
+      <input type="button" value="회원가입" onclick="location.href='/second/joinForm'" class="btn"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/second/findId'" class="btn"/>
     </div>
 
 </body>

@@ -11,7 +11,12 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/a.css"/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/reset.css"/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/layout.css"/>" />
-
+<style>
+body {
+    margin: 0;
+    padding: 0;
+}
+</style>
 
 <title>second#</title>
 </head>
@@ -29,7 +34,7 @@
       <tiles:insertAttribute name="body"/><!-- // container -->
    </div>
    <!-- footer --> 
-<div style="width:100%; height:300px; margin:auto; display:block">
+<div style="width:100%;  margin:auto; display:block">
       <tiles:insertAttribute name="footer"/><!-- // footer -->
 </div>
 </div>

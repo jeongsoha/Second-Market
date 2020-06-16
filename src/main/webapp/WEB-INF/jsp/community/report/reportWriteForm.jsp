@@ -16,12 +16,30 @@
    font-family: 'Nanum Gothic';
    font-size:15px;
 }
-
+.search_box1 {
+    width: 150px;
+    height: 30px;
+    border: 0.1em solid #000;
+}
 #content{
 	width:1120px;
 	margin-left:50px;
 }
-
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color: #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 button {
   background:none;
   border:0;
@@ -80,30 +98,24 @@ button {
          <tbody>
          	<br/>
          	<tr>
-         		<td style=font-weight:bold;>신고게시글</td>
+         		<td style="font-weight:bold; vertical-align: middle;">신고게시글</td>
          		<td style="background-color:#fff;">${GOODS_NUM}
-            	<input type="hidden" id="REPORT_PRONUM" name="REPORT_PRONUM" value="${GOODS_NUM}"></td>
+            		<input type="hidden" id="REPORT_PRONUM" name="REPORT_PRONUM" value="${GOODS_NUM}"></td>
          		</td>
-         		<td style=font-weight:bold;>신고사유</td>
+         		<td style="font-weight:bold;vertical-align: middle;">신고사유</td>
          		<td style="background-color:#fff;">
-            		<select id="REPORT_TYPE" name="REPORT_TYPE">
-					
+            		<select id="REPORT_TYPE" name="REPORT_TYPE" class="search_box1">
 					<!-- <option value="choice">선택</option>-->
-					
 					<option value="거래사기">거래사기</option>
-
 					<option value="언어폭력">언어폭력</option>
-
 					<option value="기타">기타</option>
-
-				</select>
+					</select>
             	</td>
-         		
          	</tr>
          	
          	<tr>
-         		<td style=font-weight:bold;>제목</td>
-         		<td style="background-color:#fff;"><input type="text" id="REPORT_TITLE" name="REPORT_TITLE" style="width:100%"/>
+         		<td style="font-weight:bold; ">제목</td>
+         		<td colspan="3" style="background-color:#fff;"><input type="text" id="REPORT_TITLE" name="REPORT_TITLE" style="width:100%"/>
          			<input type="hidden" id="REPORT_NUM" name="REPORT_NUM">
          		</td>
          	</tr>

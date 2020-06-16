@@ -7,6 +7,7 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
 <style type="text/css">
 
@@ -26,19 +27,19 @@
          
          
             <div class="card-title" style="margin-top:100px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="./resources/images/mypage_pwcheck.png"></h2>
+                <p style="font-weight: bold;font-size: 20px;padding-top: 20px;}">비밀번호 확인</p>
             </div>
             
             
             <div class="card-body" style="margin-top:30px;">
-               <img src="/second/resources/images/mypage_pw.png"> 
+               비밀번호 
                <input type="password" style="margin-top:20px;" id="MEM_PW" name="MEM_PW" class="form-control" placeholder="Password">
             </div>
          
          
             <div class="card-body" style="margin-top:30px; margin-botton:0px;" >
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="확인" onclick="fn_pwCheck();" style="background-color:#333333;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="back();" style="background-color:#333333;">
+            	<input type="button" class="btn" value="확인" onclick="fn_pwCheck();">
+            	<input type="button" class="btn" value="취소" onclick="back();">
 				<span id="pwc"></span>
 				<br>
             </div>

@@ -10,10 +10,24 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
     />
-  </head>
-  <style type="text/css">
+    
+    <style type="text/css">
     @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border:1px solid #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
     .form-control {
       height: auto;
 
@@ -64,8 +78,15 @@ pageEncoding="UTF-8"%>
     .tab_wrap {
       clear: both;
     }
+    
+a{
+   color: #000;
+   text-decoration: none;	
+}
   </style>
-
+    
+  </head>
+ 
   <body
     onload="begin()"
     cellpadding="0"
@@ -106,6 +127,12 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
 
+
+
+
+
+
+
         <div
           id="main-container"
           style="width: 1000px; padding: 0px 0px 0px 400px;"
@@ -143,14 +170,14 @@ pageEncoding="UTF-8"%>
           <div class="card-body">
             <input
               type="button"
-              class="btn btn-success"
+              class="btn"
               style="width: 110px; height: 40px;"
               value="수정 하러 가기"
               onclick="ch_info();"
             />
             <input
               type="button"
-              class="btn btn-success"
+              class="btn"
               style="width: 80px; height: 40px;"
               value="취소"
               onclick="fn_openBoardList();"

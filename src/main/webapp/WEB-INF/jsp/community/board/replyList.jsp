@@ -5,7 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<style>
+a{
+   color: #000;
+   text-decoration: none;
+}
+</style>
 </head>
 <body>
 

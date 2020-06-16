@@ -194,7 +194,7 @@ nav {
   position: relative;
   display: flex;
   width: 1000px;
-  margin: 0 0 0 300px;
+  margin: 0 0 0 350px;
     text-align: center;
 }
 nav a {
@@ -281,7 +281,7 @@ nav a:nth-child(5):hover ~ .nav-underline {
 		<div align="center">
 		<form action="/second/shop" method="post">
 			<fieldset style="margin-top: 10px;">
-				<select name="searchType" id="searchType" class="search_box1">
+				<select name="searchType" id="searchType" class="search_box1" style="border: 0.1em solid #000;">
 					<option value="title" <c:out value="${searchType eq 'title'?'selected':''}"/>>상품명</option>
 					<option value="content" <c:out value="${searchType eq 'content'?'selected':''}"/>>내용</option>
 					<option value="region" <c:out value="${searchType eq 'region'?'selected':''}"/>>지역</option>

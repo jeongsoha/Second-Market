@@ -5,14 +5,17 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
-
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+a{
+   color: #000;
+   text-decoration: none;	
+}
 #main-container{
    width:1100px;
    align:center;
@@ -52,7 +55,21 @@ button {
 	font-family: 'Nanum Gothic';
 	margin-bottom:50px;
 }
-
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color: #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 </style>
 
 <body>
@@ -97,8 +114,8 @@ button {
       
       <br/><br/>
       <div align="right">
-      <a href="#this" id="write"><button class="btn btn-primary">작성하기</button></a>
-      <a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+      <a href="#this" id="write"><button class="btn">작성하기</button></a>
+      <a href="#this" id="list"><button class="btn">목록으로</button></a>
       </div>
    </form>
   </div>

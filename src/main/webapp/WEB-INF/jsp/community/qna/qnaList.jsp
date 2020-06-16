@@ -12,7 +12,25 @@
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+a{
+   color: #000;
+   text-decoration: none;
+}
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color: #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 #main-container{
    width:1100px;
    align:center;
@@ -55,9 +73,9 @@ button {
 </style>
 
 </head>
+
 <body>
 <div id="content">
-  
   <div class="tab_wrap">
   <div class="tab_menu_container">
     <a href="noticeList"><button class="tab_menu_btn" type="button">공지사항</button></a>
@@ -65,10 +83,9 @@ button {
     <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
     <a href="qnaList"><button class="tab_menu_btn on" type="button">Q&A게시판</button></a>
   </div>
-  </div>
+ </div>
   
    <div id="main-container">
-   
 	<h2>Q&A게시판</h2>
 	<table class="table table-striped table-condensed">
 		<colgroup>
@@ -97,7 +114,7 @@ button {
 	<br />
 	<div align="right">
 	<c:if test="${session_MEM_INFO.MEM_ID != NULL }">
-		<a href="qnaWriteForm"><button class="btn btn-success">글쓰기</button></a>
+		<a href="qnaWriteForm"><button class="btn">글쓰기</button></a>
 	</c:if>
 	</div>
 	</div>

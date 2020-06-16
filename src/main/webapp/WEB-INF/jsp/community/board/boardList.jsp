@@ -7,10 +7,13 @@
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
 <style type="text/css">
-
+a{
+   color: #000;
+   text-decoration: none;
+}
  @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 
 #main-container{
@@ -100,7 +103,7 @@ button {
 			<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 			<div align="right">
 				<c:if test="${session_MEM_INFO.MEM_ID != NULL }">
-					<a href="#this" id="write"><button class="btn btn-primary">글쓰기
+					<a href="#this" id="write"><button class="btn">글쓰기
 						</button></a>
 				</c:if>
 			</div>
