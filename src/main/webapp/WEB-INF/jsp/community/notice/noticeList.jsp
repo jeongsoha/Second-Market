@@ -6,9 +6,9 @@
  
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
 <style type="text/css">
-
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 a{
@@ -18,8 +18,7 @@ a{
 .btn{
     width: 100px;
     background-color: #fff;
-    border-size: 3px;
-    border-color: #80EB1C;
+    border: 1px solid #80EB1C;
     color: #000;
     padding: 15px 0;
     text-align: center;

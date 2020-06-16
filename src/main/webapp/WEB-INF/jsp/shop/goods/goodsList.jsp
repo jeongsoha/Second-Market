@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +17,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
 <style>
-html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
-   p, blockquote, pre, a, abbr, acronym, address, big, quotes, code, del,
-   dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, u,
-   i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
-   caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
-   details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
-   output, ruby, section, summary, time, mark, audio, video {
+h1, h2, h3, h4, h5, h6,
+   p {
    margin: 0;
    padding: 0;
    border: 0;

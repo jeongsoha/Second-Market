@@ -25,7 +25,7 @@ body {
 <body>
 <div id="wrapper">
    <!-- header --> 
-<div style="width:100%; height:300px; margin:auto; display:block">
+<div style="width:100%; height:400px; margin:auto; display:block">
       <tiles:insertAttribute name="header"/><!-- // header -->
    </div>
        

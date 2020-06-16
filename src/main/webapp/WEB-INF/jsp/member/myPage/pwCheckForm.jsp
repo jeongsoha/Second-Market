@@ -6,26 +6,61 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
-<link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
+
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <style type="text/css">
-
-#pass{
-	clear: both;
+   @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+a{
+   color: #000;
+   text-decoration: none;	
 }
+body {
+	    background:white;
+	    margin: 0;
+	    padding: 0;
+}
+body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
+   font-family:'맑은 고딕',Malgun Gothic,sans-serif;
+   font-size:12px;
+   color:#666;
+   font-weight:400;}
+}
+.card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        border:1px solid #ccc;
+   }
+   
+   .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+   }
+   
+   #log{
+   		margin-top: -150px;
+   }
 
+   h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
 </style>
    
    
    
 </head>
-<body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-     
+<body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" align="center">
       <div class="card align-middle" style="width:30rem; height:400px; height:300px; border-radius:20px; background-color:#fff; margin-top:50px;" id="pass">
          <div>
-         
-         
+
             <div class="card-title" style="margin-top:100px;">
                 <p style="font-weight: bold;font-size: 20px;padding-top: 20px;}">비밀번호 확인</p>
             </div>
@@ -52,7 +87,6 @@
 </body>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
 

@@ -1,5 +1,7 @@
 /* UI Object */   
-body {top-margin:0; bottom-margin:0; left-margin:0; right-margin:0}   
+body {
+	top-margin:0; bottom-margin:0; left-margin:0; right-margin:0
+	}   
 .tbl_type,.tbl_type th,.tbl_type td{
 	border:0
 }
