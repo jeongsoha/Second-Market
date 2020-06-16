@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +22,18 @@ import second.reply.dto.ReplyVO;
 @RestController
 @RequestMapping("/community/replyList")
 public class ReplyController {
+	
+	Logger log = Logger.getLogger(this.getClass());
+		
+	@ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    public String exceptionHandler() {
+        log.debug("ReplyController_예외사항_발생!");
+        return "/error/exception";
+    }
+	
+	
+	
 	
 	@Inject
 	ReplyService replyService;

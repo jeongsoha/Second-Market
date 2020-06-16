@@ -19,13 +19,13 @@ import second.sample.service.SampleService;
 
 @Controller
 public class SampleController {
+	
 	Logger log = Logger.getLogger(this.getClass());
-	
-	
+		
 	@ExceptionHandler(RuntimeException.class)
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
     public String exceptionHandler() {
-        log.debug("예외사항_발생!");
+        log.debug("SampleController_예외사항_발생!");
         return "/error/exception";
     }
 	

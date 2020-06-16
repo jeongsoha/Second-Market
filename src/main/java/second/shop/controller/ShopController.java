@@ -20,12 +20,15 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
+import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,6 +38,15 @@ import second.shop.service.ShopService;
 @Controller
 public class ShopController{
 
+	Logger log = Logger.getLogger(this.getClass());
+	
+	@ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    public String exceptionHandler() {
+        log.debug("ShopController_예외사항_발생!");
+        return "/error/exception";
+    }
+	
 	@Resource(name="shopService")
 	private ShopService shopService;
 	
