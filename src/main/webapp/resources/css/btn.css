@@ -138,7 +138,7 @@
 	width:100px;
     background-color: #fff;
     border-size: 3px;
-    border-color:#B8DE10;
+    border-color:#80EB1C;
     color:#000;
     padding: 15px 0;
     text-align: center;
@@ -151,7 +151,7 @@
 }
 .btn:hover {
   /*   background-color: #74C043; */
-  	background-color: #B8DE10;
+  	background-color: #80EB1C;
     color:#fff;
 }
 

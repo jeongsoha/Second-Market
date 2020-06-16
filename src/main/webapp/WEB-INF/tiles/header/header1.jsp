@@ -11,10 +11,14 @@ file="/WEB-INF/include/include-header.jspf" %>
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
 />
+<link href="<c:url value="/resources/css/btn.css" />" rel="stylesheet">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style type="text/css">
+  @import url("https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800");
+
   a {
     color: #666;
     text-align: right;
@@ -32,27 +36,28 @@ file="/WEB-INF/include/include-header.jspf" %>
   #h1 {
     float: left;
     width: 30%;
-    margin: 0px 0px 15px 0px;
+    margin: 30px 0px 15px 0px;
     display: inline;
   }
 
   #h2 {
     float: left;
     width: 30%;
-    margin: 100px 0px 85px 100px;
+    margin: 15px 0px 10px 30px;
     display: inline;
   }
 
   #menubar {
     float: left;
-    width: 200px;
-    margin: 100px 0px 85px 100px;
+    width: 130px;
+    margin: 14px 0px 5px -10px;
     display: inline;
+    font-size: 12px;
   }
 
   #menu {
     width: 100%;
-    margin: 10px 10px 10px auto;
+    margin: 1px 10px 10px auto;
     clear: both;
     float: right;
   }
@@ -65,10 +70,12 @@ file="/WEB-INF/include/include-header.jspf" %>
   #h4 {
     float: right;
     display: inline;
+    margin: 3px 110px 0 0;
+    font-size: 12px;
   }
 
   #h5 {
-    float: right;
+    float: left;
     display: inline;
   }
 
@@ -84,16 +91,18 @@ file="/WEB-INF/include/include-header.jspf" %>
 
   #header {
     width: 100%;
-    height: 20px;
-    background: linear-gradient(to bottom right, #2db400, #77e56f);
+    height: 25px;
+    /* background:linear-gradient(to bottom right, #2db400, #77E56F); */
+    background: #80eb1c;
   }
 
   .green_window {
     display: inline-block;
     width: 366px;
     height: 34px;
-    border: 3px solid #2db400;
+    border: 1px solid #80eb1c;
     background: white;
+    border-radius: 5px;
   }
 
   .input_text {
@@ -112,7 +121,7 @@ file="/WEB-INF/include/include-header.jspf" %>
     margin: 0;
     border: 0;
     vertical-align: top;
-    background: #22b600;
+    background: #80eb1c;
     color: white;
     font-weight: bold;
     border-radius: 1px;
@@ -123,22 +132,25 @@ file="/WEB-INF/include/include-header.jspf" %>
     background: #56c82c;
   }
 
+  #input_text {
+    text-indent: 5px;
+    font-size: 15px;
+    background: #fff;
+  }
   #bell {
     width: 55px;
     height: 55px;
   }
   .dropbtn {
-    /*
-	    background-color: #4CAF50;
-	    */
+    background-color: #fff;
     color: white;
-    padding: 16px;
+    /* 	    padding: 16px; */
     font-size: 16px;
     border: none;
     cursor: pointer;
   }
   .dropdown {
-    float: right;
+    /*  float:left; */
     position: relative;
     display: inline-block;
   }
@@ -169,6 +181,44 @@ file="/WEB-INF/include/include-header.jspf" %>
     /*
 	    background-color: #3e8e41;
 	    */
+  }
+
+  .shopbtn {
+    width: 80px;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #80eb1c;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .shopbtn:hover {
+    /*   background-color: #74C043; */
+    background-color: #80eb1c;
+    color: #fff;
+  }
+  .imgser1 {
+    float: left;
+    margin-right: -5px;
+    margin-top: 12px;
+    clear: both;
+  }
+  .imgser2 {
+    float: left;
+    margin-right: -5px;
+    margin-top: 12px;
+    clear: both;
+  }
+  .a_menu {
+    font-size: 15px;
+    vertical-align: middle;
+    font-weight: bold;
   }
 </style>
 
@@ -240,13 +290,64 @@ file="/WEB-INF/include/include-header.jspf" %>
 </script>
 
 <!-- 초록색 줄 -->
+<div id="header">
+  <!-- 비로그인 시 -->
+  <div id="h4">
+    <c:if test="${session_MEM_ID == null }">
+      <a href="${contextPath}/second/loginForm" class="log">로그인</a>
+      &nbsp;&nbsp;
+      <a href="${contextPath}/second/joinForm">회원가입</a> &nbsp;&nbsp;
+      <a href="${contextPath}/second/findId">ID/PW찾기</a> &nbsp;&nbsp;
+    </c:if>
+  </div>
+  <!-- 로그인 시 -->
+  <div id="h4">
+    <c:if test="${session_MEM_ID != null }">
+      <c:if test="${session_MEM_ID == 'admin' }">
+        <a href="/second/admin">관리자페이지</a> &nbsp;&nbsp;
+      </c:if>
+      <a href="${contextPath}/second/logout" class="log">로그아웃</a>
+      &nbsp;&nbsp;
+      <a href="${contextPath}/second/myPage">마이페이지</a> &nbsp;&nbsp;
+      <a href="${contextPath}/second/myshop">내상점</a> &nbsp;&nbsp;
+    </c:if>
+  </div>
 
-<div id="header"></div>
+  <!-- 로그인o -->
+
+  <div id="h7">
+    <c:if test="${session_MEM_ID != null }">
+      <a href="#" style="font-color: #666; font-size: 12px;" class="tab_a1"
+        ><span>${session_MEM_ID}&nbsp;님</span></a
+      >
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </c:if>
+
+    <!-- 로그인 o  알림버튼 -->
+
+    <c:if test="${session_MEM_ID != null}">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img style="width:25px; height:25px;background-color: #80EB1C;"
+          src="<c:url value="/resources/images/ring.png" />"/>
+        </button>
+        <div class="dropdown-content">
+          <table id="inform">
+            <tbody></tbody>
+          </table>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+      </div>
+    </c:if>
+  </div>
+</div>
 
 <!-- 오른쪽 위 작은 메뉴들 -->
 
+<!-- 오른쪽 위 작은 메뉴들 -->
 <div id="menu">
   <!-- 로그인 x -->
+  <%--
   <div id="h3">
     <c:if test="${session_MEM_ID == null }">
       <a href="${contextPath}/second/loginForm" class="log">로그인</a>
@@ -255,9 +356,10 @@ file="/WEB-INF/include/include-header.jspf" %>
       <a href="${contextPath}/second/findId">ID/PW찾기</a> &nbsp;&nbsp;
     </c:if>
   </div>
+  --%>
 
   <!-- 로그인 o,x -->
-
+  <%--
   <div class="tab_cate" id="h5">
     <div class="tabs_area">
       <class ="tabs">
@@ -272,9 +374,11 @@ file="/WEB-INF/include/include-header.jspf" %>
       </class>
     </div>
   </div>
+  --%>
 
   <!-- 로그인o -->
 
+  <%--
   <div id="h4">
     <c:if test="${session_MEM_ID != null }">
       <c:if test="${session_MEM_ID == 'admin' }">
@@ -286,14 +390,14 @@ file="/WEB-INF/include/include-header.jspf" %>
       <a href="${contextPath}/second/myshop">내상점</a> &nbsp;&nbsp;
     </c:if>
   </div>
-
+  --%> <%--
   <!-- 로그인 o  알림버튼 -->
 
   <c:if test="${session_MEM_ID != null}">
     <div class="dropdown">
       <button class="dropbtn">
         <img style="width:30px; height:30px;" src="<c:url
-          value="/resources/images/Bell.png"
+          value="/resources/images/ring.png"
         />"/>
       </button>
       <div class="dropdown-content">
@@ -304,9 +408,10 @@ file="/WEB-INF/include/include-header.jspf" %>
       &nbsp;&nbsp;&nbsp;
     </div>
   </c:if>
-
+  --%>
   <!-- 로그인o -->
 
+  <%--
   <div id="h7">
     <c:if test="${session_MEM_ID != null }">
       <a href="#" style="font-color: #666; font-size: 12px;" class="tab_a1"
@@ -315,10 +420,99 @@ file="/WEB-INF/include/include-header.jspf" %>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </c:if>
   </div>
+  --%>
 </div>
 
 <div id="head">
   <!-- second로고 -->
+
+  <div class="header_area" id="h1">
+    <a href="/second/sample/openBoardList" title="second#"
+      ><img class="main_image" src="<c:url
+        value="/resources/images/logo6.png"
+      />" style="margin-left: 100px; display: block; max-width:250px;margin:
+      -30px 0 0 215px;" alt="second#"/></a
+    >
+  </div>
+
+  <!-- 검색창 -->
+
+  <div class="search_main" id="h2">
+    <div class="search_inner">
+      <form action="/second/shop" method="post">
+        <fieldset>
+          <span class="green_window">
+            <input
+              type="text"
+              class="input_text"
+              placeholder="Search"
+              maxlength="20"
+              name="keyword"
+              id="keyword"
+              value="${keyword}"
+            />
+            <input type="hidden" id="searchType" value="all" />
+          </span>
+
+          <button type="submit" class="sch_smit" onClick="onSearch()">
+            검색
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <!-- 드롭메뉴 -->
+
+  <div class="container" id="menubar">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading" style="height: 35px; color: #a5a5a5;">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#collapse1">Category</a>
+          </h4>
+        </div>
+
+        <div id="collapse1" class="panel-collapse collapse">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a href="/second/sample/openBoardList">의류</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/second/sample/openBoardList">전자기기</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/second/sample/openBoardList">악세서리</a>
+            </li>
+            <li class="list-group-item">
+              <a href="/second/sample/openBoardList">기타</a>
+            </li>
+          </ul>
+          <div class="panel-footer">
+            <a href="/second/sample/openBoardList">Q&A</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 로그인 o,x -->
+  <div class="tab_cate" id="h5" style="width: 230px;">
+    <div style="clear: both; float: left; width: 50%;">
+      <a href="/second/shop/allGoodsList" class="a_menu"
+        ><img style="width:50px;" class="imgser1" src="<c:url
+          value="/resources/images/sell1.png"
+        />"/> 쇼핑몰</a
+      >
+    </div>
+    <div style="float: left; width: 50%;">
+      <a href="/second/community/noticeList" class="a_menu"
+        ><img style="width:40px;" class="imgser2" src="<c:url
+          value="/resources/images/sell2.png"
+        />"/> 커뮤니티</a
+      >
+    </div>
+  </div>
 
   <div class="header_area" id="h1">
     <h1>

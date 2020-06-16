@@ -4,27 +4,27 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 
 <style type="text/css">
-
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 	#footer{
-		background:#eeeeee;
-		border: 3px solid #eeeeee;
+		background:#000000;
+		border: 3px solid #000000;
 	}
 	
 	#footer2{
-		background:#eeeeee;
+		background:#000000;
 	}
 
 	#footer3{
-		background:#eeeeee;
+		background:#000000;
 	}
 	
 	#footer4{
-		background:#eeeeee;
+		background:#000000;
 	}
 	
 	.utilMenu{
-		font-family:"맑은고딕";
-		background:#eeeeee;
+		font-family:"나눔 고딕";
+		background:#000000;
 	}
 
 </style>
@@ -80,8 +80,8 @@
          
       <!-- 로고 & 글 -->   
             <div class="qrcode">
-               <p><img src="<c:url value="/resources/images/second.png"/>" style="width:200px;height: auto;"/></p>
-               <div class="utilMenu_unit2">
+               <p><img src="<c:url value="/resources/images/logo6_1.png"/>" style="width:200px;height: auto;"/></p>
+               <div class="utilMenu_unit2">  
                   <p class="escrow_info">second샵은 통신판매중개자로서 중고거래마켓 second샵의 거래 당사자가 아니며,<br/>입점판매가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.<br/>
                </div>
             </div>
