@@ -117,7 +117,7 @@ button {
 		<!-- 페이징 정보가 담김 b1--></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<div align="right">
-			<c:if test="${session_MEM_ID != null }">
+			<c:if test="${session_MEM_ID == 'admin' }">  
 				<a href="noticeWriteForm"><button type="button" class="btn">글쓰기</button></a>
 	  	 	</c:if>
 		</div>

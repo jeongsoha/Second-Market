@@ -20,7 +20,7 @@
     	SELECT  COUNT(*)
 		FROM    MEMBER
 		WHERE   MEM_ID = #{MEM_ID}
-		AND     MEM_DEL_GB = 'N'
+		
 	]]>
 	</select>
 	

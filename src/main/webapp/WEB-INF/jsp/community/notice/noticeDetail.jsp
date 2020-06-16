@@ -100,8 +100,7 @@ button {
 	<div align="right">
 		<a href="#this" id="list"><button class="btn">목록으로</button></a>
 	  <c:if test="${session_MEM_ID == 'admin' }">  
-<%-- 		<c:if test="${session_MEM_INFO.MEM_LEVEL == '2'}"> 인포에 꺼내서 활용하지않더라.. --%>
-		<a href="#this" id="modify"><button class="btn">수정하기</button></a>
+ 		<a href="#this" id="modify"><button class="btn">수정하기</button></a>
 		<a href="#this" id="delete"><button class="btn">삭제하기</button></a>
 		</c:if>
 	</div>

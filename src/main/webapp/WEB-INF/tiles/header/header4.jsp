@@ -309,14 +309,14 @@
 
                 <div id="collapse1" class="panel-collapse collapse">
                   <ul class="list-group">
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">패션의류</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">가전제품</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">패션잡화</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">뷰티</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">도서/음반</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">티켓/쿠폰</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">패션의류</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">가전제품</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">패션잡화</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">뷰티</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">도서/음반</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">티켓/쿠폰</a></li>
                   </ul>
-                  <div class="panel-footer"><a href="/second/sample/openBoardList">Q&A</a></div>
+                  <div class="panel-footer"><a href="/second/community/qnaList">Q&A</a></div>
                 </div>
               </div>
             </div>

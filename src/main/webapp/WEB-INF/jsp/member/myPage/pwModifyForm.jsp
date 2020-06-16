@@ -156,7 +156,7 @@ $("#pwchangeform").on("submit",function(e){
          
             <div class="card-body">
             	<input type="button" class="btn btn-success" style="width:80px; height:40px;" value="수정하기" id="pwchange">
-            	<input type="button" class="btn btn-success" style="width:80px; height:40px;" value="취소하기" onclick="document.location.href='/second/sample/openBoardList'">
+            	<input type="button" class="btn btn-success" style="width:80px; height:40px;" value="취소하기" onclick="document.location.href='/second/shop/allGoodsList'">
 				<br>
             </div>
             </form>

@@ -44,8 +44,9 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		<servlet-name>action</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<servlet>
 	
+	 <!-- 채팅창 적용을 위한 설정중(미완성) -->
+	<servlet>
         <servlet-name>appServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
@@ -55,7 +56,9 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
-        <async-supported>true</async-supported> <!-- 웹소켓을 위한 설정(비동기지원) -->
+        <async-supported>true</async-supported> 
+        
+        <!-- 웹소켓을 위한 설정(비동기지원) -->
 </servlet>
 
     

@@ -455,7 +455,7 @@ $('#prev').attr('disabled', false);
 		<!-- second로고 -->
    
    <div class="header_area" id="h1">
-      <a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
+      <a href="/second/shop/allGoodsList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
       		style="display: block; max-width:250px; margin-left: 100px;" alt="second#"/></a>
    </div>
    
@@ -499,12 +499,12 @@ $('#prev').attr('disabled', false);
 
                 <div id="collapse1" class="panel-collapse collapse">
                   <ul class="list-group">
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">의류</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">전자기기</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">악세서리</a></li>
-                     <li class="list-group-item"><a href="/second/sample/openBoardList">기타</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">의류</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">전자기기</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">악세서리</a></li>
+                     <li class="list-group-item"><a href="/second/shop/allGoodsList">기타</a></li>
                   </ul>
-                  <div class="panel-footer"><a href="/second/sample/openBoardList">Q&A</a></div>
+                  <div class="panel-footer"><a href="/second/community/qnaList">Q&A</a></div>
                 </div>
               </div>
             </div>
