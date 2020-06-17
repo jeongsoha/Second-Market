@@ -19,13 +19,13 @@ font {
 <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
 <div id="content">
    <div id="vertical_tab-container">
-   <ul>
+  <!--  <ul>
      <li><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
      <li><a href="pwModifyForm"><img src="./../resources/images/mypage_tab2.png" width="100" height="30"></a></li>
      <li><a href="deleteAccount"><img src="./../resources/images/mypage_tab3.png" width="100" height="30"></a></li>
      <li class="selected"><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
      <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
-    </ul>
+    </ul> -->
    </div>
    <div id="main-container">
    <img src="./../resources/images/form_t3.png" width="100" height="30">
