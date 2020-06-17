@@ -99,11 +99,11 @@ button {
 	   font-family: 'Nanum Gothic';
 	}
 	
-		#menu{
+	#menu{
 		clear:both;
 		margin:0px auto 100px auto;
+}
 		 
-	}
 	
 	#con{
 		margin: auto 100px auto 100px;

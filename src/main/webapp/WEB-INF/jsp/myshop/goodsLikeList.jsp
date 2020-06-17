@@ -240,6 +240,7 @@ button {
 		#menu{
 		clear:both;
 		margin:0px auto 100px auto;
+
 		 
 	}
 	

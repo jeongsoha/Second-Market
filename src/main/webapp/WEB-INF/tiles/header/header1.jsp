@@ -471,7 +471,7 @@
          </div>
          
 <!-- 드롭메뉴 -->         
-<!-- 
+
          <div class="container" id="menubar">
          
          
@@ -496,7 +496,7 @@
             </div>
       </div>
       
- -->
+
  		
       <!-- 로그인 o,x -->
          <div class="tab_cate" id="h5" style="width: 300px;">    
