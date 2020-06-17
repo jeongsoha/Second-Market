@@ -234,7 +234,7 @@
       }
       .slide{
         width: 1000px;
-        height: 300px;
+        height: 250px;
         overflow: hidden;
         position: relative;
         margin: 0 auto;
