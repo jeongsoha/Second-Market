@@ -239,7 +239,7 @@ button {
 	
 	#menu{
 		clear:both;
-		margin:0px 240px 100px auto;
+		 
 	}
 	
 	#con{
