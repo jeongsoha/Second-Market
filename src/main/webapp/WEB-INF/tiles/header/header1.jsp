@@ -471,9 +471,7 @@
          </div>
          
 <!-- 드롭메뉴 -->         
-
          <div class="container" id="menubar">
-         
          
             <div class="panel-group">
               <div class="panel panel-default">
