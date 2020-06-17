@@ -4,10 +4,15 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/layout.css'/>" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
 
 <style type="text/css">
    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
@@ -102,7 +107,8 @@
    }
    
    .input_text {
-      width: 348px; height: 21px;
+   width: 300px;
+      height: 21px;
       margin: 3px 0px 3px 3px;
       border: 0;
       line-height: 21px;
@@ -219,8 +225,52 @@
     width: 40%;
     margin-top: 23px;
 }
-</style>
 
+
+
+
+*{
+        margin: 0; padding: 0;
+      }
+      .slide{
+        width: 1000px;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+      }
+      .slide ul{
+        width: 5000px;
+        position: absolute;
+        top:0;
+        left:0;
+        font-size: 0;
+      }
+      .slide ul li{
+        display: inline-block;
+      }
+      #back{
+        position: absolute;
+        top: 100px;
+        left: 0;
+        cursor: pointer;
+        z-index: 1;
+        height: 40px;
+    	width: 40px;
+      }
+      #next{
+        position: absolute;
+        top: 100px;
+        right: 0;
+        cursor: pointer;
+        z-index: 1;
+        height: 40px;
+    	width: 40px;
+      }
+
+
+            
+</style>
 
 <script type="text/javascript">
    var onSearch = function(){   
@@ -285,6 +335,51 @@
                body.append(str);
          }
       }
+
+      
+      
+
+      $(document).ready(function(){
+          var imgs;
+          var img_count;
+          var img_position = 1;
+
+          imgs = $(".slide ul");
+          img_count = imgs.children().length;
+
+          //버튼을 클릭했을 때 함수 실행
+          $('#back').click(function () {
+            back();
+          });
+          $('#next').click(function () {
+            next();
+          });
+
+          function back() {
+            if(1<img_position){
+              imgs.animate({
+                left:'+=1000px'
+              });
+              img_position--;
+            }
+          }
+          function next() {
+            if(img_count>img_position){
+              imgs.animate({
+                left:'-=1000px'
+              });
+              img_position++;
+            }
+          }
+
+
+          //이미지 끝까지 가면 버튼 사라지기
+
+
+          //첫 이미지로 돌아오기
+
+
+        });
 </script>
 
 
@@ -416,7 +511,20 @@
               </div>
       
          </div>
-         
+                  
+    </div><br><br><br>
 
-         
+
+
+  <div class="slide">
+      <img id="back" src="<c:url value="/resources/images/back.png"/>" alt="" width="100">
+      <ul>
+        <li><img src="<c:url value="/resources/images/ka01.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        
+        <li><img src="<c:url value="/resources/images/ka02.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka03.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka04.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka05.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+      </ul>
+      <img id="next" src="<c:url value="/resources/images/next.png"/>" alt="" width="100">
     </div>

@@ -108,7 +108,8 @@ file="/WEB-INF/include/include-header.jspf" %>
    }
    
    .input_text {
-      width: 348px; height: 21px;
+   width: 300px;
+      height: 21px;
       margin: 3px 0px 3px 3px;
       border: 0;
       line-height: 21px;

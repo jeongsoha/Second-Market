@@ -164,7 +164,7 @@
    </definition>
 
   <!-- myPage비밀번호 체크  -->
-   <definition name="pwCheckForm" extends="template2">
+   <definition name="pwCheckForm" extends="template1">
         <put-attribute name="body" value="/WEB-INF/jsp/member/myPage/pwCheckForm.jsp" />
          <put-attribute name="body2" value="/workmemo.jsp" />
    </definition>

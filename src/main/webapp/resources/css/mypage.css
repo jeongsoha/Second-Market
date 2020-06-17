@@ -1,4 +1,5 @@
 /* UI Object */   
+
 .tbl_type,.tbl_type th,.tbl_type td{border:0}
 .tbl_type{width:100%;border-bottom:1px solid #bbbbbb;font-family:Tahoma;font-size:11px;text-align:center}
 .tbl_type caption{display:none}
@@ -153,21 +154,23 @@ body {top-margin:0; bottom-margin:0; left-margin:0; right-margin:0}
 }
    @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
    
-   html {
+/*    html {
       height: 100%;
    }
+    */`
+   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
    
-   body {
-        background:white;
+   font-family:Malgun Gothic,sans-serif;
+   font-size:12px;
+   color:#000;
+   font-weight:400;
    }
-   
-   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'���� ���',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
    
     .card {
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border: 1px solid #dfdfdf;
    }
    
    .form-signin .form-control {
