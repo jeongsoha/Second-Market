@@ -98,7 +98,7 @@ a{
     align="center"
   >
     <div style="border-radius: 20px; background-color: #fff; margin-top: 50px;">
-      <div id="con">
+      <div id="content">
         <div class="tab_wrap">
           <div class="tab_menu_container">
             <a href="accountDetail"
@@ -135,7 +135,7 @@ a{
 
         <div
           id="main-container"
-          style="width: 1000px; padding: 0px 0px 0px 400px;"
+          style="width: 1000px; padding: 0px 0px 0px 200px;"
         >
           <div style="margin-top: 30px;">
             <h2 class="card-title text-center" style="color: #113366;">

@@ -98,6 +98,30 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     .tab_wrap {
       clear: both;
     }
+a{
+   color: #000;
+   text-decoration: none;	
+	}
+.btn {	
+	width:100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color:#80EB1C;
+    color:#000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:10px;
+}
+.btn:hover {
+  /*   background-color: #74C043; */
+  	background-color: #80EB1C;
+    color:#fff;
+}
   </style>
 
   <body
@@ -111,7 +135,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     align="center"
   >
     <div>
-      <div>
+      <div id="content">
         <!--          <div id="vertical_tab-container">
 	         <ul>
 	         <li><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
@@ -150,11 +174,16 @@ uri="http://java.sun.com/jsp/jstl/core"%>
           </div>
         </div>
 
+
+
+
+
         <div id="main-container">
+        
           <div class="card-title" style="margin-top: 30px;">
             <h2
               class="card-title text-center"
-              style="color: #113366; padding: 0px 0px 0px 300px;"
+              style="color: #113366; padding: 0px 0px 0px 100px;"
             >
               회 원 탈 퇴
             </h2>
@@ -163,7 +192,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
           <form id="deleteAccountForm" method="post">
             <div
               class="card-body"
-              style="width: 1000px; padding: 0px 0px 0px 400px;"
+              style="width: 1000px; padding: 0px 0px 0px 200px;"
             >
               <p>
                 한 번 탈퇴하시면 회원님의 정보를 복구할 수 없습니다.<br />신중히
@@ -179,18 +208,18 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 
             <div
               class="card-body"
-              style="width: 1000px; padding: 0px 0px 0px 400px;"
+              style="width: 1000px; padding: 0px 0px 0px 200px;"
             >
               <input
                 type="button"
-                class="btn btn-success"
+                class="btn"
                 style="width: 110px; height: 40px;"
                 value="탈퇴하기"
                 id="delete"
               />
               <input
                 type="button"
-                class="btn btn-success"
+                class="btn"
                 style="width: 110px; height: 40px;"
                 value="취소하기"
                 onclick="document.location.href='/second/shop/allGoodsList'"

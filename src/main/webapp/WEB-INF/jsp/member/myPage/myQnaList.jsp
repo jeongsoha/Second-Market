@@ -10,7 +10,10 @@
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+a{
+   color: #000;
+   text-decoration: none;	
+}
 #main-container{
    width:1100px;
    align:center;
