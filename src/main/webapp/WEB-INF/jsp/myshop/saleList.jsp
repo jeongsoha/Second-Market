@@ -194,7 +194,7 @@ pageEncoding="UTF-8"%>
 
   	#menu{
 		clear:both;
-		margin:0px auto 100px auto;
+		/* margin:0px auto 100px auto; */
 }
 		
 
