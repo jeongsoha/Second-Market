@@ -59,7 +59,7 @@ body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
 </head>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" align="center">
       
-      <div class="card align-middle" style="width:30rem; height:400px; height:300px; border-radius:20px; background-color:#fff; margin-top:50px;" id="pass">
+      <div class="card align-middle" style="width:30rem; height:400px;  margin-left:auto; margin-right:auto; border-radius:20px; background-color:#fff; margin-top:50px;" id="pass">
          <div>
 
             <div class="card-title" style="margin-top:100px;">
