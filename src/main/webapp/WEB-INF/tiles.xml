@@ -15,7 +15,7 @@
   
   
    <!-- 템플릿 2) 레이아웃1 / 헤더1 활용 -->
-   <definition name="template2" template="/WEB-INF/tiles/layout1.jsp">
+   <definition name="template2" template="/WEB-INF/tiles/layout2.jsp">
       <put-attribute name="header" value="/WEB-INF/tiles/header/header1.jsp" />
       <put-attribute name="body" value=" " />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
