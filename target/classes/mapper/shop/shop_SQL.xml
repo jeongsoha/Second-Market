@@ -88,8 +88,8 @@
 			                GOODS_CATEGORY,
 			                GOODS_STATUS,
 			                GOODS_TSTATUS,
-			                GOODS_THUMBNAIL,
-			                GOODS_QTY
+			                GOODS_THUMBNAIL
+			                
 			                )
 			VALUES          
 			                (
@@ -103,8 +103,8 @@
 			                #{GOODS_CATEGORY},
 			                'N',
 			                'N',
-			                #{GOODS_THUMBNAIL},
-			                #{GOODS_QTY}
+			                #{GOODS_THUMBNAIL}
+			                
 			                )
 		]]>
 	</insert>
@@ -204,7 +204,7 @@
 			        GOODS_PRICE = #{GOODS_PRICE},
 			        GOODS_REGION = #{GOODS_REGION},
 			        GOODS_CATEGORY = #{GOODS_CATEGORY},
-			        GOODS_QTY = #{GOODS_QTY},
+			        
 			        GOODS_DATE = SYSDATE
 			WHERE   GOODS_NUM = #{GOODS_NUM}
 			AND     GOODS_STATUS = 'N'

@@ -23,6 +23,9 @@ public class OrderController {
 	public ModelAndView orderWriteForm(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("orderWriteForm");
 		
+		System.out.println(commandMap.get("idq")+"=======vvzv=====");
+		
+		commandMap.put("idq", commandMap.get("idq"));
 		Map<String,Object> map = orderService.orderWriteForm(commandMap.getMap());
 
 		mv.addObject("orderG", map.get("orderG"));
