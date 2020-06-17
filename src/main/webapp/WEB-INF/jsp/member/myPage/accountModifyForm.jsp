@@ -8,17 +8,19 @@
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
-<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
 <style>
 
  @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a{
+   color: #000;
+   text-decoration: none;	
+}
 
 .btn3 {	
 	width:100px;
     background-color: #fff;
-    border-size: 3px;
-    border-color:#80EB1C;
+    border:1px solid #80EB1C;
     color:#000;
     padding: 15px 0;
     text-align: center;
@@ -28,18 +30,18 @@
     margin: 4px;
     cursor: pointer;
     border-radius:10px;
+    height: 30px;
 }
 .btn3:hover {
-  /*   background-color: #74C043; */
   	background-color: #80EB1C;
     color:#fff;
 }
     .form-control {
       height: auto;
-
       padding: 10px;
       font-size: 16px;
-      align: right;
+      width: 500px;
+      text-align: center;
     }
 
     #main-container {
@@ -103,7 +105,7 @@ a{
     align="center"
   >
     <div style="border-radius: 20px; background-color: #fff; margin-top: 50px;">
-      <div id="con">
+      <div id="content">
         <div class="tab_wrap">
           <div class="tab_menu_container">
             <a href="accountDetail"
@@ -135,9 +137,11 @@ a{
 	   
 	   
 	   
-	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 390px;">
+	   <div id="main-container" style="width: 1000px;padding: 0px 0px 0px 330px;">
+	   <div style="width:500px;">
+	   
             <div class="card-title" style="margin-top:30px;">
-               <h1>회 원 정 보 확 인</h1>
+               <h1 style="color:#000">회 원 정 보 확 인</h1>
             </div>
             <form id="accountModifyForm" method="post">
             <div class="card-body">
@@ -168,9 +172,9 @@ a{
             </form>
          </div>
          </div>
+         </div>
       </div>
 	
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {

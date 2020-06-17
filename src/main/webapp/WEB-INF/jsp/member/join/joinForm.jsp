@@ -13,10 +13,34 @@
 
 
 <style>
-
-   body {
+a{
+   color: #000;
+   text-decoration: none;	
+}
+body {
         background:linear-gradient(to bottom right, white, white);
    }
+.btn {	
+	width:100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color:#80EB1C;
+    color:#000;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:10px;
+}
+.btn:hover {
+  /*   background-color: #74C043; */
+  	background-color: #80EB1C;
+    color:#fff;
+}
+   
 
 </style>
 
@@ -311,7 +335,7 @@ function zipcode() {//우편번호 검색창
         <div class="input-field col s12">
           <input type="text" id="MEM_ID" name="MEM_ID"  style="width:80%;">
           <label for="username">아이디</label>
-          <button onclick="fn_idCheck();" type="button" class="btn">아이디 중복 확인</button>
+          <button onclick="fn_idCheck();" type="button" class="btn" style="width: 130px;">아이디 중복 확인</button>
             
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id = "chkMsg"></span>

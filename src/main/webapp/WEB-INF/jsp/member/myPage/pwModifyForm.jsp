@@ -129,8 +129,9 @@ $("#pwchangeform").on("submit",function(e){
 </script>
 <body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
       <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
+      
+      
       <div id="content">
-	      
   <div class="tab_wrap">
   <div class="tab_menu_container">
     <a href="accountDetail"><button class="tab_menu_btn" type="button">회원정보</button></a>
@@ -142,7 +143,7 @@ $("#pwchangeform").on("submit",function(e){
   </div>
 	      
 	   </div>
-	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 400px;">
+	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 300px;">
             <div class="card-title" style="margin-top:30px;">
                <h2 class="card-title text-center" style="color:#113366;">비 밀 번 호 변 경</h2><br>
             </div>

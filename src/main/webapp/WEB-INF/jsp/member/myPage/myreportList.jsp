@@ -11,7 +11,10 @@
 <style type="text/css">
 
  @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-
+a{
+   color: #000;
+   text-decoration: none;	
+}
 #main-container{
    width:1100px;
    align:center;
@@ -34,7 +37,7 @@ button {
   display:flex;
 }
 .tab_menu_btn {
-  width:80px;
+  width:90px;
   height:40px;
   transition:0.3s all;
 }
@@ -52,27 +55,31 @@ button {
 	margin-bottom:50px;
 }
 /*메뉴버튼 끝*/
-
+.search_box1 {
+    width: 100px;
+    height: 30px;
+    border: 0.1em solid #000;
+}
 </style>
 </head>
 <body>
-<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
-<div id="content">
 
+<div id="content">
+<!-- <div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;"> -->
    
-    <div class="tab_wrap">
+	 <div class="tab_wrap">
   <div class="tab_menu_container">
     <a href="accountDetail"><button class="tab_menu_btn" type="button">회원정보</button></a>
     <a href="pwModifyForm"><button class="tab_menu_btn" type="button">비밀번호 변경</button></a>
     <a href="deleteAccount"><button class="tab_menu_btn" type="button">회원탈퇴</button></a>
-    <a href="/myPage/reportList"><button class="tab_menu_btn on" type="button">내신고내역</button></a>
-    <a href="qnaList"><button class="tab_menu_btn" type="button">내문의내역</button></a>
+    <a href="reportList"><button class="tab_menu_btn on" type="button">내 신고 내역</button></a>
+    <a href="qnaList"><button class="tab_menu_btn" type="button">내 문의 내역</button></a>
   </div>
   </div>
    
    <div id="main-container">
 		<h2>신고게시판</h2>
-	<table border="1" align="center" class="tbl_type">
+	<table  align="center" class="table table-striped table-condensed">
 		<colgroup>
 			<col width="10%" />
 			<col width="*" />
@@ -82,14 +89,14 @@ button {
 		</colgroup>  
 		<caption><h2>신고게시판</h2></caption>
 		<form action="/second/myPage/reportList" method="post">
-	      <select name="search" id="search">
+	      <select name="search" id="search" class="search_box1">
 	                  <option value="0">전체보기</option>
 	               <option value="1" <c:out value="${search eq '1' ? 'selected' :''}"/>>처리대기</option>
 	               <option value="2" <c:out value="${search eq '2' ? 'selected' :''}"/>>신고접수</option>
 	               <option value="3" <c:out value="${search eq '3' ? 'selected' :''}"/>>허위신고</option>
 	               <option value="4" <c:out value="${search eq '4' ? 'selected' :''}"/>>처리완료</option>
 	      </select>
-	      <input type="submit" value="분류" class="search_btn" onClick="onSearch()"/>
+	      <input type="submit" value="확인" class="search_btn" onClick="onSearch()"/>
 	    </form>
 	    
 		<thead>
@@ -113,10 +120,8 @@ button {
 	<br />
 	</div>
 </div>
-	
-	
-	
-</div>
+
+
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
 		$(document).ready(function() {

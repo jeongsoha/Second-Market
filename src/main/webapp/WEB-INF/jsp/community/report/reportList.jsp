@@ -101,7 +101,7 @@ button {
 		</colgroup>  
 		<caption><h2>신고게시판</h2></caption>
 		<form action="/second/community/reportList" method="post">
-	      <select name="search" id="search" class="search_box1"">
+	      <select name="search" id="search" class="search_box1">
 	                  <option value="0">전체보기</option>
 	               <option value="1" <c:out value="${search eq '1' ? 'selected' :''}"/>>처리대기</option>
 	               <option value="2" <c:out value="${search eq '2' ? 'selected' :''}"/>>신고접수</option>
