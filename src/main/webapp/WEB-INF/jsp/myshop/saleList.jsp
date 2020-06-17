@@ -419,7 +419,7 @@ pageEncoding="UTF-8"%>
           "<th width='100px' align='center'>주문일시</th>" +
           "<th width='100px' align='center'>판매상태</th>" +
           "<th width='200px' align='center'>송장번호</th>" +
-          "<th width='100px' align='center'>판매상태 변경</th>" +
+          "<th width='100px' align='center'> </th>" +
           "</tr>";
         if (total == 0) {
           str1 +=
