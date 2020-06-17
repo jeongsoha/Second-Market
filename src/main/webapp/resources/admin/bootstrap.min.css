@@ -33,6 +33,10 @@ audio:not ([controls] ){
 	display: none
 }
 
+a{
+	color: #000;
+    text-decoration: none;
+}
 
 
 a:active, a:hover {
@@ -1340,7 +1344,7 @@ html {
 
 
 button, input, select, textarea {
-	font-family: inherit;
+	font-family: '나눔 고딕',Nanum Gothic;
 	font-size: inherit;
 	line-height: inherit
 }
@@ -1426,7 +1430,7 @@ hr {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-	font-family: inherit;
+	font-family: '나눔 고딕',Nanum Gothic;
 	font-weight: 500;
 	line-height: 1.1;
 	color: inherit
@@ -1545,7 +1549,7 @@ p {
 }
 
 .text-primary {
-	color: #337ab7
+	color: #000
 }
 
 a.text-primary:focus, a.text-primary:hover {
@@ -1586,7 +1590,7 @@ a.text-danger:focus, a.text-danger:hover {
 
 .bg-primary {
 	color: #fff;
-	background-color: #337ab7
+	background-color: #000
 }
 
 a.bg-primary:focus, a.bg-primary:hover {
@@ -3446,12 +3450,12 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	.btn-primary[disabled]:hover, fieldset[disabled] .btn-primary.focus,
 	fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover
 	{
-	background-color: #337ab7;
+	background-color: #000;
 	border-color: #2e6da4
 }
 
 .btn-primary .badge {
-	color: #337ab7;
+	color: #000;
 	background-color: #fff
 }
 
@@ -3665,7 +3669,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-link {
 	font-weight: 400;
-	color: #337ab7;
+	color: #000;
 	border-radius: 0
 }
 
@@ -3844,7 +3848,7 @@ tbody.collapse.in {
 	{
 	color: #fff;
 	text-decoration: none;
-	background-color: #337ab7;
+	background-color: #000;
 	outline: 0
 }
 
@@ -4325,7 +4329,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
 	background-color: #eee;
-	border-color: #337ab7
+	border-color: #000
 }
 
 .nav .nav-divider {
@@ -4433,7 +4437,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
 	{
 	color: #fff;
-	background-color: #337ab7
+	background-color: #000
 }
 
 .nav-stacked>li {
@@ -5136,7 +5140,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	padding: 6px 12px;
 	margin-left: -1px;
 	line-height: 1.42857143;
-	color: #337ab7;
+	color: #000;
 	text-decoration: none;
 	background-color: #fff;
 	border: 1px solid #ddd
@@ -5167,8 +5171,8 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	z-index: 3;
 	color: #fff;
 	cursor: default;
-	background-color: #337ab7;
-	border-color: #337ab7
+	background-color: #000;
+	border-color: #000
 }
 
 .pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover,
@@ -5288,7 +5292,7 @@ a.label:focus, a.label:hover {
 }
 
 .label-primary {
-	background-color: #337ab7
+	background-color: #000
 }
 
 .label-primary[href]:focus, .label-primary[href]:hover {
@@ -5363,7 +5367,7 @@ a.badge:focus, a.badge:hover {
 }
 
 .list-group-item.active>.badge, .nav-pills>.active>a>.badge {
-	color: #337ab7;
+	color: #000;
 	background-color: #fff
 }
 
@@ -5444,7 +5448,7 @@ a.badge:focus, a.badge:hover {
 }
 
 a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
-	border-color: #337ab7
+	border-color: #000
 }
 
 .thumbnail .caption {
@@ -5591,7 +5595,7 @@ to {
 	line-height: 20px;
 	color: #fff;
 	text-align: center;
-	background-color: #337ab7;
+	background-color: #000;
 	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
 	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
 	-webkit-transition: width .6s ease;
@@ -5806,8 +5810,8 @@ button.list-group-item {
 	{
 	z-index: 2;
 	color: #fff;
-	background-color: #337ab7;
-	border-color: #337ab7
+	background-color: #000;
+	border-color: #000
 }
 
 .list-group-item.active .list-group-item-heading, .list-group-item.active .list-group-item-heading>.small,
@@ -6231,26 +6235,26 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus,
 }
 
 .panel-primary {
-	border-color: #337ab7
+	border-color: #000
 }
 
 .panel-primary>.panel-heading {
 	color: #fff;
-	background-color: #337ab7;
-	border-color: #337ab7
+	background-color: #000;
+	border-color: #000
 }
 
 .panel-primary>.panel-heading+.panel-collapse>.panel-body {
-	border-top-color: #337ab7
+	border-top-color: #000
 }
 
 .panel-primary>.panel-heading .badge {
-	color: #337ab7;
+	color: #000;
 	background-color: #fff
 }
 
 .panel-primary>.panel-footer+.panel-collapse>.panel-body {
-	border-bottom-color: #337ab7
+	border-bottom-color: #000
 }
 
 .panel-success {

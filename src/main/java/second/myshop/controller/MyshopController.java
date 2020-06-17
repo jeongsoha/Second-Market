@@ -7,9 +7,13 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import second.common.common.CommandMap;
@@ -17,6 +21,15 @@ import second.myshop.service.MyshopService;;
 
 @Controller
 public class MyshopController {
+	
+	Logger log = Logger.getLogger(this.getClass());
+	
+	@ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    public String exceptionHandler() {
+        log.debug("MyshopController_예외사항_발생!");
+        return "/error/exception";
+    }
 	
 	@Resource(name="myshopService") 
 	   private MyshopService myshopService;
@@ -44,7 +57,7 @@ public class MyshopController {
 			list = myshopService.selectMyOrderList3(commandMap.getMap());
 		}else {
 			list = myshopService.selectMyOrderList1(commandMap.getMap());
-			System.out.println("asdsaasd");
+			 
 		}
 		mv.addObject("list", list);
 		mv.addObject("tabNo", tabNo);

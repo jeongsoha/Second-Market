@@ -11,7 +11,37 @@
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a{
+   color: #000;
+   text-decoration: none;	
+}
 
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border-size: 3px;
+    border-color: #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.an_style{
+    width: 90px;
+    height: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+    color: #000;
+    padding-top: 3px;
+}
 #main-container{
    width:1100px;
    align:center;
@@ -95,11 +125,11 @@ button {
 				<td>${map.QNA_TIME }</td>
 			</tr>
 			<tr>
-				<td colspan="4" height="600px" style="vertical-align:top;"><pre style="overflow:hidden;  white-space: pre-wrap">${map.QNA_CONTENT }</pre></td>
+				<td colspan="4" height=auto; style="vertical-align:top;"><pre style="overflow:hidden;  white-space: pre-wrap">${map.QNA_CONTENT }</pre></td>
 			</tr>
 			<tr>
-				<th scope="row">첨부파일</th>
-				<td colspan="3">
+				<th scope="row" style="border-bottom: 1px solid #ddd;">첨부파일</th>
+				<td colspan="3" style="border-bottom: 1px solid #ddd;">
 					<c:forEach var="row" items="${list }">
 						<div>
 							<input type="hidden" id="FILES_NUM" value="${row.FILES_NUM }">
@@ -111,21 +141,30 @@ button {
 			</tr>
 		</tbody>
 	</table>
+		<br><br><br>
 	    <c:choose>
 	    <c:when test="${fn:length(asList)>0 }">
 	    <c:forEach items="${asList }" var="answer">
 		<div class="answer">
-				<p>답변보기</p>
-				<table >
+				<p class="an_style">답변보기</p>
+				<table class="table table-condensed" align="center">
+				<colgroup>
+					<col width="15%"/>
+					<col width="35%"/>
+					<col width="15%"/>
+					<col width="*"/>
+				</colgroup>
 					<tr>
-					  <th>작성자</th><td>${answer.MEM_ID }(운영자)</td><th>작성 날짜</th><td>${answer.QNA_DATE }</td>
+					  <th style="text-align: center;">작성자</th><td>${answer.MEM_ID }(운영자)</td>
+					  <th style="text-align: center;">작성 날짜</th><td>${answer.QNA_DATE }</td>
 					</tr>
-					<tr><th>제목</th><td>RE: ${answer.QNA_TITLE }</td>
 					<tr>
-					   <th>내용</th><td><pre>${answer.QNA_CONTENT}</pre></td>
+						<th style="text-align: center;">제목</th><td colspan="3">RE: ${answer.QNA_TITLE }</td>
+					<tr>
+					   <th style="text-align: center; border-bottom: 1px solid #ddd;">내용</th><td colspan="3" style="border-bottom: 1px solid #ddd;"><pre>${answer.QNA_CONTENT}</pre></td>
 					</tr>
-					<tr align="right">
-					  <td><a href="#this" class="btn btn-primary" id="deleteAnswer" name="deleteAnswer">삭제하기</a>
+					<tr>
+					  <td colspan="4" style="text-align: center;"><a href="#this" class="btn btn-primary" id="deleteAnswer" name="deleteAnswer">삭제하기</a>
 					  <input type="hidden" id="QNA_NUM" value="${answer.QNA_NUM }"></td>
 					</tr>
 				</table>
@@ -135,28 +174,32 @@ button {
 		</c:choose>
 			
 		<div class="answer">
-				<p>답변쓰기</p>
-				<table>
-					<tr>
-					  <th>제목</th>
-					  <td><input type="text" id="QNA_TITLE" name="QNA_TITLE"></td>
+				<p class="an_style">답변쓰기</p>
+				<table class="table table-condensed" align="center">
+				<colgroup>
+					<col width="15%"/>
+					<col width="*"/>
+				</colgroup>
+					<tr>	
+					  <th style="text-align: center;" >제목</th>
+					  <td colspan="3"><input type="text" id="QNA_TITLE" name="QNA_TITLE"></td>
 					</tr>
 					<tr>
-					  <th>내용</th>
-					  <td><textarea rows="20" cols="100" title="내용" id="QNA_CONTENT" name="QNA_CONTENT"></textarea></td>
+					  <th style="text-align: center;">내용</th>
+					  <td style="border-bottom: 1px solid #ddd;" colspan="3"><textarea rows="20" cols="100" title="내용" id="QNA_CONTENT" name="QNA_CONTENT"></textarea></td>
 					</tr>
 					<tr align="right">
-					 <td><a href="#this" class="btn btn-primary" id="write">답변달기</a></td>
+					 <td colspan="4" style="text-align: center;"><a href="#this" class="btn" id="write">답변달기</a></td>
 					</tr> 
 				</table>
 				
 		</div>
 		
 <div align="right">
-	<a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+	<a href="#this" id="list"><button class="btn">목록으로</button></a>
 	<c:if test="${session_MEM_ID eq map.MEM_ID && session_MEM_ID ne null}">
-		<a href="#this" id="update"><button class="btn btn-primary">수정하기</button></a>
-		<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
+		<a href="#this" id="update"><button class="btn">수정하기</button></a>
+		<a href="#this" id="delete"><button class="btn">삭제하기</button></a>
 	</c:if>
 </div>
 	</form>

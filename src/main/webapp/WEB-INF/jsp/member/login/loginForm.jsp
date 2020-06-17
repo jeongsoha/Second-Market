@@ -3,23 +3,33 @@
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+
    <style>
    @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-   
-   html {
+a{
+   color: #000;
+   text-decoration: none;	
+}
+html {
       height: 100%;
    }
    
-   body {
-        background:white;
+body {
+	    background:white;
+	    margin: 0;
+	    padding: 0;
    }
-   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
+body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
+   font-family:'맑은 고딕',Malgun Gothic,sans-serif;
+   font-size:12px;
+   color:#666;
+   font-weight:400;}
    
-    .card {
+.card {
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border:1px solid #ccc;
    }
    
    .form-signin .form-control {
@@ -33,14 +43,62 @@
    }
    
    #log{
-   		margin-top: 100px;
+   		
    }
 
-   
+   h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
    </style>
    <%-- <script src="<c:url value='/js/common.js'/>" charset="utf-8"></script> --%>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   <script type="text/javascript">
+   
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+</head>
+<body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
+   <form name="myform" id="log" action="login" method="post" class="form-signin" style="clear:both">
+   
+   
+      <div class="card align-middle" style="width:30rem; border-radius:10px; height:300px; ">
+         <div>
+         
+            <div class="card-title">
+               <p style="font-weight: bold;font-size: 20px;padding-top: 20px;}">로그인</p>
+            </div>
+            
+            <div class="card-body" style="margin-top:20px;">   
+               <INPUT type="text" name="MEM_ID" id="MEM_ID" size="30" maxlength="12" class="form-control" placeholder="Your ID"><br>  
+            </div>
+   
+            <div class="card-body" style="margin-top:20px;">
+               <INPUT type=password name="MEM_PW" id="MEM_PW" size="30" maxlength="12" class="form-control" placeholder="Password"> <br>
+            </div>
+         
+            <div class="card-body" style="margin-top:20px;">
+               <input type="button" class="btn" value="로그인" onclick="fsubmit();">
+            </div>
+         
+            <div align="center" style="margin-top:10px;">
+               <label>
+                  <input type="checkbox" id ="idSaveCheck" value="idSaveCheck" >&nbsp;아이디저장
+               </label>
+            </div> 
+            
+         </div>
+      </div>
+      
+      
+      
+   </form>
+   
+   <div align="center">
+      <input type="button" value="회원가입" onclick="location.href='/second/joinForm'" class="btn"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/second/findId'" class="btn"/>
+    </div>
+
+</body>
+<script type="text/javascript">
 
       function begin(){
          document.myform.MEM_ID.focus();
@@ -130,48 +188,4 @@
            return unescape(cookieValue);
        }
    </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  
-</head>
-<body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-   <form name="myform" id="log" action="login" method="post" class="form-signin" style="clear:both">
-   
-   
-      <div class="card align-middle" style="width:30rem; border-radius:30px; height:300px; ">
-         <div>
-         
-            <div class="card-title" style="margin-top:50px;">
-               <h2 class="card-title text-center" style="color:#113366;"><img src="/second/resources/images/login.png"></h2>
-            </div>
-            
-            <div class="card-body" style="margin-top:20px;">   
-               <INPUT type="text" name="MEM_ID" id="MEM_ID" size="30" maxlength="12" class="form-control" placeholder="Your ID"><br>  
-            </div>
-   
-            <div class="card-body" style="margin-top:20px;">
-               <INPUT type=password name="MEM_PW" id="MEM_PW" size="30" maxlength="12" class="form-control" placeholder="Password"> <br>
-            </div>
-         
-            <div class="card-body" style="margin-top:20px;">
-               <input type="button" class="btn btn-lg btn-primary btn-block" value="로그인" onclick="fsubmit();" style="background-color:#333333;">
-            </div>
-         
-            <div align="center" style="margin-top:10px;">
-               <label>
-                  <input type="checkbox" id ="idSaveCheck" value="idSaveCheck" >&nbsp;아이디저장
-               </label>
-            </div> 
-            
-         </div>
-      </div>
-      
-      
-      
-   </form>
-   
-   <div align="center">
-      <input type="button" value="회원가입" onclick="location.href='/second/joinForm'" class="bttn-bordered bttn-xs bttn-primary"/>&nbsp;<input type="button" value="ID/PW 찾기" onclick="location.href='/second/findId'" class="bttn-bordered bttn-xs bttn-primary"/>
-    </div>
-
-</body>
 </HTML>

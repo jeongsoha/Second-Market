@@ -18,10 +18,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import second.common.common.MailHandler;
@@ -92,7 +94,7 @@ public class LoginController {
 		if (session != null)
 			session.invalidate();
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/sample/openBoardList");
+		mv.setViewName("redirect:/shop/allGoodsList");
 		return mv;
 	}
 
@@ -113,8 +115,6 @@ public class LoginController {
 		
 		if(id.equals("1")) {
 			String findId = (String)(loginService.findIdWithEmail(commandMap.getMap()).get("MEM_ID"));
-			System.out.println(findId);
-			System.out.println(findId);
 			System.out.println(findId);
 			return findId;
 			

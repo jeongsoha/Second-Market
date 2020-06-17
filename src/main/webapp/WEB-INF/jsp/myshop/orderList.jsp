@@ -101,8 +101,9 @@ button {
 	
 	#menu{
 		clear:both;
-		margin:0px 240px 100px auto;
-	}
+		/* margin:0px auto 100px auto; */
+}
+		 
 	
 	#con{
 		margin: auto 100px auto 100px;
@@ -271,7 +272,7 @@ function fn_goodsDetail(obj) {
 function fn_Buychk(num) {
 	var comSubmit = new ComSubmit("");
 	comSubmit.setUrl("<c:url value='/myshop/BuyComplete' />");
-	comSubmit.addParam("ORDERS_NUM", num);
+	comSubmit.addParam("ORDERS_NUM", num);//GOODS에 END업데이트 작업에도 쓰임	
 	comSubmit.submit();
 }
 
@@ -310,7 +311,7 @@ function fn_selectOrderListCallback1(data) {
 	var str1 = "";
 	body.empty();
 	str1 	+= 	"<tr>"
-				+		"<th width='200px' align='center'>주문번호</th>"
+				+		"<th width='150px' align='center'>주문번호</th>"
 				+		"<th width='100px' align='center'>주문일자</th>"
 				+		"<th width='200px' align='center'>송장번호</th>"
 				+		"<th width='100px' align='center'>주문금액</th>"

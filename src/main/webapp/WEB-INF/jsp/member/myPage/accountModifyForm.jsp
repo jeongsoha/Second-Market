@@ -7,34 +7,141 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <meta charset="UTF-8">
 <link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
+
+<style>
+
+ @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a{
+   color: #000;
+   text-decoration: none;	
+}
+
+.btn3 {	
+	width:100px;
+    background-color: #fff;
+    border:1px solid #80EB1C;
+    color:#000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:10px;
+    height: 30px;
+}
+.btn3:hover {
+  	background-color: #80EB1C;
+    color:#fff;
+}
+    .form-control {
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+      width: 500px;
+      text-align: center;
+    }
+
+    #main-container {
+      width: 1100px;
+      align: center;
+      font-family: "Nanum Gothic";
+      clear: both;
+    }
+
+    #content {
+      width: 1120px;
+      margin-left: 50px;
+    }
+
+    button {
+      background: none;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+    }
+    .tab_menu_container {
+      display: flex;
+    }
+    .tab_menu_btn {
+      width: 90px;
+      height: 40px;
+      transition: 0.3s all;
+    }
+    .tab_menu_btn.on {
+      border-bottom: 2px solid #df0000;
+      font-weight: 700;
+      color: #df0000;
+    }
+    .tab_menu_btn:hover {
+      color: #df0000;
+    }
+    .tab_menu_container {
+      float: right;
+      font-family: "Nanum Gothic";
+      margin-bottom: 50px;
+    }
+    .tab_wrap {
+      clear: both;
+    }
+    
+a{
+   color: #000;
+   text-decoration: none;	
+}
+</style>
+
 </head>
-<body onload="begin()" cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-      <div  style="border-radius:20px; background-color:#fff; margin-top:50px;"> <!-- class="card align-middle" -->
-      <div id="con" > <!-- id="content" -->
-      
-      
-     <!--     <div id="vertical_tab-container">
-	         <ul>
-	         <li class="selected"><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
-	         <li><a href="pwModifyForm"><img src="./../resources/images/mypage_tab2.png" width="100" height="30"></a></li>
-	         <li><a href="deleteAccount"><img src="./../resources/images/mypage_tab3.png" width="100" height="30"></a></li>
-	         <li><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
-	         <li><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
-	      </ul>
-	   </div> -->
-	   	<div style= "padding: 0px 0px 0px 700px;" >
-		<ul style="display:inline-block; margin-left:200px ">
-			<li style="display:inline-block" class="selected"><a href="accountDetail" >회원정보</a></li>
-		 |	<li style="display:inline-block" ><a href="pwModifyForm">비밀번호 변경</a></li>
-       	 | <li style="display:inline-block"><a href="deleteAccount">회 원 탈 퇴</a></li>
-       	 | <li style="display:inline-block"><a href="reportList">내 신고 내역</a></li>
-       	 | <li style="display:inline-block"><a href="qnaList">내 문의 내역</a></li>
-		</ul>
-		</div>
+ <body
+    onload="begin()"
+    cellpadding="0"
+    cellspacing="0"
+    marginleft="0"
+    margintop="0"
+    width="100%"
+    height="100%"
+    align="center"
+  >
+    <div style="border-radius: 20px; background-color: #fff; margin-top: 50px;">
+      <div id="content">
+        <div class="tab_wrap">
+          <div class="tab_menu_container">
+            <a href="accountDetail"
+              ><button class="tab_menu_btn on" type="button">
+                회원정보
+              </button></a
+            >
+            <a href="pwModifyForm"
+              ><button class="tab_menu_btn" type="button">
+                비밀번호 변경
+              </button></a
+            >
+            <a href="deleteAccount"
+              ><button class="tab_menu_btn" type="button">회원탈퇴</button></a
+            >
+            <a href="reportList"
+              ><button class="tab_menu_btn" type="button">
+                내 신고 내역
+              </button></a
+            >
+            <a href="qnaList"
+              ><button class="tab_menu_btn" type="button">
+                내 문의 내역
+              </button></a
+            >
+          </div>
+        </div>
 	   
-	   <div id="main-container" style="width:1000px; padding: 0px 0px 0px 700px;">
+	   
+	   
+	   
+	   <div id="main-container" style="width: 1000px;padding: 0px 0px 0px 330px;">
+	   <div style="width:500px;">
+	   
             <div class="card-title" style="margin-top:30px;">
-               <h2 class="card-title text-center" style="color:#113366;">회 원 정 보 확 인</h2>
+               <h1 style="color:#000">회 원 정 보 확 인</h1>
             </div>
             <form id="accountModifyForm" method="post">
             <div class="card-body">
@@ -56,17 +163,18 @@
             </div>
          
             <div class="card-body">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="수정하기" onclick="fn_check();" style="background-color:#26a69a;">
-            	<input type="button" class="btn btn-lg btn-primary btn-block" value="취소" onclick="back();" style="background-color:#26a69a;">
+            	<input type="button" class="btn3" value="수정하기" onclick="fn_check();" >
+            	<input type="button" class="btn3" value="취소" onclick="back();">
 				<span id="pwc"></span>
 				<br>
+				
             </div>
             </form>
          </div>
          </div>
+         </div>
       </div>
 	
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {

@@ -4,10 +4,19 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/layout.css'/>" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+
 <style type="text/css">
+   @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+   
    
    a {
          color:#666;
@@ -20,13 +29,14 @@
    #head{
          width:100%;
          margin: 10px auto;
+         margin-left: 100px;
          clear:both;
    }
    
    #h1{
          float:left;
-         width:30%;
-         margin: 0px 0px 15px 0px;
+         width:24%;
+         margin: 3px 0px 15px 15px;
          display: inline;
          
    }
@@ -34,20 +44,21 @@
    #h2{
          float:left;
          width:30%;
-         margin: 100px 0px 85px 100px; 
+         margin: 15px 0px 10px 20px; 
          display: inline;
    }
    
    #menubar{
          float:left;
-         width:200px;
-         margin: 100px 0px 85px 100px; 
+         width:130px;
+         margin: 14px 0px 5px -10px; 
          display: inline;
+         font-size: 12px;
    }
    
    #menu{
          width:100%;
-         margin: 10px 10px 10px auto;
+         margin: 1px 10px 10px auto;
          clear:both;
          float:right;
    }
@@ -60,10 +71,12 @@
    #h4{
          float:right;
          display: inline;
+         margin: 3px 110px 0 0;
+         font-size: 12px;
    }
    
    #h5{
-         float:right;
+         float:left;
          display: inline;
    }
    
@@ -79,21 +92,23 @@
    
    #header{
          width:100%;
-         height:20px;
-         background:linear-gradient(to bottom right, #2db400, #77E56F);
-         
+         height:25px;
+         /* background:linear-gradient(to bottom right, #2db400, #77E56F); */
+         background:#80EB1C;
    }
    
    
    .green_window {
       display: inline-block;
-      width: 366px; height: 34px;
-      border: 3px solid #2db400;
+      width: 350px; height: 34px;
+      border: 1px solid #80EB1C;
       background: white;
+      border-radius: 5px;
    }
    
    .input_text {
-      width: 348px; height: 21px;
+   width: 300px;
+      height: 21px;
       margin: 3px 0px 3px 3px;
       border: 0;
       line-height: 21px;
@@ -105,7 +120,7 @@
       width: 54px; height: 35px;
       margin: 0; border: 0;
       vertical-align: top;
-      background: #22B600;
+      background: #80EB1C;
       color: white;
       font-weight: bold;
       border-radius: 1px;
@@ -116,23 +131,25 @@
       background: #56C82C;
    }
    
+   #input_text{
+   	    text-indent: 5px;
+    	font-size: 15px;
+    	background: #fff;
+   }
    #bell{
       width:55px;
       height:55px;
    }
 	.dropbtn {
-	    /*
-	    background-color: #4CAF50;
-	    */
+	    background-color: #fff;
 	    color: white;
-	    padding: 16px;
+/* 	    padding: 16px; */
 	    font-size: 16px;
 	    border: none;
 	    cursor: pointer;
 	}
 	.dropdown {
-	    
-        float:right;
+       /*  float:left; */
 	    position: relative;
 	    display: inline-block;
 	}
@@ -164,8 +181,96 @@
 	    background-color: #3e8e41;
 	    */
 	} 
-</style>
+	
+.shopbtn {	
+	width:80px;
+	height: 35px;
+    background-color: #fff;
+    border:1px solid #80EB1C;
+    color:#000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:20px;
+}
+.shopbtn:hover {
+  /*   background-color: #74C043; */
+  	background-color: #80EB1C;
+    color:#fff;
+}
+.imgser1{
+	float:left;
+	margin-right:-5px;
+	margin-top:-10px;
+	clear:both;
+}
+.imgser2{
+	float:left;
+	margin-right:-5px;
+	margin-top:-8px;
+	clear:both;
+}
+.a_menu{
+	font-size: 15px;
+	vertical-align: middle;
+	font-weight: bold;
+}
+.d_menu{
+	clear: both;
+    float: left;
+    width: 40%;
+    margin-top: 23px;
+}
 
+
+
+
+*{
+        margin: 0; padding: 0;
+      }
+      .slide{
+        width: 1000px;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+      }
+      .slide ul{
+        width: 5000px;
+        position: absolute;
+        top:0;
+        left:0;
+        font-size: 0;
+      }
+      .slide ul li{
+        display: inline-block;
+      }
+      #back{
+        position: absolute;
+        top: 100px;
+        left: 0;
+        cursor: pointer;
+        z-index: 1;
+        height: 40px;
+    	width: 40px;
+      }
+      #next{
+        position: absolute;
+        top: 100px;
+        right: 0;
+        cursor: pointer;
+        z-index: 1;
+        height: 40px;
+    	width: 40px;
+      }
+
+
+            
+</style>
 
 <script type="text/javascript">
    var onSearch = function(){   
@@ -230,53 +335,66 @@
                body.append(str);
          }
       }
+
+      
+      
+
+      $(document).ready(function(){
+          var imgs;
+          var img_count;
+          var img_position = 1;
+
+          imgs = $(".slide ul");
+          img_count = imgs.children().length;
+
+          //버튼을 클릭했을 때 함수 실행
+          $('#back').click(function () {
+            back();
+          });
+          $('#next').click(function () {
+            next();
+          });
+
+          function back() {
+            if(1<img_position){
+              imgs.animate({
+                left:'+=1000px'
+              });
+              img_position--;
+            }
+          }
+          function next() {
+            if(img_count>img_position){
+              imgs.animate({
+                left:'-=1000px'
+              });
+              img_position++;
+            }
+          }
+
+
+          //이미지 끝까지 가면 버튼 사라지기
+
+
+          //첫 이미지로 돌아오기
+
+
+        });
 </script>
 
 
 <!-- 초록색 줄 -->
-
 <div id="header">
-   
-</div>
-
-
-
-<!-- 오른쪽 위 작은 메뉴들 -->
-
-   <div id="menu">
-
-
-
-      
-
-       
-    
-<!-- 로그인 x -->
-    <div id="h3">
+	<!-- 비로그인 시 -->
+    <div id="h4">
          <c:if test="${session_MEM_ID == null }">
             <a href="${contextPath}/second/loginForm" class="log">로그인</a>  &nbsp;&nbsp;
             <a href="${contextPath}/second/joinForm">회원가입</a>              &nbsp;&nbsp;
             <a href="${contextPath}/second/findId">ID/PW찾기</a>             &nbsp;&nbsp;
          </c:if>
     </div>
-         
-         
-<!-- 로그인 o,x -->
-      
-         <div class="tab_cate" id="h5">    
-            <div class="tabs_area">  
-               <class="tabs">
-                  <a href="/second/shop/allGoodsList" class="tab_a1"><span>쇼핑몰</span></a>     &nbsp;&nbsp;
-                 <a href="/second/community/noticeList" class="tab_a2"><span>커뮤니티</span></a>  &nbsp;&nbsp;
-               </class>
-            </div>
-         </div>
-         
-
-         
-<!-- 로그인o -->
-      
-      <div id="h4">
+    <!-- 로그인 시 -->
+    <div id="h4">
          <c:if test="${session_MEM_ID != null }">
          <c:if test="${session_MEM_ID == 'admin' }">
              <a href="/second/admin">관리자페이지</a> &nbsp;&nbsp;
@@ -287,11 +405,19 @@
          </c:if>
        </div>
        
-<!-- 로그인 o  알림버튼 -->      
+ 		
+ <!-- 로그인o -->
+    
+             <div id="h7"> 
+                   <c:if test="${session_MEM_ID != null }">
+                    <a href="#" style="font-color:#666; font-size:12px;" class="tab_a1"><span>${session_MEM_ID}&nbsp;님</span></a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </c:if>
+                    
+                   <!-- 로그인 o  알림버튼 -->      
      
         <c:if test="${session_MEM_ID != null}">
    		  <div class="dropdown">
-       		 <button class="dropbtn"><img style="width:30px; height:30px;" src="<c:url value="/resources/images/Bell.png"/>"/></button>
+       		 <button class="dropbtn"><img style="width:25px; height:25px;background-color: #80EB1C;" src="<c:url value="/resources/images/ring.png"/>"/></button>
      			<div class="dropdown-content">
         		      <table id="inform">
         		         <tbody>
@@ -301,23 +427,22 @@
        		   &nbsp;&nbsp;&nbsp;
     	 </div>
        </c:if>
- 		
- <!-- 로그인o -->
-    
-             <div id="h7"> 
-                   <c:if test="${session_MEM_ID != null }">
-                    <a href="#" style="font-color:#666; font-size:12px;" class="tab_a1"><span>${session_MEM_ID}&nbsp;님</span></a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </c:if>
          </div>
-   
+</div>
+
+
+<!-- 오른쪽 위 작은 메뉴들 -->
+   <div id="menu">
+ 
 </div>
 
    <div id="head">
    
-<!-- second로고 -->
+		<!-- second로고 -->
    
    <div class="header_area" id="h1">
-      <h1><a href="/second/sample/openBoardList" title="second#"><img class="main_image" src="<c:url value="/resources/images/second.png"/>" style="margin-left: 200px; display: block;" alt="second#"/></a></h1>   
+      <a href="/second/shop/allGoodsList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
+      		style="display: block; max-width:250px; margin-left: 100px;" alt="second#"/></a>
    </div>
    
    
@@ -330,11 +455,10 @@
             <form action="/second/shop" method="post">
              
                <fieldset>
-                 
-                 
-                  <span class='green_window'>
-                  <input type='text' class='input_text' placeholder="Search" maxlength="20"  name="keyword" id="keyword" value="${keyword}"  />
-            <input type="hidden" id="searchType" value="all" />
+                                 
+               <span class='green_window'>
+                <input type='text' class='input_text' placeholder="Search" maxlength="20"  name="keyword" id="keyword" value="${keyword}"  />
+				<input type="hidden" id="searchType" value="all" />
                </span>
                
                <button type='submit' class='sch_smit' onClick="onSearch()">검색</button>
@@ -347,13 +471,11 @@
          </div>
          
 <!-- 드롭메뉴 -->         
-
          <div class="container" id="menubar">
-         
          
             <div class="panel-group">
               <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading" style="height: 35px;color: #a5a5a5;">
                   <h4 class="panel-title">
                     <a data-toggle="collapse" href="#collapse1">Category</a>
                   </h4>
@@ -370,9 +492,37 @@
                 </div>
               </div>
             </div>
-        
-        
       </div>
+      
 
-         
+ 		
+      <!-- 로그인 o,x -->
+         <div class="tab_cate" id="h5" style="width: 300px;">    
+
+              <div class="d_menu">
+                 <a href="/second/shop/allGoodsList" class="a_menu"> <img style="width:50px;" class="imgser1" src="<c:url value="/resources/images/sell1.png"/>"/>
+                 	쇼핑몰</a>  
+              </div>
+              <div style="float: left;width: 40%; height:35px; margin-top: 23px;">
+                 <a href="/second/community/noticeList" class="a_menu"><img style="width:40px;" class="imgser2" src="<c:url value="/resources/images/sell2.png"/>"/>
+                 	커뮤니티</a>  
+              </div>
+      
+         </div>
+                  
+    </div><br><br><br>
+
+
+
+  <div class="slide">
+      <img id="back" src="<c:url value="/resources/images/back.png"/>" alt="" width="100">
+      <ul>
+        <li><img src="<c:url value="/resources/images/ka01.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        
+        <li><img src="<c:url value="/resources/images/ka02.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka03.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka04.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+        <li><img src="<c:url value="/resources/images/ka05.png"/>" alt="" width="1000" height="250" style="border:2px dashed #ccc;"></li>
+      </ul>
+      <img id="next" src="<c:url value="/resources/images/next.png"/>" alt="" width="100">
     </div>

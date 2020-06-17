@@ -150,7 +150,6 @@ wrapper {
 	overflow: hidden;
 	zoom: 1;
 	position:relative;
-	left:150px;
 	width: 100%;
 	min-height: 216px;
 	display: block;
@@ -160,18 +159,18 @@ wrapper {
 	float: left;
 	position:relative;
 	left:10px;
-	min-width: 140px;
+	min-width: 200px;
 	margin: 10px; 100px; 0px; 0px;
 }
 
 .xans-layout-footer .utilMenu .bank_info {
-	font-size: 12px;
+	font-size: 15px;
 	line-height: 18px;
 }
 
 .xans-layout-footer .utilMenu h4 {
 	color: #aaa;
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: bold;
 	margin-bottom: 10px;
 	margin-left: 0;
@@ -181,12 +180,12 @@ wrapper {
 
 .xans-layout-footer .utilMenu li {
 	margin: 0 0 3px 0;
-	font-size: 12px;
+	font-size: 15px;
 	line-height: 16px;
 }
 
 .xans-layout-footer .utilMenu li a {
-	font-size: 12px;
+	font-size: 15px;
 }
 
 .xans-layout-footer .utilMenu li a:hover {
@@ -196,28 +195,28 @@ wrapper {
 
 .xans-layout-footer .utilMenu li.phone {
 	font-size: 19px;
-	line-height: 17px;
+	line-height: 18px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color: #000;
+	color: #80EB1C;
 	margin: 0 0 5px;
 	letter-spacing: -1px;
 }
 
 .xans-layout-footer .utilMenu_unit2 {
-	width:;
-	margin: 25px 0 5px;
+	width: 230px;
+	margin: 5px 0 5px;
 }
 
 .xans-layout-footer .utilMenu_unit2 h4 {
 	color: #FFF;
 	margin: 10px 0 8px 0;
 	line-height: 13px;
-	font-size: 11px;
+	font-size: 15px;
 	letter-spacing: -1px;
 }
 
 .xans-layout-footer .utilMenu_unit2 p {
-	font-size: 11px;
+	font-size: 15px;
 	letter-spacing: -1px;
 	line-height: 1.4em;
 	margin: 0 0 7px;
@@ -233,7 +232,7 @@ wrapper {
 	position: absolute;
 	top: 0;
 	right: 0;
-	border-left: 1px solid #ffffff;
+	border-left: 1px solid #6c6c6c;
 	padding-left: 55px;
 	width: 220px;
 	min-height: 145px;

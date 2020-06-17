@@ -8,8 +8,7 @@
 			SELECT  
 					GOODS_NUM,
 					GOODS_TITLE,
-					goods_seller,
-					GOODS_QTY,
+					GOODS_SELLER,
 			        TO_CHAR(SYSDATE,'hh24:mi:ss') AS ORDER_TIME,
 			        GOODS_PRICE
 			FROM    GOODS
@@ -72,6 +71,7 @@
 			        ORDERS_USER,
 			        ORDERS_PHONE,
 			        ORDERS_STATUS,
+			        
 			        ORDERS_PRICE,
 			        ORDERS_TCOST,
 			        ORDERS_DADD1,

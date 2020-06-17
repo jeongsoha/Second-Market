@@ -6,11 +6,29 @@
  
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
 
 <style type="text/css">
-
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+a{
+   color: #000;
+   text-decoration: none;
+}
+.btn{
+    width: 100px;
+    background-color: #fff;
+    border: 1px solid #80EB1C;
+    color: #000;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 
 #main-container{
    width:1100px;
@@ -23,7 +41,10 @@
 	width:1120px;
 	margin-left:50px;
 }
-
+body {
+    margin: 0;
+    padding: 0;
+}
 button {
   background:none;
   border:0;
@@ -96,8 +117,8 @@ button {
 		<!-- 페이징 정보가 담김 b1--></div>
 	<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<div align="right">
-			<c:if test="${session_MEM_ID != null }">
-				<a href="noticeWriteForm"><button type="button" class="btn btn-primary">글쓰기</button></a>
+			<c:if test="${session_MEM_ID == 'admin' }">  
+				<a href="noticeWriteForm"><button type="button" class="btn">글쓰기</button></a>
 	  	 	</c:if>
 		</div>
 		

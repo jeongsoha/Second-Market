@@ -101,8 +101,33 @@ table {
    background-repeat: no-repeat;   
 }
  
-.card-header-is_closed{
+..card-header-is_closed{  /* 거래완료 */
     background-color: #EF5A31 ;
+    color: #FFF ;
+    font-weight: bold ;
+    text-align: center ;
+    float: right;
+    margin: 15px 15px 0 0;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 10px 10px;
+    line-height: 20px;
+}
+.card-header-is_closed1{ /* 거래중 */
+    background-color: #cfc327 ;
+    color: #FFF ;
+    font-weight: bold ;
+    text-align: center ;
+    float: right;
+    margin: 15px 15px 0 0;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 10px 10px;
+    line-height: 20px;
+    }
+    
+.card-header-is_closed2{ /* 판매중(거래가능) */
+    background-color: #3fb50e ;
     color: #FFF ;
     font-weight: bold ;
     text-align: center ;
@@ -212,9 +237,11 @@ button {
 	   font-family: 'Nanum Gothic';
 	}
 	
-	#menu{
+		#menu{
 		clear:both;
-		margin:0px 240px 100px auto;
+		/* margin:0px auto 100px auto; */
+
+		 
 	}
 	
 	#con{
@@ -356,8 +383,8 @@ button {
 										+									value.SELLER_ID
 										+	                          "</p>"
 										+	         "</div>"
-										+	         "<p class='card-body-description'>"
-										+	            value.GOODS_CONTENT
+										+	         "<p class='card-body-description'> 상품내용"
+										+	           
 										+	         "</p>"
 										+	         "<div class='card-body-footer'>"
 										+	            "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"

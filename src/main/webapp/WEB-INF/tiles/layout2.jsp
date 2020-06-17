@@ -11,24 +11,32 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/a.css"/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/reset.css"/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/layout.css"/>" />
+<style>
+body {
+    margin: 0;
+    padding: 0;
+}
+</style>
 
-
-<title>sample_Board</title>
+<title>second#</title>
 </head>
+
+
 <body>
 <div id="wrapper">
-
-<!-- header  --> 
-   <tiles:insertAttribute name="header"/>
-
-<!-- body 1 2  --> 
-   <tiles:insertAttribute name="body"/>
-   <tiles:insertAttribute name="body2"/>
-
-
-<!-- footer --> 
-   <tiles:insertAttribute name="footer"/><!-- // footer -->
-
+   <!-- header --> 
+<div style="width:100%; height:400px; margin:auto; display:block">
+      <tiles:insertAttribute name="header"/><!-- // header -->
+   </div>
+       
+   <!-- container --> 
+<div id="container">
+      <tiles:insertAttribute name="body"/><!-- // container -->
+   </div>
+   <!-- footer --> 
+<div style="width:100%;  margin:auto; display:block">
+      <tiles:insertAttribute name="footer"/><!-- // footer -->
+</div>
 </div>
 </body>
 </html>

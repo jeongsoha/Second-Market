@@ -123,6 +123,12 @@ $.ajax({
 	 }
 
 </script>
+<style>
+a{
+   color: #000;
+   text-decoration: none;
+}
+</style>
 
 </head>
 <body>

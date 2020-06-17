@@ -19,6 +19,9 @@ public class OrderServiceImpl implements OrderService {
 	@Resource(name="orderDAO")
 	private OrderDAO orderDAO;
 	
+	@Resource(name="informDAO")
+	private InformDAO informDAO;
+	
 	@Resource(name="fileUtils")
 	private FileUtils fileUtils;
 	
@@ -38,18 +41,14 @@ public class OrderServiceImpl implements OrderService {
 		List<Map<String, Object>> list = orderDAO.selectFileList(map);
 		resultMap.put("list", list);
 		 
-		System.out.println("99995");
-		System.out.println(resultMap);
 		return resultMap;
 	}
 
 	@Override
 	public void insertOrder(Map<String, Object> map, HttpServletRequest request) throws Exception {
-		System.out.println("99991");
-		System.out.println(map);
-		
+				
 		orderDAO.insertOrder(map);
-	
+		informDAO.informinsertSeller(map, "내가 올린 상품 중 결제 진행된 상품이 있습니다.");
 	}
 	
 	@Override

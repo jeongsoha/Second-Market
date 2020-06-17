@@ -93,16 +93,15 @@ button {
 				<td colspan="3">${map.NOTICE_TITLE }</td>
 			</tr>
 			<tr>
-				<td colspan="4" height="600px" style="vertical-align:top;"><pre style="overflow:hidden;  white-space: pre-wrap">${map.NOTICE_CONTENT }</pre></td>
+				<td colspan="4" height="auto" style="vertical-align:top;"><pre style="overflow:hidden;  white-space: pre-wrap">${map.NOTICE_CONTENT }</pre></td>
 			</tr>
 		</tbody>
 	</table>
 	<div align="right">
-		<a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+		<a href="#this" id="list"><button class="btn">목록으로</button></a>
 	  <c:if test="${session_MEM_ID == 'admin' }">  
-<%-- 		<c:if test="${session_MEM_INFO.MEM_LEVEL == '2'}"> 인포에 꺼내서 활용하지않더라.. --%>
-		<a href="#this" id="modify"><button class="btn btn-primary">수정하기</button></a>
-		<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
+ 		<a href="#this" id="modify"><button class="btn">수정하기</button></a>
+		<a href="#this" id="delete"><button class="btn">삭제하기</button></a>
 		</c:if>
 	</div>
 	</div>

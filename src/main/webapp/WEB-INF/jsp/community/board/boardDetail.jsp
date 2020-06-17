@@ -9,7 +9,10 @@
 <style type="text/css">
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+body {
+    margin: 0;
+    padding: 0;
+}
 #main-container{
    width:1100px;
    align:center;
@@ -22,7 +25,16 @@
 	margin-left:50px;
 }
 
-
+.an_style{
+    width: 90px;
+    height: 30px;
+    border: 1px solid #000;
+    text-align: center;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+    color: #000;
+    padding-top: 3px;
+}
 button {
   background:none;
   border:0;
@@ -93,22 +105,22 @@ button {
 					<td colspan="3">${map.BOARD_TITLE }</td>
 				</tr>
 				<tr>
-					<td colspan="4" height="600px" style="vertical-align: top;"><pre
+					<td colspan="4" height=auto; style="vertical-align: top;"><pre
 							style="overflow: hidden; white-space: pre-wrap">${map.BOARD_CONTENT }</pre></td>
 				</tr>
 			</table>
 			
 			<br />
-			<div align="center"></div>
-			댓글
 			<div align="center">
-			<br/>
+			<p class="an_style">댓글</p>
+			</div>
+			<div align="center">
 			<form id="frm" name="frm" enctype="multipart/form-data">
 				<c:if test="${session_MEM_ID != NULL}">
-					<div width="100%">
+					<div width="100%" style="float: left;">
 						<textarea id="COMMENTS_CONTENT" name="COMMENTS_CONTENT" rows="6" cols="113"></textarea>
-						<div align="right" style="float:right;">
-							<a href="#this" id="cWrite" name="cWrite">코멘트달기 <br></a>
+						<div align="right" style="float:right; margin-left: 25px;" >
+							<a href="#this" id="cWrite" name="cWrite" class="btn">코멘트달기 <br></a>
 						</div>
 						<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="3"/>
 						<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${map.BOARD_NUM }"/>
@@ -118,7 +130,8 @@ button {
 				</c:if>
 			</form>
 			</div>
-			<table id="commentTable" class="tbl_type">
+			
+			<table id="commentTable" class="tbl_type" style="margin-top:130px;">
 				<tbody>
 
 					<!-- 스크립트를 통해 댓글에 대한 정보가 담김 -->
@@ -129,13 +142,13 @@ button {
 			<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		
 		<div align="right">
-				<br /> <a href="#this" id="list"><button class="btn btn-primary">목록으로</button></a>
+				<br /> <a href="#this" id="list"><button class="btn">목록으로</button></a>
 				<c:if test="${session_MEM_INFO.MEM_ID == map.MEM_ID && session_MEM_INFO.MEM_ID ne null}">
-					<a href="#this" id="modify"><button class="btn btn-primary">수정하기</button></a>
+					<a href="#this" id="modify"><button class="btn">수정하기</button></a>
 				</c:if>
 				<c:if
 					test="${session_MEM_INFO.MEM_ID == map.MEM_ID || session_MEM_INFO.MEM_LEVEL == '2'}">
-					<a href="#this" id="delete"><button class="btn btn-primary">삭제하기</button></a>
+					<a href="#this" id="delete"><button class="btn">삭제하기</button></a>
 				</c:if>
 			</div>
 	</div>
@@ -243,7 +256,7 @@ button {
 				gfn_renderPaging(params);
 				
 				var str = ""
-				str += "<tr style='text-align: center'><td width='10%'><img src='./../resources/images/commu_writer.png' height='25'></td><td width='*'><img src='./../resources/images/commu_content.png' height='25'></td><td width='30%'><img src='./../resources/images/commu_date.png' height='25'></td><td width='5%'></td></tr>";
+				str += "<tr style='text-align: center; background-color: #f1f1f1;'><td width='10%'><b>작성자</b></td><td width='*'><b>내용</b></td><td width='30%'><b>작성일</b></td><td width='5%'></td></tr>";
 				
 				$.each(data.list,
 				function(key, value) {

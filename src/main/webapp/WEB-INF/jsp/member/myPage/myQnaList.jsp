@@ -5,26 +5,81 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
-<link href="<c:url value="/resources/css/mypage.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<style type="text/css">
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a{
+   color: #000;
+   text-decoration: none;	
+}
+#main-container{
+   width:1100px;
+   align:center;
+   font-family: 'Nanum Gothic';
+   clear:both;
+}
+
+#content{
+	width:1120px;
+	margin-left:50px;
+}
+
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+}
+.tab_menu_btn {
+  width:90px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	font-family: 'Nanum Gothic';
+	margin-bottom:50px;
+}
+.tab_wrap{
+	clear:both;
+}
+
+</style>
+
 </head>
 <body>
-<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px;">
+<div>
 <div id="content">
-   <div id="vertical_tab-container">
-   
-         <ul>
-	         <li><a href="accountDetail"><img src="./../resources/images/mypage_tab1.png" width="100" height="30"></a></li>
-	         <li><a href="pwModifyForm"><img src="./../resources/images/mypage_tab2.png" width="100" height="30"></a></li>
-	         <li><a href="deleteAccount"><img src="./../resources/images/mypage_tab3.png" width="100" height="30"></a></li>
-	         <li><a href="reportList"><img src="./../resources/images/mypage_tab4.png" width="100" height="30"></a></li>
-	         <li class="selected"><a href="qnaList"><img src="./../resources/images/mypage_tab5.png" width="100" height="30"></a></li>
-         </ul>
-   
-   </div>
+
+  <div class="tab_wrap">
+  <div class="tab_menu_container">
+    <a href="accountDetail"><button class="tab_menu_btn" type="button">회원정보</button></a>
+    <a href="pwModifyForm"><button class="tab_menu_btn" type="button">비밀번호 변경</button></a>
+    <a href="deleteAccount"><button class="tab_menu_btn" type="button">회원탈퇴</button></a>
+    <a href="reportList"><button class="tab_menu_btn" type="button">내 신고 내역</button></a>
+    <a href="qnaList"><button class="tab_menu_btn on" type="button">내 문의 내역</button></a>
+  </div>
+  </div>
+
    <div id="main-container">
-		<img src="./../resources/images/commu_qtitle.png" width="200" height="70"> 
-	<table border="1" align="center" class="tbl_type">
+		
+		<h2>Q&A 게시판</h2><br>
+		
+	<table align="center" class="table table-striped table-condensed">
+	
 		<colgroup>
 			<col width="10%" />
 			<col width="*" />
@@ -35,12 +90,12 @@
 		<caption><h2>문의게시판</h2></caption>
 		<thead>
 			<tr>
-				<th scope="col"><img src="./../resources/images/commu_num.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_title.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_writer.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_date.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_re.png" height="25"></th>
-				<th scope="col"><img src="./../resources/images/commu_hit.png" height="25"></th>
+				<th scope="col">글번호</th>
+				<th scope="col">제목</th>
+				<th scope="col">작성자</th>
+				<th scope="col">작성일</th>
+				<th scope="col">답글여부</th>
+				<th scope="col">조회수</th>
 			</tr>
 		</thead>
 		<tbody>

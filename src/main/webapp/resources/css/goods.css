@@ -1,4 +1,6 @@
 /* //UI Object */
+body {top-margin:0; bottom-margin:0; left-margin:0; right-margin:0}   
+
 h1 {font-size: 3em; margin: 20px 0; color: #FFF;}
 .container {width: 700px; margin: 10px auto;}
 ul.goodsTabs {
@@ -12,7 +14,6 @@ ul.goodsTabs {
 	width: 100%;
 }
 ul.goodsTabs li {
-	
 	float: left;
 	margin: 0;
 	padding: 0;

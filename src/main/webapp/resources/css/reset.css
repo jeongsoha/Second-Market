@@ -5,7 +5,7 @@ dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,inp
 html,body{width:100%;height:100%;}
 html{overflow-y:scroll;}
 body{word-wrap:break-word;word-break:break-all;min-width:320px;line-height:140%;-webkit-text-size-adjust:none;}
-body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6{font-family:'나눔 고딕',Nanum Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
+body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6{font-family:'나눔 고딕',Nanum Gothic,sans-serif;font-size:15px;color:#666;font-weight:400;}
 input,select,textarea,button{border:none;} 
 form,fieldset,img {border:none;}
 nav,ul,ol,li{list-style:none;}
@@ -22,29 +22,7 @@ pre{overflow-x:scroll;font-size:1.1em;}
 a{color:#707070;text-decoration:none;}
 iframe{max-width:100%;}
 a:hover,a:focus,a:active{text-decoration:none;}
-
-/* @font-face {
-  font-family:'Nanum Gothic';
-  font-style:normal;
-  font-weight:400;
-  src: url(/fonts/NanumGothic-Regular.eot);
-  src: url(/fonts/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
-		 url(/fonts/NanumGothic-Regular.woff2) format('woff2'),
-		 url(/fonts/NanumGothic-Regular.woff) format('woff'),
-		 url(/fonts/NanumGothic-Regular.ttf) format('truetype');
-}
-@font-face {
-  font-family:'Nanum Gothic-Bold';
-  font-style:normal;
-  font-weight:800;
-  src: url(/fonts/NanumGothic-Bold.eot);
-  src: url(/fonts/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
-		 url(/fonts/NanumGothic-Bold.woff2) format('woff2'),
-		 url(/fonts/NanumGothic-Bold.woff) format('woff'),
-		 url(/fonts/NanumGothic-Bold.ttf) format('truetype');
-} */
-
-/* Align_Style
+body {top-margin:0; bottom-margin:0; left-margin:0; right-margin:0}   
 -------------------------------------------------------------- */
 .cb{clear:both;}
 .clearFix{display:block;content:"";clear:both;}
@@ -129,8 +107,8 @@ a:hover,a:focus,a:active{text-decoration:none;}
 input[type="submit"], input[type="button"]{padding:0;}
 input[type="text"], input[type="tel"] , input[type="number"], input[type="search"], input[type="password"],input[type="email"],select{
 	text-indent:5px;
-	font-size:12px;
-	border:1px solid #cfcecd;
+	font-size:15px;
+	/* border:1px solid #cfcecd; */
 	background:#fff;
 }
 
@@ -140,6 +118,8 @@ input[type="text"], input[type="tel"] , input[type="number"], input[type="search
 input.txt{    padding: 2px 2px 2px 4px;
     border: 1px solid #d9d9d9;
     color: #555;
+    height: 30px;
+    width: 300px;
 }
 textarea {border: 1px solid #d9d9d9;}
 select.slct{width:100%;height:29px;line-height:29px;}

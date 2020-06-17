@@ -20,12 +20,15 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
+import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,6 +38,15 @@ import second.shop.service.ShopService;
 @Controller
 public class ShopController{
 
+	Logger log = Logger.getLogger(this.getClass());
+	
+	@ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    public String exceptionHandler() {
+        log.debug("ShopController_예외사항_발생!");
+        return "/error/exception";
+    }
+	
 	@Resource(name="shopService")
 	private ShopService shopService;
 	
@@ -189,8 +201,10 @@ public class ShopController{
 		mv.addObject("goodsLikeMap", map.get("goodsLikeMap"));
 		mv.addObject("memberMap", map.get("memberMap"));
 		mv.addObject("list", map.get("list"));
-		/* mv.addObject("list",map.get("list")); */
 		
+		mv.addObject("reportMap", map.get("reportMap"));//(유진추가) 신고당한 게시글을 구분한 데이터를 리턴 
+		/* mv.addObject("list",map.get("list")); */
+		System.out.println(mv+"======================");
 		return mv;
 	}
 	

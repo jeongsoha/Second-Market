@@ -47,6 +47,25 @@
          )
    </insert>
    
+   <!-- 셀러MemNum에게 알림보내기 -->
+   <insert id="informinsertSeller" parameterType="hashmap">
+   INSERT INTO INFORM 
+               (INFORM_NUM,
+                INFORM_CONTENT,
+                INFORM_CONFIRM,
+                INFORM_DATE,
+                INFORM_USER
+                )
+         VALUES(
+         INFORM_SEQ.NEXTVAL,
+         #{INFORM_CONTENT},
+         'N',
+         SYSDATE,
+         #{GOODS_SELLER}
+         )
+   </insert>
+   
+   
    <!-- 공지사항 알림 -->
     <insert id="informinsertNotice" parameterType="hashmap">
    INSERT INTO INFORM 

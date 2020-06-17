@@ -4,6 +4,7 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/include/include-header.jspf" %>
+	
   	<script>
 /*   		$(document).ready(function(){ 
   			$('.bxslider').bxSlider({ 
@@ -15,11 +16,92 @@
   				pager:true, 
 			}); 
 		}); */
+
+
 	</script>
   	
 <meta charset="UTF-8">
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+</style>
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
+<style>
+
+.degoodsti{
+	font-size: 30px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.degoodspr{
+	color: #ed1b2f;
+    font-size: 22px;
+    line-height: 32px;
+}
+.degoodsco{
+	color: #a3a3a3;
+    font-size: 22px;
+}
+nav {
+  position: relative;
+  display: flex;
+  width: 1000px;
+  margin: 0 0 0 300px;
+    text-align: center;
+}
+nav li {
+  display: block;
+  width: 20%;
+  padding: .75em 0;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+.nav-underline {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 20%;
+  height: 2px;
+  background: #333;
+  transition: all .3s ease-in-out;
+}
+nav li:nth-child(1).selected ~ .nav-underline {
+  left: 0;
+}
+nav li:nth-child(2).selected ~ .nav-underline {
+  left: 20%;
+}
+nav li:nth-child(3).selected ~ .nav-underline {
+  left: 40%;
+}
+nav li:nth-child(4).selected ~ .nav-underline {
+  left: 60%;
+}
+nav li:nth-child(5).selected ~ .nav-underline {
+  left: 80%;
+}
+nav li:nth-child(1):hover ~ .nav-underline {
+  left: 0;
+}
+nav li:nth-child(2):hover ~ .nav-underline {
+  left: 20%;
+}
+nav li:nth-child(3):hover ~ .nav-underline {
+  left: 40%;
+}
+nav li:nth-child(4):hover ~ .nav-underline {
+  left: 60%;
+}
+nav li:nth-child(5):hover ~ .nav-underline {
+  left: 80%;
+}
+
+a{
+	text-align:center;
+}
+</style>
 </head>
 <body>
 
@@ -28,48 +110,63 @@
 
 	</div>
 	<div id="main-container">
-		<table border="1" align="center" style="min-height:100%">
+		<table align="center" style="min-height:100%">
 			<colgroup>
 				<col width="45%"/>
 				<col width="15%"/>
 				<col width="15%"/>
 				<col width="15%"/>
 			</colgroup>
+			
 			<caption>상품 상세</caption>
-			<tbody>
-				<tr colspan="2">
-					<td rowspan="2">
+			
+			<tbody >
+				<tr>
+					<td rowspan="4">
 						<c:choose>
 							<c:when test="${map.GOODS_THUMBNAIL eq null}">
-								<img alt="" style="width:95%; height:300px; padding:10px 10px 10px 10px;" src=<c:url value="/resources/images/no_image.png"/>>
+								<img alt="" style="width:100%; height:500px; padding:10px 10px 10px 10px;" src=<c:url value="/resources/images/no_image.png"/>>
 							</c:when>
 							<c:otherwise>
-								<img alt="" style="width:95%; height:300px; padding:10px 10px 10px 10px;" src="${path}${map.GOODS_THUMBNAIL}">	
+								<img alt="" style="width:100%; height:500px; padding:10px 10px 10px 10px;" src="${path}${map.GOODS_THUMBNAIL}">	
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td colspan="3" style="padding:0 0 0 20px; font-size:15px;">
-						<br>
+					<td colspan="3" style="padding:0 0 0 70px; font-size:15px; padding-top: 100px;">
 
-						제목 : ${map.GOODS_TITLE} <br />	<!-- 테이블에 없음 --> 
-						판매수량 : ${map.GOODS_QTY} <br/>
+						<h1 class="degoodsti" >${map.GOODS_TITLE} </h1>	
+						<%-- 판매수량 : ${map.GOODS_QTY} <br/> --%>
 						<input type="hidden" id="IDX" name="IDX" value="${map.GOODS_NUM}">
 						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${map.GOODS_NUM}">
 						판매가격 : ${map.GOODS_PRICE}<br /> 
 						거래지역 : ${map.GOODS_REGION}
+						<br/><br/>
+						<c:if test="${reportMap.REPORTS != 0}">
+						 <div style="color:red; font-weight:bold;">
+						 ※신고당한 판매상품 입니다.
+						 </div>
+						 </c:if>
 						<br/>
 						<br>
+						<h1 class="degoodspr">₩${map.GOODS_PRICE}</h1>
+						<h1 class="degoodsco">${map.GOODS_REGION}에서 거래 가능</h1>
+
+					</td>
+				</tr>
+				
+				<tr align="center">
+					<td colspan="3" style="padding-left: 70px;">
+					<a href='#this' id="buy"><div class="debtn01">바로구매</div></a> 	
 					</td>
 				</tr>
 				<tr align="center">
-				<td>
-					<a href='#this' id="buy"> 바로구매</a>
-				</td>
-				<td> 
-					<a href='javascript: report_func();'>신고하기</a>
-				</td>
-				<td>	
+					<td colspan="3" style="padding-left: 70px;">
+					<a href='javascript: report_func();'><div class="debtn02">신고하기</div></a>
+					</td>
+				</tr>
 				
+				<tr align="center" > 
+				<td colspan="3" style="padding-left: 70px; padding-bottom: 20px;">	
 		<c:choose>
 			<c:when test="${goodsLikeMap.GOODS_LIKE_YN eq 0}">
 		    	<a href='javascript: like_func();'><img src=<c:url value="/resources/images/like_black.png"/> id='unlike_img' style="width:30px; height:30px"></a>
@@ -79,18 +176,31 @@
 		  	</c:otherwise>
 		</c:choose>
 				
-				</td>	
+				</td>
+				
 				</tr>
-			</tbody>
+			</tbody>	
 		</table>
+		
+<!-- 		<nav>  ul 속성이 없으면 링크 적용 불가
+		    <a href="#goodsTab1" class="is-current">상품상세보기</a>
+		    <a href="#goodsTab2" class="is-current">상품문의</a>
+		    <a href="#goodsTab3" class="is-current">판매자정보</a>
+		    <div class="nav-underline"></div>
+		</nav> -->
+		
 		<div class="container" style="width:100%">
+		<nav>
 		    <ul class="goodsTabs">
-		        <li class="selected"><a href="#goodsTab1">상품상세보기</a></li>
-		        <li><a href="#goodsTab2">상품문의</a></li>
-		        <li><a href="#goodsTab3">판매자정보</a></li>
+		        <li class="goodsTabsLi selected"><a href="#goodsTab1">상품상세보기</a></li>
+		        <li class="goodsTabsLi"><a href="#goodsTab2">상품문의</a></li>
+		        <li class="goodsTabsLi"><a href="#goodsTab3">판매자정보</a></li>
+		        <div class="nav-underline"></div>
 		    </ul>
+		</nav>
+		 
+		     
 		    <div class="goodsTab_container">
-		    
 		    
 		        <div id="goodsTab1" class="goodsTab_content">
 		       
@@ -120,12 +230,12 @@
 				      				<input type="hidden" id="COMMENTS_TYPE" name="COMMENTS_TYPE" value="1"/>
 				      				<input type="hidden" id="COMMENTS_PARENT" name="COMMENTS_PARENT" value="${map.GOODS_NUM}"/>
 				      				<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_INFO.MEM_ID }"/>
-									<input type="button" id="cWrite" name="cWrite" value="문의하기" onClick="" style="vertical-align : middle;">
+									<input type="button" id="cWrite" name="cWrite" class="btn" value="문의하기" onClick="" style="vertical-align : middle; height: 50px;">
 			      				</div>
 			      			</c:if>
 	      				</form>
 	      				<br>
-					<table id="goodsTab2_ct" class="tbl_type" style="width:100%; height: 100px;">
+					<table id="goodsTab2_ct" class="tbl_type" style="width:100%; height: 150px;">
 						<tbody>
 						</tbody>
 			       </table>
@@ -162,10 +272,7 @@
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
 		$(document).ready(function(){
-
-			
 			fn_selectCommentList(1);
-			
 			
 			$("#list").on("click", function(e){ //목록으로 버튼
 				e.preventDefault();
@@ -187,7 +294,7 @@
 					alert("자신의 상품은 구매할 수 없습니다.");
 					return false;
 				}else if("${map.GOODS_TSTATUS}" != 'N'){
-					alert("거래 가능한 상품이 없습니다.");
+					alert("거래중이거나 판매완료된 상품입니다.");
 				}else{
 					fn_orderWriteForm($(this));
 				}
@@ -221,19 +328,19 @@
 		}
 		
 		/* 좋아요 */
-		function like_func(){
-			if(session_chk()){
-				var IDX="${map.MEM_ID}";
-				var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 좋아요 알람을 위한 판매자ID변수
-				var comSubmit = new ComSubmit();
-				comSubmit.setUrl("<c:url value='/shop/goodsDetail/goodsLike'/>");
-				comSubmit.addParam("LIKE_GOODS_NUM", "${map.GOODS_NUM}");
-				comSubmit.addParam("IDX", IDX);
-				comSubmit.addParam("idq", idq);// (유진 추가) 품 좋아요 알람을 위한을 판매자ID 변수 전송
-				comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
-				comSubmit.submit();	
-			}
-		}
+      function like_func(){
+         if(session_chk()){
+            var IDX="${map.MEM_ID}";
+            var idq = "${memberMap.MEM_ID}"; // (유진 추가) 상품 좋아요 알람을 위한 변수
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/shop/goodsDetail/goodsLike'/>");
+            comSubmit.addParam("LIKE_GOODS_NUM", "${map.GOODS_NUM}");
+            comSubmit.addParam("IDX", IDX);
+            comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}"); 
+            comSubmit.addParam("idq", idq);// (유진 추가) 상품 좋아요 알람을 위한 변수 전송
+            comSubmit.submit();   
+         }
+      }
 		
 		function unlike_func(){
 			if(session_chk()){
@@ -380,22 +487,22 @@
 				$.each(
 								data.list,
 								function(key, value) {									
-							str +=				"<tr style='border-top-style: Double; border-color: #000000;'>"
-						           		+	    "<td length='30%' target='_blank' style='width:300px;'>";
+							str +=				"<tr style='border-top: 1px solid #dfdfdf;'>"
+						           		+	    "<td length='30%' target='_blank' style='width:500px;'>";
 						    if('${session_MEM_INFO.MEM_ID}' == value.MEM_ID || '${session_MEM_INFO.MEM_ID}' == '${memberMap.MEM_ID}'){
 						    	
-						    str +=				"<a href='#this' onClick='fn_detailComment("+value.COMMENTS_NUM+")'>"
+						    str +=				"<a href='#this' onClick='fn_detailComment("+value.COMMENTS_NUM+")' style='font-weight: bold;'>"
 						    			+		"<input type='hidden' id='G_MEM_ID' name='G_MEM_ID' value='${memberMap.MEM_ID}'>"
 						         		+       		value.MEM_ID
 						         		+		" 님의 상품문의입니다.</a>";
 						    } else {
-						    str +=				"<a href='#this' onClick='fn_chkUsr()'>"
+						    str +=				"<a href='#this' onClick='fn_chkUsr()' style='font-weight: bold;'>"
 						         		+       		value.MEM_ID
 						         		+		" 님의 상품문의입니다.</a>";
 						    	
 						    }      		
 						    str+=      	    	"</td>"
-							            +   		"<td colspan='2' style='width:170px; align=center;'>"
+							            +   		"<td colspan='2' style='width:200px; align=center;'>"
 							            +     			new Date(value.COMMENTS_DATE).toLocaleString()
 							            +     	"</td>"
 								        +        "<td>";
