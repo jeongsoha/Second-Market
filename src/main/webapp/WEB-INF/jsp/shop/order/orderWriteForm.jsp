@@ -170,27 +170,39 @@ $(document).ready(function() {
 	$("#pay_btn").on("click", function(e) { // 결제하기 버튼
 		e.preventDefault();
 		if(fn_formCheck()){
-			if(document.getElementById("check").value == "true"){
-				alert("이미 결제가 완료되어 주문확인 창으로 이동합니다.");
-				fn_orderPay($(this));	
+
+			if(confirm("주문하시겠습니까?") == true){
+				if(document.getElementById("check").value == "true"){
+					alert("이미 결제가 완료되어 주문확인 창으로 이동합니다.");
+					fn_orderPay($(this));	
+				}else{
+					alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
+					//fn_orderPay($(this));	
+					popup($(this));
+				}
 			}else{
-				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
-				//fn_orderPay($(this));	
-				popup($(this));
+				return;
 			}
 		}
 	});
 	
-	$("#submitPay").on("click", function(e) { // 결제하기 버튼
+	$("#submitPay").on("click", function(e) { // 주문하기 버튼
 		e.preventDefault();
 		if(fn_formCheck()){
-			if(document.getElementById("check").value == "true"){
-				alert("결제가 완료되어 주문서 확인 창으로 이동됩니다.");
-				fn_orderPay($(this));	
+
+			if(confirm("주문하시겠습니까?") == true){
+				if(document.getElementById("check").value == "true"){
+					alert("결제가 완료되어 주문서 확인 창으로 이동됩니다.");
+					fn_orderPay($(this));	
+				}else{
+					alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
+					popup($(this));
+				}
 			}else{
-				alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
-				popup($(this));
+				return;
 			}
+
+			
 		}
 	});
 	
