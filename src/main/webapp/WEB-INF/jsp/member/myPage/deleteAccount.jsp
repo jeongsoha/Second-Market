@@ -12,7 +12,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     />
     <script type="text/javascript">
       $(document).ready(function () {
-        //변경 버튼 클릭시
+        //탈퇴 버튼 클릭시
         $("#delete").on("click", function (e) {
           e.preventDefault();
           fn_delete();
