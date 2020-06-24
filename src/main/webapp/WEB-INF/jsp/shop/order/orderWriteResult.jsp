@@ -152,7 +152,7 @@ function fn_openGoodsList(){
 
 function fn_goMain(){
 	var comSubmit = new ComSubmit();
-	comSubmit.setUrl("<c:url value='/main' />");
+	comSubmit.setUrl("<c:url value='/second/shop/allGoodsList' />");
 	comSubmit.submit();
 }
 </script>
