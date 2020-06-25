@@ -380,7 +380,21 @@ button {
     		var PRO_NUM = value.GOODS_NUM;
     		fn_DELE_NUM_in(PRO_NUM);	
     	});
-         	 
+
+
+        // 입력확인 버튼
+        function fn_DELE_NUM_in(num) {
+          var comSubmit = new ComSubmit("");
+          comSubmit.setUrl("<c:url value='/myshop/inputDnum' />");
+          comSubmit.addParam("ORDERS_DELE_NUM", $("#ORDERS_DELE_NUM").val());
+          comSubmit.addParam("ORDERS_NUM", num);
+          alert( $("#ORDERS_DELE_NUM").val());
+          alert( $('input[name=ORDERS_DELE_NUM]').val());
+          alert(num);
+          comSubmit.submit();
+        }
+
+     	 
       });
       function fn_goodsDetail(obj) {
         var comSubmit = new ComSubmit();
@@ -391,17 +405,7 @@ button {
       }
 
 
-      // 입력확인 버튼
-      function fn_DELE_NUM_in(num) {
-        var comSubmit = new ComSubmit("");
-        comSubmit.setUrl("<c:url value='/myshop/inputDnum' />");
-        comSubmit.addParam("ORDERS_DELE_NUM", $("#ORDERS_DELE_NUM").val());
-        comSubmit.addParam("ORDERS_NUM", num);
-        alert( $("#ORDERS_DELE_NUM").val());
-        alert( $('input[name=ORDERS_DELE_NUM]').val());
-        alert(num);
-        comSubmit.submit();
-      }
+
 
       function fn_selectMySaleList(pageNo, tabNo) {
         var comAjax = new ComAjax();

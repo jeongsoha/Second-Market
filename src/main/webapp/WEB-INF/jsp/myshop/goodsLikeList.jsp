@@ -318,7 +318,31 @@ a{
 			});
 			
 		});
-	
+
+		 
+				$(document).on('click','#JJimNum',function(){
+				
+					var goods_num = $(this).parent().find("#IDX1").val();
+					var LIKE_MEM_ID = '${session_MEM_ID}';
+
+					if(confirm("찜 목록에서 삭제 하시겠습니까?") == true){
+					
+				  	$.ajax({
+						type: "POST",
+						url:"<c:url value='/shop/goodsDetail/goodsUnlike'/>",
+						data:{'LIKE_GOODS_NUM':goods_num,'LIKE_MEM_ID':LIKE_MEM_ID},
+						success: function(data){
+							alert("찜 상품 목록에서 삭제완료");
+							fn_selectGoodsList(1);
+							
+						}	
+			        });  
+					}else{
+						return;
+					}	
+				});
+
+					
 		function fn_goodsDetail(obj) {
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/shop/goodsDetail' />");
@@ -389,6 +413,8 @@ a{
 							}
 									
 									str +=  "<div class='card'>"
+										+ 	   "<input type='hidden' id='IDX1' value="+value.GOODS_NUM+">"
+										+	"<button type='button' id='JJimNum'>▼ 찜 목록에서 삭제 </button>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
 										+ 		  tstatus
@@ -419,12 +445,12 @@ a{
  										+				"<br/>"
 										+	            "등록일 : "
 										+				new Date(value.GOODS_DATE).toLocaleString()
-					
+										
 										+	         "</div>"
 										+	      "</div>"
-										+ 	   "<input type='hidden' id='IDX1' value=" + value.GOODS_NUM + ">"
+									
 										+	   "</a>"
-										+	   "</div>";
+ 										+	   "</div>";
 										
 								});
 				body.append(str);
