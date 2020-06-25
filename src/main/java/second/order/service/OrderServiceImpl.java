@@ -25,8 +25,6 @@ public class OrderServiceImpl implements OrderService {
 	@Resource(name="fileUtils")
 	private FileUtils fileUtils;
 	
-	@Resource(name="informDAO")
-	private InformDAO informDAO;
 	
 	@Override
 	public Map<String, Object> orderWriteForm(Map<String, Object> map) throws Exception {
