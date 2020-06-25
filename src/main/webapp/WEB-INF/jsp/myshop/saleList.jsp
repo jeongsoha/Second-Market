@@ -310,7 +310,7 @@ button {
             <div class="container" style="width: 100%;">
               <ul class="goodsTabs">
                 <li class="selected"><a href="#goodsTab1">전체 판매상품</a></li>
-                <li><a href="#goodsTab2">거래 진행중</a></li>
+                <li><a href="#goodsTab2">배송중</a></li>
                 <li><a href="#goodsTab3">판매 완료</a></li>
               </ul>
               <div class="goodsTab_container">
@@ -397,6 +397,9 @@ button {
         comSubmit.setUrl("<c:url value='/myshop/inputDnum' />");
         comSubmit.addParam("ORDERS_DELE_NUM", $("#ORDERS_DELE_NUM").val());
         comSubmit.addParam("ORDERS_NUM", num);
+        alert( $("#ORDERS_DELE_NUM").val());
+        alert( $('input[name=ORDERS_DELE_NUM]').val());
+        alert(num);
         comSubmit.submit();
       }
 
@@ -488,10 +491,10 @@ button {
                 "<td></td>";
             } else if (value.ORDERS_STATUS == "주문/결제") {
               str1 +=
-                "<td width='200px' align='center'> 송장번호 입력  ▼ <input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>" +
+                "<td width='200px' align='center'> 송장번호 입력 필요합니다.▼ <input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>" +
                 "</td>" +
                 "<td>" +
-                "<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_DELE_NUM_in(" +
+                "<input type='button' id='DNUM_IN' name='DNUM_IN' value='송장번호 입력' onclick='fn_DELE_NUM_in(" +
                 value.GOODS_NUM+
                 ")' >" +
                 "</td>";

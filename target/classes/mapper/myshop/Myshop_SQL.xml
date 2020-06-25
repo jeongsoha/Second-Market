@@ -140,8 +140,7 @@
 	WHERE   G.GOODS_SELLER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
 	AND     O.ORDERS_PRONUM = G.GOODS_NUM
 	AND		O.ORDERS_DEL_GB = 'N'
-	AND		O.ORDERS_STATUS != 'N'
-    AND     O.ORDERS_STATUS != '거래완료'
+	AND		O.ORDERS_STATUS = '배송중'
 	ORDER BY O.ORDERS_DATE DESC
 ]]>
 <include refid="common.pagingPost"/>
@@ -176,7 +175,7 @@
  <include refid="common.pagingPost"/>
 </select>
 
-<!-- 송장번호 입력 -->
+<!-- 송장번호 입력 시 -->
 <update id="updateOrderDnum" parameterType="hashMap">
 <![CDATA[
 	UPDATE  ORDERS
