@@ -83,21 +83,19 @@
 <include refid="common.pagingPost"/>
 </select>
 
-<!-- 내 판매 전체내역 조회 -->
+<!-- 내 판매 전체내역 조회  tab1 전체판매상품 에 활용-->
 <select id="selectMySaleList1" parameterType="hashMap" resultType="hashmap">
 <include refid="common.pagingPre"/>
 <![CDATA[
 	SELECT  ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
 			G.GOODS_NUM,
+			O.ORDERS_NUM,
         	G.GOODS_TITLE,
         	G.GOODS_PRICE,
         	G.GOODS_DATE,
         	TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
-        	
+        	O.ORDERS_DATE,
         	NVL(O.ORDERS_STATUS, '판매중(미결제)') AS ORDERS_STATUS,
-        	
-        	TO_CHAR(O.ORDERS_DATE) AS ORDER_DATE,  
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
         	G.GOODS_THUMBNAIL,
         	G.GOODS_STATUS,
         	O.ORDERS_DELE_NUM,
@@ -118,7 +116,7 @@
 <include refid="common.pagingPost"/>
 </select>
 
-<!-- 내 판매중 내역 -->
+<!-- 내 판매중(거래진행중) 내역 탭2 -->
 <select id="selectMySaleList2" parameterType="hashMap" resultType="hashmap">
 <include refid="common.pagingPre"/>
 <![CDATA[
@@ -131,6 +129,8 @@
         	O.ORDERS_PRICE,
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
+        	G.GOODS_STATUS,
+			G.GOODS_TSTATUS,
         	O.ORDERS_DELE_NUM,
         	O.ORDERS_DATE,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
@@ -147,6 +147,7 @@
 <include refid="common.pagingPost"/>
 </select>
 
+<!-- 내 판매(판매완료) 내역 탭3 -->
 <select id="selectMySaleList3" parameterType="hashMap" resultType="hashmap">
 <include refid="common.pagingPre"/>
 <![CDATA[

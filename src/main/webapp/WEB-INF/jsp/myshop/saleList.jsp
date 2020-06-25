@@ -375,12 +375,12 @@ button {
         });
 
         
-         $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
-		e.preventDefault();
-		var PRO_NUM = value.GOODS_NUM;
-		fn_DELE_NUM_in(PRO_NUM);	
-	});
-     	 
+        $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
+    		e.preventDefault();
+    		var PRO_NUM = value.GOODS_NUM;
+    		fn_DELE_NUM_in(PRO_NUM);	
+    	});
+         	 
       });
       function fn_goodsDetail(obj) {
         var comSubmit = new ComSubmit();
@@ -488,7 +488,7 @@ button {
                 "<td></td>";
             } else if (value.ORDERS_STATUS == "주문/결제") {
               str1 +=
-                "<td width='200px' align='center'> 송장번호 입력  <input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>" +
+                "<td width='200px' align='center'> 송장번호 입력  ▼ <input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>" +
                 "</td>" +
                 "<td>" +
                 "<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_DELE_NUM_in(" +

@@ -92,7 +92,7 @@ public class MyshopController {
 		request.setAttribute("path", filePath_temp);
 		
 		List<Map<String,Object>> list;
-		//asdasds
+
 		if(tabNo.equals("1")) {
 			list = myshopService.selectMySaleList1(commandMap.getMap());
 		}else if(tabNo.equals("2")) {
@@ -101,9 +101,9 @@ public class MyshopController {
 			list = myshopService.selectMySaleList3(commandMap.getMap());
 		}else {
 			list = myshopService.selectMySaleList1(commandMap.getMap());
-			System.out.println("asdsaasd");
+			
 		}
-		//asddadsa
+
 		
 		mv.addObject("list",list);
 		mv.addObject("tabNo", tabNo);
