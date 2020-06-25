@@ -262,10 +262,10 @@ file="/WEB-INF/include/include-header.jspf" %>
       success: function (data) {
         console.log("success"), callback(data);
       },
-      timeout: 3000,
+      timeout: 3000000, //3000
       complete: setTimeout(function () {
         poll();
-      }, 10000),
+      }, 10000000), //10000
     });
   }
 
