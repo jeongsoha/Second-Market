@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 td{
 	margin:0 0 0 10px
@@ -21,11 +22,8 @@ td img
 	height:250px;
 	margin:10px 10px 10px 0px; 
 	border:3px solid #000; 
-
 }
 
-   @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-   
    html {
       height: 100%;
    }
@@ -33,9 +31,23 @@ td img
    body {
         background:white;
    }
-   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-family:'맑은 고딕',Malgun Gothic,sans-serif;font-size:12px;color:#666;font-weight:400;}
-   
+   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
+   font-family:'Nanum Gothic',sans-serif;
+   font-size:14px;
+   color:#666;
+   font-weight:400;}
    }
+   #main-container{
+   width:1100px;
+   align:center;
+   font-family: 'Nanum Gothic';
+   font-size:15px;
+}
+
+#content{
+	width:1120px;
+	margin-left:50px;
+}
    
 </style>
 
@@ -101,7 +113,7 @@ table {
    background-repeat: no-repeat;   
 }
  
-..card-header-is_closed{  /* 거래완료 */
+.card-header-is_closed{  /* 거래완료 */
     background-color: #EF5A31 ;
     color: #FFF ;
     font-weight: bold ;
@@ -208,25 +220,24 @@ button {
 }
 .tab_menu_container {
   display:flex;
-  margin:50px auto auto auto;
 }
 .tab_menu_btn {
-  width:90px;
+  width:120px;
   height:40px;
   transition:0.3s all;
 }
 .tab_menu_btn.on {
-  border-bottom:2px solid #7112FF;
+  border-bottom:2px solid #df0000;
   font-weight:700;
-  color:#7112FF;
+  color:#df0000;
 }
 .tab_menu_btn:hover {
-  color:#7112FF;
+  color:#df0000;
 }
 .tab_menu_container{
 	float:right;
-	margin-right:350px;
 	font-family: 'Nanum Gothic';
+	margin-bottom:50px;
 }
 
 /*메뉴버튼끝*/
@@ -250,7 +261,10 @@ button {
 	#dot{
 		margin:0px auto;
 	}
-
+a{
+	font-size:12px;
+	color: #000;
+}
 </style>
 
 
