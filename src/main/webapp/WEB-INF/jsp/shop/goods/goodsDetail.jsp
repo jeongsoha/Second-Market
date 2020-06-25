@@ -289,7 +289,8 @@ a{
 			});
 			
 			$("#buy").on("click", function(e) { // 바로구매 버튼
-				e.preventDefault(); // submit 이벤트를 실행하지 않겠다는 의미. submit을 쓸 때 제어하기 위해서 - 보통 submit을 하지 않기 위해서 사용함
+				e.preventDefault(); // submit 이벤트를 실행하지 않겠다는 의미. 
+				//submit을 쓸 때 제어하기 위해서 - 보통 submit을 하지 않기 위해서 사용함
 				if("${session_MEM_ID}" == "${memberMap.MEM_ID}"){
 					alert("자신의 상품은 구매할 수 없습니다.");
 					return false;

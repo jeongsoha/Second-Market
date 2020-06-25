@@ -27,14 +27,20 @@ uri="http://java.sun.com/jsp/jstl/core"%>
           type: "get",
           data: MEM_PW,
           success: function (data) {
-            if ($.trim(data) == "1") {
-              var comSubmit = new ComSubmit("deleteAccountForm");
-              comSubmit.setUrl("<c:url value='/myPage/deleteAccountCheck'/>");
-              comSubmit.submit();
-            } else {
-              alert("비밀번호가 틀렸습니다.");
-            }
-          },
+              if ($.trim(data) == "1") {
+                  if(confirm("정말 탈퇴하시겠습니까?") == true){
+			  	  	alert("탈퇴완료.");
+				    var comSubmit = new ComSubmit("deleteAccountForm");
+  		            comSubmit.setUrl("<c:url value='/myPage/deleteAccountCheck'/>");
+		            comSubmit.submit();
+                  } else{
+                      return;
+            	      //location.href="/second/shop/allGoodsList";
+                  }              
+                } else {
+                  alert("비밀번호가 틀렸습니다.");
+              }
+            },
           error: function () {
             alert("에러입니다");
           },
