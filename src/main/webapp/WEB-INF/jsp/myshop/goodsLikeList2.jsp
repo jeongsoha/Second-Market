@@ -184,8 +184,7 @@ h1 {
      margin-top: 15px;
      margin-bottom: 6px;
     bottom: 0; 
-    width: 214px;
-    text-align:left;
+    width: 314px;
     font-size: 10px;
     color: #9FA5A8;
     padding: 0 10px;
@@ -271,20 +270,17 @@ a{
 
 </head>
 <body>
-
-  
+<div id="con">
 
   <div class="tab_wrap" id="menu">
      <div class="tab_menu_container">
-	    <a href="/second/myshop"><button class="tab_menu_btn on" type="button">나의 주문내역</button></a>
+	    <a href="/second/myshop"><button class="tab_menu_btn" type="button">나의 주문내역</button></a>
 	    <a href="/second/myshop/saleList"><button class="tab_menu_btn" type="button">나의 판매내역</button></a>
-	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn" type="button">찜 상품목록</button></a>
-      </div>
+	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn on" type="button">찜 상품목록</button></a>
+     </div>
   </div>
- 
-
-
-<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin:50px; width:90%; height:90%;">
+  
+<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin:50px 0 80px 0; width:100%; height:100%;">
 <div id="content">
    		<table class="board_list">
 		<colgroup>
@@ -301,7 +297,7 @@ a{
 		<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
    </div>
 </div>
-
+</div>
 
     <%@ include file="/WEB-INF/include/include-body.jspf" %>
 	
@@ -360,40 +356,34 @@ a{
 
 				var str = "";
 				$.each(
-						data.list,
-						function(key, value) {
-							var imgpath = "";
-							var tstatus = "";
- 
-							
-							if(value.GOODS_THUMBNAIL == null){
-								imgpath = 	"<div class='card-header'>"
-							}else{
-								imgpath = "<div class='card-header' style='background-image:url(\"/second/file/"+ value.GOODS_THUMBNAIL + "\");'>"
-								//alert(imgpath);
-							}
-							if(value.GOODS_TSTATUS == 'N'){ //거래가능(판매중)
-								tstatus += "<div class = 'card-header-is_closed2' >" 
-								 	     + "<div class = 'card-header-text' >" 
-										 + "거래가능"; 
-							}else if (value.GOODS_TSTATUS == 'ING'){ 
-							/* }else if (value.GOODS_QTY == 0){ */
-								tstatus += "<div class = 'card-header-is_closed1' >" 
-								 	     + "<div class = 'card-header-text' >" 
-								 	     + "거래중";
-							}else if (value.GOODS_TSTATUS == 'END'){ 
-								/* }else if (value.GOODS_QTY == 0){ */
-									tstatus += "<div class = 'card-header-is_closed' >" 
-									 	     + "<div class = 'card-header-text' >" 
-									 	     + "거래완료";
-							}
+								data.list,
+								function(key, value) {
+									var imgpath = "";
+									var tstatus = "";
+									
+									if(value.GOODS_THUMBNAIL == null){
+										imgpath = 	"<div class='card-header'>"
+									}else{
+										imgpath = "<div class='card-header' style='background-image:url(\"/second/file/"+ value.GOODS_THUMBNAIL + "\");'>"
+										//alert(imgpath);
+									}
+									if(value.GOODS_TSTATUS == 'N'){
+										tstatus += "<div class = 'card-header-is_closed2' >" 
+										 	     + "<div class = 'card-header-text' >" 
+												 + "거래가능"; 
+									}else if (value.GOODS_TSTATUS == 'ING'){ 
+									/* }else if (value.GOODS_QTY == 0){ */
+										tstatus += "<div class = 'card-header-is_closed' >" 
+										 	     + "<div class = 'card-header-text' >" 
+										 	     + "거래불가";
+									}
 									
 									str +=  "<div class='card'>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
 										+ 		  tstatus
 										+ 					"</div >"
-			 
+ 
 										+	            "</div >"
 										+	      "</div>"
 										+	      "<div class='card-body'>"
@@ -401,25 +391,24 @@ a{
 										+	            "<h1>"
 										+				value.GOODS_TITLE
 										+				"</h1>"
-										+	            "<h2>"
-										+				value.GOODS_PRICE +"원"
-										+				"</h2>"
- 										+	                               "판매자: "
+ 
+										+	            "<p class = 'card-body-nickname'>"
+										+	                                 "판매자: "
 										+									value.SELLER_ID
 										+	                          "</p>"
 										+	         "</div>"
-										+	         "<p class='card-body-description'>"
-										+	            value.GOODS_CONTENT
+										+	         "<p class='card-body-description'> 상품내용"
+										+	           
 										+	         "</p>"
 										+	         "<div class='card-body-footer'>"
 										+	            "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"
-										+	            "조회수 "
+										+	            "<i class='icon icon-view_count'></i>조회수 "
 										+				value.GOODS_COUNT
 										+				"회"
- 										+				"<br/>"
-										+	            "등록일 : "
+ 
+										+	            "<i class='reg_date'>"
 										+				new Date(value.GOODS_DATE).toLocaleString()
-					
+										+				"</i>"
 										+	         "</div>"
 										+	      "</div>"
 										+ 	   "<input type='hidden' id='IDX1' value=" + value.GOODS_NUM + ">"
@@ -434,7 +423,6 @@ a{
 					fn_goodsDetail($(this));
 				});
 			}
-			
 		}
 	</script>
 </body>
