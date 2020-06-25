@@ -11,7 +11,7 @@
 
 <style type="text/css">
 
- @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+ @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
  
 html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    p, blockquote, pre, a, abbr, acronym, address, big, quotes, code, del,
@@ -27,7 +27,24 @@ html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    do: inherit;
    vertical-align: baseline;
 }
+   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
+   font-family:'Nanum Gothic',sans-serif;
+   font-size:14px;
+   color:#666;
+   font-weight:400;}
+   }
+#main-container{
+   
+   align:center;
+   font-family: 'Nanum Gothic';
+   font-size:15px;
+	clear:both;
+}
 
+#content{
+	width:1000px;
+	margin-left:50px;
+}
 /*메뉴버튼*/
 
 button {
@@ -38,26 +55,26 @@ button {
 }
 .tab_menu_container {
   display:flex;
-  margin:50px auto auto auto;
 }
 .tab_menu_btn {
-  width:90px;
+  width:120px;
   height:40px;
   transition:0.3s all;
 }
 .tab_menu_btn.on {
-  border-bottom:2px solid #7112FF;
+  border-bottom:2px solid #df0000;
   font-weight:700;
-  color:#7112FF;
+  color:#df0000;
 }
 .tab_menu_btn:hover {
-  color:#7112FF;
+  color:#df0000;
 }
 .tab_menu_container{
 	float:right;
-	margin-right:350px;
 	font-family: 'Nanum Gothic';
+	margin-bottom:50px;
 }
+
 
 /*메뉴버튼끝*/
 
@@ -68,7 +85,7 @@ button {
    body {
         background:white;
    }
-   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-size:12px;color:#666;font-weight:400;}
+   body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{font-size:14px;color:#666;font-weight:400;}
    
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -93,12 +110,6 @@ button {
 	padding: 5px;
 	}
 	
-	#main-container{
-	   align:center;
-	   clear:both;
-	   font-family: 'Nanum Gothic';
-	}
-	
 	#menu{
 		clear:both;
 		/* margin:0px auto 100px auto; */
@@ -106,7 +117,7 @@ button {
 		 
 	
 	#con{
-		margin: auto 100px auto 100px;
+		margin: auto 100px auto 100px; 
 	}
 	#dot{
 		margin:0px auto;
@@ -114,7 +125,10 @@ button {
 	#con2{
 		clear:both;
 	}
-
+a{
+	font-size:12px;
+	color: #000;
+}
 </style>
 </head>
 <body>

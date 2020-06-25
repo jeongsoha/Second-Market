@@ -15,10 +15,8 @@
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
-        	 
         	NVL(O.ORDERS_DELE_NUM, '[주문완료] 배송 준비 중 입니다.') AS ORDERS_DELE_NUM,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
-        	
         
 	FROM    ORDERS O,
         	GOODS G
@@ -98,8 +96,8 @@
         	
         	NVL(O.ORDERS_STATUS, '판매중(미결제)') AS ORDERS_STATUS,
         	
-        	NVL(TO_CHAR(O.ORDERS_DATE),'111') AS ORDER_DATE,  
-        	NVL(TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss'),'222') AS ORDERS_TIME,
+        	TO_CHAR(O.ORDERS_DATE) AS ORDER_DATE,  
+        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
         	G.GOODS_THUMBNAIL,
         	G.GOODS_STATUS,
         	O.ORDERS_DELE_NUM,

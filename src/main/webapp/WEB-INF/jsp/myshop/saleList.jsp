@@ -14,7 +14,7 @@ pageEncoding="UTF-8"%>
     />
 
     <style type="text/css">
-      @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+      @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
       html,
       body,
@@ -98,41 +98,51 @@ pageEncoding="UTF-8"%>
         margin: 0;
         padding: 0;
         border: 0;
-
+		font-size: 14px;
         do: inherit;
         vertical-align: baseline;
       }
+#main-container{
+  
+   align:center;
+   font-family: 'Nanum Gothic';
+   font-size:15px;
+   clear: both;
+}
 
+#content{
+	width:1000px;
+	margin-left:50px;
+}
       /*메뉴버튼*/
+button {
+  background:none;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+.tab_menu_container {
+  display:flex;
+}
+.tab_menu_btn {
+  width:120px;
+  height:40px;
+  transition:0.3s all;
+}
+.tab_menu_btn.on {
+  border-bottom:2px solid #df0000;
+  font-weight:700;
+  color:#df0000;
+}
+.tab_menu_btn:hover {
+  color:#df0000;
+}
+.tab_menu_container{
+	float:right;
+	font-family: 'Nanum Gothic';
+	margin-bottom:50px;
+}
 
-      button {
-        background: none;
-        border: 0;
-        outline: 0;
-        cursor: pointer;
-      }
-      .tab_menu_container {
-        display: flex;
-        margin: 50px auto auto auto;
-      }
-      .tab_menu_btn {
-        width: 90px;
-        height: 40px;
-        transition: 0.3s all;
-      }
-      .tab_menu_btn.on {
-        border-bottom: 2px solid #7112ff;
-        font-weight: 700;
-        color: #7112ff;
-      }
-      .tab_menu_btn:hover {
-        color: #7112ff;
-      }
-      .tab_menu_container {
-        float: right;
-        margin-right: 350px;
-        font-family: "Nanum Gothic";
-      }
 
       /*메뉴버튼끝*/
 
@@ -156,8 +166,8 @@ pageEncoding="UTF-8"%>
       h5,
       h6,
       a {
-        font-family: "맑은 고딕", Malgun Gothic, sans-serif;
-        font-size: 12px;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 14px;
         color: #666;
         font-weight: 400;
       }
@@ -186,11 +196,7 @@ pageEncoding="UTF-8"%>
         padding: 5px;
       }
 
-      #main-container {
-        align: center;
-        clear: both;
-        font-family: "Nanum Gothic";
-      }
+
 
   	#menu{
 		clear:both;
@@ -199,13 +205,16 @@ pageEncoding="UTF-8"%>
 		
 
       #con {
-        margin: auto 100px auto 100px;
+         margin: auto 100px auto 100px; 
       }
       #dot {
         margin: 0px auto;
       }
+      a{
+	font-size:12px;
+	color: #000;
+}
     </style>
-    `
   </head>
   <body>
     <div id="con">
@@ -365,10 +374,13 @@ pageEncoding="UTF-8"%>
           fn_openGoodsDetail($(this));
         });
 
-        /* $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
+        
+         $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
 		e.preventDefault();
-		fn_DELE_NUM_in($(this));	
-	}); */
+		var PRO_NUM = value.GOODS_NUM;
+		fn_DELE_NUM_in(PRO_NUM);	
+	});
+     	 
       });
       function fn_goodsDetail(obj) {
         var comSubmit = new ComSubmit();
@@ -377,6 +389,7 @@ pageEncoding="UTF-8"%>
         comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
         comSubmit.submit();
       }
+
 
       // 입력확인 버튼
       function fn_DELE_NUM_in(num) {
@@ -479,7 +492,7 @@ pageEncoding="UTF-8"%>
                 "</td>" +
                 "<td>" +
                 "<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_DELE_NUM_in(" +
-                value.GOODS_NUM +
+                value.GOODS_NUM+
                 ")' >" +
                 "</td>";
             } else {

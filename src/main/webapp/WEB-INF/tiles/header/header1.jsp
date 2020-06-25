@@ -36,9 +36,8 @@
    #h1{
          float:left;
          width:24%;
-         margin: 3px 0px 15px 15px;
+         margin: 3px 0px 15px 70px;
          display: inline;
-         
    }
    
    #h2{
@@ -160,7 +159,7 @@
 	    background-color: #f9f9f9;
 	    min-width: 260px;
 	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	    z-index: 1;
+	    z-index: 2;
 	}
 	.dropdown-content a {
 		float:left;
@@ -171,7 +170,8 @@
 	}
 	.dropdown-content a:hover {
 		float:left;
-	    background-color: #f1f1f1
+	    background-color: #f1f1f1;
+	    z-index: 2;
 	}
 	.dropdown:hover .dropdown-content {
 	    display: block;
@@ -236,8 +236,9 @@
         width: 1000px;
         height: 250px;
         overflow: hidden;
-        position: relative;
-        margin: 0 auto;
+
+	position: absolute;
+    margin: 0 0 0 250px;
       }
       .slide ul{
         width: 5000px;
@@ -307,8 +308,8 @@
                   console.log('success'),
                   callback(data);
               },
-              timeout: 3000,
-              complete: setTimeout(function() { poll(); }, 10000)
+              timeout: 3000000, //3000
+              complete: setTimeout(function() { poll(); }, 10000000) //10000
               });
       };
       
@@ -469,8 +470,8 @@
             
          </div>
          </div>
-         
-<!-- 드롭메뉴 -->         
+<!--          
+드롭메뉴         
          <div class="container" id="menubar">
          
             <div class="panel-group">
@@ -493,7 +494,7 @@
               </div>
             </div>
       </div>
-      
+       -->
 
  		
       <!-- 로그인 o,x -->
