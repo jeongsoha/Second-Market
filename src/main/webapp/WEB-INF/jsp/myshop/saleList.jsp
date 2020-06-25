@@ -374,10 +374,13 @@ button {
           fn_openGoodsDetail($(this));
         });
 
-        /* $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
+        
+         $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
 		e.preventDefault();
-		fn_DELE_NUM_in($(this));	
-	}); */
+		var PRO_NUM = value.GOODS_NUM;
+		fn_DELE_NUM_in(PRO_NUM);	
+	});
+     	 
       });
       function fn_goodsDetail(obj) {
         var comSubmit = new ComSubmit();
@@ -386,6 +389,7 @@ button {
         comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
         comSubmit.submit();
       }
+
 
       // 입력확인 버튼
       function fn_DELE_NUM_in(num) {
@@ -488,7 +492,7 @@ button {
                 "</td>" +
                 "<td>" +
                 "<input type='button' id='DNUM_IN' name='DNUM_IN' value='입력확인' onclick='fn_DELE_NUM_in(" +
-                value.GOODS_NUM +
+                value.GOODS_NUM+
                 ")' >" +
                 "</td>";
             } else {
