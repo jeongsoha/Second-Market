@@ -183,4 +183,18 @@ public class MyshopController {
 		return mv;
 	}
 
+	@RequestMapping(value="/myshop/orderDetail")
+	public ModelAndView selectMyOrderDetail(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		ModelAndView mv = new ModelAndView("orderDetail2");
+		Map<String,Object> map = myshopService.selectMyOrderDetail(commandMap.getMap());
+		System.out.println(commandMap.getMap()+"뭥미?");
+	
+		
+		mv.addObject("map", map.get("map"));
+		
+		
+		System.out.println(mv+"뭥미?");
+		return mv;
+	}
+	
 }

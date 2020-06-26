@@ -261,7 +261,10 @@
    <definition name="recentGoodsList" extends="template2">
       <put-attribute name="body" value="/WEB-INF/jsp/myshop/recentGoodsList.jsp" />
    </definition>
-  
+
+  <definition name="orderDetail2" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderDetail2.jsp" />
+   </definition>
   
   
 

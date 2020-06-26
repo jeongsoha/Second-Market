@@ -1,5 +1,6 @@
 package second.myshop.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -81,4 +82,12 @@ public class MyshopServiceImpl implements MyshopService{
 		myshopDAO.orderCancel(map);
 	}
 	
+	@Override
+	public Map<String, Object> selectMyOrderDetail(Map<String, Object> map) throws Exception {
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		Map<String, Object> tempMap = myshopDAO.selectMyOrderDetail(map);
+		resultMap.put("map", tempMap);		
+		return resultMap;
+	}
 }

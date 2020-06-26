@@ -262,9 +262,9 @@ $(document).ready(function() {
 
 function fn_goodsDetail(obj) {
 	var comSubmit = new ComSubmit();
-	comSubmit.setUrl("<c:url value='/shop/goodsDetail' />");
-	comSubmit.addParam("GOODS_NUM", obj.parent().find("#title2").val());
-	comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
+	comSubmit.setUrl("<c:url value='/myshop/orderDetail' />");
+	comSubmit.addParam("ORDERS_NUM", obj.parent().find("#title2").val());
+	//comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
 	comSubmit.submit();
 }
 
@@ -340,7 +340,7 @@ function fn_selectOrderListCallback1(data) {
 						str1 +=	"<tr>"
 				    		+	"<td><a href='#this' id='title' name='title'>"
 				    		+	value.ORDERS_NUM
-	      	      			+	"<input type='hidden' name='title2' id='title2' value="+value.ORDERS_PRONUM+">"
+	      	      			+	"<input type='hidden' name='title2' id='title2' value="+value.ORDERS_NUM+">"
 		      	      		+	"</a></td>"
 		      	      		+	"<td width='100px' align='center'>"
 	      	      			+	new Date(value.ORDERS_DATE).toLocaleString()

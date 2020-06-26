@@ -72,4 +72,10 @@ public class MyshopDAO extends AbstractDAO {
 	public void cancelTstatus(Map<String, Object> map) throws Exception{
 		update("myshop.cancelTstatus", map);
 	}
+	
+	// 내 주문내역 상세보기
+    @SuppressWarnings("unchecked")
+    public Map<String,Object> selectMyOrderDetail(Map<String, Object> map) throws Exception{
+	   return (Map<String, Object>)selectOne("myshop.selectMyOrderDetail", map);
+	}
 }
