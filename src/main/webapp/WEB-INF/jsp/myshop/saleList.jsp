@@ -15,7 +15,6 @@ pageEncoding="UTF-8"%>
 
     <style type="text/css">
       @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
       html,
       body,
       div,
@@ -109,7 +108,6 @@ pageEncoding="UTF-8"%>
    font-size:15px;
    clear: both;
 }
-
 #content{
 	width:1000px;
 	margin-left:50px;
@@ -142,14 +140,10 @@ button {
 	font-family: 'Nanum Gothic';
 	margin-bottom:50px;
 }
-
-
       /*메뉴버튼끝*/
-
       html {
         height: 100%;
       }
-
       body {
         background: white;
       }
@@ -171,7 +165,6 @@ button {
         color: #666;
         font-weight: 400;
       }
-
       .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -179,7 +172,6 @@ button {
         padding: 0px;
         background: #eeeeee;
       }
-
       .form-signin .form-control {
         position: relative;
         height: auto;
@@ -195,15 +187,11 @@ button {
         border: 0px;
         padding: 5px;
       }
-
-
-
   	#menu{
 		clear:both;
 		/* margin:0px auto 100px auto; */
 }
 		
-
       #con {
          margin: auto 100px auto 100px; 
       }
@@ -346,19 +334,16 @@ button {
     <script type="text/javascript">
       $(document).ready(function () {
         fn_selectMySaleList(1, 1);
-
         //Default Action
         $(".goodsTab_content").hide(); //Hide all content
         $("ul.goodsTabs li:first").addClass("active").show(); //Activate first goodsTab
         $(".goodsTab_content:first").show(); //Show first goodsTab content
-
         //On Click Event
         $("ul.goodsTabs li").click(function () {
           $("ul.goodsTabs li").removeClass("selected active"); //Remove any "active" class
           $(this).addClass("selected active"); //Add "active" class to selected goodsTab
           $(".goodsTab_content").hide(); //Hide all goodsTab content
           var activegoodsTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active goodsTab + content
-
           if ($(this).find("a").attr("href") == "#goodsTab2") {
             fn_selectMySaleList(1, 2);
           } else if ($(this).find("a").attr("href") == "#goodsTab3") {
@@ -367,34 +352,18 @@ button {
           $(activegoodsTab).fadeIn(); //Fade in the active content
           return false;
         });
-
         $("a[name='title']").on("click", function (e) {
           //제목
           e.preventDefault();
           fn_openGoodsDetail($(this));
         });
-
         
         $("#DNUM_IN").on("click", function(e) { // 송장번호 입력버튼
     		e.preventDefault();
     		var PRO_NUM = value.GOODS_NUM;
     		fn_DELE_NUM_in(PRO_NUM);	
     	});
-
-
-        // 입력확인 버튼
-        function fn_DELE_NUM_in(num) {
-          var comSubmit = new ComSubmit("");
-          comSubmit.setUrl("<c:url value='/myshop/inputDnum' />");
-          comSubmit.addParam("ORDERS_DELE_NUM", $("#ORDERS_DELE_NUM").val());
-          comSubmit.addParam("ORDERS_NUM", num);
-          alert( $("#ORDERS_DELE_NUM").val());
-          alert( $('input[name=ORDERS_DELE_NUM]').val());
-          alert(num);
-          comSubmit.submit();
-        }
-
-     	 
+         	 
       });
       function fn_goodsDetail(obj) {
         var comSubmit = new ComSubmit();
@@ -403,10 +372,17 @@ button {
         comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
         comSubmit.submit();
       }
-
-
-
-
+      // 입력확인 버튼
+      function fn_DELE_NUM_in(num) {
+        var comSubmit = new ComSubmit("");
+        comSubmit.setUrl("<c:url value='/myshop/inputDnum' />");
+        comSubmit.addParam("ORDERS_DELE_NUM", $("#ORDERS_DELE_NUM").val());
+        comSubmit.addParam("ORDERS_NUM", num);
+        alert( $("#ORDERS_DELE_NUM").val());
+        alert( $('input[name=ORDERS_DELE_NUM]').val());
+        alert(num);
+        comSubmit.submit();
+      }
       function fn_selectMySaleList(pageNo, tabNo) {
         var comAjax = new ComAjax();
         comAjax.setUrl("<c:url value='/myshop/selectSaleList' />");
@@ -417,12 +393,10 @@ button {
         comAjax.addParam("tabNo", tabNo); // 어떤 SQL SELECT문을 활용할지 판단하는 String DATA
         comAjax.ajax();
       }
-
       function fn_selectMySaleListCallback1(data) {
         var total = data.TOTAL;
         var tabNo = data.tabNo;
         var body = "";
-
         if (tabNo == 1) {
           body = $("#main_table1 tbody");
         } else if (tabNo == 2) {
@@ -458,7 +432,6 @@ button {
             eventName: "fn_selectMySaleList",
           };
           gfn_renderPaging(params);
-
           $.each(data.list, function (key, value) {
             str1 +=
               "<tr>" +
@@ -508,7 +481,6 @@ button {
             str1 += "</tr>";
           });
           body.append(str1);
-
           $("a[name='title']").on("click", function (e) {
             //제목
             e.preventDefault();
