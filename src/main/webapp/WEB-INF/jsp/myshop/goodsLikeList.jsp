@@ -12,7 +12,6 @@
 
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
 td{
 	margin:0 0 0 10px
 }
@@ -23,7 +22,6 @@ td img
 	margin:10px 10px 10px 0px; 
 	border:3px solid #000; 
 }
-
    html {
       height: 100%;
    }
@@ -43,7 +41,6 @@ td img
    font-family: 'Nanum Gothic';
    font-size:15px;
 }
-
 #content{
 	width:1120px;
 	margin-left:50px;
@@ -184,8 +181,7 @@ h1 {
      margin-top: 15px;
      margin-bottom: 6px;
     bottom: 0; 
-    width: 214px;
-    text-align:left;
+    width: 314px;
     font-size: 10px;
     color: #9FA5A8;
     padding: 0 10px;
@@ -210,9 +206,7 @@ h1 {
 	margin-left: 15px;
    float: ;
 }
-
 /*메뉴버튼*/
-
 button {
   background:none;
   border:0;
@@ -240,9 +234,7 @@ button {
 	font-family: 'Nanum Gothic';
 	margin-bottom:50px;
 }
-
 /*메뉴버튼끝*/
-
 	#main-container{
 	   align:center;
 	   clear:both;
@@ -252,7 +244,6 @@ button {
 		#menu{
 		clear:both;
 		/* margin:0px auto 100px auto; */
-
 		 
 	}
 	
@@ -273,18 +264,18 @@ a{
 <body>
 
   
+<div id="con">
 
   <div class="tab_wrap" id="menu">
      <div class="tab_menu_container">
-	    <a href="/second/myshop"><button class="tab_menu_btn on" type="button">나의 주문내역</button></a>
+	    <a href="/second/myshop"><button class="tab_menu_btn" type="button">나의 주문내역</button></a>
 	    <a href="/second/myshop/saleList"><button class="tab_menu_btn" type="button">나의 판매내역</button></a>
-	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn" type="button">찜 상품목록</button></a>
-      </div>
+	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn on" type="button">찜 상품목록</button></a>
+     </div>
   </div>
- 
 
 
-<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin:50px; width:90%; height:90%;">
+<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px; width:100%; height:100%;">
 <div id="content">
    		<table class="board_list">
 		<colgroup>
