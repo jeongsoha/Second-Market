@@ -33,7 +33,7 @@ public class WebSocketChat {
     @RequestMapping(value="/chat")
     public ModelAndView getChatViewPage(CommandMap commandMap) throws Exception {
     	ModelAndView mv = new ModelAndView("chat");
-             
+    	
     	return mv;
     
     }
@@ -43,18 +43,15 @@ public class WebSocketChat {
         logger.info("Open session id:"+session.getId());
         try {
             final Basic basic=session.getBasicRemote();
-            basic.sendText("왁자지껄 채팅방에 입장했습니다. :)");
+            basic.sendText("★ 왁자지껄 채팅방에 입장했습니다. :) ★");
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
         }
         sessionList.add(session);
     }
-    /*
-     * 모든 사용자에게 메시지를 전달한다.
-     * @param self
-     * @param message
-     */
+    
+    /*입장상태인 모든 사용자에게 메시지가 노출된다.*/
     private void sendAllSessionToMessage(Session self,String message) {
         try {
             for(Session session : WebSocketChat.sessionList) {
@@ -67,6 +64,7 @@ public class WebSocketChat {
             System.out.println(e.getMessage());
         }
     }
+    /*내가 작성한 메시지가 나에게 보여진다 */
     @OnMessage
     public void onMessage(String message,Session session) {
         logger.info("Message From "+message.split(",")[0] + ": "+message.split(",")[1]);

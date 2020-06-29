@@ -43,7 +43,7 @@ td img
 }
 #content{
 	width:1120px;
-	margin-left:50px;
+	margin-left:25px;
 }
    
 </style>
