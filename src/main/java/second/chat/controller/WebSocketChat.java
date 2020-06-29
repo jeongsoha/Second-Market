@@ -1,7 +1,9 @@
 package second.chat.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -10,7 +12,6 @@ import javax.websocket.OnOpen;
 import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,6 @@ import second.common.common.CommandMap;
 @Controller
 @ServerEndpoint(value="/echo.do")
 public class WebSocketChat {
-    
     private static final List<Session> sessionList=new ArrayList<Session>();;
     private static final Logger logger = LoggerFactory.getLogger(WebSocketChat.class);
     public WebSocketChat() {
@@ -53,10 +53,14 @@ public class WebSocketChat {
     
     /*입장상태인 모든 사용자에게 메시지가 노출된다.*/
     private void sendAllSessionToMessage(Session self,String message) {
+    	long systemTime = System.currentTimeMillis(); 
+    	SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd HH:mm:ss", Locale.KOREA); 
+    	String dTime = formatter.format(systemTime); 
+    	
         try {
             for(Session session : WebSocketChat.sessionList) {
                 if(!self.getId().equals(session.getId())) {
-                    session.getBasicRemote().sendText("작성자 ("+message.split(",")[0]+") : "+message.split(",")[1]);
+                    session.getBasicRemote().sendText("작성자 ("+message.split(",")[0]+") : "+message.split(",")[1]+" ["+dTime+"]");
                 }
             }
         }catch (Exception e) {
@@ -64,13 +68,16 @@ public class WebSocketChat {
             System.out.println(e.getMessage());
         }
     }
-    /*내가 작성한 메시지가 나에게 보여진다 */
+    /*내가 작성한 메시지가 나에게 보여진다. */
     @OnMessage
     public void onMessage(String message,Session session) {
-        logger.info("Message From "+message.split(",")[0] + ": "+message.split(",")[1]);
+    	long systemTime = System.currentTimeMillis(); 
+    	SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd HH:mm:ss", Locale.KOREA); 
+    	String dTime = formatter.format(systemTime); 
+        logger.info("Message From "+message.split(",")[0] + ": "+message.split(",")[1]+" ["+dTime+"]");
         try {
             final Basic basic=session.getBasicRemote();
-            basic.sendText("내 메시지 ("+message.split(",")[0] + ") : "+message.split(",")[1]);
+            basic.sendText("내 메시지 ("+message.split(",")[0] + ") : "+message.split(",")[1]+" ["+dTime+"]");
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());

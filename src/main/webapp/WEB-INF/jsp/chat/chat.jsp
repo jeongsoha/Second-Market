@@ -218,10 +218,10 @@ a{
     </div>
     <div class="main-container">
         <input type="text" id="sender" value="${session_MEM_ID}" style="display: none;">
-        <input type="text" style="border:2px solid #bcbcbc;width:300px" id="messageinput" name="messageinput" value="" placeholder="메시지를 입력해주세요.1">
+        <input type="text" style="border:2px solid #bcbcbc;width:300px" id="messageinput" name="messageinput" value="" placeholder="메시지를 입력해주세요.">
     </div>
 	
-    <div class="card align-middle" style="overflow:auto;border-radius:20px; background-color:#fff; margin-top:-50px; margin-left:150px;width:50%; height:500px;">
+    <div class="card align-middle" id="message_cover" style="overflow:auto;border-radius:20px; background-color:#fff; margin-top:-50px; margin-left:150px;width:50%; height:500px;">
     <!-- Server responses get written here 채팅내용 보여지는 란-->
     <div id="messages"></div>
     </div> 
@@ -265,6 +265,7 @@ a{
       	  
       	});
 
+        $("#messages").scrollTop($("#messages")[0].scrollHeight);
         
         function send(){
         	if(ws==undefined || ws.readyState==WebSocket.CLOSED){
@@ -294,15 +295,17 @@ a{
 
         function session_chk(){
 			if("${session_MEM_ID}" == null || "${session_MEM_ID}" == "" ){
-
 				alert("로그인 후 채팅 참여가 가능합니다.");
-
 				location.href = '/second/loginForm';
-				return false;
+				e.preventDefault();
 			}else{
+				
 				return true;
 			}
 		}
+
+      
+
 
 		
   </script>
