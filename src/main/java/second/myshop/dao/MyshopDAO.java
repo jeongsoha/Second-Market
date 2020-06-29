@@ -78,4 +78,13 @@ public class MyshopDAO extends AbstractDAO {
     public Map<String,Object> selectMyOrderDetail(Map<String, Object> map) throws Exception{
 	   return (Map<String, Object>)selectOne("myshop.selectMyOrderDetail", map);
 	}
+    
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> selectMyOrderInfo(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>) selectOne ("myshop.selectMyOrderInfo", map);
+	}
+    
+	public void updateMyOrderModify(Map<String, Object> map) throws Exception{
+		update("myshop.updateMyOrderModify", map);
+	}
 }

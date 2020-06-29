@@ -324,4 +324,41 @@
            A.ORDERS_NUM = #{ORDERS_NUM}
  ]]>
 </select>
+	<!-- 배송지 정보 변경폼 -->
+<select id="selectMyOrderInfo" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+
+
+	SELECT  
+	       mem.MEM_NAME,
+           ord.ORDERS_PHONE,
+           ord.ORDERS_DADD1,
+           ord.ORDERS_DADD2,
+           ord.ORDERS_DMEMO,
+           ord.ORDERS_NUM
+	FROM    
+	       ORDERS ord, MEMBER mem
+	WHERE 
+	       ord.ORDERS_USER = mem.MEM_NUM
+	AND
+	       ORDERS_NUM = #{ORDERS_NUM}
+
+ ]]>
+</select>
+
+
+<!-- 배송지 정보 변경 -->
+<update id="updateMyOrderModify" parameterType="hashMap">
+<![CDATA[
+	UPDATE  ORDERS
+	SET     ORDERS_PHONE = #{ORDERS_PHONE},
+  	        ORDERS_DADD1 = #{ORDERS_DADD1},
+  	        ORDERS_DADD2  =  #{ORDERS_DADD2},
+            ORDERS_DMEMO =  #{ORDERS_DMEMO}
+ 	       
+ 	        
+	WHERE   ORDERS_NUM = #{ORDERS_NUM}
+
+ ]]>
+</update>
 </mapper>

@@ -265,7 +265,10 @@
   <definition name="orderDetail2" extends="template2">
       <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderDetail2.jsp" />
    </definition>
-  
+   
+   <definition name="orderModifyForm" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/myshop/orderModifyForm.jsp" />
+   </definition>
   
 
    <!-- ///////////////////////////////////////// -->

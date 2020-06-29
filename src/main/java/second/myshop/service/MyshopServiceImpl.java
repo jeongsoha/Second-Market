@@ -90,4 +90,15 @@ public class MyshopServiceImpl implements MyshopService{
 		resultMap.put("map", tempMap);		
 		return resultMap;
 	}
+	
+	@Override
+	public Map<String, Object> selectMyOrderInfo(Map<String, Object> map) throws Exception{
+		return myshopDAO.selectMyOrderInfo(map);
+	}
+	
+	@Override
+	public void updateMyOrderModify(Map<String, Object> map) throws Exception{
+		myshopDAO.updateMyOrderModify(map);
+	}
+	
 }

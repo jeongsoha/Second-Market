@@ -160,8 +160,9 @@ max-height:160px;
 
 </table>
 <c:choose>
-	<c:when test="${map.ORDERS_DELE_NUM == null}">
-<button href="#this" class="btn pull-right" id="" ><b>배송지변경</b></button>
+	<c:when test="${map.ORDERS_DELE_NUM == null && session_MEM_ID == map.ORDERS_ID}">
+<button href="#this" class="btn pull-right" id="orderUpdate" ><b>배송지변경</b></button>
+
 </c:when>
 <c:otherwise>
 		</c:otherwise>
@@ -180,6 +181,11 @@ max-height:160px;
 				e.preventDefault();
 				fn_goodsDetail($(this));
 			});
+
+			$("#orderUpdate").on("click", function(e){ 
+				e.preventDefault();
+				fn_orderModifyForm($(this));
+			});
 			
 	});
 		
@@ -192,6 +198,13 @@ max-height:160px;
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/shop/goodsDetail' />");
 			comSubmit.addParam("GOODS_NUM", ${map.GOODS_NUM});
+			
+			comSubmit.submit();
+		}
+		function fn_orderModifyForm(obj) {
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/myshop/MyOrderInfo' />");
+			comSubmit.addParam("ORDERS_NUM", ${map.ORDERS_NUM});
 			
 			comSubmit.submit();
 		}
