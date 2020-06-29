@@ -500,15 +500,18 @@
       <!-- 로그인 o,x -->
          <div class="tab_cate" id="h5" style="width: 300px;">    
 
-              <div class="d_menu">
+              <div style="float: left;width: 30%; height:35px; margin-top: 23px;">
                  <a href="/second/shop/allGoodsList" class="a_menu"> <img style="width:50px;" class="imgser1" src="<c:url value="/resources/images/sell1.png"/>"/>
                  	쇼핑몰</a>  
               </div>
-              <div style="float: left;width: 40%; height:35px; margin-top: 23px;">
+              <div style="float: left;width: 30%; height:35px; margin-top: 23px;">
                  <a href="/second/community/noticeList" class="a_menu"><img style="width:40px;" class="imgser2" src="<c:url value="/resources/images/sell2.png"/>"/>
-                 	커뮤니티</a>  
+                 	게시판</a>  
               </div>
-      
+      		 <div style="float: left;width: 40%; height:35px; margin-top: 23px;">
+                 <a href="/second/chat" class="a_menu"><img style="width:40px;" class="imgser2" src="<c:url value="/resources/images/sell2.png"/>"/>
+                 	왁자지껄</a>  
+              </div>
          </div>
                   
     </div><br><br><br>

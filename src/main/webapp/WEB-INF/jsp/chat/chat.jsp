@@ -9,13 +9,13 @@
 </head>
 <body>
     <div>
-        <input type="text" id="sender" value="test9797" style="display: none;">
+        <input type="text" id="sender" value="${session_MEM_ID}" style="display: none;">
         <input type="text" id="messageinput">
     </div>
     <div>
-        <button type="button" onclick="openSocket();">Open</button>
-        <button type="button" onclick="send();">Send</button>
-        <button type="button" onclick="closeSocket();">Close</button>
+        <button type="button" onclick="openSocket();">채팅참여</button>
+        <button type="button" onclick="send();">메시지발송</button>
+        <button type="button" onclick="closeSocket();">채팅나가기</button>
     </div>
     <!-- Server responses get written here -->
     <div id="messages"></div>
@@ -25,13 +25,14 @@
         var messages=document.getElementById("messages");
         
         function openSocket(){
+        	session_chk();
             if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
-                writeResponse("WebSocket is already opened.");
+                writeResponse("현재 채팅방에 입장한 상태입니다.");
                 return;
             }
             //웹소켓 객체 만드는 코드
             ws=new WebSocket("ws://localhost:8080/second/echo.do");
-            
+           
             ws.onopen=function(event){
                 if(event.data===undefined) return;
                 
@@ -41,12 +42,13 @@
                 writeResponse(event.data);
             };
             ws.onclose=function(event){
-                writeResponse("Connection closed");
+                writeResponse("== 왁자지껄 채팅방을 나갔습니다. ==");
             }
         }
         
         function send(){
-            var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
+     
+            var text=document.getElementById("sender").value+","+document.getElementById("messageinput").value;
             ws.send(text);
             text="";
         }
@@ -57,6 +59,20 @@
         function writeResponse(text){
             messages.innerHTML+="<br/>"+text;
         }
+
+        function session_chk(){
+			if("${session_MEM_ID}" == null || "${session_MEM_ID}" == "" ){
+
+				alert("로그인 후 채팅 참여가 가능합니다.");
+
+				location.href = '/second/loginForm';
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+		
   </script>
 </body>
 </html>

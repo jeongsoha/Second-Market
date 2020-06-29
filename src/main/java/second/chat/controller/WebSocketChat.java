@@ -11,11 +11,14 @@ import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import second.common.common.CommandMap;
  
 @Controller
 @ServerEndpoint(value="/echo.do")
@@ -27,17 +30,20 @@ public class WebSocketChat {
         // TODO Auto-generated constructor stub
         System.out.println("웹소켓(서버) 객체생성");
     }
-    @RequestMapping(value="/chat.do")
-    public ModelAndView getChatViewPage(ModelAndView mav) {
-        mav.setViewName("/chat/chat");
-        return mav;
+    @RequestMapping(value="/chat")
+    public ModelAndView getChatViewPage(CommandMap commandMap) throws Exception {
+    	ModelAndView mv = new ModelAndView("chat");
+             
+    	return mv;
+    
     }
+    
     @OnOpen
     public void onOpen(Session session) {
         logger.info("Open session id:"+session.getId());
         try {
             final Basic basic=session.getBasicRemote();
-            basic.sendText("Connection Established");
+            basic.sendText("왁자지껄 채팅방에 입장했습니다. :)");
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
@@ -53,7 +59,7 @@ public class WebSocketChat {
         try {
             for(Session session : WebSocketChat.sessionList) {
                 if(!self.getId().equals(session.getId())) {
-                    session.getBasicRemote().sendText(message.split(",")[1]+" : "+message);
+                    session.getBasicRemote().sendText("작성자 ("+message.split(",")[0]+") : "+message.split(",")[1]);
                 }
             }
         }catch (Exception e) {
@@ -63,10 +69,10 @@ public class WebSocketChat {
     }
     @OnMessage
     public void onMessage(String message,Session session) {
-        logger.info("Message From "+message.split(",")[1] + ": "+message.split(",")[0]);
+        logger.info("Message From "+message.split(",")[0] + ": "+message.split(",")[1]);
         try {
             final Basic basic=session.getBasicRemote();
-            basic.sendText("to : "+message);
+            basic.sendText("내 메시지 ("+message.split(",")[0] + ") : "+message.split(",")[1]);
         }catch (Exception e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
