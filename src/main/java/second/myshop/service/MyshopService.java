@@ -19,7 +19,9 @@ public interface MyshopService {
 	public List<Map<String, Object>> selectMySaleList1(Map<String, Object> map) throws Exception;
 	public List<Map<String, Object>> selectMySaleList2(Map<String, Object> map) throws Exception;
 	public List<Map<String, Object>> selectMySaleList3(Map<String, Object> map) throws Exception;
-	
+	public Map<String, Object> selectMyOrderDetail(Map<String, Object> map)throws Exception;
+	public Map<String, Object> selectMyOrderInfo(Map<String, Object> map) throws Exception;
+	void updateMyOrderModify(Map<String, Object> map) throws Exception;
 	void insertDnum(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	void buyComplete(Map<String, Object> map, HttpServletRequest request) throws Exception;

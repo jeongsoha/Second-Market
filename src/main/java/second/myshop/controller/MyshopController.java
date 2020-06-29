@@ -183,4 +183,41 @@ public class MyshopController {
 		return mv;
 	}
 
+	@RequestMapping(value="/myshop/orderDetail")
+	public ModelAndView selectMyOrderDetail(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		ModelAndView mv = new ModelAndView("orderDetail2");
+		Map<String,Object> map = myshopService.selectMyOrderDetail(commandMap.getMap());
+		System.out.println(commandMap.getMap()+"뭥미?");
+	
+		
+		mv.addObject("map", map.get("map"));
+		
+		
+		System.out.println(mv+"뭥미?");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/myshop/MyOrderInfo")
+	public ModelAndView accountModifyForm(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("orderModifyForm");
+		HttpSession session = request.getSession();
+		commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));
+		Map<String,Object> map = myshopService.selectMyOrderInfo(commandMap.getMap());	
+		mv.addObject("map",map);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/myshop/orderModify")
+	public ModelAndView updateMyOrderModify(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));
+		myshopService.updateMyOrderModify(commandMap.getMap());
+		ModelAndView mv = new ModelAndView("orderDetail2");
+		Map<String,Object> map = myshopService.selectMyOrderDetail(commandMap.getMap());
+		System.out.println(commandMap.getMap()+"뭥미?");
+	
+		
+		mv.addObject("map", map.get("map"));
+		return mv;
+	}
 }

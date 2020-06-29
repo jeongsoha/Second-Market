@@ -267,4 +267,96 @@
  ]]>
 </select>
 
+<!-- 내 주문내역 상세보기 -->
+<select id="selectMyOrderDetail" parameterType="hashMap" resultType="hashmap">
+<![CDATA[
+	SELECT
+           a.ORDERS_NUM,
+           TO_CHAR( b.ORDERS_DATE,'YYYY-MM-DD')  ORDERS_DATE,
+           b.ORDERS_PRICE,
+           b.GOODS_NUM,
+           b.GOODS_TITLE,
+           b.GOODS_CONTENT,
+           b.GOODS_PRICE,
+           b.GOODS_REGION,
+           b.MEM_ID,
+           b.MEM_NAME,
+           b.MEM_EMAIL,
+           b.MEM_PHONE,
+           a.ORDERS_ID,
+           a.ORDERS_NAME,
+           b.ORDERS_PHONE,
+           b.ORDERS_DADD1,
+           b.ORDERS_DADD2,
+           b.ORDERS_DMEMO,
+           b.ORDERS_PAY,
+           b.ORDERS_DELE_NUM
+    FROM
+     (
+    SELECT 
+           ord.orders_num,
+           mem.mem_name orders_name,
+           mem.mem_id orders_id 
+    FROM 
+           orders ord , 
+           member mem
+    WHERE 
+           ord.orders_user = mem.mem_num 
+     ) a   
+     ,     
+     (     
+    SELECT 
+     *     
+    FROM  
+           orders ord , 
+           goods good, 
+           member mem 
+    WHERE 
+           ord.orders_price = good.goods_price 
+    AND 
+           good.goods_seller = mem.mem_num 
+     ) b
+    WHERE 
+           a.ORDERS_NUM = b.ORDERS_NUM
+    AND
+           A.ORDERS_NUM = #{ORDERS_NUM}
+ ]]>
+</select>
+	<!-- 배송지 정보 변경폼 -->
+<select id="selectMyOrderInfo" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+
+
+	SELECT  
+	       mem.MEM_NAME,
+           ord.ORDERS_PHONE,
+           ord.ORDERS_DADD1,
+           ord.ORDERS_DADD2,
+           ord.ORDERS_DMEMO,
+           ord.ORDERS_NUM
+	FROM    
+	       ORDERS ord, MEMBER mem
+	WHERE 
+	       ord.ORDERS_USER = mem.MEM_NUM
+	AND
+	       ORDERS_NUM = #{ORDERS_NUM}
+
+ ]]>
+</select>
+
+
+<!-- 배송지 정보 변경 -->
+<update id="updateMyOrderModify" parameterType="hashMap">
+<![CDATA[
+	UPDATE  ORDERS
+	SET     ORDERS_PHONE = #{ORDERS_PHONE},
+  	        ORDERS_DADD1 = #{ORDERS_DADD1},
+  	        ORDERS_DADD2  =  #{ORDERS_DADD2},
+            ORDERS_DMEMO =  #{ORDERS_DMEMO}
+ 	       
+ 	        
+	WHERE   ORDERS_NUM = #{ORDERS_NUM}
+
+ ]]>
+</update>
 </mapper>
