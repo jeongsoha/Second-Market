@@ -235,7 +235,7 @@ a{
     </div>
 	
     <div class="card align-middle" id="message_cover" style="overflow:auto;border-radius:20px; background-color:#fff; margin-top:-50px; margin-left:150px;width:50%; height:500px;">
-    	<div class="block_messages"><a onclick="openSocket();">왁자지껄 입장을 원하시면 클릭하세요 !</a></div>
+    	<div class="block_messages" ><a onclick="openSocket();">왁자지껄 입장을 원하시면 클릭하세요 !</a></div>
     <!-- Server responses get written here 채팅내용 보여지는 란-->
     <div id="messages"></div>
     </div> 
@@ -244,6 +244,18 @@ a{
     <script type="text/javascript">
         var ws;
         var messages=document.getElementById("messages");
+
+        $.fn.scrollBottom = function(scroll){
+        	  if(typeof scroll === 'number'){
+        	    window.scrollTo(0,$(document).height() - $('#message_cover').height() - scroll);
+        	    return $(document).height() - $('#message_cover').height() - scroll;
+        	  } else {
+        	    return $(document).height() - $('#message_cover').height() - $('#message_cover').scrollTop();
+        	  }
+        	}
+        	//Basic Usage
+        	$(window).scrollBottom(500);
+
         
         function openSocket(){
         	session_chk();
@@ -280,7 +292,6 @@ a{
       	  
       	});
 
-        $("#messages").scrollTop($("#messages")[0].scrollHeight);
         
         function send(){
         	if(ws==undefined || ws.readyState==WebSocket.CLOSED){
@@ -319,7 +330,8 @@ a{
 			}
 		}
 
-      
+        
+
 
 
 		
