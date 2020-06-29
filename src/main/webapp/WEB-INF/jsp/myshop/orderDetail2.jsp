@@ -67,6 +67,9 @@ border-bottom:1px solid #ccc;
 h1{
  font-weight: 900;
 }
+#color-red{
+color:red;
+}
 /*img{
 max-width:200px;
 max-height:160px;
@@ -164,6 +167,7 @@ max-height:160px;
 <button href="#this" class="btn pull-right" id="orderUpdate" ><b>배송지변경</b></button>
 
 </c:when>
+
 <c:otherwise>
 		</c:otherwise>
 		</c:choose>

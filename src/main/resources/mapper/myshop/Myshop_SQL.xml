@@ -292,6 +292,7 @@
            b.ORDERS_DADD2,
            b.ORDERS_DMEMO,
            b.ORDERS_PAY,
+           b.ORDERS_STATUS,
            b.ORDERS_DELE_NUM
     FROM
      (

@@ -100,9 +100,33 @@ $(document).ready(function() { //변경 버튼 클릭시
  });
  
  
- function fn_check(orderModifyForm) { 
+ function fn_check(orderModifyForm) { 	 
+	  if(!$("#ORDERS_PHONE").val()){
+          alert("받는 분의 연락처를 입력해주세요.");
+          $("#ORDERS_PHONE").focus();
+          return false;
+      }
+      if(!$("#ORDERS_DADD1").val()){
+          alert("배송지를 입력해주세요.");
+          $("#ADD1").focus();
+          return false;
+      }
+      if(!$("#ORDERS_DADD2").val()){
+          alert("상세 배송주소를 입력해주세요.");
+          $("#ADD2").focus();
+          return false;
+      }
+      if(!$("#ORDERS_DMEMO").val()){
+          alert("배송 메세지를 입력해주세요.");
+          $("#DMEMO").focus();
+          return false;
+      }
+    
+	    
+	   
 
-
+	
+	
 
 
  
