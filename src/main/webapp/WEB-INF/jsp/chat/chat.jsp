@@ -44,8 +44,6 @@ td img
 
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-
 <style>
 html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
    p, blockquote, pre, a, abbr, acronym, address, big, quotes, code, del,
@@ -186,6 +184,21 @@ button {
 		width:auto;
 		margin-left:50px;
 	}
+	
+	/*채팅가림창*/	
+	.block_messages{
+	visibility:visible; /* 입장 성공시 히든으로 변경*/
+	font-family: 'Nanum Gothic';
+	line-height:400px;
+	
+		display:block;vertical-align:middle;position: absolute;
+		margin:auto; opacity: 0.8;background:radial-gradient(#C0C0C0, #000000) fixed;width:100%;height:100%;text-align:center
+	}
+	
+	.block_messages a{
+	font-size:23px;
+	font-weight:900;
+	}
 		
 	
 		#menu{
@@ -213,7 +226,7 @@ a{
       
      <div class="tab_menu_container">
         <button type="button" onclick="openSocket();">[채팅 입장]</button>
-        <button type="button" onclick="send();">[메시지 발송]</button>
+        <button type="button" id="send" onclick="send();">[메시지 발송]</button>
         <button type="button" onclick="closeSocket();">[채팅 나가기]</button>
     </div>
     <div class="main-container">
@@ -222,6 +235,7 @@ a{
     </div>
 	
     <div class="card align-middle" id="message_cover" style="overflow:auto;border-radius:20px; background-color:#fff; margin-top:-50px; margin-left:150px;width:50%; height:500px;">
+    	<div class="block_messages"><a onclick="openSocket();">왁자지껄 입장을 원하시면 클릭하세요 !</a></div>
     <!-- Server responses get written here 채팅내용 보여지는 란-->
     <div id="messages"></div>
     </div> 
@@ -239,17 +253,18 @@ a{
             }
             //웹소켓 객체 만드는 코드
             ws=new WebSocket("ws://localhost:8080/second/echo.do");
-           
+            $('.block_messages').css('visibility', 'hidden');
             ws.onopen=function(event){
                 if(event.data===undefined) return;
-                
-                writeResponse(event.data);
+            	writeResponse(event.data);
+               
             };
             ws.onmessage=function(event){
                 writeResponse(event.data);
             };
             ws.onclose=function(event){
                 writeResponse("== 왁자지껄 채팅방을 나갔습니다. ==");
+                $('.block_messages').css('visibility', 'visible');
             }
         }
 
