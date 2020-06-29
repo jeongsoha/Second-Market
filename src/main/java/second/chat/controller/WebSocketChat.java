@@ -57,7 +57,7 @@ public class WebSocketChat {
     	SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd HH:mm:ss", Locale.KOREA); 
     	String dTime = formatter.format(systemTime); 
     	
-        try {
+        try {/*본인을 제외한 세션들에게 향상for문을 활용해 채팅내용전달.*/
             for(Session session : WebSocketChat.sessionList) {
                 if(!self.getId().equals(session.getId())) {
                     session.getBasicRemote().sendText("작성자 ("+message.split(",")[0]+") : "+message.split(",")[1]+" ["+dTime+"]");

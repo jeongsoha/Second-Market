@@ -189,10 +189,11 @@ button {
 	.block_messages{
 	visibility:visible; /* 입장 성공시 히든으로 변경*/
 	font-family: 'Nanum Gothic';
-	line-height:400px;
-	
+	line-height:100px;
+	background-repeat:repeat;
+	margin-top:250px;
 		display:block;vertical-align:middle;position: absolute;
-		margin:auto; opacity: 0.8;background:radial-gradient(#C0C0C0, #000000) fixed;width:100%;height:100%;text-align:center
+		margin:auto; opacity: 0.8;background:linear-gradient(#C0C0C0, #000000) fixed;width:100%;height:20%;text-align:center
 	}
 	
 	.block_messages a{
@@ -245,17 +246,33 @@ a{
         var ws;
         var messages=document.getElementById("messages");
 
-        $.fn.scrollBottom = function(scroll){
-        	  if(typeof scroll === 'number'){
-        	    window.scrollTo(0,$(document).height() - $('#message_cover').height() - scroll);
-        	    return $(document).height() - $('#message_cover').height() - scroll;
-        	  } else {
-        	    return $(document).height() - $('#message_cover').height() - $('#message_cover').scrollTop();
-        	  }
-        	}
-        	//Basic Usage
-        	$(window).scrollBottom(500);
 
+      //스크롤을 최하단으로 내리는 액션 - 본인의 메시지를 발송한 경우 작동
+        var element = document.getElementById("message_cover");
+        element.scrollTop = element.scrollHeight;
+
+        function updateScroll(){ 
+            var element = document.getElementById("message_cover");
+            element.scrollTop = element.scrollHeight;
+        }
+
+      	
+        $('#messageinput').keydown(function(event) {
+     	//입력창에 커서가 올라간 상태에서 엔터키를 누르면
+       	  if (event.keyCode == '13') {
+       		
+      		send();
+      		updateScroll ();
+      	    //alert('엔터를 누르셨습니다.');
+      	  }
+      	  
+      	});
+      
+
+        $("#yourDivID").on('scroll', function(){
+            scrolled=true;
+        });
+        
         
         function openSocket(){
         	session_chk();
@@ -281,16 +298,7 @@ a{
         }
 
      
-        	
-        $('#messageinput').keydown(function(event) {
-     	//입력창에 커서가 올라간 상태에서 엔터키를 누르면
-       	  if (event.keyCode == '13') {
-       		
-      		send();
-      	    //alert('엔터를 누르셨습니다.');
-      	  }
-      	  
-      	});
+  
 
         
         function send(){
