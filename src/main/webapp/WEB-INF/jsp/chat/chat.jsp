@@ -179,10 +179,34 @@ button {
 	    font-family: 'Nanum Gothic';
 	}
 	
-	/*채팅입력창*/	
+	/*메시지발송 버튼*/	
+	.send_button{
+		float:right;
+	    clear:both;
+	    margin-top:5px;
+	    font-size:17px;
+		font-weight:700;
+	    margin-right:100px;
+	    font-family: 'Nanum Gothic';
+	}
+	
+	
+	/*채팅입력 란*/	
+	#messageinput{
+		width:auto;
+		height:40px;
+		margin-left:50px;
+		font-weight:700;
+		font-size:13px;
+	}
+	
+	/*채팅입력 시 노출창*/	
 	#messages{
 		width:auto;
+		
 		margin-left:50px;
+		font-weight:700;
+		font-size:13px;
 	}
 	
 	/*채팅가림창*/	
@@ -226,15 +250,16 @@ a{
       
      <div class="tab_menu_container">
         <button type="button" onclick="openSocket();">[채팅 입장]</button>
-        <button type="button" id="send" onclick="send();">[메시지 발송]</button>
         <button type="button" onclick="closeSocket();">[채팅 나가기]</button>
     </div>
     <div class="main-container">
         <input type="text" id="sender" value="${session_MEM_ID}" style="display: none;">
         <input type="text" style="border:2px solid #bcbcbc;width:300px" id="messageinput" name="messageinput" value="" placeholder="메시지를 입력해주세요.">
-    </div>
+   	</div>
+    
+    <button type="button" class="send_button" id="send" onclick="send();">[메시지 발송]</button>
 	
-    <div class="card align-middle" id="message_cover" style="overflow:auto;border-radius:20px; background-color:#fff; margin-top:-50px; margin-left:150px;width:50%; height:500px;">
+    <div class="card align-middle" id="message_cover" style="overflow:auto;border-radius:20px; background-color:#fff; margin-top:-100px; margin-left:150px;width:50%; height:500px;">
     	<div class="block_messages" ><a onclick="openSocket();">왁자지껄 입장을 원하시면 클릭하세요 !</a></div>
     <!-- Server responses get written here 채팅내용 보여지는 란-->
     <div id="messages"></div>

@@ -292,6 +292,7 @@ a{
 		<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
    </div>
 </div>
+</div>
 
 
     <%@ include file="/WEB-INF/include/include-body.jspf" %>
@@ -451,7 +452,7 @@ a{
 					fn_goodsDetail($(this));
 				});
 			}
-			
+		
 		}
 	</script>
 </body>
