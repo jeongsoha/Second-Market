@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.company</groupId> 
+	<groupId>com.company</groupId>
 	<artifactId>second</artifactId>
 	<name>second</name>
 	<packaging>war</packaging>
@@ -16,10 +16,12 @@
 	</properties>
 
 	<repositories>
+
+
 		<!-- 아임포트 -->
 		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
 		</repository>
 
 		<repository>
@@ -40,42 +42,47 @@
 
 
 	<dependencies>
- 	<!-- 아임포트 -->
-	<dependency>
-	    <groupId>com.github.iamport</groupId>
-	    <artifactId>iamport-rest-client-java</artifactId>
-	    <version>0.2.7</version>
-	</dependency>
-	<!-- 카카오페이 제이슨 -->
-	 <dependency>
-	    <groupId>com.googlecode.json-simple</groupId>
-	    <artifactId>json-simple</artifactId>
-	    <version>1.1.1</version>
-	</dependency>
-	<!-- 채팅 -->
- <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-websocket</artifactId>
-            <version>${org.springframework-version}</version>
-</dependency>
+		<!-- 아임포트 -->
+		<dependency>
+			<groupId>com.github.iamport</groupId>
+			<artifactId>iamport-rest-client-java</artifactId>
+			<version>0.2.7</version>
+		</dependency>
+		<!-- 카카오페이 제이슨 -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- 채팅 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
 
  
-		<dependency> 
+		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.4.0</version>
-		</dependency> 
+		</dependency>
+
+
+		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc14</artifactId> 
+			<version>10.2.0.4.0</version> </dependency> -->
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
 			<exclusions>
-			<!-- Exclude Commons Logging in favor of SLF4j -->
-			<exclusion>
-				<groupId>commons-logging</groupId>
-				<artifactId>commons-logging</artifactId>
-			</exclusion>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -127,20 +134,20 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- Mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-<!-- 경로 한글오류 -->
+		<!-- 경로 한글오류 -->
 		<dependency>
-    <groupId>xerces</groupId>
-    <artifactId>xercesImpl</artifactId>
-    <version>2.9.1</version>
-</dependency>
-		
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+
 
 		<!-- AOP Alliance -->
 		<dependency>
@@ -148,7 +155,7 @@
 			<artifactId>aopalliance</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<!-- Validator -->
 		<dependency>
 			<groupId>commons-validator</groupId>
@@ -183,7 +190,7 @@
 			<version>1.4</version>
 		</dependency>
 
-	
+
 
 		<!-- AspectJ -->
 		<dependency>
@@ -295,8 +302,8 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-		
-		
+
+
 		<!-- tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
@@ -318,13 +325,13 @@
 			<artifactId>tiles-servlet</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-		
-		<!-- 문자열 관련해 업그레이드 된 StringUtils 를 사용하기 위함-->
-			<dependency>
+
+		<!-- 문자열 관련해 업그레이드 된 StringUtils 를 사용하기 위함 -->
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
-		
+
 		</dependency>
 
 		<!-- Apache Codec -->
@@ -334,7 +341,7 @@
 			<version>1.10</version>
 		</dependency>
 
-		 
+
 		<!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -373,7 +380,7 @@
 			<version>2.3</version>
 		</dependency>
 
-		 <!--  Java에서 간단하게 json을 생성하고 파싱 -->
+		<!-- Java에서 간단하게 json을 생성하고 파싱 -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

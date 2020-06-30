@@ -85,6 +85,7 @@ button {
     <a href="boardList"><button class="tab_menu_btn" type="button">자유게시판</button></a>
     <a href="reportList"><button class="tab_menu_btn" type="button">신고게시판</button></a>
     <a href="qnaList"><button class="tab_menu_btn" type="button">Q&A게시판</button></a>
+     <a href="chat"><button class="tab_menu_btn" type="button">chat</button></a>
   </div>
   </div>
   
