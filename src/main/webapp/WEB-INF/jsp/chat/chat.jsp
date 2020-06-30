@@ -223,7 +223,6 @@ a{
 
 </head>
 <body>
-    
       
      <div class="tab_menu_container">
         <button type="button" onclick="openSocket();">[채팅 입장]</button>
@@ -244,6 +243,7 @@ a{
     <!-- websocket javascript -->
     <script type="text/javascript">
         var ws;
+        var ws_address;
         var messages=document.getElementById("messages");
 
 
@@ -280,8 +280,11 @@ a{
                 writeResponse("== 현재 채팅방에 입장한 상태입니다. ==");
                 return;
             }
-            //웹소켓 객체 만드는 코드
-            ws=new WebSocket("ws://localhost:8080/second/echo.do");
+
+          				//("ws://localhost:8080/second/echo.do") 
+           	ws_address ="ws://"+location.hostname+":"+ location.port+"/second/echo.do";  
+
+            ws=new WebSocket(ws_address);
             $('.block_messages').css('visibility', 'hidden');
             ws.onopen=function(event){
                 if(event.data===undefined) return;
@@ -297,11 +300,10 @@ a{
             }
         }
 
-     
-  
-
         
         function send(){
+
+        	
         	if(ws==undefined || ws.readyState==WebSocket.CLOSED){
                 writeResponse("== 채팅입장 후 대화가 가능합니다. ==");
                 return;
