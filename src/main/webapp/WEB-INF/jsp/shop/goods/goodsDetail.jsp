@@ -386,12 +386,9 @@ a{
 				var comSubmit = new ComSubmit();
 				var GOODS_NUM = "${map.GOODS_NUM}";
 				var MEM_ID = "${session_MEM_ID}";
-				var idq = "${memberMap.MEM_ID}"; // (유진 추가) 구매시 알람을 위한 변수
 				comSubmit.setUrl("<c:url value='/shop/order/orderWriteForm' />");
 				comSubmit.addParam("GOODS_NUM", GOODS_NUM);
 				comSubmit.addParam("MEM_ID", MEM_ID);
-				comSubmit.addParam("idq", idq);// (유진 추가) 상품 답글 알람을 위한 변수 전송
-				alert(idq+" "+"afafafaf")
 				comSubmit.submit();
 			}
 		}

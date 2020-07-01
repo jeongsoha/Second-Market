@@ -190,18 +190,4 @@
 ]]>
 </select>
 
-<!-- 내 평균 리뷰 점수 가져오기 -->
-<select id="selectAccountGrade" parameterType="hashMap" resultType="hashMap">
-<![CDATA[
-	SELECT  ROUND(AVG(REVIEW_GRADE),2) REVIEW_AVG
-  
-   
-	FROM    REVIEW
-	WHERE   review_seller = (SELECT MEM_NUM 
-							 FROM MEMBER	
-							 WHERE 	MEM_ID = #{MEM_ID})
-
- ]]>
-</select>
-
 </mapper>

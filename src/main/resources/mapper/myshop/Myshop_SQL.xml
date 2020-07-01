@@ -85,21 +85,19 @@
 <include refid="common.pagingPost"/>
 </select>
 
-<!-- 내 판매 전체내역 조회 -->
+<!-- 내 판매 전체내역 조회  tab1 전체판매상품 에 활용-->
 <select id="selectMySaleList1" parameterType="hashMap" resultType="hashmap">
 <include refid="common.pagingPre"/>
 <![CDATA[
 	SELECT  ROW_NUMBER() OVER (ORDER BY G.GOODS_NUM DESC) RNUM,
 			G.GOODS_NUM,
+			O.ORDERS_NUM,
         	G.GOODS_TITLE,
         	G.GOODS_PRICE,
         	G.GOODS_DATE,
         	TO_CHAR(G.GOODS_DATE,'hh24:mi:ss') AS GOODS_TIME,
-        	
+        	O.ORDERS_DATE,
         	NVL(O.ORDERS_STATUS, '판매중(미결제)') AS ORDERS_STATUS,
-        	
-        	TO_CHAR(O.ORDERS_DATE) AS ORDER_DATE,  
-        	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
         	G.GOODS_THUMBNAIL,
         	G.GOODS_STATUS,
         	O.ORDERS_DELE_NUM,
@@ -120,7 +118,7 @@
 <include refid="common.pagingPost"/>
 </select>
 
-<!-- 내 판매중 내역 -->
+<!-- 내 판매중(거래진행중) 내역 탭2 -->
 <select id="selectMySaleList2" parameterType="hashMap" resultType="hashmap">
 <include refid="common.pagingPre"/>
 <![CDATA[
@@ -133,6 +131,8 @@
         	O.ORDERS_PRICE,
         	O.ORDERS_DCOST,
         	O.ORDERS_TCOST,
+        	G.GOODS_STATUS,
+			G.GOODS_TSTATUS,
         	O.ORDERS_DELE_NUM,
         	O.ORDERS_DATE,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME,
@@ -142,13 +142,13 @@
 	WHERE   G.GOODS_SELLER = (SELECT MEM_NUM FROM MEMBER WHERE MEM_ID = #{MEM_ID})
 	AND     O.ORDERS_PRONUM = G.GOODS_NUM
 	AND		O.ORDERS_DEL_GB = 'N'
-	AND		O.ORDERS_STATUS != 'N'
-    AND     O.ORDERS_STATUS != '거래완료'
+	AND		O.ORDERS_STATUS = '배송중'
 	ORDER BY O.ORDERS_DATE DESC
 ]]>
 <include refid="common.pagingPost"/>
 </select>
 
+<!-- 내 판매(판매완료) 내역 탭3 -->
 <select id="selectMySaleList3" parameterType="hashMap" resultType="hashmap">
 <include refid="common.pagingPre"/>
 <![CDATA[
@@ -177,7 +177,7 @@
  <include refid="common.pagingPost"/>
 </select>
 
-<!-- 송장번호 입력 -->
+<!-- 송장번호 입력 시 -->
 <update id="updateOrderDnum" parameterType="hashMap">
 <![CDATA[
 	UPDATE  ORDERS
@@ -269,6 +269,98 @@
  ]]>
 </select>
 
+<!-- 내 주문내역 상세보기 -->
+<select id="selectMyOrderDetail" parameterType="hashMap" resultType="hashmap">
+<![CDATA[
+	SELECT
+           a.ORDERS_NUM,
+           TO_CHAR( b.ORDERS_DATE,'YYYY-MM-DD')  ORDERS_DATE,
+           b.ORDERS_PRICE,
+           b.GOODS_NUM,
+           b.GOODS_TITLE,
+           b.GOODS_CONTENT,
+           b.GOODS_PRICE,
+           b.GOODS_REGION,
+           b.MEM_ID,
+           b.MEM_NAME,
+           b.MEM_EMAIL,
+           b.MEM_PHONE,
+           a.ORDERS_ID,
+           a.ORDERS_NAME,
+           b.ORDERS_PHONE,
+           b.ORDERS_DADD1,
+           b.ORDERS_DADD2,
+           b.ORDERS_DMEMO,
+           b.ORDERS_PAY,
+           b.ORDERS_DELE_NUM
+    FROM
+     (
+    SELECT 
+           ord.orders_num,
+           mem.mem_name orders_name,
+           mem.mem_id orders_id 
+    FROM 
+           orders ord , 
+           member mem
+    WHERE 
+           ord.orders_user = mem.mem_num 
+     ) a   
+     ,     
+     (     
+    SELECT 
+     *     
+    FROM  
+           orders ord , 
+           goods good, 
+           member mem 
+    WHERE 
+           ord.orders_price = good.goods_price 
+    AND 
+           good.goods_seller = mem.mem_num 
+     ) b
+    WHERE 
+           a.ORDERS_NUM = b.ORDERS_NUM
+    AND
+           A.ORDERS_NUM = #{ORDERS_NUM}
+ ]]>
+</select>
+	<!-- 배송지 정보 변경폼 -->
+<select id="selectMyOrderInfo" parameterType="hashMap" resultType="hashMap">
+<![CDATA[
+
+
+	SELECT  
+	       mem.MEM_NAME,
+           ord.ORDERS_PHONE,
+           ord.ORDERS_DADD1,
+           ord.ORDERS_DADD2,
+           ord.ORDERS_DMEMO,
+           ord.ORDERS_NUM
+	FROM    
+	       ORDERS ord, MEMBER mem
+	WHERE 
+	       ord.ORDERS_USER = mem.MEM_NUM
+	AND
+	       ORDERS_NUM = #{ORDERS_NUM}
+
+ ]]>
+</select>
+
+
+<!-- 배송지 정보 변경 -->
+<update id="updateMyOrderModify" parameterType="hashMap">
+<![CDATA[
+	UPDATE  ORDERS
+	SET     ORDERS_PHONE = #{ORDERS_PHONE},
+  	        ORDERS_DADD1 = #{ORDERS_DADD1},
+  	        ORDERS_DADD2  =  #{ORDERS_DADD2},
+            ORDERS_DMEMO =  #{ORDERS_DMEMO}
+ 	       
+ 	        
+	WHERE   ORDERS_NUM = #{ORDERS_NUM}
+
+ ]]>
+</update>
 <!-- 리뷰 대상 아디 조회 (유진추가) -->
 <select id="selectMyReviewList" parameterType="hashMap" resultType="hashmap">
 <![CDATA[

@@ -12,6 +12,7 @@
 
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 td{
 	margin:0 0 0 10px
 }
@@ -22,6 +23,7 @@ td img
 	margin:10px 10px 10px 0px; 
 	border:3px solid #000; 
 }
+
    html {
       height: 100%;
    }
@@ -41,9 +43,10 @@ td img
    font-family: 'Nanum Gothic';
    font-size:15px;
 }
+
 #content{
 	width:1120px;
-	margin-left:25px;
+	margin-left:50px;
 }
    
 </style>
@@ -206,7 +209,9 @@ h1 {
 	margin-left: 15px;
    float: ;
 }
+
 /*메뉴버튼*/
+
 button {
   background:none;
   border:0;
@@ -234,7 +239,9 @@ button {
 	font-family: 'Nanum Gothic';
 	margin-bottom:50px;
 }
+
 /*메뉴버튼끝*/
+
 	#main-container{
 	   align:center;
 	   clear:both;
@@ -244,6 +251,7 @@ button {
 		#menu{
 		clear:both;
 		/* margin:0px auto 100px auto; */
+
 		 
 	}
 	
@@ -262,8 +270,6 @@ a{
 
 </head>
 <body>
-
-  
 <div id="con">
 
   <div class="tab_wrap" id="menu">
@@ -273,9 +279,8 @@ a{
 	    <a href="/second/myshop/goodsLikeList"><button class="tab_menu_btn on" type="button">찜 상품목록</button></a>
      </div>
   </div>
-
-
-<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px; width:100%; height:100%;">
+  
+<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin:50px 0 80px 0; width:100%; height:100%;">
 <div id="content">
    		<table class="board_list">
 		<colgroup>
@@ -294,7 +299,6 @@ a{
 </div>
 </div>
 
-
     <%@ include file="/WEB-INF/include/include-body.jspf" %>
 	
 
@@ -310,31 +314,7 @@ a{
 			});
 			
 		});
-
-		 
-				$(document).on('click','#JJimNum',function(){
-				
-					var goods_num = $(this).parent().find("#IDX1").val();
-					var LIKE_MEM_ID = '${session_MEM_ID}';
-
-					if(confirm("찜 목록에서 삭제 하시겠습니까?") == true){
-					
-				  	$.ajax({
-						type: "POST",
-						url:"<c:url value='/shop/goodsDetail/goodsUnlike'/>",
-						data:{'LIKE_GOODS_NUM':goods_num,'LIKE_MEM_ID':LIKE_MEM_ID},
-						success: function(data){
-							alert("찜 상품 목록에서 삭제완료");
-							fn_selectGoodsList(1);
-							
-						}	
-			        });  
-					}else{
-						return;
-					}	
-				});
-
-					
+	
 		function fn_goodsDetail(obj) {
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/shop/goodsDetail' />");
@@ -376,42 +356,34 @@ a{
 
 				var str = "";
 				$.each(
-						data.list,
-						function(key, value) {
-							var imgpath = "";
-							var tstatus = "";
- 
-							
-							if(value.GOODS_THUMBNAIL == null){
-								imgpath = 	"<div class='card-header'>"
-							}else{
-								imgpath = "<div class='card-header' style='background-image:url(\"/second/file/"+ value.GOODS_THUMBNAIL + "\");'>"
-								//alert(imgpath);
-							}
-							if(value.GOODS_TSTATUS == 'N'){ //거래가능(판매중)
-								tstatus += "<div class = 'card-header-is_closed2' >" 
-								 	     + "<div class = 'card-header-text' >" 
-										 + "거래가능"; 
-							}else if (value.GOODS_TSTATUS == 'ING'){ 
-							/* }else if (value.GOODS_QTY == 0){ */
-								tstatus += "<div class = 'card-header-is_closed1' >" 
-								 	     + "<div class = 'card-header-text' >" 
-								 	     + "거래중";
-							}else if (value.GOODS_TSTATUS == 'END'){ 
-								/* }else if (value.GOODS_QTY == 0){ */
-									tstatus += "<div class = 'card-header-is_closed' >" 
-									 	     + "<div class = 'card-header-text' >" 
-									 	     + "거래완료";
-							}
+								data.list,
+								function(key, value) {
+									var imgpath = "";
+									var tstatus = "";
+									
+									if(value.GOODS_THUMBNAIL == null){
+										imgpath = 	"<div class='card-header'>"
+									}else{
+										imgpath = "<div class='card-header' style='background-image:url(\"/second/file/"+ value.GOODS_THUMBNAIL + "\");'>"
+										//alert(imgpath);
+									}
+									if(value.GOODS_TSTATUS == 'N'){
+										tstatus += "<div class = 'card-header-is_closed2' >" 
+										 	     + "<div class = 'card-header-text' >" 
+												 + "거래가능"; 
+									}else if (value.GOODS_TSTATUS == 'ING'){ 
+									/* }else if (value.GOODS_QTY == 0){ */
+										tstatus += "<div class = 'card-header-is_closed' >" 
+										 	     + "<div class = 'card-header-text' >" 
+										 	     + "거래불가";
+									}
 									
 									str +=  "<div class='card'>"
-										+ 	   "<input type='hidden' id='IDX1' value="+value.GOODS_NUM+">"
-										+	"<button type='button' id='JJimNum'>▼ 찜 목록에서 삭제 </button>"
 										+		"<a href='#this' name='title'>"
 										+	      imgpath
 										+ 		  tstatus
 										+ 					"</div >"
-			 
+ 
 										+	            "</div >"
 										+	      "</div>"
 										+	      "<div class='card-body'>"
@@ -419,30 +391,29 @@ a{
 										+	            "<h1>"
 										+				value.GOODS_TITLE
 										+				"</h1>"
-										+	            "<h2>"
-										+				value.GOODS_PRICE +"원"
-										+				"</h2>"
- 										+	                               "판매자: "
+ 
+										+	            "<p class = 'card-body-nickname'>"
+										+	                                 "판매자: "
 										+									value.SELLER_ID
 										+	                          "</p>"
 										+	         "</div>"
-										+	         "<p class='card-body-description'>"
-										+	            value.GOODS_CONTENT
+										+	         "<p class='card-body-description'> 상품내용"
+										+	           
 										+	         "</p>"
 										+	         "<div class='card-body-footer'>"
 										+	            "<hr style='margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31'>"
-										+	            "조회수 "
+										+	            "<i class='icon icon-view_count'></i>조회수 "
 										+				value.GOODS_COUNT
 										+				"회"
- 										+				"<br/>"
-										+	            "등록일 : "
+ 
+										+	            "<i class='reg_date'>"
 										+				new Date(value.GOODS_DATE).toLocaleString()
-										
+										+				"</i>"
 										+	         "</div>"
 										+	      "</div>"
-									
+										+ 	   "<input type='hidden' id='IDX1' value=" + value.GOODS_NUM + ">"
 										+	   "</a>"
- 										+	   "</div>";
+										+	   "</div>";
 										
 								});
 				body.append(str);
@@ -452,7 +423,6 @@ a{
 					fn_goodsDetail($(this));
 				});
 			}
-		
 		}
 	</script>
 </body>

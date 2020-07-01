@@ -62,13 +62,13 @@ td {
 		
 				<tr>
 					<td>
-						<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_ID} + 이게뭘까1?">
-						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${orderG.GOODS_NUM}+ 이게뭘까2?"/>
+						<input type="hidden" id="MEM_ID" name="MEM_ID" value="${session_MEM_ID}">
+						<input type="hidden" id="GOODS_NUM" name="GOODS_NUM" value="${orderG.GOODS_NUM}"/>
 						
-						<input type="hidden" id="GOODS_PRICE" name="GOODS_PRICE" value="${list.GOODS_SELLER} + 이게뭘까4?"/>
-						<input type="hidden" id="orderNumber" name="orderNumber" value="${orderG.GOODS_NUM} + 이게뭘까5?" />
-						<input type="hidden" id="GOODS_TCOST" name="GOODS_TCOST" value="${orderG.GOODS_PRICE+orderG.GOODS_DCOST} + 이게뭘까6?" />
-						<input type="hidden" id="item_name" name="item_name" value="${orderG.GOODS_TITLE} + 이게뭘까7?"/>
+						<input type="hidden" id="GOODS_PRICE" name="GOODS_PRICE" value="${list.GOODS_SELLER}"/>
+						<input type="hidden" id="orderNumber" name="orderNumber" value="${orderG.GOODS_NUM}" />
+						<input type="hidden" id="GOODS_TCOST" name="GOODS_TCOST" value="${orderG.GOODS_PRICE+orderG.GOODS_DCOST}" />
+						<input type="hidden" id="item_name" name="item_name" value="${orderG.GOODS_TITLE}"/>
 					</td>
 				</tr>
 			</table>

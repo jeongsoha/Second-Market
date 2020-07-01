@@ -77,6 +77,21 @@ public class MyshopDAO extends AbstractDAO {
 		update("myshop.cancelTstatus", map);
 	}
 
+	// 내 주문내역 상세보기
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectMyOrderDetail(Map<String, Object> map) throws Exception {
+		return (Map<String, Object>) selectOne("myshop.selectMyOrderDetail", map);
+	}
+
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectMyOrderInfo(Map<String, Object> map) throws Exception {
+		return (Map<String, Object>) selectOne("myshop.selectMyOrderInfo", map);
+	}
+
+	public void updateMyOrderModify(Map<String, Object> map) throws Exception {
+		update("myshop.updateMyOrderModify", map);
+	}
+
 	// (유진추가) 리뷰 대상 아이디를 받기위한 DAO
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> selectMyReviewList(Map<String, Object> map) throws Exception {
@@ -84,11 +99,11 @@ public class MyshopDAO extends AbstractDAO {
 		return (List<Map<String, Object>>) selectList("myshop.selectMyReviewList", map);
 	}
 
-	
-	  //(유진추가) 리뷰 남겼는지 안남겼는지 업데이트
-	  
-	 @SuppressWarnings("unchecked") public void updateReviewYesOrNo(Map<String,
-	  Object> map) throws Exception{ // TODO Auto-generated method stub
-	  update("updateReviewYesOrNo",map); }
-	 
+	// (유진추가) 리뷰 남겼는지 안남겼는지 업데이트
+
+	@SuppressWarnings("unchecked")
+	public void updateReviewYesOrNo(Map<String, Object> map) throws Exception { // TODO Auto-generated method stub
+		update("updateReviewYesOrNo", map);
+	}
+
 }

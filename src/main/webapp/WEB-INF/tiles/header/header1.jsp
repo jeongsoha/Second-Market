@@ -100,6 +100,7 @@
    .green_window {
       display: inline-block;
       width: 350px; height: 34px;
+      margin-left:100px;
       border: 1px solid #80EB1C;
       background: white;
       border-radius: 5px;
@@ -108,7 +109,7 @@
    .input_text {
    width: 300px;
       height: 21px;
-      margin: 3px 0px 3px 3px;
+      margin: 3px 0px 103px 3px;
       border: 0;
       line-height: 21px;
       font-size: 16px;
@@ -214,6 +215,12 @@
 	margin-top:-8px;
 	clear:both;
 }
+.imgser3{
+	float:left;
+	margin-right:5px;
+	margin-top:-8px;
+	clear:both;
+}
 .a_menu{
 	font-size: 15px;
 	vertical-align: middle;
@@ -234,11 +241,12 @@
       }
       .slide{
         width: 1000px;
+      
         height: 250px;
         overflow: hidden;
 
 	position: absolute;
-    margin: 0 0 0 250px;
+    margin: 0 0 0 460px; /* 배너위치 */
       }
       .slide ul{
         width: 5000px;
@@ -443,7 +451,7 @@
    
    <div class="header_area" id="h1">
       <a href="/second/shop/allGoodsList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
-      		style="display: block; max-width:250px; margin-left: 100px;" alt="second#"/></a>
+      		style="display: block; max-width:250px; margin-left: 250px;" alt="second#"/></a>
    </div>
    
    
@@ -500,15 +508,18 @@
       <!-- 로그인 o,x -->
          <div class="tab_cate" id="h5" style="width: 300px;">    
 
-              <div class="d_menu">
+              <div style="float: left;width: 30%; height:35px; margin-top: 23px;">
                  <a href="/second/shop/allGoodsList" class="a_menu"> <img style="width:50px;" class="imgser1" src="<c:url value="/resources/images/sell1.png"/>"/>
                  	쇼핑몰</a>  
               </div>
-              <div style="float: left;width: 40%; height:35px; margin-top: 23px;">
+              <div style="float: left;width: 30%; height:35px; margin-top: 23px;">
                  <a href="/second/community/noticeList" class="a_menu"><img style="width:40px;" class="imgser2" src="<c:url value="/resources/images/sell2.png"/>"/>
-                 	커뮤니티</a>  
+                 	게시판</a>  
               </div>
-      
+      		 <div style="float: left;width: 40%; height:35px; margin-top: 23px;">
+                 <a href="/second/chat" class="a_menu"><img style="width:40px;" class="imgser3" src="<c:url value="/resources/images/sell3.png"/>"/>
+                 	왁자지껄</a>  
+              </div>
          </div>
                   
     </div><br><br><br>

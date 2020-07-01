@@ -358,7 +358,7 @@ file="/WEB-INF/include/include-header.jspf" %>
    
    <div class="header_area" id="h1">
       <a href="/second/shop/allGoodsList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
-      		style="display: block; max-width:250px; margin-left: 100px;" alt="second#"/></a>
+      		style="display: block; max-width:250px; margin-left: 300px;" alt="second#"/></a>
    </div>
    
 
