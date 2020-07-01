@@ -56,8 +56,12 @@ public class MyPageController {
 			ModelAndView mv = new ModelAndView("accountDetail");
 			HttpSession session = request.getSession();
 			commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));
-			Map<String,Object> map = myPageService.selectAccountInfo(commandMap.getMap());	
+			Map<String,Object> map = myPageService.selectAccountInfo(commandMap.getMap());
+			//(유진추가) 나의 평점 구하기 위한 컨트롤러
+			Map<String,Object> map2 = myPageService.selectAccountGrade(commandMap.getMap());
+			
 			mv.addObject("map",map);
+			mv.addObject("map2",map2);
 			return mv;
 		}
 

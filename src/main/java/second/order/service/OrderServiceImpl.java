@@ -25,13 +25,14 @@ public class OrderServiceImpl implements OrderService {
 	@Resource(name="fileUtils")
 	private FileUtils fileUtils;
 	
+	
 	@Override
 	public Map<String, Object> orderWriteForm(Map<String, Object> map) throws Exception {
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		Map<String, Object> orderG = orderDAO.orderG(map);
 		Map<String, Object> orderM = orderDAO.orderM(map); 
-		
+		informDAO.informInsert(map, "내상품 사는사람 알림.");
 		resultMap.put("orderG", orderG);
 		resultMap.put("orderM", orderM);
 		
@@ -63,6 +64,12 @@ public class OrderServiceImpl implements OrderService {
 		
 		return resultMap;
 		
+	}
+	
+	@Override
+	public void reviewgo(Map<String, Object> map) throws Exception {
+				
+		orderDAO.insertreviewgo(map);
 	}
 	
 }

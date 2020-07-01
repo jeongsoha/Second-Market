@@ -15,5 +15,8 @@ public interface MyPageService {
 	Map<String, Object> selectMyQnaList(Map<String, Object> map) throws Exception;
 	Map<String, Object> selectMyQnaDetail(Map<String, Object> map) throws Exception;
 	
+	//(유진추가) 나의 평점 받아오기 위한 서비스 선언
+	Map<String, Object> selectAccountGrade(Map<String, Object> map) throws Exception;
+
 	
 }

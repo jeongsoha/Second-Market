@@ -43,5 +43,10 @@ public class MyPageDAO extends AbstractDAO{
 	public Map<String, Object> selectMyQnaDetail(Map<String, Object> map) throws Exception{
 		return (Map<String, Object>) selectOne ("mypage.selectMyQnaDetail", map);
 	}
+	
+	//(유진추가) 나의 평점 받아오기 위한 DAO
+	public Map<String, Object> selectAccountGrade(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>) selectOne ("mypage.selectAccountGrade", map);
+	}
 
 }
