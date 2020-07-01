@@ -298,6 +298,17 @@ function fn_orderCancel(num) {
 	comSubmit.submit();
 }
 
+//리뷰 남기기 버튼
+function fn_reveiw(ordernum, pronum) {
+	var comSubmit = new ComSubmit("");
+	comSubmit.setUrl("<c:url value='/myshop/review' />");
+	comSubmit.addParam("ORDERS_PRONUM", pronum);
+	comSubmit.addParam("ORDERS_NUM", ordernum);
+	//alert(ordernum);
+	
+	comSubmit.submit();
+}
+
 function fn_selectOrderList(pageNo, tabNo) {
 	var comAjax = new ComAjax();
 	comAjax.setUrl("<c:url value='/myshop/selectOrderList' />");
@@ -373,6 +384,10 @@ function fn_selectOrderListCallback1(data) {
 	      	      			str1 +=	"<input type='button' id='orderCancel' name='orderCancel' value='주문취소' onclick='fn_orderCancel("+value.ORDERS_PRONUM+")' >";
 		      	      	}else if(value.ORDERS_STATUS == "배송중"){
 		      	      		str1 += "<input type='button' id='Buychk' name='Buychk' value='구매확정' onclick='fn_Buychk("+value.ORDERS_PRONUM+")' >"
+		      	      	}else if(value.ORDERS_REVIEW_CONFIRM =="Y"){
+			      	      	str1 += "내가 준 점수 : " + value.ORDERS_REVIEW_GRADE
+		      	      	}else if(value.ORDERS_STATUS == "거래완료" && value.ORDERS_REVIEW_CONFIRM !="Y"){
+		      	      		str1 += "<input type='button' id='reveiw' name='reveiw' value='리뷰남기기' onclick='fn_reveiw("+value.ORDERS_NUM+","+value.ORDERS_PRONUM+")' >" //(유진추가) 리뷰 남기기 버늩
 		      	      	}else {
 		      	      		str1 += "<td></td>";
 		      	      	}

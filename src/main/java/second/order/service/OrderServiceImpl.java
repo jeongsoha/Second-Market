@@ -66,4 +66,10 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 	
+	@Override
+	public void reviewgo(Map<String, Object> map) throws Exception {
+				
+		orderDAO.insertreviewgo(map);
+	}
+	
 }

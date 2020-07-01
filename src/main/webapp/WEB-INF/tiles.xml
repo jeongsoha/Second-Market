@@ -394,6 +394,13 @@
    <definition name="orderDetail" extends="template2">
       <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderDetail.jsp" />
    </definition>
+   
+   
+  <!--  review -->
+  
+   <definition name="review" extends="template2">
+      <put-attribute name="body" value="/WEB-INF/jsp/shop/order/orderReviewForm.jsp" />
+   </definition>
  
   
   
@@ -401,4 +408,4 @@
   </tiles-definitions>
   
   
-  
+ 

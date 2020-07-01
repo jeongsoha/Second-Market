@@ -166,7 +166,15 @@ a{
             <div class="form-control">${map.MEM_ADD1 }</div>
             <br />
           </div>
-
+           내 평점
+           <c:if test="${map2.REVIEW_AVG == null}">
+						<div class="form-control">--평점존재 X--</div>
+		   </c:if>
+		  <c:if test="${map2.REVIEW_AVG != null}">
+            	<div class="form-control">${map2.REVIEW_AVG}</div>
+            <br />
+          </div>
+		</c:if>
           <div class="card-body">
             <input
               type="button"

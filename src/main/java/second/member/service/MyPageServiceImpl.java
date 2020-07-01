@@ -64,5 +64,11 @@ public class MyPageServiceImpl implements MyPageService{
 	public Map<String, Object> selectMyQnaDetail(Map<String, Object> map) throws Exception{
 		return myPageDAO.selectMyQnaDetail(map);
 	}
+	
+	//(유진추가) 나의 평점 받아오기 위한 서비스 
+	@Override
+	public Map<String, Object> selectAccountGrade(Map<String, Object> map) throws Exception{
+		return myPageDAO.selectAccountGrade(map);
+	}
 
 }

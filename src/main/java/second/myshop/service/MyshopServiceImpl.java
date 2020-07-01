@@ -81,4 +81,10 @@ public class MyshopServiceImpl implements MyshopService{
 		myshopDAO.orderCancel(map);
 	}
 	
+	@Override
+	public List<Map<String, Object>> selectMyReviewList(Map<String, Object> map) throws Exception {
+		return myshopDAO.selectMyReviewList(map);
+	}
+	
+	
 }

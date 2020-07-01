@@ -20,10 +20,13 @@ public interface MyshopService {
 	public List<Map<String, Object>> selectMySaleList2(Map<String, Object> map) throws Exception;
 	public List<Map<String, Object>> selectMySaleList3(Map<String, Object> map) throws Exception;
 	
+	public List<Map<String, Object>> selectMyReviewList(Map<String, Object> map) throws Exception; //(유진추가) 판매자 아이디를 받기 위한 서비스 선언 
+	
 	void insertDnum(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	void buyComplete(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	void orderCancel(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	
 
 }

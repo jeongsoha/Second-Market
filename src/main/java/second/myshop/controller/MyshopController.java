@@ -17,10 +17,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import second.common.common.CommandMap;
-import second.myshop.service.MyshopService;;
+import second.myshop.service.MyshopService;
+import second.order.service.OrderService;
 
 @Controller
 public class MyshopController {
+	
+	@Resource(name="orderService")
+	private OrderService orderService;
 	
 	Logger log = Logger.getLogger(this.getClass());
 	
@@ -180,6 +184,38 @@ public class MyshopController {
 		System.out.println(list); 
 		ModelAndView mv = new ModelAndView("recentGoodsList");
 		mv.addObject("list",list);
+		return mv;
+	}
+	
+	//(유진추가) 리뷰 남기기 폼으로 넘어가기 위한 컨트롤러
+	@RequestMapping(value="/myshop/review")
+	public ModelAndView review(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		
+		HttpSession session = request.getSession();
+		commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));
+		
+		ModelAndView mv = new ModelAndView("review");
+		List<Map<String,Object>> list = myshopService.selectMyReviewList(commandMap.getMap());
+		
+		mv.addObject("list",list.get(0));
+		mv.addObject("ORDERS_NUM", commandMap.get("ORDERS_NUM"));
+		System.out.println( list.get(0)+"=====acacacac");
+		System.out.println( commandMap.get("ORDERS_NUM")+"=====acacacac2");
+		return mv;
+	}
+	//(유진추가) 리뷰 남기기 위한 컨트롤러
+	@RequestMapping(value="/myshop/reviewgo")
+	public ModelAndView reviewgo(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		
+		HttpSession session = request.getSession();
+		commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));
+		
+		System.out.println(commandMap.getMap());
+		
+		ModelAndView mv = new ModelAndView("redirect:/myshop");
+		orderService.reviewgo(commandMap.getMap());
+		
+		
 		return mv;
 	}
 
