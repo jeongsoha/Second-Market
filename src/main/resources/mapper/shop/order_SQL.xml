@@ -28,8 +28,7 @@
 	</select>
 	
 	<!-- (유진추가) 리뷰 정보 insert -->
-	<insert id="insertreviewgo" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
-		
+	<insert id="insertreviewgo" parameterType="hashmap">	
 		<![CDATA[
 			INSERT
 			INTO    REVIEW  (

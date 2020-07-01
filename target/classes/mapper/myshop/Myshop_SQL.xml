@@ -69,6 +69,8 @@
         	O.ORDERS_TCOST,
         	O.ORDERS_DATE,
         	O.ORDERS_DELE_NUM,
+        	O.ORDERS_REVIEW_CONFIRM,
+        	O.ORDERS_REVIEW_GRADE,
         	TO_CHAR(O.ORDERS_DATE,'hh24:mi:ss') AS ORDERS_TIME
         	 
         
@@ -360,4 +362,13 @@
 
  ]]>
 </update>
+<!-- 리뷰 대상 아디 조회 (유진추가) -->
+<select id="selectMyReviewList" parameterType="hashMap" resultType="hashmap">
+<![CDATA[
+	SELECT  GOODS_SELLER
+	FROM    GOODS
+	WHERE   GOODS_NUM = #{ORDERS_PRONUM}
+ ]]>
+</select>
+
 </mapper>
