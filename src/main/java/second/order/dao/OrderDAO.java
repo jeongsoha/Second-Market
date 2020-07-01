@@ -29,6 +29,13 @@ public class OrderDAO extends AbstractDAO {
 		update("shop.updateGoodsTstatus_ING", map);
 	}
 	
+	public void insertreviewgo(Map<String, Object> map) throws Exception{
+		System.out.println("DAO단 통과1");
+		insert("order.insertreviewgo", map);
+		update("order.updateReviewYesOrNo", map);
+		System.out.println("DAO단 통과2");
+	}
+	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> orderDetail(Map<String, Object> map) throws Exception{
 		return (Map<String, Object>) selectOne("order.orderDetail", map);

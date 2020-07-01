@@ -100,5 +100,9 @@ public class MyshopServiceImpl implements MyshopService{
 	public void updateMyOrderModify(Map<String, Object> map) throws Exception{
 		myshopDAO.updateMyOrderModify(map);
 	}
+	public List<Map<String, Object>> selectMyReviewList(Map<String, Object> map) throws Exception {
+		return myshopDAO.selectMyReviewList(map);
+	}
+	
 	
 }

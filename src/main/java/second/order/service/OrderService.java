@@ -11,6 +11,8 @@ public interface OrderService {
 	
 	void insertOrder(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
+	void reviewgo(Map<String, Object> map) throws Exception;
+	
 	Map<String, Object> orderDetail(Map<String, Object> map) throws Exception;
 
 }
