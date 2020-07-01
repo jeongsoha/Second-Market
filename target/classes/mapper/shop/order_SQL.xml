@@ -27,6 +27,32 @@
 		]]>
 	</select>
 	
+	<!-- (유진추가) 리뷰 정보 insert -->
+	<insert id="insertreviewgo" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+		
+		<![CDATA[
+			INSERT
+			INTO    REVIEW  (
+			                REVIEW_NUM,
+			                REVIEW_SELLER,
+			                REVIEW_ORDER_NUM,
+			                REVIEW_GRADE,
+			                REVIEW_DATE,
+			                REVIEW_USER,
+			                REVIEW_CONTENT
+			                )
+			VALUES          (
+			                REVIEW_SEQ.NEXTVAL,
+			                #{REVIEW_SELLER},
+			                #{ORDERS_NUM},
+			                #{REVIEW_GRADE},
+			                SYSDATE,
+			                #{REVIEW_USER},
+			                #{REVIEW_CONTENT}
+			                )
+		]]>
+	</insert>
+	
 	<insert id="insertOrder" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
 		<selectKey keyProperty="IDX" resultType="string" order="BEFORE">
 			SELECT ORDERS_SEQ.NEXTVAL FROM DUAL	
@@ -82,4 +108,14 @@
 			WHERE   ORDERS_NUM = #{IDX}
 		]]>
 	</select>
+	
+	<!-- //(유진추가) 리뷰 남겼는지 안남겼는지 업데이트 -->
+	<update id="updateReviewYesOrNo" parameterType="hashmap">
+		<![CDATA[
+					UPDATE  ORDERS
+		SET     ORDERS_REVIEW_CONFIRM = 'Y',
+				ORDERS_REVIEW_GRADE = #{REVIEW_GRADE}
+		WHERE   ORDERS_NUM = #{ORDERS_NUM}
+		]]>
+	</update>
 </mapper>
