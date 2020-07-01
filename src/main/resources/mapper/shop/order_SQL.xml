@@ -28,10 +28,8 @@
 	</select>
 	
 	<!-- (유진추가) 리뷰 정보 insert -->
-	<insert id=" insertreviewgo" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
-		<selectKey keyProperty="IDX" resultType="string" order="BEFORE">
-			SELECT ORDERS_SEQ.NEXTVAL FROM DUAL	
-		</selectKey>
+	<insert id="insertreviewgo" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+		
 		<![CDATA[
 			INSERT
 			INTO    REVIEW  (

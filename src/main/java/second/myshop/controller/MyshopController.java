@@ -214,7 +214,7 @@ public class MyshopController {
 		
 		ModelAndView mv = new ModelAndView("redirect:/myshop");
 		orderService.reviewgo(commandMap.getMap());
-		
+		System.out.println("컨트롤러단 통과");
 		
 		return mv;
 	}

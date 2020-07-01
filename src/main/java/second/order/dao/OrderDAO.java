@@ -30,8 +30,10 @@ public class OrderDAO extends AbstractDAO {
 	}
 	
 	public void insertreviewgo(Map<String, Object> map) throws Exception{
-		insert("order. insertreviewgo", map);
+		System.out.println("DAO단 통과1");
+		insert("order.insertreviewgo", map);
 		update("order.updateReviewYesOrNo", map);
+		System.out.println("DAO단 통과2");
 	}
 	
 	@SuppressWarnings("unchecked")
