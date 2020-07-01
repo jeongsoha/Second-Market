@@ -279,6 +279,7 @@
            b.GOODS_CONTENT,
            b.GOODS_PRICE,
            b.GOODS_REGION,
+           b.GOODS_THUMBNAIL,
            b.MEM_ID,
            b.MEM_NAME,
            b.MEM_EMAIL,

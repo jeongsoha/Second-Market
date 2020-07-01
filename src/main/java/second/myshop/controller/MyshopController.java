@@ -186,6 +186,8 @@ public class MyshopController {
 	@RequestMapping(value="/myshop/orderDetail")
 	public ModelAndView selectMyOrderDetail(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("orderDetail2");
+		String filePath_temp = request.getContextPath() + "/file/";
+		mv.addObject("path", filePath_temp);
 		Map<String,Object> map = myshopService.selectMyOrderDetail(commandMap.getMap());
 		System.out.println(commandMap.getMap()+"뭥미?");
 	

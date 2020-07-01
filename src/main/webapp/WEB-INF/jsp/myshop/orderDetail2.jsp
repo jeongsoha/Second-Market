@@ -92,9 +92,17 @@ max-height:160px;
 
 <table>
 <tr>
-<c:forTokens items="${map.GOODS_CONTENT }" delims="<p>" var="item" end="1">
+<!--<c:forTokens items="${map.GOODS_CONTENT }" delims="<p>" var="item" end="1">
 <th rowspan="2"><a href="#this" name="title"><${item} max-width:200px; max-height:160px;></a></th>
-</c:forTokens>
+</c:forTokens>-->
+<c:choose>
+							<c:when test="${map.GOODS_THUMBNAIL eq null}">
+								<th rowspan="2"><a href="#this" name="title"><img alt="" style="width:200px; height:160px; padding:10px 10px 10px 10px;" src=<c:url value="/resources/images/no_image.png"/>></a></th>
+							</c:when>
+							<c:otherwise>
+								<th rowspan="2"><a href="#this" name="title"><img alt="" style="width:200px; height:160px; padding:10px 10px 10px 10px;" src="${path}${map.GOODS_THUMBNAIL}"></a></th>
+							</c:otherwise>
+						</c:choose>
 <th >상품번호</th>
 <th >상품명</th>
 <th >상품가격</th>
@@ -177,7 +185,7 @@ max-height:160px;
 				fn_myshopList();
 			});
 
-			$("a[name='title']").on("click", function(e) { //제목
+			$("a[name='title']").on("click", function(e) { 
 				e.preventDefault();
 				fn_goodsDetail($(this));
 			});
