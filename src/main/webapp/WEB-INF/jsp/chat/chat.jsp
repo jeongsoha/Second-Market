@@ -310,7 +310,13 @@ a{
            	ws_address ="ws://"+location.hostname+":"+ location.port+"/second/echo.do";  
 
             ws=new WebSocket(ws_address);
+
+			/*왁자지껄 입장 클릭하세요! 히든화*/
             $('.block_messages').css('visibility', 'hidden');
+
+            /* 참여자 아이디를 화면에 띄우는 방법 추가*/
+            
+            
             ws.onopen=function(event){
                 if(event.data===undefined) return;
             	writeResponse(event.data);
@@ -350,9 +356,16 @@ a{
         function closeSocket(){
             ws.close();
         }
+
+        /*작성내용표현 */
         function writeResponse(text){
             messages.innerHTML+="<br/>"+text;
         }
+
+        /*참여 및 나간유저 표현, 누적으로 쌓이지 않고 현황을 보여주려면..음 */
+        /* function joinResponse(text){
+            joinMember.innerHTML+="<br/>"+text;
+        } */
 
         function session_chk(){
 			if("${session_MEM_ID}" == null || "${session_MEM_ID}" == "" ){

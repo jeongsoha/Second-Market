@@ -408,14 +408,14 @@ button {
         body.empty();
         str1 +=
           "<tr>" +
-          "<th width='200px' align='center'>상품번호</th>" +
+          "<th width='100px' align='center'>상품번호</th>" +
           "<th width='100px' align='center'>상품이름</th>" +
-          "<th width='200px' align='center'>상품이미지</th>" +
+          "<th width='100px' align='center'>상품이미지</th>" +
           "<th width='100px' align='center'>주문일시</th>" +
+          "<th width='100px' align='center'>주문번호</th>" +
           "<th width='100px' align='center'>판매상태</th>" +
           "<th width='200px' align='center'>송장번호</th>" +
-          "<th width='100px' align='center'> </th>" +
-          "</tr>";
+          "<th width='50px'></th></tr>";
         if (total == 0) {
           str1 +=
             '<tr align="center">' +
@@ -454,6 +454,10 @@ button {
               "<td width='100px' align='center'>" +
               new Date(value.ORDERS_DATE).toLocaleString() +
               "</td>" +
+              "<td><a href='#this' id='title' name='title'>"+
+	    		value.ORDERS_NUM
+      			"<input type='hidden' name='title2' id='title2' value="+value.ORDERS_NUM+">"+
+	      		"</a></td><td></td>"    +          
               "<td width='100px' align='center'>" +
               value.ORDERS_STATUS +
               "</td>";
