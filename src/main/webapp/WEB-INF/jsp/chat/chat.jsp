@@ -264,6 +264,13 @@ a{
     <!-- Server responses get written here 채팅내용 보여지는 란-->
     <div id="messages"></div>
     </div> 
+    
+    <div id="join_members">한화 :[1][3]
+    
+    <table id="main_table1" class="tbl_type">
+                    <tbody>[2]</tbody>
+                  </table>
+                   </div>
 
     <!-- websocket javascript -->
     <script type="text/javascript">
@@ -333,7 +340,6 @@ a{
 
         
         function send(){
-
         	
         	if(ws==undefined || ws.readyState==WebSocket.CLOSED){
                 writeResponse("== 채팅입장 후 대화가 가능합니다. ==");
