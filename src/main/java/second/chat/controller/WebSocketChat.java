@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -31,9 +33,15 @@ public class WebSocketChat {
         System.out.println("웹소켓(서버) 객체생성");
     }
     @RequestMapping(value="/chat")
-    public ModelAndView getChatViewPage(CommandMap commandMap) throws Exception {
+    public ModelAndView getChatViewPage(CommandMap commandMap, HttpServletRequest request) throws Exception {
     	ModelAndView mv = new ModelAndView("chat");
-    	
+    	HttpSession session = request.getSession();
+    	commandMap.put("MEM_ID", session.getAttribute("session_MEM_ID"));
+    	commandMap.put("sessionList", sessionList); //입장중인 세션리스트
+    	System.out.println("ㄱㄱ");
+    	System.out.println(sessionList.size()); // 채팅방 참여인원 수
+    	System.out.println("ss");
+    	System.out.println(commandMap.getMap());
     	return mv;
     
     }
