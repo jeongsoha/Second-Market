@@ -184,7 +184,7 @@ h1 {
     width: 314px;
     font-size: 10px;
     color: #9FA5A8;
-    padding: 0 10px;
+    padding: 0 50px;
 }
 .icon {
     display: inline-block;
@@ -275,7 +275,7 @@ a{
   </div>
 
 
-<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:50px; width:100%; height:100%;">
+<div class="card align-middle" style="border-radius:20px; background-color:#fff; margin-top:10px;margin-left:-20px; width:100%; height:100%;">
 <div id="content">
    		<table class="board_list">
 		<colgroup>
