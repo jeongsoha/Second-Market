@@ -382,6 +382,15 @@ button {
         comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
         comSubmit.submit();
       }
+
+      /* 주문번호 클릭 주문상세*/
+      function fn_orderDetail(obj) {
+    		var comSubmit = new ComSubmit();
+    		comSubmit.setUrl("<c:url value='/myshop/orderDetail' />");
+    		comSubmit.addParam("ORDERS_NUM", obj.parent().find("#title2").val());
+    		//comSubmit.addParam("LIKE_MEM_ID", "${session_MEM_ID}");
+    		comSubmit.submit();
+    	}
       // 입력확인 버튼
       function fn_DELE_NUM_in(num) {
         var comSubmit = new ComSubmit("");
@@ -463,7 +472,7 @@ button {
               "<td width='100px' align='center'>" +
               new Date(value.ORDERS_DATE).toLocaleString() +
               "</td>" +
-              "<td><a href='#this' id='title' name='title'>"+
+              "<td><a href='#this' id='orderDetail' name='orderDetail'>"+
 	    		value.ORDERS_NUM +
       			"<input type='hidden' name='title2' id='title2' value="+value.ORDERS_NUM+">"+
 	      		"</a></td>"    +          
@@ -496,6 +505,12 @@ button {
             e.preventDefault();
             fn_goodsDetail($(this));
           });
+
+          $("a[name='orderDetail']").on("click", function (e) {
+              //제목
+              e.preventDefault();
+              fn_orderDetail($(this));
+            });
         }
       }
     </script>

@@ -273,7 +273,7 @@ $(document).ready(function() {
 	});
 
 });
-
+/* 주문번호 클릭 주문상세*/
 function fn_goodsDetail(obj) {
 	var comSubmit = new ComSubmit();
 	comSubmit.setUrl("<c:url value='/myshop/orderDetail' />");
