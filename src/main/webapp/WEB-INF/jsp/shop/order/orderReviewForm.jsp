@@ -36,6 +36,17 @@ td {
     height: 40px;
     font-size: 15px;
 }
+
+.starR{
+     background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+     background-size: auto 100%;
+     width: 30px;
+     height: 30px;
+     display: inline-block;
+     text-indent: -9999px;
+     cursor: pointer;
+   }
+.starR.ons{background-position:0 0;}
 </style>
 </head>
 <body>
@@ -71,15 +82,23 @@ td {
 						<input type="hidden" id="item_name" name="item_name" value="${orderG.GOODS_TITLE} + 이게뭘까7?"/>
 					</td>
 				</tr>
+				 <tr>
+                    <th scope="row">평점</th>
+                    <td>
+                        <div class="starRev">
+                    <span class="starR ons">1</span>
+                    <span class="starR">2</span>
+                    <span class="starR">3</span>
+                    <span class="starR">4</span>
+                    <span class="starR">5</span>  
+                    <input type="hidden" id="RE_LIKE" name="RE_LIKE" value="1"> 
+                  </div>
+                    </td>
+                </tr>
+            <tr>
 			</table>
 			
-		
-             	<input type="radio" id="REVIEW_ONE" name="REVIEW_GRADE" value="1" />&nbsp;&nbsp;1점&nbsp;&nbsp;
-            	 <input type="radio" id="REVIEW_TWO" name="REVIEW_GRADE" value="2"/>&nbsp;&nbsp;2점&nbsp;&nbsp;
-            	 <input type="radio" id="REVIEW_THREE" name="REVIEW_GRADE" value="3"/>&nbsp;&nbsp;3점&nbsp;&nbsp;
-          	   <input type="radio" id="REVIEW_FOUR" name="REVIEW_GRADE" value="4"/>&nbsp;&nbsp;4점&nbsp;&nbsp;
-          	    <input type="radio" id="REVIEW_FIVE" name="REVIEW_GRADE" value="5" checked/>&nbsp;&nbsp;5점&nbsp;&nbsp;
-        
+	
 			<br></br>
 		<p align="center">
 			<a href="#this" class="btn" id="submitPay">리뷰하기</a>
@@ -104,7 +123,14 @@ function noEvent() { // 새로 고침 방지 적용
 document.onkeydown = noEvent;
 
 $(document).ready(function() {
-	
+
+
+	$('.starRev span').click(function(){
+        $(this).parent().children('span').removeClass('ons');
+        $(this).addClass('ons').prevAll('span').addClass('ons');
+        $("#RE_LIKE").val($(this).text());
+        return false;
+      });
 	
 	$("#submitPay").on("click", function(e) { // 주문하기 버튼
 		e.preventDefault();

@@ -44,7 +44,7 @@
 			                REVIEW_SEQ.NEXTVAL,
 			                #{REVIEW_SELLER},
 			                #{ORDERS_NUM},
-			                #{REVIEW_GRADE},
+			                #{RE_LIKE},
 			                SYSDATE,
 			                #{REVIEW_USER},
 			                #{REVIEW_CONTENT}
@@ -113,7 +113,7 @@
 		<![CDATA[
 					UPDATE  ORDERS
 		SET     ORDERS_REVIEW_CONFIRM = 'Y',
-				ORDERS_REVIEW_GRADE = #{REVIEW_GRADE}
+				ORDERS_REVIEW_GRADE = #{RE_LIKE}
 		WHERE   ORDERS_NUM = #{ORDERS_NUM}
 		]]>
 	</update>
