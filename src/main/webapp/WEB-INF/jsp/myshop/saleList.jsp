@@ -98,6 +98,7 @@ pageEncoding="UTF-8"%>
         padding: 0;
         border: 0;
 		font-size: 14px;
+	
         do: inherit;
         vertical-align: baseline;
       }
@@ -198,6 +199,15 @@ button {
       #dot {
         margin: 0px auto;
       }
+      /*배송번호 기입란*/
+      #ORDERS_DELE_NUM{
+        margin: 0px 5px;
+        
+        border: 1px solid #bcbcbc;
+        width: 120px;
+        
+      }
+      
       a{
 	font-size:12px;
 	color: #000;
@@ -414,8 +424,7 @@ button {
           "<th width='100px' align='center'>주문일시</th>" +
           "<th width='100px' align='center'>주문번호</th>" +
           "<th width='100px' align='center'>판매상태</th>" +
-          "<th width='200px' align='center'>송장번호</th>" +
-          "<th width='50px'></th></tr>";
+          "<th width='200px' align='center'>송장번호</th>" ;
         if (total == 0) {
           str1 +=
             '<tr align="center">' +
@@ -455,9 +464,9 @@ button {
               new Date(value.ORDERS_DATE).toLocaleString() +
               "</td>" +
               "<td><a href='#this' id='title' name='title'>"+
-	    		value.ORDERS_NUM
+	    		value.ORDERS_NUM +
       			"<input type='hidden' name='title2' id='title2' value="+value.ORDERS_NUM+">"+
-	      		"</a></td><td></td>"    +          
+	      		"</a></td>"    +          
               "<td width='100px' align='center'>" +
               value.ORDERS_STATUS +
               "</td>";
@@ -468,19 +477,16 @@ button {
               str1 +=
                 "<td width='200px' align='center'>" +
                 value.ORDERS_DELE_NUM +
-                "</td>" +
-                "<td></td>";
+                "</td>" ;
             } else if (value.ORDERS_STATUS == "주문/결제") {
               str1 +=
-                "<td width='200px' align='center'> 송장번호 입력 필요합니다.▼ <input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM'>" +
-                "</td>" +
-                "<td>" +
-                "<input type='button' id='DNUM_IN' name='DNUM_IN' value='송장번호 입력' onclick='fn_DELE_NUM_in(" +
+                "<td width='200px' align='center'> <input type='text' id='ORDERS_DELE_NUM' name='ORDERS_DELE_NUM' placeholder='송장번호 입력'>" +
+                "<input type='button' id='DNUM_IN' name='DNUM_IN' value='저장' onclick='fn_DELE_NUM_in(" +
                 value.GOODS_NUM+
                 ")' >" +
                 "</td>";
             } else {
-              str1 += "<td></td><td></td>";
+              str1 += "<td></td>";
             }
             str1 += "</tr>";
           });
