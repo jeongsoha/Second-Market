@@ -59,7 +59,7 @@
          <version>${org.springframework-version}</version>
 	</dependency>
 
-	 <!-- 오라클 DB -->
+	 <!-- 오라클 DB --> 
 		<dependency> 
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>

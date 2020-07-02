@@ -3,7 +3,9 @@
 
 <%response.sendRedirect("shop/allGoodsList");
 	 %>
-<%--   
+<%--   서버용 : http://서버ip4경로:8080/second/shop/allGoodsList 
+
+
 <%response.sendRedirect("sample/openBoardList");
 	 %>
 <jsp:forward page="/sample/openBoardList"/>
