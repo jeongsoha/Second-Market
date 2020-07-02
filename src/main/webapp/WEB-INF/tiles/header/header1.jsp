@@ -99,15 +99,15 @@
    
    .green_window {
       display: inline-block;
-      width: 350px; height: 34px;
-      margin-left:100px;
+      width: 250px; height: 34px;
+      margin-left:0px;
       border: 1px solid #80EB1C;
       background: white;
       border-radius: 5px;
    }
    
    .input_text {
-   width: 300px;
+   width: 240px;
       height: 21px;
       margin: 3px 0px 103px 3px;
       border: 0;
@@ -246,7 +246,7 @@
         overflow: hidden;
 
 	position: absolute;
-    margin: 0 0 0 460px; /* 배너위치 */
+    margin: auto; /* 배너위치 */
       }
       .slide ul{
         width: 5000px;
@@ -393,9 +393,11 @@
 
 
 <!-- 초록색 줄 -->
-<div id="header">
+<div id="header" >
+
+<div id="menu">
 	<!-- 비로그인 시 -->
-    <div id="h4">
+    <div id="h4"> 
          <c:if test="${session_MEM_ID == null }">
             <a href="${contextPath}/second/loginForm" class="log">로그인</a>  &nbsp;&nbsp;
             <a href="${contextPath}/second/joinForm">회원가입</a>              &nbsp;&nbsp;
@@ -437,21 +439,14 @@
     	 </div>
        </c:if>
          </div>
-</div>
+</div></div>
 
-
-<!-- 오른쪽 위 작은 메뉴들 -->
-   <div id="menu">
- 
-</div>
-
-   <div id="head">
-   
+    <div class="header_box">
 		<!-- second로고 -->
    
    <div class="header_area" id="h1">
       <a href="/second/shop/allGoodsList" title="second#"><img class="main_image" src="<c:url value="/resources/images/logo6.png"/>" 
-      		style="display: block; max-width:250px; margin-left: 250px;" alt="second#"/></a>
+      		style="display: block; max-width:250px; margin-left: 0px;" alt="second#"/></a>
    </div>
    
    
@@ -468,9 +463,10 @@
                <span class='green_window'>
                 <input type='text' class='input_text' placeholder="Search" maxlength="20"  name="keyword" id="keyword" value="${keyword}"  />
 				<input type="hidden" id="searchType" value="all" />
+				
                </span>
-               
                <button type='submit' class='sch_smit' onClick="onSearch()">검색</button>
+              
                
                </fieldset>
             </form>
@@ -506,7 +502,7 @@
 
  		
       <!-- 로그인 o,x -->
-         <div class="tab_cate" id="h5" style="width: 300px;">    
+         <div class="tab_cate" id="h5" style="width: 350px; padding : 0 15px ;">    
 
               <div style="float: left;width: 30%; height:35px; margin-top: 23px;">
                  <a href="/second/shop/allGoodsList" class="a_menu"> <img style="width:50px;" class="imgser1" src="<c:url value="/resources/images/sell1.png"/>"/>
@@ -522,9 +518,8 @@
               </div>
          </div>
                   
-    </div><br><br><br>
-
-
+   <br><br><br>
+   
 
   <div class="slide">
       <img id="back" src="<c:url value="/resources/images/back.png"/>" alt="" width="100">
@@ -538,3 +533,5 @@
       </ul>
       <img id="next" src="<c:url value="/resources/images/next.png"/>" alt="" width="100">
     </div>
+    
+      </div>

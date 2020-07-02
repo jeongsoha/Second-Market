@@ -10,7 +10,7 @@ wrapper {
 #header .header_area .main_image{position:relative; left:45%; width:120px; height:auto;}
 
 #header .header_area .search_main{position:absolute; top:95px;left:300px;}
-#header .header_area .search_main .search_inner{position:relative;top:15px;left:40%;padding-right:40px;}
+#header .header_area .search_main .search_inner{position:relative;top:15px;left:40%;padding-right:20px;}
 #header .header_area .search_main .search_inner .txt{width:150px;height:25px;line-height:25px;}
 #header .header_area .search_main .search_inner .search_btn{
 	position:absolute;
@@ -22,6 +22,13 @@ wrapper {
 	height:31px;
 	cursor:pointer;
 	}
+	
+	.header_box {
+	width: 1040px;
+	padding: 10px 0 0;
+	 background: #ffffff; 
+	margin: 0 auto;
+}
 
 #header .header_area .top_menu{position:absolute;top:10px;right:0;color:#000000;}
 #header .header_area .top_menu ul{overflow:hidden;}
