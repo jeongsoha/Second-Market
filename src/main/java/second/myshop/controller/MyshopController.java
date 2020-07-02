@@ -107,7 +107,6 @@ public class MyshopController {
 			list = myshopService.selectMySaleList1(commandMap.getMap());
 			
 		}
-
 		
 		mv.addObject("list",list);
 		mv.addObject("tabNo", tabNo);

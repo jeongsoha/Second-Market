@@ -208,6 +208,12 @@ button {
         
       }
       
+       #order_date{
+      font-size:12px;
+      }
+      
+      
+      
       a{
 	font-size:12px;
 	color: #000;
@@ -430,7 +436,7 @@ button {
           "<th width='100px' align='center'>상품번호</th>" +
           "<th width='100px' align='center'>상품이름</th>" +
           "<th width='100px' align='center'>상품이미지</th>" +
-          "<th width='100px' align='center'>주문일시</th>" +
+          "<th width='150px' align='center'>주문일시</th>" +
           "<th width='100px' align='center'>주문번호</th>" +
           "<th width='100px' align='center'>판매상태</th>" +
           "<th width='200px' align='center'>송장번호</th>" ;
@@ -450,6 +456,7 @@ button {
             eventName: "fn_selectMySaleList",
           };
           gfn_renderPaging(params);
+          
           $.each(data.list, function (key, value) {
             str1 +=
               "<tr>" +
@@ -468,17 +475,27 @@ button {
               "<img alt='' width='50' height='50' src=/second/file/" +
               value.GOODS_THUMBNAIL +
               ">" +
-              "</td>" +
-              "<td width='100px' align='center'>" +
-              new Date(value.ORDERS_DATE).toLocaleString() +
-              "</td>" +
-              "<td><a href='#this' id='orderDetail' name='orderDetail'>"+
-	    		value.ORDERS_NUM +
-      			"<input type='hidden' name='title2' id='title2' value="+value.ORDERS_NUM+">"+
-	      		"</a></td>"    +          
-              "<td width='100px' align='center'>" +
-              value.ORDERS_STATUS +
               "</td>";
+              
+              if ( value.ORDERS_NUM != null ) 
+                  {
+                      str1 += "<td id='order_date' width='100px' align='center'>" +
+                      new Date(value.ORDERS_DATE).toLocaleString() +
+                      "</td>" +
+                      "<td><a href='#this' id='orderDetail' name='orderDetail'>"+
+        	    		value.ORDERS_NUM +
+              			"<input type='hidden' name='title2' id='title2' value="+value.ORDERS_NUM+">"+
+        	      		"</a></td></td> <td width='100px' align='center'>" +
+                        value.ORDERS_STATUS +
+                        "</td>";
+
+       		 } else {
+                      str1 += "<td>구매자가 없습니다.</td><td>-</td><td width='100px' align='center'>" +
+                      value.ORDERS_STATUS +
+                      "</td>";
+                    }
+
+              
             if (
               value.ORDERS_STATUS == "배송중" ||
               value.ORDERS_STATUS == "거래완료"
