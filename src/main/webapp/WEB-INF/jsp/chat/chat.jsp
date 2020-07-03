@@ -265,12 +265,7 @@ a{
     <div id="messages"></div>
     </div> 
     
-    <div id="join_members">한화 :[1][3]
-    
-    <table id="main_table1" class="tbl_type">
-                    <tbody>[2]</tbody>
-                  </table>
-                   </div>
+   
 
     <!-- websocket javascript -->
     <script type="text/javascript">
