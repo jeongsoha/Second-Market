@@ -391,7 +391,7 @@ a{
 				comSubmit.addParam("GOODS_NUM", GOODS_NUM);
 				comSubmit.addParam("MEM_ID", MEM_ID);
 				comSubmit.addParam("idq", idq);// (유진 추가) 상품 답글 알람을 위한 변수 전송
-				alert(idq+" "+"afafafaf")
+				// alert(idq+" "+"afafafaf")
 				comSubmit.submit();
 			}
 		}
