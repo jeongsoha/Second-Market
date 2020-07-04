@@ -5,10 +5,22 @@
 
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
-	#footer{
+	
+	/*  #footer {
+	margin-top:100px;
+	border-top:7px solid #ffd34a;
+	position: relative;
+	bottom: 0px;
+	clear: both;
+	zoom: 1;
+	background: #ffffff; 
+} 
+	 */
+	
+	 #footer{
 		background:#000000;
 		border: 3px solid #000000;
-	}
+	} 
 	
 	#footer2{
 		background:#000000;

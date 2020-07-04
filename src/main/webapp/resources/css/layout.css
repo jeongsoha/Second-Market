@@ -118,7 +118,7 @@ wrapper {
 	vertical-align: bottom;
 }
 
-#footer {
+/* #footer {
 	margin-top:100px;
 	border-top:2px solid #ffd34a;
 	position: relative;
@@ -126,7 +126,7 @@ wrapper {
 	clear: both;
 	zoom: 1;
 	background: #ffffff; 
-}
+} */
 
 .ft_box {
 	width: 1040px;
@@ -210,7 +210,7 @@ wrapper {
 }
 
 .xans-layout-footer .utilMenu_unit2 {
-	width: 230px;
+	width: 250px;
 	margin: 5px 0 5px;
 }
 
@@ -240,8 +240,8 @@ wrapper {
 	top: 0;
 	right: 0;
 	border-left: 1px solid #6c6c6c;
-	padding-left: 55px;
-	width: 220px;
+	padding-left: 5px;
+	width: 280px;
 	min-height: 145px;
 }
 
