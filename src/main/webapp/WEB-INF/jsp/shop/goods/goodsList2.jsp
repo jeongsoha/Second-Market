@@ -150,17 +150,7 @@ h1 {
     vertical-align: middle;
     margin-right: 2px;
 }
-.icon-view_count {
-    width: 25px;
-    height: 17px;
-   background: url("images/eye.jpg") no-repeat;
-}
-.icon-comments_count {
-   margin-left: 5px;
-   width: 25px;
-    height: 17px;
-   background: url("images/comment.jpg") no-repeat;   
-}
+
 .reg_date {
 	margin-left: 15px;
    float: ;

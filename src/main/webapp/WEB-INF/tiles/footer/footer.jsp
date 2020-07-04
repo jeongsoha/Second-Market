@@ -8,7 +8,7 @@
 	
 	#footer {
 	margin-top:100px;
-	/* border-top:7px solid #ffd34a; */
+	border-top:7px solid #ffd34a; */
 	position: relative;
 	bottom: 0px;
 	clear: both;
@@ -18,17 +18,6 @@
 	} 
 	 
 	
-	#footer2{
-		background:#000000;
-	}
-
-	#footer3{
-		background:#000000;
-	}
-	
-	#footer4{
-		background:#000000;
-	}
 	
 	.utilMenu{
 		font-family:"나눔 고딕";
@@ -41,8 +30,8 @@
 
 <!-- Footer 시작 -->
 <div id="footer">
-   <div class="foot_area" id="footer2">
-      <div class="ft_box" id="footer3">
+   <div class="foot_area" >
+      <div class="ft_box">
       
       
          <div class="xans-layout-footer" id="footer4">

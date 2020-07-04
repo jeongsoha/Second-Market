@@ -245,12 +245,11 @@
       }
       .slide{
         width: 1000px;
-      
+      	
         height: 250px;
         overflow: hidden;
-
-	position: absolute;
-    margin: auto; /* 배너위치 */
+		position: absolute;
+   		margin: auto 100px; /* 배너위치 조정*/
       }
       .slide ul{
         width: 5000px;

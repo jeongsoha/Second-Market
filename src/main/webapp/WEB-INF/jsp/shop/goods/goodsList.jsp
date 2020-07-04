@@ -11,7 +11,6 @@
 
 <link href="<c:url value="/resources/css/board.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/btn.css"/>" rel="stylesheet">
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
@@ -170,16 +169,7 @@ h3 {
     vertical-align: middle;
     margin-right: 2px;
 }
-.icon-view_count {
-    height: 17px;
-   background: url("images/eye.jpg") no-repeat;
-}
-.icon-comments_count {
-   margin-left: 5px;
-   width: 25px;
-    height: 17px;
-   background: url("images/comment.jpg") no-repeat;   
-}
+
 .reg_date {
 	margin-left: 15px;
    float: ;

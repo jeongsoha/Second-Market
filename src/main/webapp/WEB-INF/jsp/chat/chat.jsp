@@ -42,7 +42,6 @@ td img
    
 </style>
 
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 
 <style>
 html, body, div, span, applet, object, iframes, h1, h2, h3, h4, h5, h6,
