@@ -177,8 +177,8 @@ $(document).ready(function() {
 					fn_orderPay($(this));	
 				}else{
 					alert("결제가 완료되지 않아 결제창으로 이동됩니다.");
-					fn_orderPay($(this));	
-					//popup($(this));
+					// fn_orderPay($(this));	//임시 결제처리
+					popup($(this));  //결제팝업
 				}
 			}else{
 				return;
