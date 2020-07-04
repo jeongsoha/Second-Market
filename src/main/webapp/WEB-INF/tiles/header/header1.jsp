@@ -92,9 +92,14 @@
    #header{
          width:100%;
          height:25px;
-         /* background:linear-gradient(to bottom right, #2db400, #77E56F); */
+         /*background:linear-gradient(to bottom right, #2db400, #77E56F); */
          background:#80EB1C;
+         position: relative;
+         zoom: 1;
+         min-width:1300px;
    }
+   
+  
    
    
    .green_window {
@@ -141,9 +146,8 @@
       height:55px;
    }
 	.dropbtn {
-	    background-color: #fff;
-	    color: white;
-/* 	    padding: 16px; */
+	    background-color: #80EB1C;
+	    /* 	    padding: 16px; */
 	    font-size: 16px;
 	    border: none;
 	    cursor: pointer;
@@ -428,7 +432,7 @@
      
         <c:if test="${session_MEM_ID != null}">
    		  <div class="dropdown">
-       		 <button class="dropbtn"><img style="width:25px; height:25px;background-color: #80EB1C;" src="<c:url value="/resources/images/ring.png"/>"/></button>
+       		 <button class="dropbtn"><img style="width:24px; height:22px;" src="<c:url value="/resources/images/ring.png"/>"/></button>
      			<div class="dropdown-content">
         		      <table id="inform">
         		         <tbody>
