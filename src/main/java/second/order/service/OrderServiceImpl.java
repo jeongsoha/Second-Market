@@ -32,7 +32,6 @@ public class OrderServiceImpl implements OrderService {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		Map<String, Object> orderG = orderDAO.orderG(map);
 		Map<String, Object> orderM = orderDAO.orderM(map); 
-		informDAO.informInsert(map, "내상품 사는사람 알림.");
 		resultMap.put("orderG", orderG);
 		resultMap.put("orderM", orderM);
 		

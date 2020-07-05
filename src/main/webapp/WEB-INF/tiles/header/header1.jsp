@@ -87,6 +87,7 @@
    #h7{
          float:right;
          display: inline; 
+         
    }
    
    #header{
@@ -151,11 +152,13 @@
 	    font-size: 16px;
 	    border: none;
 	    cursor: pointer;
+	    height: 24px;
 	}
 	.dropdown {
        /*  float:left; */
 	    position: relative;
 	    display: inline-block;
+	  
 	}
 	.dropdown-content {
 		 float:left;
