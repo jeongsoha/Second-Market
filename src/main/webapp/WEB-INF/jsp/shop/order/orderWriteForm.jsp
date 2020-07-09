@@ -54,7 +54,7 @@ td {
 					<td>${orderG.GOODS_TITLE}</td>
 				</tr>	
 				<tr style="border-bottom: 1px solid #dfdfdf;">			
-					<th>주문시간</th>
+					<th>주문일자</th>
 					<td>${orderG.ORDER_TIME}</td>
 				</tr>
 				<tr style="border-bottom: 1px solid #dfdfdf;">
