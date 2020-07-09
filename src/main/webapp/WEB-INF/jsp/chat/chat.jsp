@@ -217,7 +217,7 @@ button {
 	background-repeat:repeat;
 	margin-top:250px;
 		display:block;vertical-align:middle;position: absolute;
-		margin:auto; opacity: 0.8;background:linear-gradient(#C0C0C0, #000000) fixed;width:100%;height:20%;text-align:center
+		margin:auto; opacity: 0.8;background:linear-gradient(#C0C0C0, #111111) fixed;width:100%;height:20%;text-align:center
 	}
 	
 	.block_messages a{

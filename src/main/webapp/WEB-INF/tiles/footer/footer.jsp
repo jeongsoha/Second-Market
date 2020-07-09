@@ -13,7 +13,7 @@
 	bottom: 0px;
 	clear: both;
 	zoom: 1;
-	background: #000000; 
+	background: #111111; 
 	min-width:1300px;
 	} 
 	 
@@ -21,7 +21,7 @@
 	
 	.utilMenu{
 		font-family:"나눔 고딕";
-		background:#000000;
+		background:#111111;
 	}
 
 </style>

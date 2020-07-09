@@ -16,7 +16,7 @@ wrapper {
 	position:absolute;
 	top:0;
 	right:10px;
-	color:#000000;
+	color:#111111;
 	width:40px;
 	height:27px;
 	cursor:pointer;
@@ -29,7 +29,7 @@ wrapper {
 	margin: 0 auto;
 }
 
-#header .header_area .top_menu{position:absolute;top:10px;right:0;color:#000000;}
+#header .header_area .top_menu{position:absolute;top:10px;right:0;color:#111111;}
 #header .header_area .top_menu ul{overflow:hidden;}
 #header .header_area .top_menu ul li{float:left;}
 #header .header_area .top_menu ul li a{display:block;padding:0 8px;}
