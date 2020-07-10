@@ -55,7 +55,7 @@
   </div>
   </div>
    <div id="main-container">
-	<h3 style=font-weight:bold;>게시글작성</h3>
+	<h3 style=font-weight:bold;>공지사항 작성</h3>
    <form id="frm" name="frm" enctype="multipart/form-data">
       <table class="table table-condensed">
          <colgroup>  
