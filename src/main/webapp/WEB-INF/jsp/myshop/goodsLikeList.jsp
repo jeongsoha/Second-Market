@@ -84,7 +84,7 @@ table {
 /*css 초기화*/
 .card {
    float:left;
-   height: 400px;
+   height: 440px;
    width: 25%;
    border-radius: 15px;
    display: inline-block;
