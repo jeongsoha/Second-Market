@@ -116,7 +116,8 @@
 	  		CKEDITOR.replace('NOTICE_CONTENT',{
 	              width:'100%',
 	              height:'600px',
-	  			filebrowserUploadUrl: '${pageContext.request.contextPath }/ckeditor/fileupload'
+	  			filebrowserUploadUrl: '${pageContext.request.contextPath }/ckeditor/fileupload',
+	  			allowedContent:true //html 태그자동삭제 방지설정.
 	  		});
 	  	});
       
