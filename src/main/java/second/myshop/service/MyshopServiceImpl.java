@@ -20,36 +20,29 @@ public class MyshopServiceImpl implements MyshopService{
 	@Resource(name="myshopDAO")
 	private MyshopDAO myshopDAO;
 	
-	
 	@Override
 	public List<Map<String, Object>> selectMyOrderList1(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
 		return myshopDAO.selectMyOrderList1(map);
 	}
 	@Override
 	public List<Map<String, Object>> selectMyOrderList2(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
 		return myshopDAO.selectMyOrderList2(map);
 	}
 	@Override
 	public List<Map<String, Object>> selectMyOrderList3(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
 		return myshopDAO.selectMyOrderList3(map);
 	}
 	
 	@Override
 	public List<Map<String, Object>> selectMySaleList1(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
 		return myshopDAO.selectMySaleList1(map);
 	}
 	@Override
 	public List<Map<String, Object>> selectMySaleList2(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
 		return myshopDAO.selectMySaleList2(map);
 	}
 	@Override
 	public List<Map<String, Object>> selectMySaleList3(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
 		return myshopDAO.selectMySaleList3(map);
 	}
 	

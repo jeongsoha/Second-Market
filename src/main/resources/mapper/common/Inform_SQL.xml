@@ -67,6 +67,7 @@
    
    
    <!-- 공지사항 알림 -->
+   
     <insert id="informinsertNotice" parameterType="hashmap">
    INSERT INTO INFORM 
                (INFORM_NUM,
