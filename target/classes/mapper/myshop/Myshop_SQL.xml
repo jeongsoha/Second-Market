@@ -318,6 +318,8 @@
            ord.orders_price = good.goods_price 
     AND 
            good.goods_seller = mem.mem_num 
+    AND          
+           good.goods_num = ord.orders_pronum
      ) b
     WHERE 
            a.ORDERS_NUM = b.ORDERS_NUM
