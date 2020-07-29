@@ -1,3 +1,5 @@
 /.metadata/
 src/main/resources/config/spring/context-datasource.xml
 target/classes/config/spring/context-datasource.xml
+src/main/resources/config/spring/context-datasource.xml
+target/classes/config/spring/context-datasource.xml

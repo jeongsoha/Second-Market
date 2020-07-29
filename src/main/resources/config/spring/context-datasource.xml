@@ -7,8 +7,8 @@
     <bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<property name="username" value="second_MK" />
-		<property name="password" value="second_MK" />
+		<property name="username" value="secondMK" />
+		<property name="password" value="secondMK" />
     </bean>
     
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
