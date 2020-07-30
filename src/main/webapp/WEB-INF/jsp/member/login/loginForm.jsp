@@ -77,7 +77,7 @@ body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
             </div>
          
             <div class="card-body" style="margin-top:20px;">
-               <input type="button" class="btn" value="로그인" onclick="fsubmit();">
+               <input type="button" id="login-btn" class="btn" value="로그인" onclick="fsubmit();">
             </div>
          
             <div align="center" style="margin-top:10px;">
@@ -99,6 +99,17 @@ body,table,input,select,textarea,button,h1,h2,h3,h4,h5,h6,a{
 
 </body>
 <script type="text/javascript">
+
+
+$('input[name=MEM_PW]', document.loginform).keydown(function(event) {
+	//로그인 폼 패스워드 입력창에 커서가 올라간 상태에서 엔터키를 누르면 로그인하기 버튼 클릭효과가 나오게
+	  if (event.keyCode == '13') {
+		
+		  $("#login-btn").trigger("click");
+	  }
+	  
+	})	;
+	
 
       function begin(){
          document.myform.MEM_ID.focus();
