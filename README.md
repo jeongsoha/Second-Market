@@ -104,7 +104,7 @@
 ## Usecase Diagram
 
 <img src="https://user-images.githubusercontent.com/62328928/104765974-1e0c1880-57ad-11eb-8a1c-5199affdd042.JPG" width="500" height="250">
-<img src="https://user-images.githubusercontent.com/62328928/104764971-793d0b80-57ab-11eb-8300-11aa3f705c0e.JPG" width="750" height="250">
+<img src="https://user-images.githubusercontent.com/62328928/104764971-793d0b80-57ab-11eb-8300-11aa3f705c0e.JPG" width="830" height="300">
 
 <br/>
 
