@@ -93,6 +93,8 @@
 
 - back, next 함수를 이용한 배너의 순차적 이동
 
+<br/>
+
 ## ER-Diagram
 
 <img src="https://user-images.githubusercontent.com/62328928/104764817-3ed36e80-57ab-11eb-95f6-493fe6c565fb.png" width="400" height="400">
@@ -101,7 +103,8 @@
 
 ## Usecase Diagram
 
-<img src="https://user-images.githubusercontent.com/62328928/104764971-793d0b80-57ab-11eb-8300-11aa3f705c0e.JPG" width="600" height="180">
+<img src="https://user-images.githubusercontent.com/62328928/104765974-1e0c1880-57ad-11eb-8a1c-5199affdd042.JPG" width="500" height="250">
+<img src="https://user-images.githubusercontent.com/62328928/104764971-793d0b80-57ab-11eb-8300-11aa3f705c0e.JPG" width="750" height="250">
 
 <br/>
 
