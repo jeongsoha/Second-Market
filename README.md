@@ -27,4 +27,4 @@
 # main
 
 
-<left><img src="https://github.com/jeongsoha/second_4team/blob/master/src/main/webapp/resources/images/01.jpg?raw=true"  width="400" height="400" /></left>
+![git1](https://user-images.githubusercontent.com/62328928/104751223-72f16400-5798-11eb-80a7-0d9b99c53e6f.jpg)
