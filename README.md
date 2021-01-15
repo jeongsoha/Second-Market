@@ -24,6 +24,8 @@
 
 세컨트마켓.gif
 
+<br/>
+
 ## 회원가입
 
 <img src="https://user-images.githubusercontent.com/62328928/104753186-fb710400-579a-11eb-92a5-537a3a85fc10.png" width="400" height="444">
@@ -76,9 +78,9 @@
 <left><img src="https://user-images.githubusercontent.com/62328928/104753424-4e4abb80-579b-11eb-8523-2b4923b7670e.png" width="440" height="215"></left>
 <right><img src="https://user-images.githubusercontent.com/62328928/104753442-56a2f680-579b-11eb-8c6f-f18bba36cdf0.png" width="440" height="215"></right>
 
-- 404ERROR Page(web.xml설정)
+- 404ERROR Page (web.xml설정)
 
-- 500ERROR Page(모든 Controller 설정)
+- 500ERROR Page (모든 Controller 설정)
 
 <br/>
 
