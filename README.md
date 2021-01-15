@@ -26,3 +26,5 @@
 
 # main
 
+
+<left><img src="https://github.com/jeongsoha/second_4team/blob/master/src/main/webapp/resources/images/01.jpg?raw=true"  width="400" height="400" /></left>
