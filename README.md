@@ -46,7 +46,7 @@
 
 ## 마이페이지
 
-<img src="https://user-images.githubusercontent.com/62328928/104754864-117fc400-579d-11eb-8f50-fea77f03064b.png" width="400" height="330">
+<img src="https://user-images.githubusercontent.com/62328928/104754864-117fc400-579d-11eb-8f50-fea77f03064b.png" width="450" height="370">
 
 <br/>
 
@@ -59,8 +59,8 @@
 
 ## ERROR Page
 
-<left><img src="https://user-images.githubusercontent.com/62328928/104753424-4e4abb80-579b-11eb-8523-2b4923b7670e.png" width="430" height="205"></left>
-<right><img src="https://user-images.githubusercontent.com/62328928/104753442-56a2f680-579b-11eb-8c6f-f18bba36cdf0.png" width="430" height="205"></right>
+<left><img src="https://user-images.githubusercontent.com/62328928/104753424-4e4abb80-579b-11eb-8523-2b4923b7670e.png" width="440" height="215"></left>
+<right><img src="https://user-images.githubusercontent.com/62328928/104753442-56a2f680-579b-11eb-8c6f-f18bba36cdf0.png" width="440" height="215"></right>
 
 <br/>
 
