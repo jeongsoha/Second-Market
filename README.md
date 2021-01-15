@@ -27,4 +27,5 @@
 # main
 
 
-![git1](https://user-images.githubusercontent.com/62328928/104751223-72f16400-5798-11eb-80a7-0d9b99c53e6f.jpg)
+![git1](https://user-images.githubusercontent.com/62328928/104751223-72f16400-5798-11eb-80a7-0d9b99c53e6f.jpg){: width="500" height="500"}
+
