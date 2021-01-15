@@ -95,20 +95,20 @@
 
 ## ER-Diagram
 
-<img src="https://user-images.githubusercontent.com/62328928/104764817-3ed36e80-57ab-11eb-95f6-493fe6c565fb.png" width="700" height="180">
+<img src="https://user-images.githubusercontent.com/62328928/104764817-3ed36e80-57ab-11eb-95f6-493fe6c565fb.png" width="400" height="400">
 
 <br/>
 
 ## Usecase Diagram
 
-<img src="https://user-images.githubusercontent.com/62328928/104764971-793d0b80-57ab-11eb-8300-11aa3f705c0e.JPG" width="700" height="180">
+<img src="https://user-images.githubusercontent.com/62328928/104764971-793d0b80-57ab-11eb-8300-11aa3f705c0e.JPG" width="600" height="180">
 
 <br/>
 
 ## Tiles 설정
 
-<img src="https://user-images.githubusercontent.com/62328928/104765483-52330980-57ac-11eb-8221-463b17ffe110.JPG" width="350" height="350">
+<left><img src="https://user-images.githubusercontent.com/62328928/104765483-52330980-57ac-11eb-8221-463b17ffe110.JPG" width="350" height="350"></left>
 
-<img src="https://user-images.githubusercontent.com/62328928/104765516-5ced9e80-57ac-11eb-9db6-dc92a96dfc58.JPG" width="500" height="200">
+<right><img src="https://user-images.githubusercontent.com/62328928/104765516-5ced9e80-57ac-11eb-9db6-dc92a96dfc58.JPG" width="500" height="200"></right>
 
 
