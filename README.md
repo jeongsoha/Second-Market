@@ -12,7 +12,7 @@
 
 - **Web Application Server** - Apache Tomcat 8.5
 
-- **Language** - Java, JSP, JavaScript, Oracle SQL, HTML, CSS, Ajax
+- **Language** - Java, JSP, JavaScript, Oracle SQL, HTML, CSS, Ajax, Mybatis
 
 - **Tool** - Spring Tool Suite4, GitHub, SqlDeveloper
 
@@ -20,17 +20,9 @@
 
 <br/>
 
-# View
-
-세컨트마켓.gif
-
-<br/>
-
 ## 회원가입
 
 <img src="https://user-images.githubusercontent.com/62328928/104753186-fb710400-579a-11eb-92a5-537a3a85fc10.png" width="400" height="444">
-
-- Mybatis framework 사용
 
 - Ajax를 이용해 실시간 아이디 중복여부 체크
 
@@ -42,8 +34,6 @@
 
 <img src="https://user-images.githubusercontent.com/62328928/104753243-0deb3d80-579b-11eb-8b2a-95b93093f52c.png" width="300" height="337">
 
-- Mybatis framework 사용
-
 - 쿠키를 이용한 아이디 저장 기능 (체크박스를 해제 시 쿠키 만료일을 현재 날짜 하루 전으로 설정하여 쿠키 삭제 됨)
 
 - Ajax를 이용해 입력한 정보 확인
@@ -53,8 +43,6 @@
 ## 마이페이지
 
 <img src="https://user-images.githubusercontent.com/62328928/104754864-117fc400-579d-11eb-8f50-fea77f03064b.png" width="450" height="370">
-
-- Mybatis framework 사용
 
 - Ajax를 이용한 비밀번호 변경, 회원탈퇴 기능
 
